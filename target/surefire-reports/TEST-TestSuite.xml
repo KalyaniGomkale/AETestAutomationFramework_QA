@@ -1,0 +1,606 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="TestSuite" time="5,183.999" tests="129" errors="0" skipped="18" failures="7">
+  <properties>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="java.vm.version" value="16.0.2+7-67"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-16.0.2\bin"/>
+    <property name="maven.multiModuleProjectDirectory" value="F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="java.vendor.url" value="https://java.oracle.com/"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="path.separator" value=";"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="user.script" value=""/>
+    <property name="user.country" value="US"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace"/>
+    <property name="java.vm.compressedOopsMode" value="32-bit"/>
+    <property name="java.runtime.version" value="16.0.2+7-67"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.io.tmpdir" value="C:\Users\DELL\AppData\Local\Temp\"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.variant" value=""/>
+    <property name="os.name" value="Windows 10"/>
+    <property name="classworlds.conf" value="F:\AE Workspace\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf6146902516857973441.tmp"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk-16.0.2\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:/Program Files/Java/jdk-16.0.2/bin/server;C:/Program Files/Java/jdk-16.0.2/bin;C:\Program Files\Java\jdk-16.0.2\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\nodejs\;F:\AutoEdge\apache-maven-3.8.4\bin;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\150\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\150\DTS\Binn\;C:\Program Files\Azure Data Studio\bin;C:\Program Files\Git\cmd;C:\Users\DELL\AppData\Local\Microsoft\WindowsApps;C:\Users\DELL\AppData\Roaming\npm;C:\Users\DELL\AppData\Local\GitHubDesktop\bin;F:\AutoEdge\apache-maven-3.8.4\bin;C:\Program Files\Java\jdk-16.0.2\bin;C:\Program Files (x86)\Sophos\Sophos SSL VPN Client\bin;C:\Program Files\Azure Data Studio\bin;;C:\Users\DELL\eclipse\jee-2021-09\eclipse;;."/>
+    <property name="jdk.debug" value="release"/>
+    <property name="java.class.version" value="60.0"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="os.version" value="10.0"/>
+    <property name="user.home" value="C:\Users\DELL"/>
+    <property name="user.timezone" value="Asia/Calcutta"/>
+    <property name="file.encoding" value="Cp1252"/>
+    <property name="java.specification.version" value="16"/>
+    <property name="user.name" value="DELL"/>
+    <property name="java.class.path" value="C:\Users\DELL\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_1.18.0.20210618-2246\jars\plexus-classworlds-2.6.0.jar"/>
+    <property name="java.vm.specification.version" value="16"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -B test"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk-16.0.2"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="java.version" value="16.0.2"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="maven.home" value="F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\EMBEDDED"/>
+    <property name="file.separator" value="\"/>
+    <property name="java.version.date" value="2021-07-20"/>
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+  </properties>
+  <testcase name="validateLastLoginAMTest" classname="com.ae.qa.testcasesActivityMonitor.InformationPageTestAM" time="78.536"/>
+  <testcase name="validateViewProfileAMTest" classname="com.ae.qa.testcasesActivityMonitor.InformationPageTestAM" time="44.718"/>
+  <testcase name="validateAboutTabAMTest" classname="com.ae.qa.testcasesActivityMonitor.InformationPageTestAM" time="25.552"/>
+  <testcase name="validateLastLoginAATest" classname="com.ae.qa.testcasesAgentAdmin.InformationPageTestAA" time="75.134"/>
+  <testcase name="validateViewProfileAATest" classname="com.ae.qa.testcasesAgentAdmin.InformationPageTestAA" time="44.107"/>
+  <testcase name="validateAboutTabAATest" classname="com.ae.qa.testcasesAgentAdmin.InformationPageTestAA" time="25.159"/>
+  <testcase name="validateLastLoginTUTest" classname="com.ae.qa.testcasesTenantUser.InformationPageTestTU" time="25.601"/>
+  <testcase name="validateViewProfileTUTest" classname="com.ae.qa.testcasesTenantUser.InformationPageTestTU" time="43.539"/>
+  <testcase name="validateAboutTabTUTest" classname="com.ae.qa.testcasesTenantUser.InformationPageTestTU" time="24.941"/>
+  <testcase name="validateLastLoginUATest" classname="com.ae.qa.testcasesUserAdmin.InformationPageTestUA" time="24.556"/>
+  <testcase name="validateViewProfileUATest" classname="com.ae.qa.testcasesUserAdmin.InformationPageTestUA" time="42.827"/>
+  <testcase name="validateAboutTabUATest" classname="com.ae.qa.testcasesUserAdmin.InformationPageTestUA" time="23.993"/>
+  <testcase name="validateLastLoginWATest" classname="com.ae.qa.testcasesWorkflowAdmin.InformationPageTestWA" time="24.819"/>
+  <testcase name="validateViewProfileWATest" classname="com.ae.qa.testcasesWorkflowAdmin.InformationPageTestWA" time="45.405"/>
+  <testcase name="validateAboutTabWATest" classname="com.ae.qa.testcasesWorkflowAdmin.InformationPageTestWA" time="24.229"/>
+  <testcase name="validateCheckColumnInRequestAMTest" classname="com.ae.qa.testcasesActivityMonitor.RequestsPageTestAM" time="20.136"/>
+  <testcase name="validateUncheckColumnInRequestAMTest" classname="com.ae.qa.testcasesActivityMonitor.RequestsPageTestAM" time="19.468"/>
+  <testcase name="validateSpecificColumnInRequestAMTest" classname="com.ae.qa.testcasesActivityMonitor.RequestsPageTestAM" time="25.582"/>
+  <testcase name="validateDownloadRequestAMTest" classname="com.ae.qa.testcasesActivityMonitor.RequestsPageTestAM" time="20.742"/>
+  <testcase name="validateRequestStatusAMTest" classname="com.ae.qa.testcasesActivityMonitor.RequestsPageTestAM" time="35.819">
+    <failure message="expected [true] but found [false]" type="java.lang.AssertionError">java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:96)
+	at org.testng.Assert.failNotEquals(Assert.java:776)
+	at org.testng.Assert.assertTrue(Assert.java:44)
+	at org.testng.Assert.assertTrue(Assert.java:54)
+	at com.ae.qa.pages.ActivityMonitor.RequestsPageAM.validateRequestStatusAM(RequestsPageAM.java:235)
+	at com.ae.qa.testcasesActivityMonitor.RequestsPageTestAM.validateRequestStatusAMTest(RequestsPageTestAM.java:61)
+</failure>
+    <system-out><![CDATA[The name of the testcase passed is :validateDownloadRequestAMTest
+[DEBUG] 2023-02-06 12:00:11.100 [TestNG-test=AESanity-1] TestBase - Execution started
+[INFO ] 2023-02-06 12:00:12.387 [TestNG-test=AESanity-1] TestBase - Browser started successfully
+[INFO ] 2023-02-06 12:00:17.976 [TestNG-test=AESanity-1] TestBase - User is navigated to AE portal
+validateRequestStatusAMTest test case started
+User logged in successfully
+Requests Tab is clicked
+Workflow status is neither completed nor Failure, but other than that: Terminated
+]]></system-out>
+    <system-err><![CDATA[Starting ChromeDriver 109.0.5414.74 (e7c5703604daa9cc128ccf5a5d3e993513758913-refs/branch-heads/5414@{#1172}) on port 31005
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully.
+Feb 06, 2023 12:00:12 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+]]></system-err>
+  </testcase>
+  <testcase name="validateDashboardNoneAMTest" classname="com.ae.qa.testcasesActivityMonitor.DashboardsPageTestAM" time="35.579"/>
+  <testcase name="validateReportNoneMultipleWFAMTest" classname="com.ae.qa.testcasesActivityMonitor.DashboardsPageTestAM" time="68.773"/>
+  <testcase name="validateDashboardRelativeAMTest" classname="com.ae.qa.testcasesActivityMonitor.DashboardsPageTestAM" time="40.868"/>
+  <testcase name="validateEditDashboardToCustomAMTest" classname="com.ae.qa.testcasesActivityMonitor.DashboardsPageTestAM" time="65.261"/>
+  <testcase name="validateSetAsDefaultReportAMTest" classname="com.ae.qa.testcasesActivityMonitor.DashboardsPageTestAM" time="21.163"/>
+  <testcase name="validateDashboardTodayAMTest" classname="com.ae.qa.testcasesActivityMonitor.DashboardsPageTestAM" time="49.616"/>
+  <testcase name="validatePluginStepsAATest" classname="com.ae.qa.testcasesAgentAdmin.PluginsPageTestAA" time="33.779"/>
+  <testcase name="validateWFPluginUtilizationAATest" classname="com.ae.qa.testcasesAgentAdmin.PluginsPageTestAA" time="35.114"/>
+  <testcase name="validateCreateUserWithoutEmailUATest" classname="com.ae.qa.testcasesUserAdmin.TenantUsersPageTestUA" time="67.064"/>
+  <testcase name="validateCreateUserWithEmailUATest" classname="com.ae.qa.testcasesUserAdmin.TenantUsersPageTestUA" time="67.811"/>
+  <testcase name="validateEditUserUATest" classname="com.ae.qa.testcasesUserAdmin.TenantUsersPageTestUA" time="36.694"/>
+  <testcase name="validateBulkUserUploadWithEmailUATest" classname="com.ae.qa.testcasesUserAdmin.TenantUsersPageTestUA" time="88.823"/>
+  <testcase name="validateCreateUserGroupUATest" classname="com.ae.qa.testcasesUserAdmin.UserGroupsPageTestUA" time="23.096"/>
+  <testcase name="validateEditUserGroupUATest" classname="com.ae.qa.testcasesUserAdmin.UserGroupsPageTestUA" time="19.443"/>
+  <testcase name="validateAddUserToGroupUATest" classname="com.ae.qa.testcasesUserAdmin.UserGroupsPageTestUA" time="28.664"/>
+  <testcase name="validateRemoveUserFromGroupUATest" classname="com.ae.qa.testcasesUserAdmin.UserGroupsPageTestUA" time="26.445"/>
+  <testcase name="addMultipleUserToGroupUATest" classname="com.ae.qa.testcasesUserAdmin.UserGroupsPageTestUA" time="31.261"/>
+  <testcase name="validatePluginStepsWATest" classname="com.ae.qa.testcasesWorkflowAdmin.PluginsPageTestWA" time="27.414"/>
+  <testcase name="validateWFPluginUtilizationWATest" classname="com.ae.qa.testcasesWorkflowAdmin.PluginsPageTestWA" time="28.053"/>
+  <testcase name="ValidateCreateCategoryWATest" classname="com.ae.qa.testcasesWorkflowAdmin.CategoriesPageTestWA" time="34.451"/>
+  <testcase name="ValidateEditCategoryWATest" classname="com.ae.qa.testcasesWorkflowAdmin.CategoriesPageTestWA" time="39.015"/>
+  <testcase name="ValidateAssignWFToCategoryWATest" classname="com.ae.qa.testcasesWorkflowAdmin.CategoriesPageTestWA" time="30.035"/>
+  <testcase name="ValidateRemoveWFFromCategoryWATest" classname="com.ae.qa.testcasesWorkflowAdmin.CategoriesPageTestWA" time="29.355"/>
+  <testcase name="ValidateCreateCredentialsWATest" classname="com.ae.qa.testcasesWorkflowAdmin.CredentialsPageTestWA" time="46.914">
+    <failure message="no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//a[@class=&apos;text-truncate&apos;]/span[@title=&apos;KG_PrivateWA&apos;]&quot;}&#10;  (Session info: chrome=109.0.5414.120)&#10;For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html&#10;Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;&#10;System info: host: &apos;DESKTOP-5VHKQUJ&apos;, ip: &apos;192.168.0.102&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;16.0.2&apos;&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 109.0.5414.120, chrome: {chromedriverVersion: 109.0.5414.74 (e7c5703604da..., userDataDir: C:\Users\DELL\AppData\Local...}, goog:chromeOptions: {debuggerAddress: localhost:49331}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}&#10;Session ID: 1ac9a53cfcfac357819c9fc31d8dd342&#10;*** Element info: {Using=xpath, value=//a[@class=&apos;text-truncate&apos;]/span[@title=&apos;KG_PrivateWA&apos;]}" type="org.openqa.selenium.NoSuchElementException">org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//a[@class='text-truncate']/span[@title='KG_PrivateWA']"}
+  (Session info: chrome=109.0.5414.120)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-5VHKQUJ', ip: '192.168.0.102', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '16.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 109.0.5414.120, chrome: {chromedriverVersion: 109.0.5414.74 (e7c5703604da..., userDataDir: C:\Users\DELL\AppData\Local...}, goog:chromeOptions: {debuggerAddress: localhost:49331}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 1ac9a53cfcfac357819c9fc31d8dd342
+*** Element info: {Using=xpath, value=//a[@class='text-truncate']/span[@title='KG_PrivateWA']}
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+	at com.ae.qa.pages.WorkflowAdmin.CredentialsPageWA.ValidateCreateCredentialsWA(CredentialsPageWA.java:111)
+	at com.ae.qa.testcasesWorkflowAdmin.CredentialsPageTestWA.ValidateCreateCredentialsWATest(CredentialsPageTestWA.java:29)
+</failure>
+    <system-out><![CDATA[The name of the testcase passed is :ValidateRemoveWFFromCategoryWATest
+[DEBUG] 2023-02-06 12:19:24.860 [TestNG-test=AESanity-1] TestBase - Execution started
+[INFO ] 2023-02-06 12:19:26.833 [TestNG-test=AESanity-1] TestBase - Browser started successfully
+[INFO ] 2023-02-06 12:19:30.334 [TestNG-test=AESanity-1] TestBase - User is navigated to AE portal
+ValidateCreateCredentialsWATest test case started
+User LogIn Succesfully
+workflowTab clicked
+Credentials tab clicked
+Add new button is clicked
+Create button is clicked
+]]></system-out>
+    <system-err><![CDATA[Starting ChromeDriver 109.0.5414.74 (e7c5703604daa9cc128ccf5a5d3e993513758913-refs/branch-heads/5414@{#1172}) on port 31021
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully.
+Feb 06, 2023 12:19:26 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+]]></system-err>
+  </testcase>
+  <testcase name="ValidateEditCredentialsWATest" classname="com.ae.qa.testcasesWorkflowAdmin.CredentialsPageTestWA" time="89.253"/>
+  <testcase name="ValidateMoveCredentialToPoolWATest" classname="com.ae.qa.testcasesWorkflowAdmin.CredentialsPageTestWA" time="53.435"/>
+  <testcase name="validateDashboardNoneWATest" classname="com.ae.qa.testcasesWorkflowAdmin.DashboardsPageTestWA" time="34.14"/>
+  <testcase name="validateReportNoneMultipleWFWATest" classname="com.ae.qa.testcasesWorkflowAdmin.DashboardsPageTestWA" time="67.628"/>
+  <testcase name="validateDashboardRelativeWATest" classname="com.ae.qa.testcasesWorkflowAdmin.DashboardsPageTestWA" time="40.748"/>
+  <testcase name="validateEditDashboardToCustomWATest" classname="com.ae.qa.testcasesWorkflowAdmin.DashboardsPageTestWA" time="64.847"/>
+  <testcase name="validateSetAsDefaultReportWATest" classname="com.ae.qa.testcasesWorkflowAdmin.DashboardsPageTestWA" time="21.321"/>
+  <testcase name="validateDashboardTodayWATest" classname="com.ae.qa.testcasesWorkflowAdmin.DashboardsPageTestWA" time="50.621"/>
+  <testcase name="validateAssistedAgentDetailsAMTest" classname="com.ae.qa.testcasesActivityMonitor.AgentListPageTestAM" time="17.912"/>
+  <testcase name="validateEditAssistedAgentNameAATest" classname="com.ae.qa.testcasesAgentAdmin.AgentListPageTestAA" time="24.181"/>
+  <testcase name="validateDeleteAssistedAgentAATest" classname="com.ae.qa.testcasesAgentAdmin.AgentListPageTestAA" time="58.713"/>
+  <testcase name="downloadAgentAATest" classname="com.ae.qa.testcasesAgentAdmin.AgentListPageTestAA" time="121.602"/>
+  <testcase name="checkStatusOfAgentAATest" classname="com.ae.qa.testcasesAgentAdmin.AgentListPageTestAA" time="44.452">
+    <failure message="stale element reference: element is not attached to the page document&#10;  (Session info: chrome=109.0.5414.120)&#10;For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html&#10;Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;&#10;System info: host: &apos;DESKTOP-5VHKQUJ&apos;, ip: &apos;192.168.0.102&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;16.0.2&apos;&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 109.0.5414.120, chrome: {chromedriverVersion: 109.0.5414.74 (e7c5703604da..., userDataDir: C:\Users\DELL\AppData\Local...}, goog:chromeOptions: {debuggerAddress: localhost:50121}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}&#10;Session ID: d876c65834fa9b7a6cb5231a92bf8b49" type="org.openqa.selenium.StaleElementReferenceException">org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
+  (Session info: chrome=109.0.5414.120)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-5VHKQUJ', ip: '192.168.0.102', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '16.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 109.0.5414.120, chrome: {chromedriverVersion: 109.0.5414.74 (e7c5703604da..., userDataDir: C:\Users\DELL\AppData\Local...}, goog:chromeOptions: {debuggerAddress: localhost:50121}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: d876c65834fa9b7a6cb5231a92bf8b49
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
+	at org.openqa.selenium.remote.RemoteWebElement.getText(RemoteWebElement.java:166)
+	at jdk.internal.reflect.GeneratedMethodAccessor6.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
+	at jdk.proxy2/jdk.proxy2.$Proxy27.getText(Unknown Source)
+	at com.ae.qa.pages.AgentAdmin.AgentListPageAA.checkStatusOfAgent(AgentListPageAA.java:212)
+	at com.ae.qa.testcasesAgentAdmin.AgentListPageTestAA.checkStatusOfAgentAATest(AgentListPageTestAA.java:57)
+</failure>
+    <system-out><![CDATA[The name of the testcase passed is :downloadAgentAATest
+[DEBUG] 2023-02-06 12:33:03.866 [TestNG-test=AESanity-1] TestBase - Execution started
+[INFO ] 2023-02-06 12:33:05.172 [TestNG-test=AESanity-1] TestBase - Browser started successfully
+[INFO ] 2023-02-06 12:33:10.170 [TestNG-test=AESanity-1] TestBase - User is navigated to AE portal
+checkStatusOfAgentAATest test case started
+User LogIn Succesfully
+User navigated to Agents Tab
+]]></system-out>
+    <system-err><![CDATA[[1675666983.185][SEVERE]: Unable to receive message from renderer
+Starting ChromeDriver 109.0.5414.74 (e7c5703604daa9cc128ccf5a5d3e993513758913-refs/branch-heads/5414@{#1172}) on port 34553
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully.
+Feb 06, 2023 12:33:05 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+]]></system-err>
+  </testcase>
+  <testcase name="validateEditAgentNameAATest" classname="com.ae.qa.testcasesAgentAdmin.AgentListPageTestAA" time="25.234"/>
+  <testcase name="validateAgentDetailsAMTest" classname="com.ae.qa.testcasesActivityMonitor.AgentListPageTestAM" time="13.947"/>
+  <testcase name="checkColumnsInAgentListAMTest" classname="com.ae.qa.testcasesActivityMonitor.AgentListPageTestAM" time="19.273"/>
+  <testcase name="deselectAllInAgentListAMTest" classname="com.ae.qa.testcasesActivityMonitor.AgentListPageTestAM" time="19.58"/>
+  <testcase name="SpecificColumnInAgentListAMTest" classname="com.ae.qa.testcasesActivityMonitor.AgentListPageTestAM" time="25.688"/>
+  <testcase name="validateEditWorkflowTUTest" classname="com.ae.qa.testcasesTenantUser.WorkflowListPageTestTU" time="187.656"/>
+  <testcase name="validateDailyScheduleTUTest" classname="com.ae.qa.testcasesTenantUser.SchedulerPageTestTU" time="98.106"/>
+  <testcase name="validateDashboardNoneTUTest" classname="com.ae.qa.testcasesTenantUser.DashboardsPageTestTU" time="35.051"/>
+  <testcase name="validateDailyScheduleWATest" classname="com.ae.qa.testcasesWorkflowAdmin.SchedulerPageTestWA" time="89.937"/>
+  <testcase name="validateReportNoneMultipleWFTUTest" classname="com.ae.qa.testcasesTenantUser.DashboardsPageTestTU" time="57.894">
+    <failure message="Cannot locate an element using xpath=//*[@id=&apos;options-list&apos;]/li/label/span&#10;For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html&#10;Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;&#10;System info: host: &apos;DESKTOP-5VHKQUJ&apos;, ip: &apos;192.168.0.102&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;16.0.2&apos;&#10;Driver info: driver.version: RemoteWebDriver" type="org.openqa.selenium.NoSuchElementException">org.openqa.selenium.NoSuchElementException: Cannot locate an element using xpath=//*[@id='options-list']/li/label/span
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-5VHKQUJ', ip: '192.168.0.102', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '16.0.2'
+Driver info: driver.version: RemoteWebDriver
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:327)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at jdk.proxy2/jdk.proxy2.$Proxy27.click(Unknown Source)
+	at com.ae.qa.pages.TenantUser.DashboardsPageTU.makeReportUsingWFTU(DashboardsPageTU.java:206)
+	at com.ae.qa.pages.TenantUser.DashboardsPageTU.validateReportNoneMultipleWFTU(DashboardsPageTU.java:211)
+	at com.ae.qa.testcasesTenantUser.DashboardsPageTestTU.validateReportNoneMultipleWFTUTest(DashboardsPageTestTU.java:35)
+</failure>
+    <system-out><![CDATA[The name of the testcase passed is :validateDailyScheduleWATest
+[DEBUG] 2023-02-06 12:44:03.288 [TestNG-test=AESanity-1] TestBase - Execution started
+[INFO ] 2023-02-06 12:44:06.769 [TestNG-test=AESanity-1] TestBase - Browser started successfully
+[INFO ] 2023-02-06 12:44:12.340 [TestNG-test=AESanity-1] TestBase - User is navigated to AE portal
+validateReportNoneMultipleWFTUTest test case started
+User logged in successfully
+Reports Tab is clicked
+Dashboard chosed successfully
+Add report is clicked
+Report Type selected successfully
+Generate on Worklfows radio button already selected
+]]></system-out>
+    <system-err><![CDATA[Starting ChromeDriver 109.0.5414.74 (e7c5703604daa9cc128ccf5a5d3e993513758913-refs/branch-heads/5414@{#1172}) on port 40835
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully.
+Feb 06, 2023 12:44:06 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+]]></system-err>
+  </testcase>
+  <testcase name="getResult" classname="com.ae.qa.testcasesTenantUser.DashboardsPageTestTU" time="57.934">
+    <failure message="no such window: target window already closed&#10;from unknown error: web view not found&#10;  (Session info: chrome=109.0.5414.120)&#10;Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;&#10;System info: host: &apos;DESKTOP-5VHKQUJ&apos;, ip: &apos;192.168.0.102&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;16.0.2&apos;&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 109.0.5414.120, chrome: {chromedriverVersion: 109.0.5414.74 (e7c5703604da..., userDataDir: C:\Users\DELL\AppData\Local...}, goog:chromeOptions: {debuggerAddress: localhost:50936}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}&#10;Session ID: 2bd888bb7973ad7e5c71fbe520788133" type="org.openqa.selenium.NoSuchWindowException">org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=109.0.5414.120)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-5VHKQUJ', ip: '192.168.0.102', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '16.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 109.0.5414.120, chrome: {chromedriverVersion: 109.0.5414.74 (e7c5703604da..., userDataDir: C:\Users\DELL\AppData\Local...}, goog:chromeOptions: {debuggerAddress: localhost:50936}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 2bd888bb7973ad7e5c71fbe520788133
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:609)
+	at org.openqa.selenium.remote.RemoteWebDriver.getScreenshotAs(RemoteWebDriver.java:295)
+	at com.ae.qa.base.TestBase.getScreenShot(TestBase.java:111)
+	at com.ae.qa.base.TestBase.getResult(TestBase.java:192)
+	at jdk.internal.reflect.GeneratedMethodAccessor5.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:59)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:458)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:222)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:646)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at java.base/java.lang.Thread.run(Thread.java:831)
+</failure>
+    <system-out><![CDATA[The name of the testcase failed is :validateReportNoneMultipleWFTUTest
+]]></system-out>
+  </testcase>
+  <testcase name="getResult" classname="com.ae.qa.testcasesTenantUser.DashboardsPageTestTU" time="0">
+    <skipped/>
+    <system-out><![CDATA[The name of the testcase Skipped is :validateDashboardRelativeTUTest
+]]></system-out>
+  </testcase>
+  <testcase name="getResult" classname="com.ae.qa.testcasesTenantUser.DashboardsPageTestTU" time="0">
+    <skipped/>
+    <system-out><![CDATA[The name of the testcase Skipped is :validateEditDashboardToCustomTUTest
+]]></system-out>
+  </testcase>
+  <testcase name="getResult" classname="com.ae.qa.testcasesTenantUser.DashboardsPageTestTU" time="0">
+    <skipped/>
+    <system-out><![CDATA[The name of the testcase Skipped is :validateSetAsDefaultReportTUTest
+]]></system-out>
+  </testcase>
+  <testcase name="getResult" classname="com.ae.qa.testcasesTenantUser.DashboardsPageTestTU" time="0">
+    <skipped/>
+    <system-out><![CDATA[The name of the testcase Skipped is :validateDashboardTodayTUTest
+]]></system-out>
+  </testcase>
+  <testcase name="getResult" classname="com.ae.qa.testcasesTenantUser.DashboardsPageTestTU" time="0">
+    <skipped/>
+    <system-out><![CDATA[The name of the testcase Skipped is :validateReportCustomTUTest
+]]></system-out>
+  </testcase>
+  <testcase name="getResult" classname="com.ae.qa.testcasesTenantUser.DashboardsPageTestTU" time="0">
+    <skipped/>
+    <system-out><![CDATA[The name of the testcase Skipped is :validateDeleteDashboardWithReportTUTest
+]]></system-out>
+  </testcase>
+  <testcase name="validateEditDailyScheduleWATest" classname="com.ae.qa.testcasesWorkflowAdmin.SchedulerPageTestWA" time="46.352"/>
+  <testcase name="initialization" classname="com.ae.qa.testcasesTenantUser.DashboardsPageTestTU" time="0">
+    <skipped/>
+    <system-out><![CDATA[The name of the testcase passed is :validateEditDailyScheduleWATest
+]]></system-out>
+  </testcase>
+  <testcase name="initialization" classname="com.ae.qa.testcasesTenantUser.DashboardsPageTestTU" time="0">
+    <skipped/>
+    <system-out><![CDATA[The name of the testcase passed is :validateWeeklyScheduleWATest
+]]></system-out>
+    <system-err><![CDATA[[1675667846.705][SEVERE]: Unable to receive message from renderer
+]]></system-err>
+  </testcase>
+  <testcase name="initialization" classname="com.ae.qa.testcasesTenantUser.DashboardsPageTestTU" time="0">
+    <skipped/>
+    <system-out><![CDATA[The name of the testcase passed is :validateEditWeeklyScheduleWATest
+]]></system-out>
+  </testcase>
+  <testcase name="initialization" classname="com.ae.qa.testcasesTenantUser.DashboardsPageTestTU" time="0">
+    <skipped/>
+    <system-out><![CDATA[The name of the testcase passed is :validateMonthlyScheduleWATest
+]]></system-out>
+    <system-err><![CDATA[[1675667962.612][SEVERE]: Unable to receive message from renderer
+]]></system-err>
+  </testcase>
+  <testcase name="initialization" classname="com.ae.qa.testcasesTenantUser.DashboardsPageTestTU" time="0">
+    <skipped/>
+    <system-out><![CDATA[The name of the testcase passed is :validateReportCustomAMTest
+]]></system-out>
+  </testcase>
+  <testcase name="initialization" classname="com.ae.qa.testcasesTenantUser.DashboardsPageTestTU" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="validateDashboardRelativeTUTest" classname="com.ae.qa.testcasesTenantUser.DashboardsPageTestTU" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="validateWeeklyScheduleWATest" classname="com.ae.qa.testcasesWorkflowAdmin.SchedulerPageTestWA" time="80.314"/>
+  <testcase name="validateEditDashboardToCustomTUTest" classname="com.ae.qa.testcasesTenantUser.DashboardsPageTestTU" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="validateEditWeeklyScheduleWATest" classname="com.ae.qa.testcasesWorkflowAdmin.SchedulerPageTestWA" time="25.268"/>
+  <testcase name="validateSetAsDefaultReportTUTest" classname="com.ae.qa.testcasesTenantUser.DashboardsPageTestTU" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="validateMonthlyScheduleWATest" classname="com.ae.qa.testcasesWorkflowAdmin.SchedulerPageTestWA" time="78.641"/>
+  <testcase name="validateDashboardTodayTUTest" classname="com.ae.qa.testcasesTenantUser.DashboardsPageTestTU" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="validateEditMonthlyScheduleWATest" classname="com.ae.qa.testcasesWorkflowAdmin.SchedulerPageTestWA" time="27.205"/>
+  <testcase name="validateInfineScheduleWATest" classname="com.ae.qa.testcasesWorkflowAdmin.SchedulerPageTestWA" time="69.113"/>
+  <testcase name="validateDeleteScheduleWATest" classname="com.ae.qa.testcasesWorkflowAdmin.SchedulerPageTestWA" time="21.64"/>
+  <testcase name="validateEditScheduleCreateTATest" classname="com.ae.qa.testcasesWorkflowAdmin.SchedulerPageTestWA" time="108.495"/>
+  <testcase name="validateInactiveScheduleCreateTATest" classname="com.ae.qa.testcasesWorkflowAdmin.SchedulerPageTestWA" time="15.372"/>
+  <testcase name="validateImportWFConfigParamWATest" classname="com.ae.qa.testcasesWorkflowAdmin.WorkflowListPageTestWA" time="61.964"/>
+  <testcase name="validateUpdateWFConfigParamCreatedByTAdminWATest" classname="com.ae.qa.testcasesWorkflowAdmin.WorkflowListPageTestWA" time="133.319"/>
+  <testcase name="validateExportWFVerifiedWATest" classname="com.ae.qa.testcasesWorkflowAdmin.WorkflowListPageTestWA" time="43.929"/>
+  <testcase name="validateEditWFWATest" classname="com.ae.qa.testcasesWorkflowAdmin.WorkflowListPageTestWA" time="21.932"/>
+  <testcase name="validatecheckColumnsInRequestsWATest" classname="com.ae.qa.testcasesWorkflowAdmin.RequestsPageTestWA" time="18.65"/>
+  <testcase name="validatedeselectAllInRequestsWATest" classname="com.ae.qa.testcasesWorkflowAdmin.RequestsPageTestWA" time="18.852"/>
+  <testcase name="validateSpecificColumnInRequestsWATest" classname="com.ae.qa.testcasesWorkflowAdmin.RequestsPageTestWA" time="24.698"/>
+  <testcase name="validateRequestFailureReasonWATest" classname="com.ae.qa.testcasesWorkflowAdmin.RequestsPageTestWA" time="149.292"/>
+  <testcase name="validateDownloadRequestWATest" classname="com.ae.qa.testcasesWorkflowAdmin.RequestsPageTestWA" time="19.73"/>
+  <testcase name="validateRequestStatusWATest" classname="com.ae.qa.testcasesWorkflowAdmin.RequestsPageTestWA" time="42.127"/>
+  <testcase name="validateRestartRequestWATest" classname="com.ae.qa.testcasesWorkflowAdmin.RequestsPageTestWA" time="15.757"/>
+  <testcase name="validateTerminateRequestWATest" classname="com.ae.qa.testcasesWorkflowAdmin.RequestsPageTestWA" time="137.33"/>
+  <testcase name="validateStopAgentAATest" classname="com.ae.qa.testcasesAgentAdmin.AgentListPageTestAA" time="46.46"/>
+  <testcase name="validateDeleteAgentAATest" classname="com.ae.qa.testcasesAgentAdmin.AgentListPageTestAA" time="25.23"/>
+  <testcase name="validateAssistedAgentDownloadTUTest" classname="com.ae.qa.testcasesTenantUser.AgentListPageTestTU" time="149.212"/>
+  <testcase name="validateCheckAgentStatusTUTest" classname="com.ae.qa.testcasesTenantUser.AgentListPageTestTU" time="21.618"/>
+  <testcase name="validateEditAssistedAgentNameTUTest" classname="com.ae.qa.testcasesTenantUser.AgentListPageTestTU" time="11.59">
+    <failure message="Assisted Agent Name did not get changed expected [Access Denied] but found [Changes saved to the agent]" type="java.lang.AssertionError">java.lang.AssertionError: Assisted Agent Name did not get changed expected [Access Denied] but found [Changes saved to the agent]
+	at org.testng.Assert.fail(Assert.java:96)
+	at org.testng.Assert.failNotEquals(Assert.java:776)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:137)
+	at org.testng.Assert.assertEquals(Assert.java:118)
+	at org.testng.Assert.assertEquals(Assert.java:453)
+	at com.ae.qa.pages.TenantUser.AgentListPageTU.validateEditAssistedAgentNameTU(AgentListPageTU.java:130)
+	at com.ae.qa.testcasesTenantUser.AgentListPageTestTU.validateEditAssistedAgentNameTUTest(AgentListPageTestTU.java:43)
+</failure>
+    <system-out><![CDATA[The name of the testcase passed is :validateCheckAgentStatusTUTest
+[DEBUG] 2023-02-06 13:12:13.903 [TestNG-test=AESanity-1] TestBase - Execution started
+[INFO ] 2023-02-06 13:12:15.629 [TestNG-test=AESanity-1] TestBase - Browser started successfully
+[INFO ] 2023-02-06 13:12:19.535 [TestNG-test=AESanity-1] TestBase - User is navigated to AE portal
+validateEditAssistedAgentNameTUTest test case started
+User navigated to Agents Tab
+User navigated to Agentslist Tab
+User clicked on Edit Btn
+Actual message displayed on screen is: Changes saved to the agent and Expected message is: Access Denied
+]]></system-out>
+    <system-err><![CDATA[[1675669321.731][WARNING]: Timed out connecting to Chrome, retrying...
+[1675669329.813][WARNING]: Timed out connecting to Chrome, retrying...
+Starting ChromeDriver 109.0.5414.74 (e7c5703604daa9cc128ccf5a5d3e993513758913-refs/branch-heads/5414@{#1172}) on port 48535
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully.
+Feb 06, 2023 1:12:15 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+]]></system-err>
+  </testcase>
+  <testcase name="validateSubmitReqDefaultCategoryTUTest" classname="com.ae.qa.testcasesTenantUser.CataloguePageTestTU" time="97.374"/>
+  <testcase name="validateCheckColumnInRequestTUTest" classname="com.ae.qa.testcasesTenantUser.RequestPageTestTU" time="19.101"/>
+  <testcase name="validateUncheckColumnInRequestTUTest" classname="com.ae.qa.testcasesTenantUser.RequestPageTestTU" time="19.208"/>
+  <testcase name="validateSpecificColumnInRequestTUTest" classname="com.ae.qa.testcasesTenantUser.RequestPageTestTU" time="25.448"/>
+  <testcase name="validateDownloadRequestTUTest" classname="com.ae.qa.testcasesTenantUser.RequestPageTestTU" time="20.131"/>
+  <testcase name="validateAssistedAgentDeleteTUTest" classname="com.ae.qa.testcasesTenantUser.AgentListPageTestTU" time="46.725"/>
+  <testcase name="validateAssistedAgentDownloadWATest" classname="com.ae.qa.testcasesWorkflowAdmin.AgentListPageTestWA" time="148.031"/>
+  <testcase name="validateCheckAgentStatusWATest" classname="com.ae.qa.testcasesWorkflowAdmin.AgentListPageTestWA" time="54.885"/>
+  <testcase name="validateSubmitReqDefaultCategoryWATest" classname="com.ae.qa.testcasesWorkflowAdmin.CataloguePageTestWA" time="23.466"/>
+  <testcase name="validateSubmitReqCustomCategoryWATest" classname="com.ae.qa.testcasesWorkflowAdmin.CataloguePageTestWA" time="77.119"/>
+  <testcase name="ValidateDeleteCredentialPoolWATest" classname="com.ae.qa.testcasesWorkflowAdmin.CredentialsPageTestWA" time="23.205"/>
+  <testcase name="validateDeleteUserGroupUATest" classname="com.ae.qa.testcasesUserAdmin.UserGroupsPageTestUA" time="19.536"/>
+  <testcase name="ValidateDeleteCredentialWATest" classname="com.ae.qa.testcasesWorkflowAdmin.CredentialsPageTestWA" time="23.093"/>
+  <testcase name="validateReportCustomAMTest" classname="com.ae.qa.testcasesActivityMonitor.DashboardsPageTestAM" time="64.588"/>
+  <testcase name="validateReportCustomTUTest" classname="com.ae.qa.testcasesTenantUser.DashboardsPageTestTU" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="validateDeleteDashboardWithReportTUTest" classname="com.ae.qa.testcasesTenantUser.DashboardsPageTestTU" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="validateReportCustomWATest" classname="com.ae.qa.testcasesWorkflowAdmin.DashboardsPageTestWA" time="63.407"/>
+  <testcase name="validateDeleteDashboardWithReportWATest" classname="com.ae.qa.testcasesWorkflowAdmin.DashboardsPageTestWA" time="20.93"/>
+  <testcase name="endReport" classname="com.ae.qa.testcasesActivityMonitor.InformationPageTestAM" time="34.955">
+    <failure message="javax.mail.AuthenticationFailedException: 535 5.7.139 Authentication unsuccessful, the user credentials were incorrect. [PN3PR01CA0044.INDPRD01.PROD.OUTLOOK.COM 2023-02-06T07:57:11.194Z 08DB072C46FCFA6F]&#10;" type="java.lang.RuntimeException">java.lang.RuntimeException: javax.mail.AuthenticationFailedException: 535 5.7.139 Authentication unsuccessful, the user credentials were incorrect. [PN3PR01CA0044.INDPRD01.PROD.OUTLOOK.COM 2023-02-06T07:57:11.194Z 08DB072C46FCFA6F]
+
+	at com.ae.qa.util.SendMail.sendExtentReport(SendMail.java:79)
+	at com.ae.qa.base.TestBase.endReport(TestBase.java:218)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:59)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:458)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:222)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:142)
+	at org.testng.TestRunner.afterRun(TestRunner.java:725)
+	at org.testng.TestRunner.run(TestRunner.java:509)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:295)
+	at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:84)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:90)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:203)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:155)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:103)
+Caused by: javax.mail.AuthenticationFailedException: 535 5.7.139 Authentication unsuccessful, the user credentials were incorrect. [PN3PR01CA0044.INDPRD01.PROD.OUTLOOK.COM 2023-02-06T07:57:11.194Z 08DB072C46FCFA6F]
+
+	at com.sun.mail.smtp.SMTPTransport$Authenticator.authenticate(SMTPTransport.java:965)
+	at com.sun.mail.smtp.SMTPTransport.authenticate(SMTPTransport.java:876)
+	at com.sun.mail.smtp.SMTPTransport.protocolConnect(SMTPTransport.java:780)
+	at javax.mail.Service.connect(Service.java:388)
+	at javax.mail.Service.connect(Service.java:246)
+	at javax.mail.Service.connect(Service.java:195)
+	at javax.mail.Transport.send0(Transport.java:254)
+	at javax.mail.Transport.send(Transport.java:124)
+	at com.ae.qa.util.SendMail.sendExtentReport(SendMail.java:76)
+	at com.ae.qa.base.TestBase.endReport(TestBase.java:218)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:59)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:458)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:222)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:142)
+	at org.testng.TestRunner.afterRun(TestRunner.java:725)
+	at org.testng.TestRunner.run(TestRunner.java:509)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:295)
+	at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:84)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:90)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:203)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:155)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:103)
+</failure>
+    <system-out><![CDATA[The name of the testcase passed is :validateDeleteDashboardWithReportWATest
+DEBUG: setDebug: JavaMail version 1.6.2
+Sending report on email
+DEBUG: getProvider() returning javax.mail.Provider[TRANSPORT,smtp,com.sun.mail.smtp.SMTPTransport,Oracle]
+DEBUG SMTP: need username and password for authentication
+DEBUG SMTP: protocolConnect returning false, host=smtp.office365.com, user=DELL, password=<null>
+DEBUG SMTP: useEhlo true, useAuth true
+DEBUG SMTP: trying to connect to host "smtp.office365.com", port 587, isSSL false
+220 PN3PR01CA0044.outlook.office365.com Microsoft ESMTP MAIL Service ready at Mon, 6 Feb 2023 07:57:01 +0000
+DEBUG SMTP: connected to host "smtp.office365.com", port: 587
+EHLO DESKTOP-5VHKQUJ
+250-PN3PR01CA0044.outlook.office365.com Hello [103.176.239.29]
+250-SIZE 157286400
+250-PIPELINING
+250-DSN
+250-ENHANCEDSTATUSCODES
+250-STARTTLS
+250-8BITMIME
+250-BINARYMIME
+250-CHUNKING
+250 SMTPUTF8
+DEBUG SMTP: Found extension "SIZE", arg "157286400"
+DEBUG SMTP: Found extension "PIPELINING", arg ""
+DEBUG SMTP: Found extension "DSN", arg ""
+DEBUG SMTP: Found extension "ENHANCEDSTATUSCODES", arg ""
+DEBUG SMTP: Found extension "STARTTLS", arg ""
+DEBUG SMTP: Found extension "8BITMIME", arg ""
+DEBUG SMTP: Found extension "BINARYMIME", arg ""
+DEBUG SMTP: Found extension "CHUNKING", arg ""
+DEBUG SMTP: Found extension "SMTPUTF8", arg ""
+STARTTLS
+220 2.0.0 SMTP server ready
+EHLO DESKTOP-5VHKQUJ
+250-PN3PR01CA0044.outlook.office365.com Hello [103.176.239.29]
+250-SIZE 157286400
+250-PIPELINING
+250-DSN
+250-ENHANCEDSTATUSCODES
+250-AUTH LOGIN XOAUTH2
+250-8BITMIME
+250-BINARYMIME
+250-CHUNKING
+250 SMTPUTF8
+DEBUG SMTP: Found extension "SIZE", arg "157286400"
+DEBUG SMTP: Found extension "PIPELINING", arg ""
+DEBUG SMTP: Found extension "DSN", arg ""
+DEBUG SMTP: Found extension "ENHANCEDSTATUSCODES", arg ""
+DEBUG SMTP: Found extension "AUTH", arg "LOGIN XOAUTH2"
+DEBUG SMTP: Found extension "8BITMIME", arg ""
+DEBUG SMTP: Found extension "BINARYMIME", arg ""
+DEBUG SMTP: Found extension "CHUNKING", arg ""
+DEBUG SMTP: Found extension "SMTPUTF8", arg ""
+DEBUG SMTP: protocolConnect login, host=smtp.office365.com, user=kalyani.gomkale@automationedge.com, password=<non-null>
+DEBUG SMTP: Attempt to authenticate using mechanisms: LOGIN PLAIN DIGEST-MD5 NTLM XOAUTH2 
+DEBUG SMTP: Using mechanism LOGIN
+DEBUG SMTP: AUTH LOGIN command trace suppressed
+DEBUG SMTP: AUTH LOGIN failed
+]]></system-out>
+    <system-err><![CDATA[log4j:WARN No appenders could be found for logger (freemarker.cache).
+log4j:WARN Please initialize the log4j system properly.
+]]></system-err>
+  </testcase>
+</testsuite>

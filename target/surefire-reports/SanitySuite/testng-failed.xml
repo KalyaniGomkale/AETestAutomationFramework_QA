@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="1" name="Failed suite [SanitySuite]" guice-stage="DEVELOPMENT" verbose="0">
+  <test thread-count="1" name="Test(failed)" verbose="0">
+    <classes>
+      <class name="com.ae.qa.testcases.HomePageTest">
+        <methods>
+          <include name="endReport"/>
+          <include name="setExtent"/>
+          <include name="validateSearchFunctionalityTest"/>
+          <include name="initialization"/>
+          <include name="getResult"/>
+        </methods>
+      </class> <!-- com.ae.qa.testcases.HomePageTest -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [SanitySuite] -->

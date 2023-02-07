@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="1" parallel="methods" name="Failed suite [TestSuite]" guice-stage="DEVELOPMENT" verbose="0">
+  <listeners>
+    <listener class-name="com.ae.qa.Listeners.ITestListenerImplementation"/>
+  </listeners>
+  <test thread-count="1" parallel="methods" name="AESanity(failed)" verbose="0">
+    <classes>
+      <class name="com.ae.qa.testcasesTenantUser.AgentListPageTestTU">
+        <methods>
+          <include name="endReport"/>
+          <include name="setExtent"/>
+          <include name="initialization"/>
+          <include name="getResult"/>
+          <include name="validateEditAssistedAgentNameTUTest" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- com.ae.qa.testcasesTenantUser.AgentListPageTestTU -->
+      <class name="com.ae.qa.testcasesActivityMonitor.RequestsPageTestAM">
+        <methods>
+          <include name="endReport"/>
+          <include name="validateRequestStatusAMTest" invocation-numbers="0"/>
+          <include name="setExtent"/>
+          <include name="initialization"/>
+          <include name="getResult"/>
+        </methods>
+      </class> <!-- com.ae.qa.testcasesActivityMonitor.RequestsPageTestAM -->
+      <class name="com.ae.qa.testcasesAgentAdmin.AgentListPageTestAA">
+        <methods>
+          <include name="endReport"/>
+          <include name="setExtent"/>
+          <include name="initialization"/>
+          <include name="getResult"/>
+          <include name="checkStatusOfAgentAATest" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- com.ae.qa.testcasesAgentAdmin.AgentListPageTestAA -->
+      <class name="com.ae.qa.testcasesTenantUser.DashboardsPageTestTU">
+        <methods>
+          <include name="validateDashboardTodayTUTest"/>
+          <include name="validateEditDashboardToCustomTUTest"/>
+          <include name="endReport"/>
+          <include name="setExtent"/>
+          <include name="validateSetAsDefaultReportTUTest"/>
+          <include name="validateDashboardRelativeTUTest"/>
+          <include name="validateDeleteDashboardWithReportTUTest"/>
+          <include name="validateReportNoneMultipleWFTUTest" invocation-numbers="0"/>
+          <include name="initialization"/>
+          <include name="getResult"/>
+          <include name="validateDashboardNoneTUTest"/>
+          <include name="validateReportCustomTUTest"/>
+        </methods>
+      </class> <!-- com.ae.qa.testcasesTenantUser.DashboardsPageTestTU -->
+      <class name="com.ae.qa.testcasesWorkflowAdmin.CredentialsPageTestWA">
+        <methods>
+          <include name="endReport"/>
+          <include name="setExtent"/>
+          <include name="ValidateCreateCredentialsWATest" invocation-numbers="0"/>
+          <include name="initialization"/>
+          <include name="getResult"/>
+        </methods>
+      </class> <!-- com.ae.qa.testcasesWorkflowAdmin.CredentialsPageTestWA -->
+    </classes>
+  </test> <!-- AESanity(failed) -->
+</suite> <!-- Failed suite [TestSuite] -->
