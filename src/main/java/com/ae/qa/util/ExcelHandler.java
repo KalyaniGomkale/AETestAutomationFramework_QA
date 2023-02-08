@@ -18,7 +18,8 @@ public class ExcelHandler extends TestBase
 		Connection conn=null;
 		Fillo fillo =new Fillo();
 		try{
-			conn=fillo.getConnection(prop.getProperty("testdatafilepath"));
+			//conn=fillo.getConnection(prop.getProperty("testdatafilepath"));.\\src\\main\\resources\\config\\config.properties
+			conn=fillo.getConnection(".\\src\\main\\java\\com\\ae\\qa\\testdata\\TestData_Main.xlsx");
 			String query=String.format("UPDATE %s SET TestCaseStatus='%s' where TestCaseName='%s'", sheetName,tcStatus,testCaseName);
 			conn.executeUpdate(query);
 		} catch(FilloException e){
