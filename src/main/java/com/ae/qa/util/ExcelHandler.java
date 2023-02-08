@@ -37,7 +37,7 @@ public class ExcelHandler extends TestBase
 		Recordset recordset=null;
 		try
 		{
-			conn=fillo.getConnection(prop.getProperty("testdatafilepath"));
+			conn=fillo.getConnection(".\\src\\main\\java\\com\\ae\\qa\\testdata\\TestData_Main.xlsx");
 			recordset=conn.executeQuery(query);
 			while(recordset.next())
 			{
