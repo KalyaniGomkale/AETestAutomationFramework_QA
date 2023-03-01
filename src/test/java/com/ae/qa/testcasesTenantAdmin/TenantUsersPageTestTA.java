@@ -70,7 +70,7 @@ public class TenantUsersPageTestTA extends TestBase {
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}
 
-/*	@Test(priority=79)
+	@Test(priority=79)
 	public void ValidateUnverifiedStatusTest(Method method) throws Exception { 
 		extentTest = extent.createTest("ValidateUnverifiedStatusTest","TC_Sanity40: To verify UNVERIFIED user status functionality");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
@@ -112,115 +112,110 @@ public class TenantUsersPageTestTA extends TestBase {
 	@Test(priority=303)
 	public void ValidateBulkUserUploadWithEmailTest(Method method) throws Exception {
 		extentTest = extent.createTest("ValidateBulkUserUploadWithEmailTest", "TC_060: To verify can we upload Native Users with email id");
-		//Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
 		tenantuserspageta = new TenantUsersPageTA(); 
-		tenantuserspageta.bulkUserUploadWithEmail("NATIVE",prop.getProperty("BulkUserUploadEmail"),"rohil","rohil@12aX","Pune@1234");
+		tenantuserspageta.bulkUserUploadWithEmail(TestDataInMap.get("userType"),prop.getProperty("BulkUserUploadEmail"),TestDataInMap.get("UserName"),TestDataInMap.get("Pswd"),TestDataInMap.get("NewPswd"));
 		extentTest.log(extentTest.getStatus(), "User is able to upload Bulk Native Users");  
-		//ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}
 	@Test(priority=304)
 	public void ValidateBulkUserUploadWithoutEmailTest(Method method) throws Exception {
 		extentTest = extent.createTest("ValidateBulkUserUploadWithoutEmailTest", "TC_062: To verify can we upload Native Users without email id");
-		//Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
 		tenantuserspageta = new TenantUsersPageTA(); 
-		tenantuserspageta.bulkUserUploadWithoutEmail("NATIVE",prop.getProperty("BulkUserUploadWithoutEmail"),"suyash","suyash@12aX","Pune@1234");
+		tenantuserspageta.bulkUserUploadWithoutEmail(TestDataInMap.get("userType"),prop.getProperty("BulkUserUploadWithoutEmail"),TestDataInMap.get("UserName"),TestDataInMap.get("Pswd"),TestDataInMap.get("NewPswd"));
 		extentTest.log(extentTest.getStatus(), "User is able to upload Bulk Native Users");  
-		//ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
+	    ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 
 	}
-	@Test(priority=326)
+	@Test(priority=1043)
 	public void ValidateUnlockUserAccessApplicationTest(Method method) throws Exception {
 		extentTest = extent.createTest("ValidateUnlockUserAccessApplicationTest", "TC_248:-To verify whether the above unlocked user is able to access the application, after change password");
-		//Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
 		tenantuserspageta = new TenantUsersPageTA(); 
-		tenantuserspageta.validateUnlockUserAccessApplication("Native Users","MadhuRani","5","MadhuRani@gmail.com","MadhuRani5",
-				"Pune@123","Pune@123","Tenant User","Pune@123","Pune@1234","Pune@123",4,"MadhuRani5",
-				"Pune@1234","Pune@1234","Pune@12345","Madhu@123");
+		tenantuserspageta.validateUnlockUserAccessApplication(TestDataInMap.get("UserName"),TestDataInMap.get("Pswd"),TestDataInMap.get("NewPswd"));
 		extentTest.log(extentTest.getStatus(), "Unlocked user after changed passowrd is able to access the application successfully");  
-		//ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 
 	}
-	@Test(priority=317)
+	@Test(priority=1044)
 	public void ValidateEnableUser(Method method) throws Exception {
 		extentTest = extent.createTest("ValidateEnableUser", "TC_34: To verify whether TenantAdmin is able to Enable a Disabled user(Tuser1)");
-		//Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
 		tenantuserspageta = new TenantUsersPageTA(); 
-		tenantuserspageta.validateEnableUser("TenantUser1","Pune@123","Pune@1234","Enable User");
+		tenantuserspageta.validateEnableUser(TestDataInMap.get("userType"),TestDataInMap.get("fName"),TestDataInMap.get("lName"),
+				TestDataInMap.get("emailId"),TestDataInMap.get("UserName"),TestDataInMap.get("Pswd"),TestDataInMap.get("cnfPswd"),
+				TestDataInMap.get("role"),TestDataInMap.get("NewPswd"),TestDataInMap.get("Action"));
 		extentTest.log(extentTest.getStatus(), "Tenant Admin is able to enable the disabled user ");  
-		//ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 
 	}
-	@Test(priority=331)
+	@Test(priority=1045)
 	public void ValidateDisabledUserTuserTest(Method method) throws Exception {
 		extentTest = extent.createTest("ValidateDisabledUserTest", "TC_53: To verify user disabled functionality with tenant admin user(Tuser1)");
-		//Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
 		tenantuserspageta = new TenantUsersPageTA(); 
-		tenantuserspageta.validateDisabledUserTuser("Native Users","Tenant","User3","TenantUser3@gmail.com","TenantUser3",
-				"Pune@123","Pune@123","Tenant User","Pune@123","Pune@1234");
+		tenantuserspageta.validateDisabledUserTuser(TestDataInMap.get("userType"),TestDataInMap.get("fName"),TestDataInMap.get("lName"),
+				TestDataInMap.get("emailId"),TestDataInMap.get("UserName"),TestDataInMap.get("Pswd"),TestDataInMap.get("cnfPswd"),
+				TestDataInMap.get("role"),TestDataInMap.get("NewPswd"));
 		extentTest.log(extentTest.getStatus(), "Tenant Admin is able to disabled user");  
-		//ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}
-	@Test(priority=332)
+	@Test(priority=1046)
 	public void validateDisabledDeleteTuserTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateDisabledDeleteTuserTest", "TC_54: To verify user disabled Delete functionality with Tenant admin user(Tuser1)");
-		//Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
 		tenantuserspageta = new TenantUsersPageTA(); 
-		tenantuserspageta.validateDisabledDeleteTsuer("TenantUser3","Enable User","1");
+		tenantuserspageta.validateDisabledDeleteTsuer(TestDataInMap.get("UserName"),TestDataInMap.get("Action"),TestDataInMap.get("timeUnit"));
 		extentTest.log(extentTest.getStatus(), "Tenant Admin is able to delete the disabled user");  
-		//ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 
 	}
-	@Test(priority=730)
-	public void validateCreateActivityMonitorSpaceInUsernameTest(Method method) throws Exception {
-		extentTest = extent.createTest("validateCreateActivityMonitorSpaceInUsernameTest", "TC_26:To verify can create user with role activity monitor(space in Username)and get access per role");
-		//Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
-		tenantuserspageta = new TenantUsersPageTA(); 
-		tenantuserspageta.validateCreateActivityMonitorSpaceInUsername("Native Users","Actvity","Monitor","AM@abc.com","AM Role1",
-				"Pune@123","Pune@123","Activity Monitor","Pune@1234");
-		extentTest.log(extentTest.getStatus(), "Activity Monitor role wit space in username is created successfully");  
-		//ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
-	}
-	@Test(priority=731)
-	public void validateCreateAgentAdminApostropheLastnameTest(Method method) throws Exception {
-		extentTest = extent.createTest("validateCreateAgentAdminApostropheLastnameTest", "TC_27:To verify can create user with role agent admin(apostrophe in last name)and get access per role");
-		//Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
-		tenantuserspageta = new TenantUsersPageTA(); 
-		tenantuserspageta.validateCreateAgentAdminApostropheLastname("Native Users","Agent","Admin's","AA@abc.com","AARole1",
-				"Pune@123","Pune@123","Agent Admin","Pune@1234");
-		extentTest.log(extentTest.getStatus(), "Agent admin role witd apostrophe in lastname is created successfully");  
-		//ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
-	}
-	@Test(priority=732)
-	public void validateCreateUserAdminEmailidUsernameTest(Method method) throws Exception {
-		extentTest = extent.createTest("validateCreateUserAdminEmailidUsernameTest", "TC_28:To verify can create user with role user admin(Emailid in Username)and get access per role");
-		//Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
-		tenantuserspageta = new TenantUsersPageTA(); 
-		tenantuserspageta.validateCreateUserAdminEmailidUsername("Native Users","User","Admin","UA@abc.com","UA@abc.com",
-				"Pune@123","Pune@123","User Admin","Pune@1234");
-		extentTest.log(extentTest.getStatus(), "User admin role with Email id  in username is created successfully");  
-		//ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
-	}
-	/*@Test(priority=339)
+	@Test(priority=1047)
 	public void validateEditTenantUserTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateEditTenantUserTest", "TC_24: To verify can edit created user");
-		//Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
 		tenantuserspageta = new TenantUsersPageTA(); 
-		tenantuserspageta.validateEditTenantUser("Native Users","WF","Admin","WFAdmin@gmail.com","WFAdmin",
-				"Pune@123","Pune@123","Workflow Admin","WFAdmin1@gmail.com","Tenant User","Pune@123","Pune@1234");
+		tenantuserspageta.validateEditTenantUser(TestDataInMap.get("userType"),TestDataInMap.get("fName"),TestDataInMap.get("lName"),
+				TestDataInMap.get("emailId"),TestDataInMap.get("UserName"),TestDataInMap.get("Pswd"),TestDataInMap.get("cnfPswd"),
+				TestDataInMap.get("role"),TestDataInMap.get("newEmailId"),TestDataInMap.get("newRole"),TestDataInMap.get("NewPswd"));
 		extentTest.log(extentTest.getStatus(), "Verify Edit Tenant User is verified successfully");  
-		//ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 
 	}
-	@Test(priority=358)
-	public void validateCreatingLDAPUserTest(Method method) throws Exception {
-		extentTest = extent.createTest("validateCreatingLDAPUserTest", "TC_22: To verify LDAP user can be created");
-		//Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
+	@Test(priority=1048)
+	public void validateCreateActivityMonitorSpaceInUsernameTest(Method method) throws Exception {
+		extentTest = extent.createTest("validateCreateActivityMonitorSpaceInUsernameTest", "TC_26:To verify can create user with role activity monitor(space in Username)and get access per role");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
 		tenantuserspageta = new TenantUsersPageTA(); 
-		tenantuserspageta.validateCreatingLDAPUser("10.51.4.56","389","automationedge.com","LDAP Users","LDAPUser1","Tenant Admin","Pune@123","Pune@1234");
-		extentTest.log(extentTest.getStatus(), "LDAP User is created successfully");  
-		//ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
-
-	}*/
+		tenantuserspageta.validateCreateActivityMonitorSpaceInUsername(TestDataInMap.get("userType"),TestDataInMap.get("fName"),TestDataInMap.get("lName"),
+				TestDataInMap.get("emailId"),TestDataInMap.get("UserName"),TestDataInMap.get("Pswd"),TestDataInMap.get("cnfPswd"),
+				TestDataInMap.get("role"),TestDataInMap.get("NewPswd"));
+		extentTest.log(extentTest.getStatus(), "Activity Monitor role wit space in username is created successfully");  
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
+	}
+	@Test(priority=1049)
+	public void validateCreateAgentAdminApostropheLastnameTest(Method method) throws Exception {
+		extentTest = extent.createTest("validateCreateAgentAdminApostropheLastnameTest", "TC_27:To verify can create user with role agent admin(apostrophe in last name)and get access per role");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
+		tenantuserspageta = new TenantUsersPageTA(); 
+		tenantuserspageta.validateCreateAgentAdminApostropheLastname(TestDataInMap.get("userType"),TestDataInMap.get("fName"),TestDataInMap.get("lName"),
+				TestDataInMap.get("emailId"),TestDataInMap.get("UserName"),TestDataInMap.get("Pswd"),TestDataInMap.get("cnfPswd"),
+				TestDataInMap.get("role"),TestDataInMap.get("NewPswd"));
+		extentTest.log(extentTest.getStatus(), "Agent admin role witd apostrophe in lastname is created successfully");  
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
+	}
+	@Test(priority=1050)
+	public void validateCreateUserAdminEmailidUsernameTest(Method method) throws Exception {
+		extentTest = extent.createTest("validateCreateUserAdminEmailidUsernameTest", "TC_28:To verify can create user with role user admin(Emailid in Username)and get access per role");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
+		tenantuserspageta = new TenantUsersPageTA(); 
+		tenantuserspageta.validateCreateUserAdminEmailidUsername(TestDataInMap.get("userType"),TestDataInMap.get("fName"),TestDataInMap.get("lName"),
+				TestDataInMap.get("emailId"),TestDataInMap.get("UserName"),TestDataInMap.get("Pswd"),TestDataInMap.get("cnfPswd"),
+				TestDataInMap.get("role"),TestDataInMap.get("NewPswd"));
+		extentTest.log(extentTest.getStatus(), "User admin role with Email id  in username is created successfully");  
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
+	}
 
 	//For Username
 	@Test(priority = 3123)
