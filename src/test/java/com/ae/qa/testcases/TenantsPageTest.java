@@ -73,33 +73,33 @@ public class TenantsPageTest extends TestBase {
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
 	//Need to add these test cases before normal agent get deleted
-	/*@Test(priority = 472)
+	@Test(priority = 1013)
 	public void validateDisableTenantTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateDisableTenantTest", "TC_135: To verfiy able to disable any tenant");
-		//Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
 		tenantspage = new TenantsPage();
-		tenantspage.validateDisableTenant("KG");
+		tenantspage.validateDisableTenant(TestDataInMap.get("TenantName"));
 		extentTest.log(extentTest.getStatus(), "Tenant is disabled successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
-	@Test(priority = 473 ,dependsOnMethods="validateDisableTenantTest")
+	@Test(priority = 1014 ,dependsOnMethods="validateDisableTenantTest")
 	public void validateSubmitRequestDisabledTenantTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateSubmitRequestDisabledTenantTest", "TC_Additional: To verify submit reqeust of disabled tenant");
-		//Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
 		tenantspage = new TenantsPage();
-		tenantspage.validateSubmitRequestDisabledTenant("Sanity1","KG01");
+		tenantspage.validateSubmitRequestDisabledTenant(TestDataInMap.get("wfName"),TestDataInMap.get("OrganizationCode"));
 		extentTest.log(extentTest.getStatus(), "Submit request of disabled tenant is verified successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
-	@Test(priority = 474)
+	@Test(priority = 1015)
 	public void validateSubmitRequestEnableTenantTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateSubmitRequestEnableTenantTest", "TC_Additional: Verify Can submit reqeust once enable tenant");
-		//Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
 		tenantspage = new TenantsPage();
-		tenantspage.validateSubmitRequestEnableTenant("KG","Sanity1");
+		tenantspage.validateSubmitRequestEnableTenant(TestDataInMap.get("TenantName"),TestDataInMap.get("wfName"));
 		extentTest.log(extentTest.getStatus(), "Submit request of enabled tenant is verified successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
-	}*/
+	}
 	//Need to add these test cases after assisted agent gets register
 	/*@Test(priority = 475)
 	public void validateSubmitRequestDisableTenantAssistedAgentTest(Method method) throws Exception {
@@ -154,21 +154,21 @@ public class TenantsPageTest extends TestBase {
 		extentTest.log(extentTest.getStatus(), "Consumption Based Allocation is verified successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
-	@Test(priority = 900)
+	@Test(priority = 1016)
 	public void validateDisableAllomentBasedTenantTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateDisableAllomentBasedTenantTest", "TC_150: Verify enable/disable of above created  tenant with  sysadmin user ");
-		//Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
 		tenantspage = new TenantsPage();
-		tenantspage.validateDisableAllomentBasedTenant("UBL01");
+		tenantspage.validateDisableAllomentBasedTenant(TestDataInMap.get("OrganizationCode"));
 		extentTest.log(extentTest.getStatus(), "Tenant is disabled successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
-	@Test(priority = 901)
+	@Test(priority = 1017)
 	public void validateEnableAllomentBasedTenantTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateEnableAllomentBasedTenantTest", "TC_150: Verify enable/disable of above created  tenant with  sysadmin user ");
-		//Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
 		tenantspage = new TenantsPage();
-		tenantspage.validateEnableAllomentBasedTenant("UBL01");
+		tenantspage.validateEnableAllomentBasedTenant(TestDataInMap.get("OrganizationCode"));
 		extentTest.log(extentTest.getStatus(), "Tenant is enabled successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
