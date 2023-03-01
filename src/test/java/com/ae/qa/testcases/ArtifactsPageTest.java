@@ -63,7 +63,7 @@ public class ArtifactsPageTest extends TestBase {
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
 
-	@Test(priority = 557)
+	@Test(priority = 2020)
 	public void ValidateDeletePSTest(Method method) throws Exception {
 		extentTest = extent.createTest("ValidateDeletePSTest", "TC_XXX: To Verfiy deletion of  PS artifacts");
 		Map<String, String> TestDataInMap = ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),
