@@ -161,6 +161,8 @@ public class TenantUsersPageTA extends TestBase {
 	WebElement settingTab;
 	@FindBy(xpath = "//select[@formcontrolname='action']")
 	WebElement actionSelect;
+	@FindBy(xpath = "//span[@class='d-block user-role']")
+	WebElement userTypeTitle;
 
 
 	public TenantUsersPageTA() {
@@ -401,7 +403,7 @@ public class TenantUsersPageTA extends TestBase {
 		js.executeScript("arguments[0].click();", uploadUsers);
 		//Selecting the Native type users
 		Select userTypr_dropDown=new Select(userTypeField);
-		userTypr_dropDown.selectByValue(userType);
+		userTypr_dropDown.selectByVisibleText(userType);
 		Reporter.log("Native Users is Selected",true);
 		Thread.sleep(5000);
 		//Clicking on Choose File Button and uploading the file
@@ -463,7 +465,20 @@ public class TenantUsersPageTA extends TestBase {
 		Assert.assertEquals(actual_tenantName, expected_tenantName,"Username does not match");
 		informationpageta.validateSignOut();
 	}
-	public void validateEnableUser(String UserName, String FT_password, String password, String Action) throws Exception {
+	public void validateUnlockUserAccessApplication(String UserName,String pswd,String cnfPswd) throws Exception{
+		loginpageta.ValidateFirstTimeLogin(UserName,pswd,cnfPswd);
+		loginpageta.login(UserName,cnfPswd);
+		Thread.sleep(5000);
+		if(workflowTab.isDisplayed()&&catalogueTab.isDisplayed()&&requestTab.isDisplayed()&&
+				reportsTab.isDisplayed()&&processStudioTab.isDisplayed()){
+			Reporter.log("User is able to access the application as per his role",true);
+		}else {
+			Reporter.log("User is not able to access the application as per his role",true);
+		}
+		informationpageta.validateSignOut();
+	}
+	public void validateEnableUser(String userType, String FName, String LName, String UserMail, String UserName,String Pswd, String ConfirmPswd, String RoleName,String Newpassword, String Action) throws Exception {
+		creatingUser(userType, FName, LName, UserMail, UserName, Pswd, ConfirmPswd, RoleName);
 		loginpageta.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
 		Reporter.log("Tenant Admin signed in successfully",true);
 		Thread.sleep(5000);
@@ -485,20 +500,21 @@ public class TenantUsersPageTA extends TestBase {
 			Assert.assertEquals(unverifiedBtn,"UNVERIFIED","User status is not UNVERIFIED");
 		}
 		informationpageta.validateSignOut();
-		loginpageta.ValidateFirstTimeLogin(UserName, FT_password, password);
-		loginpageta.login(prop.getProperty("username_TU1"), prop.getProperty("password_TU1"));
+		loginpageta.ValidateFirstTimeLogin(UserName, Pswd, Newpassword);
+		loginpageta.login(UserName,Newpassword);
 		Reporter.log("Tenant User signed in successfully",true);
 		Thread.sleep(5000);
 		informationpageta.validateSignOut();
 		loginpageta.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
 		Reporter.log("Tenant Admin signed in successfully",true);
-		Thread.sleep(5000);
+		Thread.sleep(3000);
 		//Click Users Tab
-		wait.until(ExpectedConditions.visibilityOf(usersTab));
+		//wait.until(ExpectedConditions.visibilityOf(usersTab));
 		js.executeScript("arguments[0].click();", usersTab);
 		Reporter.log("Users tab is clicked",true);
 		// Click TenantUsers Tab
-		wait.until(ExpectedConditions.visibilityOf(tenantUsersTab));
+		//wait.until(ExpectedConditions.visibilityOf(tenantUsersTab));
+		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", tenantUsersTab);
 		Reporter.log("Tenant Users tab is clicked",true);
 		Thread.sleep(2000);		
@@ -521,7 +537,7 @@ public class TenantUsersPageTA extends TestBase {
 		}
 		informationpageta.validateSignOut();
 		Thread.sleep(2000);
-		loginpageta.login(prop.getProperty("username_TU1"), prop.getProperty("password_TU1"));
+		loginpageta.login(UserName,Newpassword);
 		String actual_message=alertMessage.getText();
 		String expected_message=Messages.failPasswordPolicy;
 		Reporter.log("Actual Message on screen is: "+actual_message+ " and Expected "
@@ -531,13 +547,14 @@ public class TenantUsersPageTA extends TestBase {
 		Thread.sleep(10000);
 		loginpageta.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
 		Reporter.log("Tenant Admin signed in successfully",true);
-		Thread.sleep(5000);
+		Thread.sleep(3000);
 		//Click Users Tab
-		wait.until(ExpectedConditions.visibilityOf(usersTab));
+		//wait.until(ExpectedConditions.visibilityOf(usersTab));
 		js.executeScript("arguments[0].click();", usersTab);
 		Reporter.log("Users tab is clicked",true);
 		// Click TenantUsers Tab
-		wait.until(ExpectedConditions.visibilityOf(tenantUsersTab));
+		//wait.until(ExpectedConditions.visibilityOf(tenantUsersTab));
+		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", tenantUsersTab);
 		Reporter.log("Tenant Users tab is clicked",true);
 		Thread.sleep(2000);
@@ -564,64 +581,15 @@ public class TenantUsersPageTA extends TestBase {
 		}
 		informationpageta.validateSignOut();
 		Thread.sleep(2000);
-		loginpageta.login(prop.getProperty("username_TU1"), prop.getProperty("password_TU1"));
+		loginpageta.login(UserName,Newpassword);
 		Reporter.log("Tenant User signed in successfully after been Enabled",true);
 		Thread.sleep(5000);
 		informationpageta.validateSignOut();
 	}
-	public void validateUnlockUserAccessApplication(String userType, String FName, String LName, String UserMail, String UserName,
-			String Pswd, String ConfirmPswd, String RoleName,String FT_password,String password, String invalidPwd,int NoOfAttempt,
-			String UserToUnlock,String NewPswd,String CnfPswd,String FT_password1,String password1) throws Exception{
-		TenantPolicyPageTA tenantpolicypageta=new TenantPolicyPageTA();
-		valiateCreatingTenantUser(userType, FName, LName, UserMail, UserName, Pswd, ConfirmPswd, RoleName);
-		loginpageta.ValidateFirstTimeLogin(UserName, FT_password,password);
-		loginpageta.login(UserName, password);
-		informationpageta.validateSignOut();
-		//tenantpolicypageta.validateNoOfAttempts(UserName, password, invalidPwd, noOfattempt);
-		for (int i = 1; i <= NoOfAttempt; i++) {
-			if (i < NoOfAttempt) {
-				loginpageta.login(UserName,invalidPwd);
-				String Actual_Msg = PopUpMsg.getText();
-				System.out.println("Actual_msg:" + Actual_Msg);
-				if (Actual_Msg.contentEquals("You have made [" + i
-						+ "] unsuccessful attempt(s). The maximum retry attempts allowed for login are [" + NoOfAttempt
-						+ "]")) {
-					Reporter.log(i + "th Unsuccessful attempt",true);
-					// Assert.assertTrue(true);
-				}
-				for (int m = 0; m < 10; m++) {
-					uName.sendKeys(Keys.BACK_SPACE);
-					pswd.sendKeys(Keys.BACK_SPACE);
-					Thread.sleep(3000);
-				}
-			} else if (i == NoOfAttempt) {
-				System.out.println(i + "th Unsuccessful attempt");
-				loginpageta.login(UserName,invalidPwd);
-				String Actual_Fail = PopUpMsg.getText();
-				Reporter.log("Actual_msg:" + Actual_Fail,true);
-				String Expected_Fail = Messages.failPasswordPolicy;
-				Reporter.log("Expected_msg:" + Expected_Fail,true);
-				Assert.assertEquals(Actual_Fail, Expected_Fail);
-			}
-		}
-		Reporter.log("No. of attempts is validated successfully",true);
-		loginpageta.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
-		tenantpolicypageta.UnlockUsers(UserToUnlock, NewPswd, CnfPswd);
-		loginpageta.ValidateFirstTimeLogin(UserName,NewPswd,password1);
-		loginpageta.login(UserName,password1);
-		Thread.sleep(5000);
-		if(workflowTab.isDisplayed()&&catalogueTab.isDisplayed()&&requestTab.isDisplayed()&&
-				reportsTab.isDisplayed()&&processStudioTab.isDisplayed()){
-			Reporter.log("Tenant user is able to access the application as per his role",true);
-		}else {
-			Reporter.log("Tenant user is not able to access the application as per his role",true);
-		}
-		informationpageta.validateSignOut();
-	}
 	public void validateDisabledUserTuser(String userType, String FName, String LName, String UserMail, String UserName,
-			String Pswd, String ConfirmPswd, String RoleName,String FT_password,String password) throws Exception{
+			String Pswd, String ConfirmPswd, String RoleName,String password) throws Exception{
 		valiateCreatingTenantUser(userType, FName, LName, UserMail, UserName, Pswd, ConfirmPswd, RoleName);
-		loginpageta.ValidateFirstTimeLogin(UserName, FT_password, password);
+		loginpageta.ValidateFirstTimeLogin(UserName, Pswd, password);
 		loginpageta.login(UserName,password);
 		informationpageta.validateSignOut();
 		loginpageta.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
@@ -690,7 +658,7 @@ public class TenantUsersPageTA extends TestBase {
 		WebElement EnableBtn=driver.findElement(By.xpath("//table/tr/td/div[text()='"+UserName+"']/../../td/button[contains(text(),'ENABLED')]"));
 		EnableBtn.click();
 		if(!deleteUserCheckbox.isSelected()) {
-			deleteUserCheckbox.click();
+			js.executeScript("arguments[0].click();", deleteUserCheckbox);
 			Reporter.log("Delete this user checkbox is selected",true);
 		}
 		deleteUserPeriod.sendKeys(Duration);
@@ -705,9 +673,9 @@ public class TenantUsersPageTA extends TestBase {
 		informationpageta.validateSignOut();
 	}
 	public void validateEditTenantUser(String userType, String FName, String LName, String UserMail, String UserName,
-			String Pswd, String ConfirmPswd, String RoleName,String NewUserMail,String NewRoleName,String FT_password,String password) throws Exception{
+			String Pswd, String ConfirmPswd, String RoleName,String NewUserMail,String NewRoleName,String password) throws Exception{
 		creatingUser(userType, FName, LName, UserMail, UserName, Pswd, ConfirmPswd, RoleName);
-		loginpageta.ValidateFirstTimeLogin(UserName, FT_password, password);
+		loginpageta.ValidateFirstTimeLogin(UserName, Pswd, password);
 		loginpageta.login(UserName,password);
 		Thread.sleep(2000);
 		if(homeTab.isDisplayed()&&workflowTab.isDisplayed()&&agentsTab.isDisplayed()&&catalogueTab.isDisplayed()&&
@@ -721,12 +689,14 @@ public class TenantUsersPageTA extends TestBase {
 		informationpageta.validateSignOut();
 		loginpageta.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
 		Reporter.log("User log in Successfully",true);
-		wait.until(ExpectedConditions.visibilityOf(usersTab));
+		//wait.until(ExpectedConditions.visibilityOf(usersTab));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
+		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", usersTab);
 		Reporter.log("Users Tab is Clicked",true);
 		// Click TenantUsers Tab
-		wait.until(ExpectedConditions.visibilityOf(tenantUsersTab));
+		//wait.until(ExpectedConditions.visibilityOf(tenantUsersTab));
+		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", tenantUsersTab);
 		Reporter.log("TenantUsers Tab is Clicked",true);
 		WebElement editBtn=driver.findElement(By.xpath("//div[@class='table-responsive']/table/tr/td/div[@title='"+UserName+"']/../../td/span[@title='Edit User']"));
@@ -754,55 +724,12 @@ public class TenantUsersPageTA extends TestBase {
 		informationpageta.validateSignOut();
 		loginpageta.login(UserName,password);
 		Thread.sleep(5000);
-		if(workflowTab.isDisplayed()&&catalogueTab.isDisplayed()&&requestTab.isDisplayed()&&
-				reportsTab.isDisplayed()&&processStudioTab.isDisplayed()){
-			Reporter.log("Edit Workflow Admin role to Tenant User is successfull",true);
-		}else{
-			Reporter.log("Edit Workflow Admin role to Tenant User is not successfull",true);
-		}
+		String actual_UserType = userTypeTitle.getText();
+		String expected_UserType = NewRoleName;
+		Reporter.log("Actual user type after edit Role:- "+actual_UserType+ "Expected user type after edit Role:- "+expected_UserType);
+		Assert.assertEquals(actual_UserType, expected_UserType, "User type does not matches");
+		Reporter.log("User is edited successfully",true);
 		informationpageta.validateSignOut();
-	}
-	public void validateCreatingLDAPUser(String hostName,String portNo,String domainName,String userType,String UserName,
-			String RoleName,String FT_password,String password) throws Exception{
-		/*ldappageta.verifyLdapConfig(hostName, portNo, domainName);*/
-		loginpageta.login(prop.getProperty("username_TA"), prop.getProperty("password_TA"));
-		Reporter.log("User log in Successfully",true);
-		wait.until(ExpectedConditions.visibilityOf(usersTab));
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].click();", usersTab);
-		Reporter.log("Users Tab is clicked",true);
-		// Click TenantUsers Tab
-		wait.until(ExpectedConditions.visibilityOf(tenantUsersTab));
-		js.executeScript("arguments[0].click();", tenantUsersTab);
-		Reporter.log("Tenant Users Tab is Clicked.",true);
-		wait.until(ExpectedConditions.visibilityOf(addBtn));
-		JavascriptExecutor js2 = (JavascriptExecutor) driver;
-		js2.executeScript("arguments[0].click();", addBtn);
-		Reporter.log("started creating new Tenant",true);
-		// Start form
-		// Locating the select dropdown for Tenant
-		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-		//Thread.sleep(5000);		
-		Select user_type = new Select(userTypedropdown);
-		user_type.selectByVisibleText(userType);
-		Reporter.log("LDAP Users type is selected",true);
-		Thread.sleep(3000);
-		userName.sendKeys(UserName);
-		Thread.sleep(3000);
-		Select select = new Select(roledropdown);
-		select.selectByVisibleText(RoleName);
-		Reporter.log("Tenant Admin role is selected",true);
-		Thread.sleep(5000);
-		js.executeScript("arguments[0].click();", createBtn);
-		Reporter.log(RoleName + " is created successfully",true);
-		String actual_successMsg = alertMessage.getText();
-		String expected_successMsg = Messages.createUser;
-		System.out.println("Actual message:" + actual_successMsg);
-		Assert.assertEquals(actual_successMsg, expected_successMsg,"User not created.");
-		Reporter.log(RoleName + " LDAP User is created successfully",true);
-		informationpageta.validateSignOut();
-		//loginpageta.ValidateFirstTimeLogin(UserName, FT_password, password);
-		//loginpageta.login(UserName, password);*/
 	}
 	public void validateCreateActivityMonitorSpaceInUsername(String userType, String FName, String LName, String UserMail, String UserName,
 			String Pswd, String ConfirmPswd, String RoleName,String Password) throws Exception{
