@@ -36,7 +36,7 @@ public class FileManagementPage extends TestBase {
 	WebElement plugindropdown;
 	@FindBy(xpath = "//input[@formcontrolname='search']")
 	WebElement searchBar;
-	@FindBy(xpath = "//span[@class='mul-checkmark']")
+	@FindBy(xpath = "//span[@class='mul-content-margin mul-checked-style']")
 	WebElement PluginCheckbox;
 	@FindBy(xpath = "//input[@formcontrolname='file']")
 	WebElement chooseFile;
