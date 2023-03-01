@@ -121,6 +121,8 @@ public class SchedulerPageTA extends TestBase {
 	WebElement userDelete;
 	@FindBy(name = "refresh-btn")
 	WebElement refershTableBtn;
+	@FindBy(xpath="(//div/select[@id='pageSize2'])[1]")
+	WebElement pageSize;
 
 	public SchedulerPageTA() {
 		PageFactory.initElements(driver, this);
@@ -435,7 +437,7 @@ public class SchedulerPageTA extends TestBase {
 		Thread.sleep(2000);
 		dayOfMonth.click();
 		Thread.sleep(2000);
-		WebElement day= driver.findElement(By.xpath("(//div[@class='mul-options-list'])[3]/li["+Day+"]/label/span"));
+		WebElement day= driver.findElement(By.xpath("(//div[@class='mul-options-list pb-2']/li/label[contains(text(),'"+Day+"')])[1]/span"));
 		day.click();
 		Thread.sleep(2000);
 		repeatCheckbox.click();
@@ -604,7 +606,7 @@ public class SchedulerPageTA extends TestBase {
 		Thread.sleep(2000);
 		dayOfMonth.click();
 		Thread.sleep(2000);
-		WebElement day= driver.findElement(By.xpath("(//div[@class='mul-options-list'])[3]/li["+Day+"]/label/span"));
+		WebElement day= driver.findElement(By.xpath("(//div[@class='mul-options-list pb-2']/li/label[contains(text(),'"+Day+"')])[1]/span"));
 		day.click();
 		Thread.sleep(2000);
 		if(repeatCheckbox.isSelected()){
@@ -696,14 +698,17 @@ public class SchedulerPageTA extends TestBase {
 	public void validateDeleteUserScheduleTransfer(String PageSize,String UserName) throws Exception{
 		loginpageta.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
 		Reporter.log("User log in Successfully",true);
-		wait.until(ExpectedConditions.visibilityOf(usersTab));
+		//wait.until(ExpectedConditions.visibilityOf(usersTab));
+		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", usersTab);
 		// Click TenantUsers Tab
-		wait.until(ExpectedConditions.visibilityOf(tenantUsersTab));
-		JavascriptExecutor js1 = (JavascriptExecutor) driver;
-		js1.executeScript("arguments[0].click();", tenantUsersTab);
-		wb.changePageSize(PageSize);
+		//wait.until(ExpectedConditions.visibilityOf(tenantUsersTab));
+		Thread.sleep(2000);
+		js.executeScript("arguments[0].click();", tenantUsersTab);
+		Thread.sleep(2000);
+		Select selectPageSize=new Select(pageSize);
+		selectPageSize.selectByVisibleText(PageSize);
 		WebElement deleteBtn=driver.findElement(By.xpath("//table/tr/td/div[@title='"+UserName+"']/../../td/span[@title='Delete User']"));
 		deleteBtn.click();
 		deletePopupBtn.click();
