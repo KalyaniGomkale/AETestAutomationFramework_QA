@@ -75,7 +75,7 @@ public class CategoriesPageTestTA extends TestBase {
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}    
 
-	@Test(priority=2001, dependsOnMethods="ValidateCreateCategoryTest",alwaysRun=true)
+	@Test(priority=2021, dependsOnMethods="ValidateCreateCategoryTest",alwaysRun=true)
 	public void ValidateDeleteCategoryTest(Method method) throws Exception
 	{
 		extentTest = extent.createTest("ValidateCreateCategoryTest", "TC_221: To verify delete catagory");
