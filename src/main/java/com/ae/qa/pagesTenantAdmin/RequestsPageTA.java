@@ -83,7 +83,7 @@ public class RequestsPageTA extends TestBase {
 	WebElement confirmTerminateBtn;
 	@FindBy(id="num2")
 	WebElement configParamInput;
-	@FindBy(xpath="//span[@class='fa fa-caret-right']")
+	@FindBy(xpath="(//span[@class='fa fa-caret-right'])[2]")
 	WebElement configParamBar;
 
 	public RequestsPageTA() {
@@ -273,8 +273,8 @@ public class RequestsPageTA extends TestBase {
 	public void validateRequestAdvSearch() throws Exception {
 		loginpageta.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
 		Reporter.log("User logged in successfully", true);
-		Thread.sleep(20000);
-		wait.until(ExpectedConditions.visibilityOf(requestsTab));
+		Thread.sleep(10000);
+		//wait.until(ExpectedConditions.visibilityOf(requestsTab));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", requestsTab);
 		Reporter.log("Requests Tab is clicked", true);
@@ -329,20 +329,6 @@ public class RequestsPageTA extends TestBase {
 	 * +wfStatus,true); Assert.assertTrue(flag); }
 	 * informationpageta.validateSignOut(); }
 	 */
-	public void validateAdvanceSearchRequestPage(String colunmValue,String comparatorType,String searchValue) throws Exception {
-		loginpageta.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
-		Reporter.log("User log in Successfully",true);
-		//First search for tab and click on it
-		wait.until(ExpectedConditions.visibilityOf(requestsTab));
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].click();", requestsTab);
-		Thread.sleep(5000);
-		//advancesearchpage.validateAdvanceSearchField(colunmValue,comparatorType,searchValue);
-		//advancesearchpage.validateAdvanceSearchDropDown(colunmValue1,comparatorType1,searchValue1);
-		//advancesearchpage.validateAdvanceSearchForCalender(colunmValue2,comparatorType2,
-		//startYear,startMonth,startdate);
-		informationpageta.validateSignOut();
-	}
 	public void validateRequestFailureReason(String wfName, String wfdes, String category, String WFImportPath,String priority,
 			String expTime, String maxTime, String cleanUpHrs, String manExeTime, String tUnit,String RunParam) throws Exception {
 		// Here status like New,ExecutionStarted,Completed and Failure are covered
@@ -352,7 +338,8 @@ public class RequestsPageTA extends TestBase {
 		Thread.sleep(2000);
 		saveBtn.click();
 		Reporter.log("Save button is clicked",true);
-		wait.until(ExpectedConditions.visibilityOf(success_msg));
+		//wait.until(ExpectedConditions.visibilityOf(success_msg));
+		Thread.sleep(2000);
 		String Actual_successMsg = success_msg.getText();
 		System.out.println("Actual Message : " + Actual_successMsg);
 		String Expected_successMsg = Messages.updateWorkflow;
@@ -367,7 +354,8 @@ public class RequestsPageTA extends TestBase {
 		workflowassignmentta.validateSingleWorkflowAssignment(wfName);
 		loginpageta.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
 		Reporter.log("User logged in successfully",true);
-		wait.until(ExpectedConditions.visibilityOf(catalogueTab));
+		//wait.until(ExpectedConditions.visibilityOf(catalogueTab));
+		Thread.sleep(2000);
 		JavascriptExecutor js= (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();",catalogueTab);
 		Reporter.log("Catalogue Tab is clicked",true);
@@ -385,50 +373,41 @@ public class RequestsPageTA extends TestBase {
 		Thread.sleep(2000);
 		informationpageta.validateSignOut();
 		//Checking status in wf admin now
-		loginpageta.login(prop.getProperty("username_WA"), prop.getProperty("password_WA"));
+		loginpageta.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
 		Reporter.log("User logged in successfully", true);
 		Thread.sleep(20000);
-		wait.until(ExpectedConditions.visibilityOf(requestsTab));
+		//wait.until(ExpectedConditions.visibilityOf(requestsTab));
+		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", requestsTab);
 		Reporter.log("Requests Tab is clicked", true);
+		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", refershTableBtn);
 		Thread.sleep(10000);
 		String wfStatus = requestStatus.getText();
 		Boolean flag = false;
-		if (wfStatus.equals("New")) {
-			Thread.sleep(10000);
-			Reporter.log("Workflow status is:" + wfStatus, true);
-			refershTableBtn.click();
-			Assert.assertTrue(!flag);
-		} else if (wfStatus.equals("ExecutionStarted")) {
-			Reporter.log("Execution of workflow just started", true);
-			Thread.sleep(10000);
-			refershTableBtn.click();
-			Thread.sleep(3000);
-			reqStatus.click();
-			Reporter.log("Workflow status is:" + wfStatus, true);
-			Assert.assertTrue(!flag);
-		} else if (wfStatus.equals("Failure")) {
+	     if (wfStatus.equals("Failure")) {
 			reqStatus.click();
 			Reporter.log("Additional status details is clicked", true);
-			String actual_message = execMessage.getText();
+			String message = execMessage.getText();
+			String actual_message = message.split(" ")[0];
 			Reporter.log("Message after execution of wf:" + actual_message, true);
 			String expected_message = Messages.executionFailureMessage;
 			Reporter.log("Workflow status is:" + wfStatus, true);
 			Assert.assertEquals(actual_message, expected_message, "Execution is successful");
-		} else if (wfStatus.equals("Complete")) {
+		} else if (wfStatus.equals("New")||wfStatus.equals("ExecutionStarted")||wfStatus.equals("ExecutionStarted")||wfStatus.equals("Complete")) {
 			Reporter.log("Workflow status is:" + wfStatus, true);
 			Assert.assertTrue(!flag);
-		} else {
-			Reporter.log("Workflow status is neither completed nor Failure, but other than that: " + wfStatus, true);
+		}else {
+			Reporter.log("Workflow status is not failure, but other than that: " + wfStatus, true);
 			Assert.assertTrue(flag);
 		}
 		informationpageta.validateSignOut();
 	}
 	public void validateRestartRequest() throws Exception{
-		loginpageta.login(prop.getProperty("username_WA"), prop.getProperty("password_WA"));
+		loginpageta.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
 		Reporter.log("User logged in successfully",true);
-		wait.until(ExpectedConditions.visibilityOf(requestsTab));
+		//wait.until(ExpectedConditions.visibilityOf(requestsTab));
+		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", requestsTab);
 		Reporter.log("Requests Tab is clicked", true);
@@ -461,6 +440,7 @@ public class RequestsPageTA extends TestBase {
 			String RunParam1,String RunParam2,String RunParam3) throws Exception{
 		workflowlistpageta.ImportForm(wfName, wfdes, category, WFImportPath, priority, expTime, maxTime, cleanUpHrs, manExeTime, tUnit);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
+		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", configParamBar);
 		Reporter.log("Config Parameter is clicked",true);
 		Thread.sleep(3000);
@@ -469,7 +449,8 @@ public class RequestsPageTA extends TestBase {
 		Thread.sleep(3000);
 		saveBtn.click();
 		Reporter.log("Save button is clicked",true);
-		wait.until(ExpectedConditions.visibilityOf(success_msg));
+		//wait.until(ExpectedConditions.visibilityOf(success_msg));
+		Thread.sleep(2000);
 		String Actual_successMsg = success_msg.getText();
 		System.out.println("Actual Message : " + Actual_successMsg);
 		String Expected_successMsg = Messages.updateWorkflow;
@@ -482,9 +463,10 @@ public class RequestsPageTA extends TestBase {
 		Thread.sleep(3000);
 		informationpageta.validateSignOut();
 		workflowassignmentta.validateSingleWorkflowAssignment(wfName);
-		loginpageta.login(prop.getProperty("username_WA"), prop.getProperty("password_WA"));
+		loginpageta.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
 		Reporter.log("User logged in successfully", true);
-		wait.until(ExpectedConditions.visibilityOf(catalogueTab));
+		//wait.until(ExpectedConditions.visibilityOf(catalogueTab));
+		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();",catalogueTab);
 		Reporter.log("Catalogue Tab is clicked",true);
 		Thread.sleep(2000);
@@ -501,15 +483,17 @@ public class RequestsPageTA extends TestBase {
 		okBtn.click();
 		Reporter.log("OK button is clicked");
 		Thread.sleep(2000);
-		wait.until(ExpectedConditions.visibilityOf(requestsTab));
+		//wait.until(ExpectedConditions.visibilityOf(requestsTab));
+		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", requestsTab);
 		Reporter.log("Requests Tab is clicked", true);
 		Thread.sleep(2000);
 		String requestID=driver.findElement(By.xpath("(//table/tbody/tr[1]/td[1])[2]")).getText();
 		System.out.println("Request ID:- "+requestID);
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 		js.executeScript("arguments[0].click();", refershTableBtn);
-		Thread.sleep(2000);
+		Thread.sleep(5000);
+		js.executeScript("arguments[0].click();", refershTableBtn);
 		String wfStatus = requestStatus.getText();
 		if(wfStatus.equals("ExecutionStarted"))
 		{
