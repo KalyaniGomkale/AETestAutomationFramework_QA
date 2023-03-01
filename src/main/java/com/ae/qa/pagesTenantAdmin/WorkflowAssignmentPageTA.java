@@ -20,7 +20,7 @@ public class WorkflowAssignmentPageTA extends TestBase {
 	public LoginPageTA loginpageta = new LoginPageTA();
 	public static WebDriverWait wait = new WebDriverWait(driver, 120);
 	public InformationPageTA informationpageta=new InformationPageTA();
-	
+
 	@FindBy(xpath = "//span[(text()='Agents')]")
 	WebElement agentsTab;
 	@FindBy(xpath = "//a[contains(text(),'Workflow Assignment')]")
@@ -41,6 +41,8 @@ public class WorkflowAssignmentPageTA extends TestBase {
 	WebElement pageTitle;
 	@FindBy(id ="selectAll")
 	WebElement selectAllWF;
+	@FindBy(xpath = "//button[@id='remove']")
+	WebElement cancelBtn;
 
 	public WorkflowAssignmentPageTA() {
 		PageFactory.initElements(driver, this);
@@ -104,7 +106,7 @@ public class WorkflowAssignmentPageTA extends TestBase {
 		String actual_title=pageTitle.getText();
 		String expected_title=PageTitle;
 		Reporter.log("Actual page title displayed on screen is: "+actual_title+ " and Expected "
-						+ "page title is: "+expected_title,true);
+				+ "page title is: "+expected_title,true);
 		Assert.assertEquals(actual_title, expected_title,"Appropriate page didn't loaded properly");
 		Reporter.log("Respective Page is clicked and appropriate page is loaded properly",true);
 		informationpageta.validateSignOut();
@@ -193,30 +195,30 @@ public class WorkflowAssignmentPageTA extends TestBase {
 		editBtn.click();
 		Reporter.log("Edit button is selected",true);
 		Thread.sleep(2000);
-		//Clicking on Workflows Checkbox so that all the WF are selected
-		js.executeScript("arguments[0].click();", selectAllWF);
 		Reporter.log("Workflows checkbox is clicked",true);
 		if(!selectAllWF.isSelected()){
 			{
-				selectAllWF.click();
+				js.executeScript("arguments[0].click();", selectAllWF);
 				Reporter.log("All workflow are selected",true);
+				Thread.sleep(3000);
+				wait.until(ExpectedConditions.visibilityOf(saveBtn));
+				saveBtn.click();
+				Reporter.log("Saved the operation",true);
+				//wait.until(ExpectedConditions.visibilityOf(okBtn));
+				okBtn.click();
+				Reporter.log("Assignment confirmed",true);
+				wait.until(ExpectedConditions.visibilityOf(successMsgBox));
+				String Actual_wfAssignmentMsg=successMsgBox.getText();
+				String Expected_wfAssignmentMsg= Messages.wfAssignment;
+				Reporter.log("Actual Wf Assignment Msg:" +Actual_wfAssignmentMsg,true);
+				Reporter.log("Expected Wf Assignment Msg:" + Expected_wfAssignmentMsg,true);
+				Assert.assertEquals(Actual_wfAssignmentMsg,Expected_wfAssignmentMsg, "Muliple Workflow are not assigned ");
+				informationpageta.validateSignOut();	
 			}
-		}else {
-			Reporter.log("All workflow are not selected",true);
+		}else if(selectAllWF.isSelected()){
+			cancelBtn.click();
+			Reporter.log("All workflow are already selected",true);
+			informationpageta.validateSignOut();
 		}
-		Thread.sleep(3000);
-		wait.until(ExpectedConditions.visibilityOf(saveBtn));
-		saveBtn.click();
-		Reporter.log("Saved the operation",true);
-		wait.until(ExpectedConditions.visibilityOf(okBtn));
-		okBtn.click();
-		Reporter.log("Assignment confirmed",true);
-		wait.until(ExpectedConditions.visibilityOf(successMsgBox));
-		String Actual_wfAssignmentMsg=successMsgBox.getText();
-		String Expected_wfAssignmentMsg= Messages.wfAssignment;
-		Reporter.log("Actual Wf Assignment Msg:" +Actual_wfAssignmentMsg,true);
-		Reporter.log("Expected Wf Assignment Msg:" + Expected_wfAssignmentMsg,true);
-		Assert.assertEquals(Actual_wfAssignmentMsg,Expected_wfAssignmentMsg, "Muliple Workflow are not assigned ");
-		informationpageta.validateSignOut();	
 	}
 }
