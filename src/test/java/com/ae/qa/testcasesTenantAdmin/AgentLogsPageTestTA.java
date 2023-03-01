@@ -45,14 +45,13 @@ public class AgentLogsPageTestTA extends TestBase {
 		extentTest.log(extentTest.getStatus(), "Agent Logs Page loading validated successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}
-	@Test(priority = 319)
+	@Test(priority = 2008)
 	public void validateAssistedAgentLogsTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateAssistedAgentLogsTest", "TC_159: Verify download Assisted agent logs");
-		//Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
 		agentlogspageta= new AgentLogsPageTA();
-		//agentlogspageta.validateAgentLogs(TestDataInMap.get("RequestType"),TestDataInMap.get("AgentName"),TestDataInMap.get("startYear"),TestDataInMap.get("startMonth"),
-		//TestDataInMap.get("startDate"),TestDataInMap.get("endYear"),TestDataInMap.get("endMonth"),TestDataInMap.get("endDate"));
-		agentlogspageta.validateAgentLogs("Assisted Agent","DELL@DESKTOP-5VHKQUJ","2022","Apr","25","2022","Apr","26");
+		agentlogspageta.validateAgentLogs(TestDataInMap.get("RequestType"),TestDataInMap.get("AgentName"),TestDataInMap.get("startYear"),TestDataInMap.get("startMonth"),
+				TestDataInMap.get("startDate"),TestDataInMap.get("endYear"),TestDataInMap.get("endMonth"),TestDataInMap.get("endDate"));
 		extentTest.log(extentTest.getStatus(), "Assisted Agent logs downloaded successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}
