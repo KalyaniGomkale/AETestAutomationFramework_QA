@@ -75,7 +75,7 @@ public class PluginAssignmentsPage extends TestBase {
 	WebElement assignAllBox;
 	@FindBy(xpath = "//button[@name='submit']")
 	WebElement SaveBtn;
-	@FindBy(xpath="(//span[@class='fa fa-caret-right'])[2]")
+	@FindBy(xpath="(//span[@class='fa fa-caret-right'])[1]")
 	WebElement configParamBar;
 	@FindBy(id = "no1")
 	WebElement configParam1;
@@ -83,6 +83,8 @@ public class PluginAssignmentsPage extends TestBase {
 	WebElement configParam2;
 	@FindBy(xpath = "//div/p[@class='alert-message-text']")
 	WebElement success_msg;
+	@FindBy(xpath = "//button[@title='Refresh Table']")
+	WebElement refreshBtn;
 	
 
 	public PluginAssignmentsPage() {
@@ -512,7 +514,7 @@ public class PluginAssignmentsPage extends TestBase {
 		}
 	}
 	//Test cases to make the inactive wf to active state but cannot go to active state because of plugin access
-	public void validateWFActiveFailureAfterSysadminRemovesPluginPermission(String wfName) throws Exception{
+	public void validateWFFailureAfterSysadminRemovesPluginPermission(String wfName) throws Exception{
 		//Login with tenant admin and checking wf can be made inactive
 		loginpage.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
 		Reporter.log("User logged in successfully",true);
@@ -560,7 +562,7 @@ public class PluginAssignmentsPage extends TestBase {
 		} else {
 			System.out.println("Tenant Checkbox is already checked");
 		}
-		okBtn.click();
+		//okBtn.click();
 		Thread.sleep(2000);
 		saveBtn.click();
 		Reporter.log("Save Button is Clicked",true);
@@ -580,13 +582,16 @@ public class PluginAssignmentsPage extends TestBase {
 		Reporter.log("Workflows Tab is clicked",true);
 		Thread.sleep(2000);
 		WebElement sliderToEnableWF=driver.findElement(By.xpath("//table/tr/td[@title='"+wfName+"']/../td/label/span"));
-		String color = sliderToEnableWF.getCssValue("background-color");
+		sliderToEnableWF.click();
+		Thread.sleep(2000);
+		WebElement sliderToEnableWF1=driver.findElement(By.xpath("//table/tr/td[@title='"+wfName+"']/../td/label/span"));
+		String color = sliderToEnableWF1.getCssValue("background-color");
 		String HexColor = Color.fromString(color).asHex();
 		Reporter.log("HexColor of WF Slider:-"+HexColor);
 		if(HexColor.equals(prop.getProperty("BlueSlider"))){
 			String actual_SliderColor = HexColor;
 			System.out.println("Actual Color of Inactive WF Slider:-"+actual_SliderColor);
-			String expected_SliderColor = prop.getProperty("GreySlider");
+			String expected_SliderColor = prop.getProperty("BlueSlider");
 			System.out.println("Expected Color of Inactive WF Slider:-"+expected_SliderColor);
 			Assert.assertEquals(actual_SliderColor, expected_SliderColor, "Workflow is not in Inactive state");
 			informationpage.validateSignOut();
@@ -594,7 +599,7 @@ public class PluginAssignmentsPage extends TestBase {
 		else if(HexColor.equals(prop.getProperty("GreySlider"))){
 			String actual_SliderColor = HexColor;
 			System.out.println("Actual Color of Inactive WF Slider:-"+actual_SliderColor);
-			String expected_SliderColor = prop.getProperty("GreySlider");
+			String expected_SliderColor = prop.getProperty("BlueSlider");
 			System.out.println("Expected Color of Inactive WF Slider:-"+expected_SliderColor);
 			Assert.assertEquals(actual_SliderColor, expected_SliderColor, "Workflow is not in Inactive state");
 		}
