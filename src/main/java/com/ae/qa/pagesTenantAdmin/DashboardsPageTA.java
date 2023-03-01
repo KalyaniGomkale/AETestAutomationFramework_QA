@@ -510,7 +510,8 @@ public class DashboardsPageTA extends TestBase {
 		Reporter.log("Report saved on screen",true);
 		//validation of name
 		Thread.sleep(3000);
-		String Actual_reportName= driver.findElement(By.xpath("//div[@class='report-card-grid']/div/p[text()='"+NewReportTitle+"']")).getText();
+		String reportName= driver.findElement(By.xpath("//div[@class='report-card-grid']/div/p[contains(text(),'"+NewReportTitle+"')]")).getText();
+		String Actual_reportName = reportName.replaceAll("(Time Unit: Minutes)", "");
 		String Expected_reportName=NewReportTitle;
 		Assert.assertEquals(Actual_reportName,Expected_reportName,"Report doesn't displayed on screen successfully");
 		Reporter.log("Report " +NewReportTitle+" displayed on screen successfully",true);
