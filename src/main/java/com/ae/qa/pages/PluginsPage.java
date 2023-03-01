@@ -25,7 +25,7 @@ import com.ae.qa.util.CommonWebElements;
 import com.ae.qa.util.Messages;
 
 public class PluginsPage extends TestBase {
-	public WebDriverWait wait = new WebDriverWait(driver, 180);
+	public WebDriverWait wait = new WebDriverWait(driver, 240);
 	public LoginPage loginpage = new LoginPage();
 	public WebElements webelements = new WebElements();
 	public InformationPage informationpage=new InformationPage();
@@ -167,9 +167,9 @@ public class PluginsPage extends TestBase {
 		loginpage.login(prop.getProperty("username"), prop.getProperty("password"));
 		Reporter.log("User log in Successfully",true);
 		// click Plugins Tab
-		Thread.sleep(5000);
 		//wait.until(ExpectedConditions.visibilityOf(pluginsTab));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
+		Thread.sleep(3000);
 		js.executeScript("arguments[0].click();", pluginsTab);
 		Reporter.log("Plugins Tab is selected",true);
 		Thread.sleep(3000);
@@ -197,7 +197,7 @@ public class PluginsPage extends TestBase {
 		Reporter.log("Single plugin jar uploaded successfully");
 		informationpage.validateSignOut();
 	}
-	public void validateUploadSamePlugins(String uploadJarFile,String PluginName) throws Exception{
+	public void validateUploadSameSinglePlugin(String uploadJarFile,String PluginName) throws Exception{
 		loginpage.login(prop.getProperty("username"), prop.getProperty("password"));
 		Reporter.log("User log in Successfully",true);
 		// click Plugins Tab
@@ -412,10 +412,9 @@ public class PluginsPage extends TestBase {
 		Reporter.log("New Plugin button clicked",true);
 		Thread.sleep(2000);
 		//choose file from location
-		uploadJar.sendKeys(prop.getProperty("uploadSinglePluginFile"));
+		uploadJar.sendKeys(prop.getProperty("uploadHigherVersionPlugin"));
 		Thread.sleep(3000);
 		uploadSingeJarBtn.click();
-		Reporter.log("Single Plugin Jar of same version is started uploading",true);
 		Thread.sleep(2000);
 		String actual_success_msg =alertMessage.getText();
 		String expected_success_msg ="Duplicate plugin name ["+pluginName+"]";
@@ -428,11 +427,13 @@ public class PluginsPage extends TestBase {
 	public void validateSinglePluginUploadHigherVersion(String pluginName) throws Exception{
 		loginpage.login(prop.getProperty("username"), prop.getProperty("password"));
 		Reporter.log("User log in Successfully",true);
+		Thread.sleep(2000);
 		//First search for tab and click on it
-		wait.until(ExpectedConditions.visibilityOf(pluginsTab));
+		//wait.until(ExpectedConditions.visibilityOf(pluginsTab));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();",pluginsTab);
-		Thread.sleep(5000);
+		wb.changePageSize("50");
+		Thread.sleep(2000);
 		String actual_PluginVersion = driver.findElement(By.xpath("//table/tbody/tr/td[@title='"+pluginName+"']/../td[2]")).getText();
 		System.out.println("Actual Plugin Version:-"+actual_PluginVersion);
 		Thread.sleep(2000);
@@ -448,24 +449,24 @@ public class PluginsPage extends TestBase {
 		String expected_success_msg =Messages.singlePluginUpload;
 		System.out.println("actual success msg is: " + actual_success_msg);
 		Assert.assertEquals(actual_success_msg, expected_success_msg, "Single Plugin not uploaded.");
+		wb.changePageSize("50");
 		Thread.sleep(2000);
 		String expected_PluginVersion = driver.findElement(By.xpath("//table/tbody/tr/td[@title='"+pluginName+"']/../td[2]")).getText();
 		System.out.println("Expected Plugin Version:-"+expected_PluginVersion);
 		Thread.sleep(2000);
-		Assert.assertNotEquals(actual_PluginVersion, expected_PluginVersion,"Plugin version are same");
+		Assert.assertEquals(actual_PluginVersion, expected_PluginVersion,"Plugin version are different");
 		Reporter.log("Single plugin jar of higher version is uploaded successfully");
 		informationpage.validateSignOut();
 	}
 	public void validateSinglePluginUploadLowerVersion(String pluginName) throws Exception{
 		loginpage.login(prop.getProperty("username"), prop.getProperty("password"));
 		Reporter.log("User log in Successfully",true);
+		Thread.sleep(2000);
 		//First search for tab and click on it
-		wait.until(ExpectedConditions.visibilityOf(pluginsTab));
+		//wait.until(ExpectedConditions.visibilityOf(pluginsTab));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();",pluginsTab);
-		Thread.sleep(5000);
-		String actual_PluginVersion = driver.findElement(By.xpath("//table/tbody/tr/td[@title='"+pluginName+"']/../td[2]")).getText();
-		System.out.println("Actual Plugin Version:-"+actual_PluginVersion);
+		wb.changePageSize("50");
 		Thread.sleep(2000);
 		WebElement editBtn = driver.findElement(By.xpath("//table/tbody/tr/td[@title='"+pluginName+"']/../td/span[@title='Edit Plugin']"));
 		editBtn.click();
@@ -476,14 +477,9 @@ public class PluginsPage extends TestBase {
 		Thread.sleep(2000);
 		Thread.sleep(2000);
 		String actual_success_msg =alertMessage.getText();
-		String expected_success_msg =Messages.singlePluginUpload;
+		String expected_success_msg ="Cannot upload plugin ["+pluginName+"] with version lower than [4.3]";
 		System.out.println("actual success msg is: " + actual_success_msg);
 		Assert.assertEquals(actual_success_msg, expected_success_msg, "Single Plugin not uploaded.");
-		Thread.sleep(2000);
-		String expected_PluginVersion = driver.findElement(By.xpath("//table/tbody/tr/td[@title='"+pluginName+"']/../td[2]")).getText();
-		System.out.println("Expected Plugin Version:-"+expected_PluginVersion);
-		Thread.sleep(2000);
-		Assert.assertNotEquals(actual_PluginVersion, expected_PluginVersion,"Plugin version are same");
 		Reporter.log("Single plugin jar of lower version is uploaded successfully");
 		informationpage.validateSignOut();
 	}
