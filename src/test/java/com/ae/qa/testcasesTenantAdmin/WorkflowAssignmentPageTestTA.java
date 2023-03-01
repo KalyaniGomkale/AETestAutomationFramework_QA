@@ -41,7 +41,7 @@ public class WorkflowAssignmentPageTestTA extends TestBase{
 	@Test(priority=709)
 	public void validateMultipleWorkflowAssignmentTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateMultipleWorkflowAssignmentTest", "TC_142:To verify multiple workflows can get assigned to agent");
-		//Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
 		workflowassignmentpageta = new WorkflowAssignmentPageTA();
 		workflowassignmentpageta.validateMultipleWorkflowAssignment();
 		extentTest.log(extentTest.getStatus(), "Muliple Workflow assigned to agent successfully");
