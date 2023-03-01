@@ -28,11 +28,11 @@ public class FileManagementPageTA extends TestBase{
 	WebElement wfDropdown;
 	@FindBy(xpath = "//input[@formcontrolname='search']")
 	WebElement searchBar;
-	@FindBy(xpath = "//span[@class='mul-checkmark']")
+	@FindBy(xpath = "//div[@id='options-list']/li/div/a")
 	WebElement wfCheckbox;
 	@FindBy(xpath = "//input[@formcontrolname='file']")
 	WebElement chooseFile;
-	@FindBy(xpath = "//span[text()='Submit']")
+	@FindBy(xpath = "//button[@id='submitBtn']")
 	WebElement submitBtn;
 	@FindBy(xpath = "//p[@class='alert-message-text']")
 	WebElement success_Message;
@@ -65,7 +65,7 @@ public class FileManagementPageTA extends TestBase{
 		Reporter.log("Respective Page is clicked and appropriate page is loaded properly",true);
 		informationpageta.validateSignOut();
 	}
-	public void validateUploadWorkflowFiles(String wfName) throws Exception {
+	public void validateUploadWorkflowFiles(String wfName,String fileName) throws Exception {
 		loginpage.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
 		Reporter.log("User log in Successfully",true);
 		// click File Management Tab
@@ -93,10 +93,15 @@ public class FileManagementPageTA extends TestBase{
 		String Expected_successMsg = Messages.fileUpload;
 		System.out.println("Expected Sucess Message" + Expected_successMsg);
 		Assert.assertEquals(Actual_successMsg, Expected_successMsg, "Workflow not uploaded");
+		WebElement FileName = driver.findElement(By.xpath("//table[@class='ae-table table table-hover table-bordered table-striped']/tr/td[1]"));
+		String actual_Filename = FileName.getText();
+		String expected_Filename = fileName;
+		Reporter.log("Actual Filename:- "+actual_Filename+" Expected Filename:- "+expected_Filename);
+		Assert.assertEquals(actual_Filename, expected_Filename,"Filename is not loaded properly");
 		Reporter.log("Workflow is uploaded successfully",true);
 		informationpageta.validateSignOut();
 	}
-	public void validateEditWorkflowFiles(String fileName) throws Exception {
+	public void validateEditWorkflowFiles() throws Exception {
 		loginpage.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
 		Reporter.log("User log in Successfully",true);
 		// click File Management Tab
@@ -106,7 +111,9 @@ public class FileManagementPageTA extends TestBase{
 		js.executeScript("arguments[0].click();",fileManagementTab);
 		Reporter.log("File Management tab is clicked successfully",true);
 		Thread.sleep(3000);
-		WebElement editBtn = driver.findElement(By.xpath("//table/tr/td[text()='"+fileName+"']/../td/span"));
+		String FileName = driver.findElement(By.xpath("//table[@class='ae-table table table-hover table-bordered table-striped']/tr/td[1]")).getText();
+		Thread.sleep(2000);
+		WebElement editBtn = driver.findElement(By.xpath("//table/tr/td[text()='"+FileName+"']/../td/span"));
 		js.executeScript("arguments[0].click();",editBtn);
 		Reporter.log("Edit button is clicked successfully",true);
 		Thread.sleep(3000);
@@ -123,7 +130,7 @@ public class FileManagementPageTA extends TestBase{
 		Reporter.log("Workflow file is edited successfully",true);
 		informationpageta.validateSignOut();
 	}
-	public void validateDeleteUploadWorkflowFiles(String fileName) throws Exception{
+	public void validateDeleteUploadWorkflowFiles() throws Exception{
 		loginpage.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
 		Reporter.log("User log in Successfully",true);
 		// click File Management Tab
@@ -133,7 +140,8 @@ public class FileManagementPageTA extends TestBase{
 		js.executeScript("arguments[0].click();",fileManagementTab);
 		Reporter.log("File Management tab is clicked successfully",true);
 		Thread.sleep(3000);
-		WebElement deleteBtn = driver.findElement(By.xpath("//table/tr/td[text()='"+fileName+"']/../td/span/../i"));
+		String FileName = driver.findElement(By.xpath("//table[@class='ae-table table table-hover table-bordered table-striped']/tr/td[1]")).getText();
+		WebElement deleteBtn = driver.findElement(By.xpath("//table/tr/td[text()='"+FileName+"']/../td/span/../i"));
 		js.executeScript("arguments[0].click();",deleteBtn);
 		Reporter.log("Delete button is clicked successfully",true);
 		Thread.sleep(3000);
@@ -141,7 +149,7 @@ public class FileManagementPageTA extends TestBase{
 		Thread.sleep(2000);
 		String Actual_successMsg = success_Message.getText();
 		System.out.println("Actual Sucess Message" + Actual_successMsg);
-		String Expected_successMsg = "Successfully deleted file: ["+fileName+"]";
+		String Expected_successMsg = "Successfully deleted file: ["+FileName+"]";
 		System.out.println("Expected Sucess Message" + Expected_successMsg);
 		Assert.assertEquals(Actual_successMsg, Expected_successMsg, "Workflow file not deleted successfully");
 		Reporter.log("Workflow file is deleted successfully",true);
