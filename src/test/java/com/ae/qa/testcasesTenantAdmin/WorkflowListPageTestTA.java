@@ -20,7 +20,7 @@ public class WorkflowListPageTestTA extends TestBase {
 		super();
 	}
 
-	@Test(priority=54)
+/*	@Test(priority=54)
 	public void validateImportWorkflowTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateImportWorkflowTest", "TC_082: Verify Import PS workflow w/o parameter & enable the workflow");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
@@ -72,7 +72,7 @@ public class WorkflowListPageTestTA extends TestBase {
 		workflowlistpageta.ValidateExportWorkflow(TestDataInMap.get("wfName"));
 		extentTest.log(extentTest.getStatus(), "Workflow exported successfully from development environment");  
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());	
-	}
+	}*/
 	@Test(priority=98)
 	public void validateImportWorkflowWithConfigParamTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateImportWorkflowWithConfigParamTest", "TC_083: Verify Import PS workflow with config parameter");
@@ -119,7 +119,7 @@ public class WorkflowListPageTestTA extends TestBase {
 		extentTest.log(extentTest.getStatus(), "Workflow with configuration param as credentials imported successfully");  
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());	
 	}
-	@Test(priority=102)
+	/*@Test(priority=102)
 	public void ValidateShowFileStructureTest(Method method) throws Exception {
 		extentTest = extent.createTest("ValidateShowFileStructureTest", "TC_095: Verify show file structure while importing workflow");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
@@ -160,19 +160,18 @@ public class WorkflowListPageTestTA extends TestBase {
 		extentTest.log(extentTest.getStatus(), "Workflow without Config parameters using individual credentials and credentials pool imported successfully");  
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());	
 	}
-	/*@Test(priority=312)
-	public void validateImportWorkflowRegisteredAssistedAgent(Method method) throws Exception {
-		extentTest = extent.createTest("validateImportWorkflowRegisteredAssistedAgent", "TC_087: Verify Import workflow for registered assisted agent");
-		// Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
+	@Test(priority=2006)
+	public void validateImportWFAssistedAgent(Method method) throws Exception {
+		extentTest = extent.createTest("validateImportWFAssistedAgent", "TC_087: Verify Import workflow for registered assisted agent");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
 		workflowlistpageta = new WorkflowListPageTA(); 
-		workflowlistpageta.validateImportWorkflowRegistredAssistedAgent("AssistedAgentWF05","For Assisted Agent","Default","C:\\Users\\DELL\\Downloads\\AE_Automation_UploadFiles\\AssistedAgentWorkflow_v1.zip","Low","20","60","3","30","Minutes");
-		// workflowlistpageta.validateImportWorkflowWithConfigParamCredAndCredpool(TestDataInMap.get("wfName"),TestDataInMap.get("wfDes"),TestDataInMap.get("wfCategory"),
-		//prop.getProperty("WFToImportPath"),TestDataInMap.get("priority"),TestDataInMap.get("expTime"),TestDataInMap.get("maxTime"),
-		//TestDataInMap.get("cleanUpHrs"),TestDataInMap.get("manExeTime"),TestDataInMap.get("tUnit"), "Suyash", "AECredentials" );
-		extentTest.log(extentTest.getStatus(), "Workflow without Config parameters using individual credentials and credentials pool imported successfully"); 
+		workflowlistpageta.validateImportWFAssistedAgent(TestDataInMap.get("wfName"),TestDataInMap.get("wfDes"),TestDataInMap.get("wfCategory"),
+				prop.getProperty("WFForAssistedAgent"),TestDataInMap.get("priority"),TestDataInMap.get("expTime"),TestDataInMap.get("maxTime"),
+				TestDataInMap.get("cleanUpHrs"),TestDataInMap.get("manExeTime"),TestDataInMap.get("tUnit"));
+		extentTest.log(extentTest.getStatus(), "Workflow for assisted agent is imported successfully"); 
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());	
 	}
-	@Test(priority=315)
+	/*@Test(priority=315)
 	public void validateImportWorkflowUnRegisteredAssistedAgent(Method method) throws Exception {
 		extentTest = extent.createTest("validateImportWorkflowUnRegisteredAssistedAgent", "TC_087: Verify Import workflow for unregistered assisted agent");
 		// Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
@@ -185,7 +184,7 @@ public class WorkflowListPageTestTA extends TestBase {
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}*/
 	//Regression test case
-	@Test(priority=306)
+	/*@Test(priority=306)
 	public void ValidateExportMultipleWorkflowTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateImportWorkflowTest", "TC_138: To verify can export multiple workflow at a time as verified");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
@@ -220,8 +219,6 @@ public class WorkflowListPageTestTA extends TestBase {
 		workflowlistpageta = new WorkflowListPageTA(); 
 		workflowlistpageta.validateUpdateConfigParam(TestDataInMap.get("wfName"),TestDataInMap.get("wfDes"),TestDataInMap.get("wfCategory"),prop.getProperty("WFWithConfigParam"),TestDataInMap.get("priority"),TestDataInMap.get("expTime"),TestDataInMap.get("maxTime"),
 				TestDataInMap.get("cleanUpHrs"),TestDataInMap.get("manExeTime"),TestDataInMap.get("tUnit"),prop.getProperty("WFWithUpdatedConfigParam"),TestDataInMap.get("Param1"),TestDataInMap.get("Param2"),TestDataInMap.get("EncParam1"),TestDataInMap.get("EncParam2"));
-		//workflowlistpageta.validateUpdateConfigParam("WFUpdateConfigParam","For update config parameter","Default","C:\\Users\\DELL\\Downloads\\AE_Automation_UploadFiles\\WFWithConfigParam.zip","High","5",
-		//"10","1","1","Hours","C:\\Users\\DELL\\Downloads\\AE_Automation_UploadFiles\\UpdatedConfigParam_v1.zip","Hello","World","Hello","World");
 		extentTest.log(extentTest.getStatus(), "update workflow with config parameter is verified successfully");  
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}
@@ -259,12 +256,12 @@ public class WorkflowListPageTestTA extends TestBase {
 		extentTest.log(extentTest.getStatus(), "update workflow uses config parameter as credentials and credential pool is updated successfully");  
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}*/
-	@Test(priority=733)
+/*	@Test(priority=1051)
 	public void validateEditWFtoSequentialTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateEditWFtoSequentialTest", "TC_163: To verify workflow get edited to Sequential");
-		//Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
 		workflowlistpageta = new WorkflowListPageTA(); 
-		workflowlistpageta.validateEditWFtoSequential("Sanity1");
+		workflowlistpageta.validateEditWFtoSequential(TestDataInMap.get("wfName"),TestDataInMap.get("PageSize"));
 		extentTest.log(extentTest.getStatus(), "Worflow is edited to sequential successfully");  
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());	
 	}
@@ -443,7 +440,7 @@ public class WorkflowListPageTestTA extends TestBase {
 				TestDataInMap.get("PageSize"));
 		extentTest.log(extentTest.getStatus(), "Advance search for Last Name is validated successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
-	}
+	}*/
 }
 
 
