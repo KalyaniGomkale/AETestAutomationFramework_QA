@@ -60,34 +60,35 @@ public class PluginAssignmentsPageTest extends TestBase {
 		extentTest.log(extentTest.getStatus(), "Plugin Assignments page loading validated successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
-	/*@Test(priority=900)
+	@Test(priority=1006)
 	public void validateWFInActiveAfterSysadminRemovesPluginPermissionTest(Method method) throws Exception {
 		//Workflow should be in active state
 		extentTest = extent.createTest("validateWFInActiveAfterSysadminRemovesPluginPermissionTest", "TC_38:Verify workflow active/inactive status after sysadmin removes the permission of plugin");
-		//Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
 		pluginassignmentspage = new PluginAssignmentsPage();
-		pluginassignmentspage.validateWFInActiveAfterSysadminRemovesPluginPermission(prop.getProperty("C:\\Users\\DELL\\Downloads\\AE_Automation_UploadFiles\\execute-powershell-script-3.0-complete.jar"),"PowerShellWF","For Plugin permission","Default","C:\\Users\\DELL\\Downloads\\AE_Automation_UploadFiles\\Powershell_v1_signed.zip",
-				"High","15","20","3","15","Minutes","10","20","Powershell-Script");
+		pluginassignmentspage.validateWFInActiveAfterSysadminRemovesPluginPermission(prop.getProperty("uploadSinglePluginAssignToAll"),TestDataInMap.get("wfName"),TestDataInMap.get("wfDes"),TestDataInMap.get("wfCategory"),prop.getProperty("WFForPowerShellPlugin"),
+				TestDataInMap.get("priority"),TestDataInMap.get("expTime"),TestDataInMap.get("maxTime"),TestDataInMap.get("cleanUpHrs"),TestDataInMap.get("manExeTime"),TestDataInMap.get("tUnit"),
+				TestDataInMap.get("CrdentailParam1"),TestDataInMap.get("CrdentailParam2"),TestDataInMap.get("PluginName"));
 		extentTest.log(extentTest.getStatus(), "WF status are sysadmin removes plugin permission is verified successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
-	@Test(priority=901,dependsOnMethods="validateWFInActiveAfterSysadminRemovesPluginPermissionTest")
-	public void validateWFActiveFailureAfterSysadminRemovesPluginPermissionTest(Method method) throws Exception {
+	@Test(priority=1007,dependsOnMethods="validateWFInActiveAfterSysadminRemovesPluginPermissionTest")
+	public void validateWFFailureAfterSysadminRemovesPluginPermissionTest(Method method) throws Exception {
 		//Workflow should be in active state
-		extentTest = extent.createTest("validateWFActiveFailureAfterSysadminRemovesPluginPermissionTest", "TC_39:Verify workflow active/inactive functioanality after sysadmin removes permission of plugin");
-		//Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
+		extentTest = extent.createTest("validateWFFailureAfterSysadminRemovesPluginPermissionTest", "TC_39:Verify workflow active/inactive functioanality after sysadmin removes permission of plugin");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
 		pluginassignmentspage = new PluginAssignmentsPage();
-		pluginassignmentspage.validateWFActiveFailureAfterSysadminRemovesPluginPermission("PowerShellWF");
+		pluginassignmentspage.validateWFFailureAfterSysadminRemovesPluginPermission(TestDataInMap.get("wfName"));
 		extentTest.log(extentTest.getStatus(), "WF status after sysadmin removes plugin permission is verified successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
-	@Test(priority=902,dependsOnMethods="validateWFActiveFailureAfterSysadminRemovesPluginPermissionTest")
+	@Test(priority=1008,dependsOnMethods="validateWFFailureAfterSysadminRemovesPluginPermissionTest")
 	public void validateWFActiveSuccessAfterSysadminAssignPluginPermissionTest(Method method) throws Exception {
 		//Workflow should be in active state
 		extentTest = extent.createTest("validateWFActiveSuccessAfterSysadminAssignPluginPermissionTest", "TC_39:Verify workflow active/inactive functioanality after sysadmin removes permission of plugin");
-		//Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
 		pluginassignmentspage = new PluginAssignmentsPage();
-		pluginassignmentspage.validateWFActiveSuccessAfterSysadminAssignPluginPermission("Powershell-Script","PowerShellWF");
+		pluginassignmentspage.validateWFActiveSuccessAfterSysadminAssignPluginPermission(TestDataInMap.get("PluginName"),TestDataInMap.get("wfName"));
 		extentTest.log(extentTest.getStatus(), "WF status after sysadmin removes plugin permission is verified successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
