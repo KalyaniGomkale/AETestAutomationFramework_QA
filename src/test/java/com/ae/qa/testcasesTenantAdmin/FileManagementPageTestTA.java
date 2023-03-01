@@ -25,35 +25,33 @@ public class FileManagementPageTestTA extends TestBase {
 		extentTest.log(extentTest.getStatus(), "File Management Page loading validated successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}
-	//Need to assign priority
-	/*@Test
-	public void validateUploadWorkflowFilesTest(Method method) throws Exception {
-		extentTest = extent.createTest("validateUploadWorkflowFilesTest", "TC_257: Verify respective file get copy when upload file for more than one workflow");
-		//Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
+
+	@Test(priority=1026)
+	public void validateUploadWFFileManagementTest(Method method) throws Exception {
+		extentTest = extent.createTest("validateUploadWFFileManagementTest", "TC_257: Verify respective file get copy when upload file for more than one workflow");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
 		filemanagementpageta = new FileManagementPageTA();
-		filemanagementpageta.validateUploadWorkflowFiles("Sanity1");
+		filemanagementpageta.validateUploadWorkflowFiles(TestDataInMap.get("wfName"),TestDataInMap.get("fName"));
 		extentTest.log(extentTest.getStatus(), "Workflow file is uploaded successfully");
-		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}
-	//Need to assign priority
-	@Test
-	public void validateEditWorkflowFilesTest(Method method) throws Exception {
-		extentTest = extent.createTest("validateEditWorkflowFilesTest", "TC_258: Verify edit with same file name with edited data");
-		//Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
+	@Test(priority=1027)
+	public void validateEditWFFileManagementTest(Method method) throws Exception {
+		extentTest = extent.createTest("validateEditWFFileManagementTest", "TC_258: Verify edit with same file name with edited data");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
 		filemanagementpageta = new FileManagementPageTA();
-		filemanagementpageta.validateEditWorkflowFiles("WFWithConfigParam.zip");
+		filemanagementpageta.validateEditWorkflowFiles();
 		extentTest.log(extentTest.getStatus(), "Workflow file is edited successfully");
-		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}
-	//Closure activity and need to assign priority
-	@Test
-	public void validateDeleteUploadWorkflowFilesTest(Method method) throws Exception {
-		extentTest = extent.createTest("validateDeleteUploadWorkflowFilesTest", "TC_259: Verify delete file");
-		//Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
+	@Test(priority=1028)
+	public void validateDeleteUploadWFFileManagementTest(Method method) throws Exception {
+		extentTest = extent.createTest("validateDeleteUploadWFFileManagementTest", "TC_259: Verify delete file");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
 		filemanagementpageta = new FileManagementPageTA();
-		filemanagementpageta.validateDeleteUploadWorkflowFiles("WFWithConfigParam.zip");
+		filemanagementpageta.validateDeleteUploadWorkflowFiles();
 		extentTest.log(extentTest.getStatus(), "Workflow file is deleted successfully");
-		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
-	}*/
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
+	}
 
 }
