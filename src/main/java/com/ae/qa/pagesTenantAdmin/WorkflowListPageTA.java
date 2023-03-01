@@ -694,17 +694,84 @@ public class WorkflowListPageTA extends TestBase {
 		Thread.sleep(3000);
 		informationpageta.validateSignOut();         
 	}
-	public void validateImportWorkflowRegistredAssistedAgent(String wfName, String wfdes, String category, String WFImportPath, String priority,
+	
+	public void ImportFormAssisted(String wfName, String wfdes, String category, String WFImportPath, String priority,
+			String expTime, String maxTime, String cleanUpHrs, String manExeTime, String tUnit) throws Exception {
+		loginpageta.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
+		Reporter.log("User logged in successfully",true);
+		//wait.until(ExpectedConditions.visibilityOf(workflowsTab));
+		Thread.sleep(5000);
+		JavascriptExecutor js= (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].click();", workflowsTab);
+		Reporter.log("Workflows Tab is clicked",true);
+		Thread.sleep(2000);
+		importTab.click();
+		Reporter.log("Import button clicked",true);
+		workflowName.sendKeys(wfName);
+		Thread.sleep(3000);
+		wfDescription.sendKeys(wfdes);
+		Thread.sleep(3000);
+		Select wfCategory_drpdown = new Select(wfCategory);
+		wfCategory_drpdown.selectByVisibleText(category);
+		Thread.sleep(3000);
+		if (!assistedCheckbox.isSelected()) {
+			Reporter.log("assisted Workflow is selected",true);
+			assistedCheckbox.click();
+			Reporter.log("assisted Workflow is unselected",true);
+		} else {
+			Reporter.log("Is Assisted Workflow checkbox is unselected");
+		}
+		Thread.sleep(3000);
+		if (enableRDPCheckbox.isSelected()) {
+			Reporter.log("Enable RDP checkbox is selected",true);
+			enableRDPCheckbox.click();
+			Reporter.log("Enable RDP checkbox is unselected",true);
+		} else {
+			System.out.println("Enable RDP checkbox is unselected");
+		}
+		Thread.sleep(3000);
+		//ChooseWFToImport.sendKeys(prop.getProperty("WFToImportPath"));
+		ChooseWFToImport.sendKeys(WFImportPath);
+		JavascriptExecutor js3 = (JavascriptExecutor) driver;
+		js3.executeScript("arguments[0].click();", createBtn);
+		Reporter.log("Create Button is clicked",true);
+		//Thread.sleep(3000);
+		wait.until(ExpectedConditions.visibilityOf(wfPriority));
+		Select wfPriority_drpdown = new Select(wfPriority);
+		wfPriority_drpdown.selectByVisibleText(priority);
+		Reporter.log("Priority is set",true);
+		Thread.sleep(2000);
+		expected_completionTime.clear();
+		expected_completionTime.sendKeys(expTime);
+		Reporter.log("Expected Completion Time in Seconds is set",true);
+		Thread.sleep(2000);
+		max_CompletionTime.clear();
+		max_CompletionTime.sendKeys(maxTime);
+		Reporter.log("Maximum Completion Time in Seconds is set",true);
+		Thread.sleep(2000);
+		cleanupOldReqHours.clear();
+		cleanupOldReqHours.sendKeys(cleanUpHrs);
+		Reporter.log("Cleanup Requests older than Hours fields is set",true);
+		Thread.sleep(2000);
+		manualExecutionTime.clear();
+		manualExecutionTime.sendKeys(manExeTime);
+		Reporter.log("Manual Execution Time is set",true);
+		wait.until(ExpectedConditions.visibilityOf(manualTimeUnit));
+		Select manualTimeUnit_drpdown = new Select(manualTimeUnit);
+		manualTimeUnit_drpdown.selectByVisibleText(tUnit);
+		Reporter.log("Manual Execution time unit is set",true);
+		Thread.sleep(3000);
+	}
+	public void validateImportWFAssistedAgent(String wfName, String wfdes, String category, String WFImportPath, String priority,
 			String expTime, String maxTime, String cleanUpHrs, String manExeTime, String tUnit) throws Exception {
 		CataloguePageTA cataloguepageta=new CataloguePageTA();
 		RequestsPageTA requestspageta=new RequestsPageTA();
-		ImportForm(wfName,wfdes,category, WFImportPath, priority,
+		ImportFormAssisted(wfName,wfdes,category, WFImportPath, priority,
 				expTime, maxTime, cleanUpHrs, manExeTime, tUnit);
 		saveBtn.click();
 		Thread.sleep(4000);
 		Reporter.log("Save button is clicked",true);
 		//wait.until(ExpectedConditions.visibilityOf(success_msg));
-		Thread.sleep(2000);
 		String Actual_successMsg = success_msg.getText();
 		System.out.println("Actual Message : " + Actual_successMsg);
 		String Expected_successMsg = Messages.updateWorkflow;
@@ -1180,7 +1247,7 @@ public class WorkflowListPageTA extends TestBase {
 			Assert.assertTrue(!flag);
 		}
 	}
-	public void validateEditWFtoSequential(String wfName) throws Exception{
+	public void validateEditWFtoSequential(String wfName,String PageSize) throws Exception{
 		CataloguePageTA cataloguepageta=new CataloguePageTA();
 		loginpageta.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
 		Reporter.log("User logged in successfully",true);
@@ -1189,13 +1256,14 @@ public class WorkflowListPageTA extends TestBase {
 		JavascriptExecutor js= (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", workflowsTab);
 		Reporter.log("Workflows Tab is clicked",true);
+		wb.changePageSize(PageSize);
 		Thread.sleep(2000);
 		WebElement editBtn= driver.findElement(By.xpath("//table/tr/td[@title='"+wfName+"']/../td[7]/span[@title='Edit Workflow']"));
 		editBtn.click();
 		Reporter.log("Edit button is clicked",true);
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 		if (!sequentialCheckbox.isSelected()) {
-			sequentialCheckbox.click();
+			js.executeScript("arguments[0].click();", sequentialCheckbox);
 			System.out.println("Sequential CheckBox is selected");
 		} else {
 			System.out.println("Sequential CheckBox is already selected");
