@@ -74,50 +74,38 @@ public class RequestsPageTestTA extends TestBase{
 		extentTest.log(extentTest.getStatus(), "Requests Page loading validated successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}
-	/*@Test(priority=183)
-	public void validateAdvanceSearchRequestPageTest(Method method) throws Exception {
-		extentTest = extent.createTest("validateAdvanceSearchRequestPageTest", "TC_Additional:Verify Advance Search");
-		//Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
-		requestspageta = new RequestsPageTA(); 
-		requestspageta.validateAdvanceSearchRequestPage("Id","eq","27");
-		extentTest.log(extentTest.getStatus(), "Advanced search is verified successfully");
-		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
-	}*/
-	/*@Test(priority=713)
+	@Test(priority=1036)
 	public void validateRequestFailureReasonTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateRequestFailureReasonWATest", "TC_67: Verify failure reason");
-		//Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("WAsheetname"),method.getName());
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
 		requestspageta = new RequestsPageTA(); 
-		//requestspageta.validateRequestFailureReason(TestDataInMap.get("wfName"),TestDataInMap.get("wfDes"),TestDataInMap.get("wfCategory"),
-				//prop.getProperty("WFforRequestFail"),TestDataInMap.get("priority"),TestDataInMap.get("expTime"),TestDataInMap.get("maxTime"),
-				//TestDataInMap.get("cleanUpHrs"),TestDataInMap.get("manExeTime"),TestDataInMap.get("tUnit"),TestDataInMap.get("ParamValue"));
-		//extentTest.log(extentTest.getStatus(), "Request status is verified successfully");  
-		requestspageta.validateRequestFailureReason("FailWF","WF for Failure Reason","Default",prop.getProperty("WFforRequestFail"),"High","15","20","3","15","Minutes","Hello");
-		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("WAsheetname"), "Pass", method.getName());	
+		requestspageta.validateRequestFailureReason(TestDataInMap.get("wfName"),TestDataInMap.get("wfDes"),TestDataInMap.get("wfCategory"),
+				prop.getProperty("WFforRequestFail"),TestDataInMap.get("priority"),TestDataInMap.get("expTime"),TestDataInMap.get("maxTime"),
+				TestDataInMap.get("cleanUpHrs"),TestDataInMap.get("manExeTime"),TestDataInMap.get("tUnit"),TestDataInMap.get("ParamValue"));
+		extentTest.log(extentTest.getStatus(), "Request status is verified successfully");  
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());	
 	}
-	/*@Test(priority=714)
+	@Test(priority=1037)
 	public void validateRestartRequestTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateRestartRequestWATest", "TC_70:Verify Manual Restart of workflow");
-		//Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("WAsheetname"),method.getName());
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
 		requestspageta = new RequestsPageTA(); 
 		requestspageta.validateRestartRequest();
 		extentTest.log(extentTest.getStatus(), "Request has been restarted successfully");
-		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("WAsheetname"), "Pass", method.getName());
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}
-	@Test(priority=715)
+	@Test(priority=1038)
 	public void validateTerminateRequestTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateTerminateRequestWATest", "TC_71: Verify Terminate workflow");
-		//Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("WAsheetname"),method.getName());
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
 		requestspageta = new RequestsPageTA(); 
-		//requestspageta.validateTerminateRequest(TestDataInMap.get("wfName"),TestDataInMap.get("wfDes"),TestDataInMap.get("wfCategory"),
-				//prop.getProperty("WFforRequestTerminate"),TestDataInMap.get("priority"),TestDataInMap.get("expTime"),TestDataInMap.get("maxTime"),
-				//TestDataInMap.get("cleanUpHrs"),TestDataInMap.get("manExeTime"),TestDataInMap.get("tUnit"),TestDataInMap.get("ParamValue"),
-				//TestDataInMap.get("ParamValue2"),TestDataInMap.get("ParamValue3"),TestDataInMap.get("ParamValue4"));
-		requestspageta.validateTerminateRequest("RequestTerminateWF","WF for Terminate Reason","Default",prop.getProperty("WFforRequestTerminate"),"High","15","20","3","15","Minutes",
-				"123","123","123","123");
+		requestspageta.validateTerminateRequest(TestDataInMap.get("wfName"),TestDataInMap.get("wfDes"),TestDataInMap.get("wfCategory"),
+				prop.getProperty("WFforRequestTerminate"),TestDataInMap.get("priority"),TestDataInMap.get("expTime"),TestDataInMap.get("maxTime"),
+				TestDataInMap.get("cleanUpHrs"),TestDataInMap.get("manExeTime"),TestDataInMap.get("tUnit"),TestDataInMap.get("ParamValue"),
+				TestDataInMap.get("ParamValue2"),TestDataInMap.get("ParamValue3"),TestDataInMap.get("ParamValue4"));
 		extentTest.log(extentTest.getStatus(), "Workflow request is terminated successfully");  
-		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("WAsheetname"), "Pass", method.getName());	
-	}*/
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());	
+	}
 	//For ID
 	@Test(priority = 3232)
 	public void validateAdvSearchForIDEqualToRequestPageTATest(Method method) throws Exception {
