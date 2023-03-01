@@ -74,11 +74,12 @@ public class IntegrationServicesPage extends TestBase {
 		loginpage.login(prop.getProperty("username"), prop.getProperty("password"));
 		Reporter.log("User log in Successfully",true);
 		// click IntegrationTab Tab
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		//wait.until(ExpectedConditions.visibilityOf(integrationTab));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", integrationTab);
 		// click on services Tab
+		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", servicesTab);
 		//wait.until(ExpectedConditions.visibilityOf(addBtn));
 		Thread.sleep(2000);
@@ -182,6 +183,7 @@ public class IntegrationServicesPage extends TestBase {
 		Thread.sleep(3000);
 		informationpage.validateSignOut();
 	}//Since last few days I was exploring sso now i continue automating tc for sysadmin.
+	
 	public void validateEnableIntForMultipleTA(String TenantOrg1,String TenantOrg2,String allowedNoOfConfig1,
 			String allowedNoOfConfig2) throws Exception{
 		loginpage.login(prop.getProperty("username"), prop.getProperty("password"));
@@ -307,6 +309,8 @@ public class IntegrationServicesPage extends TestBase {
 		Thread.sleep(5000);
 		String actual_Status = ISstatus.getText();
 		String expected_Status = status;
+		Reporter.log("Actual Status of Integration service: "+actual_Status+ " and Expected Status of Integration service: "
+				+ "table: "+expected_Status,true);
 		Assert.assertEquals(actual_Status, expected_Status,"Status is not been displayed");
 		Thread.sleep(2000);
 		informationpage.validateSignOut();
