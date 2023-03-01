@@ -7,6 +7,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -92,7 +93,9 @@ public class IntegrationTypesPageTA extends TestBase {
 		editBtn.click();
 		Thread.sleep(3000);
 		Reporter.log("Edit button is clicked",true);
-		description.clear();
+		for(int i=0;i<=50;i++) {
+			description.sendKeys(Keys.BACK_SPACE);
+		}
 		Thread.sleep(3000);
 		description.sendKeys(typeDescpUpdated);
 		Thread.sleep(3000);
