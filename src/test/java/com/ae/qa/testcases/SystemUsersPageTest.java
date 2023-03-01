@@ -64,7 +64,7 @@ public class SystemUsersPageTest extends TestBase {
 		extentTest.log(extentTest.getStatus(), "Tenant License Admin created successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
-	@Test(priority = 462)
+	/*@Test(priority = 462)
 	public void uploadLicenseForTenantLicenseAdminTest(Method method) throws Exception {
 		extentTest = extent.createTest("uploadLicenseForTenantLicenseAdminTest", "TC_Additional: Verify Upload license with sysadmin with role Tenant licnese admin");
 		//Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
@@ -72,7 +72,7 @@ public class SystemUsersPageTest extends TestBase {
 		systemuserspage.uploadLicenseForTenantLicenseAdmin("SYSADMIN","TenantLicense","Admin","TenantLicenseAdmin@gmail.com","TLA01","Pune@123","Pune@123","Tenant License Admin","Pune@1234");		
 		extentTest.log(extentTest.getStatus(), "System User created successfully");
 		//ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
-	}
+	}*/
 	@Test(priority = 704)
 	public void validateEditTenantLicenseAdminTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateEditTenantLicenseAdminTest", "TC_Additional: Verify Edit tenant license admin user");
@@ -91,15 +91,16 @@ public class SystemUsersPageTest extends TestBase {
 		extentTest.log(extentTest.getStatus(), "System Users page loading validated successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
-	/*@Test(priority=800)
+	@Test(priority=1018)
 	public void validateDeleteSystemAdminTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateDeleteSystemAdminTest", "TC_13:Verify Delete Sysadmin");
-		//Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
 		systemuserspage = new SystemUsersPage();
-		systemuserspage.validateDeleteSystemAdmin("SYSADMIN","Sysadmin","3","sys@abc.com","Sysadmin3","Pune@123","Pune@123","System Admin");
+		systemuserspage.validateDeleteSystemAdmin(TestDataInMap.get("TenantName"),TestDataInMap.get("FirstName"), TestDataInMap.get("LastName"),TestDataInMap.get("EmailId"),
+				TestDataInMap.get("UserName"),TestDataInMap.get("Password"),TestDataInMap.get("CnfPassword"),TestDataInMap.get("Role"));
 		extentTest.log(extentTest.getStatus(), "Sysadmin is deleted successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
-	}*/
+	}
 	
     //For Username
 	@Test(priority = 3016)
