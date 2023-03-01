@@ -128,7 +128,8 @@ public class IntegrationTypesPage extends TestBase {
 		Thread.sleep(2000);
 		String actual_success_msg = alertMessage.getText();
 		String expected_success_msg = "Integration type ["+typeName+"] deleted successfully";
-		System.out.println("actual success msg is: " + actual_success_msg);
+		Reporter.log("Actual success msg is: " + actual_success_msg,true);
+		Reporter.log("Expected success msg is: " + expected_success_msg,true);
 		Assert.assertEquals(actual_success_msg, expected_success_msg, "Integration type is not deleted successfully");
 		Reporter.log("Integration type is deleted successfully",true);
 		informationpage.validateSignOut();
