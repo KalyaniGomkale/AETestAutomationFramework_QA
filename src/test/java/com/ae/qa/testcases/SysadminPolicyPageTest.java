@@ -61,13 +61,4 @@ public class SysadminPolicyPageTest extends TestBase {
 		extentTest.log(extentTest.getStatus(), "Sysadmin Policy page loading validated successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
-	/*@Test(priority=123,alwaysRun=true)	 
-	public void dragAndDrop(Method method) throws Exception {
-		extentTest =extent.createTest("dragAndDrop","TC_125: To check the calculation of unsucessful attempt post first unsucessful attempt");
-		//Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
-		sysadminpolicypage=new SysadminPolicyPage();
-		sysadminpolicypage.dragAndDrop("sysadmin","Pune@1234","Pune12345");
-		extentTest.log(extentTest.getStatus(), "No of Attempts for password is validated successfully"); 
-		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
-	} */
 }
