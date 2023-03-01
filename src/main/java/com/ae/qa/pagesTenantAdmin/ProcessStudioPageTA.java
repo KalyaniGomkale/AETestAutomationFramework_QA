@@ -25,6 +25,8 @@ public class ProcessStudioPageTA extends TestBase{
 	public LoginPageTA loginpageta = new LoginPageTA();
 	public InformationPageTA informationpageta=new InformationPageTA();
 
+	@FindBy(xpath = "//span[text()='Home']")
+	WebElement homeTab;
 	@FindBy(xpath = "//span[text()='Process Studio']")
 	WebElement processStudioTab;
 	@FindBy(xpath="//button[@title='for Windows']")
@@ -43,9 +45,9 @@ public class ProcessStudioPageTA extends TestBase{
 	WebElement updateBtn;
 	@FindBy(xpath ="//div/p[@class='alert-message-text']")
 	WebElement alertMessage;
-	@FindBy(name ="dropdown-selector")
+	@FindBy(xpath ="//button[@name='dropdown-selector']")
 	WebElement dropdownSelectorBtn;
-	@FindBy(xpath ="//div/ul/li/a/span[text()='for Linux']")
+	@FindBy(xpath ="//ul[@class='dropdown-menu show']")
 	WebElement psLinuxDownloadBtn;
 
 	public ProcessStudioPageTA() {
@@ -60,10 +62,10 @@ public class ProcessStudioPageTA extends TestBase{
 		JavascriptExecutor js= (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();",processStudioTab);
 		Reporter.log("Process Studio Tab is clicked",true);
-		Thread.sleep(2000);
-		//downloadBtn.click();
-		//Reporter.log("Process-studio download started",true);
-		//Thread.sleep(20000);
+		Thread.sleep(3000);
+		downloadBtn.click();
+		Reporter.log("Process-studio download started",true);
+		Thread.sleep(10000);
 		//download will continue, assign the license
 		updateBtn.click();
 		Thread.sleep(3000);
@@ -73,7 +75,11 @@ public class ProcessStudioPageTA extends TestBase{
 		Thread.sleep(5000);
 		searchBar.sendKeys(prop.getProperty("username_TA1"));
 		Thread.sleep(3000);
-		assignTocheckbox.click();
+		if(!assignTocheckbox.isSelected())
+		{
+			assignTocheckbox.click();
+			Reporter.log("Assign to checkbox is checked successfully",true);
+		}
 		Thread.sleep(3000);
 		saveBtn.click();
 		Reporter.log("Save button is clicked",true);
@@ -129,7 +135,11 @@ public class ProcessStudioPageTA extends TestBase{
 		Thread.sleep(3000);
 		searchBar.sendKeys(prop.getProperty("username_TA1"));
 		Thread.sleep(3000);
-		assignTocheckbox.click();
+		if(assignTocheckbox.isSelected())
+		{
+			assignTocheckbox.click();
+			Reporter.log("Assign to checkbox is unchecked successfully",true);
+		}
 		Thread.sleep(3000);
 		saveBtn.click();
 		Reporter.log("Save button is clicked",true);
@@ -150,11 +160,17 @@ public class ProcessStudioPageTA extends TestBase{
 		informationpageta.validateSignOut();
 	}
 	public void validateAssignPSToUserAsPerLicense() throws Exception{
-		loginpageta.login(prop.getProperty("username_TA3"), prop.getProperty("password_TA3"));
+		loginpageta.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
 		Reporter.log("User logged in successfully",true);
 		//wait.until(ExpectedConditions.visibilityOf(processStudioTab));
 		Thread.sleep(5000);
 		JavascriptExecutor js= (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].click();",homeTab);
+		Thread.sleep(2000);
+		String psCount = driver.findElement(By.xpath("//div/span[contains(text(),'Process Studios')]/../h4")).getText();
+		String actual_Count = psCount.split("/")[1];
+		System.out.println("Number of user for License Issue:-"+actual_Count);
+		int Actual_psCount = Integer.parseInt(actual_Count);
 		js.executeScript("arguments[0].click();",processStudioTab);
 		Reporter.log("Process Studio Tab is clicked",true);
 		Thread.sleep(2000);
@@ -164,9 +180,11 @@ public class ProcessStudioPageTA extends TestBase{
 		List <WebElement> PSCheckboxes= driver.findElements(By.xpath("//input[@type='checkbox']"));
 		int size = PSCheckboxes.size();
 		System.out.println("Number of user present to assign PS:- "+size);
-		for(int i = 0; i<size; i++) {
-			PSCheckboxes.get(i).click();
-		}
+			for(int i = 0; i<Actual_psCount; i++) 
+			{
+				PSCheckboxes.get(i).click();
+				
+			}
 		Thread.sleep(3000);
 		String actual_Message=alertMessage.getText();
 		System.out.println("Actual Message PS_Limit:- "+actual_Message);
@@ -180,16 +198,17 @@ public class ProcessStudioPageTA extends TestBase{
 		loginpageta.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
 		Reporter.log("User logged in successfully",true);
 		//wait.until(ExpectedConditions.visibilityOf(processStudioTab));
-		Thread.sleep(5000);
+		Thread.sleep(3000);
 		JavascriptExecutor js= (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();",processStudioTab);
 		Reporter.log("Process Studio Tab is clicked",true);
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 		dropdownSelectorBtn.click();
+		Thread.sleep(2000);
 		psLinuxDownloadBtn.click();
 		Reporter.log("PS download button for Linux is clicked successfully",true);
 		Thread.sleep(10000);
 		Reporter.log("PS for Linux is downloaded successfully",true);
 		informationpageta.validateSignOut();
-		}
+	}
 }
