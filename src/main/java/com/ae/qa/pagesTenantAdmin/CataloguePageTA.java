@@ -24,7 +24,7 @@ public class CataloguePageTA extends TestBase{
 	public LoginPageTA loginpageta = new LoginPageTA();
 	public InformationPageTA informationpageta=new InformationPageTA();
 	public WorkflowAssignmentPageTA wfassignment = new WorkflowAssignmentPageTA();
-	
+
 	@FindBy(xpath = "//span[text()='Catalogue']")
 	WebElement catalogueTab;
 	@FindBy(xpath="//button[@name='submit']")
@@ -98,73 +98,11 @@ public class CataloguePageTA extends TestBase{
 		//requestspageta.validateRequestStatus();
 		informationpageta.validateSignOut();
 	}
-	public void validateSubmitRequestCustomCategory(String wfName, String wfdes, String category, String WFImportPath,String priority,
+	
+	public void validateSubmitRequestDefaultCategory(String wfName, String wfdes, String category, String WFImportPath,String priority,
 			String expTime, String maxTime, String cleanUpHrs, String manExeTime, String tUnit) throws Exception{
-		//workflowlistpageta.ImportForm(wfName,wfdes,category, WFImportPath,priority,expTime,maxTime, cleanUpHrs,manExeTime,tUnit);
-		loginpageta.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
-		Reporter.log("User logged in successfully",true);
-		//wait.until(ExpectedConditions.visibilityOf(workflowsTab));
-		Thread.sleep(5000);
-		JavascriptExecutor js= (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].click();", workflowsTab);
-		Reporter.log("Workflows Tab is clicked",true);
-		Thread.sleep(2000);
-		importTab.click();
-		Reporter.log("Import button clicked",true);
-		workflowName.sendKeys(wfName);
-		Thread.sleep(3000);
-		wfDescription.sendKeys(wfdes);
-		Thread.sleep(3000);
-		Select wfCategory_drpdown = new Select(wfCategory);
-		wfCategory_drpdown.selectByVisibleText(category);
-		Thread.sleep(3000);
-		if (assistedCheckbox.isSelected()) {
-			Reporter.log("assisted Workflow is selected",true);
-			assistedCheckbox.click();
-			Reporter.log("assisted Workflow is unselected",true);
-		} else {
-			Reporter.log("Is Assisted Workflow checkbox is unselected");
-		}
-		Thread.sleep(3000);
-		if (enableRDPCheckbox.isSelected()) {
-			Reporter.log("Enable RDP checkbox is selected",true);
-			enableRDPCheckbox.click();
-			Reporter.log("Enable RDP checkbox is unselected",true);
-		} else {
-			System.out.println("Enable RDP checkbox is unselected");
-		}
-		Thread.sleep(3000);
-		//ChooseWFToImport.sendKeys(prop.getProperty("WFToImportPath"));
-		ChooseWFToImport.sendKeys(WFImportPath);
-		JavascriptExecutor js3 = (JavascriptExecutor) driver;
-		js3.executeScript("arguments[0].click();", createBtn);
-		Reporter.log("Create Button is clicked",true);
-		//Thread.sleep(3000);
-		wait.until(ExpectedConditions.visibilityOf(wfPriority));
-		Select wfPriority_drpdown = new Select(wfPriority);
-		wfPriority_drpdown.selectByVisibleText(priority);
-		Reporter.log("Priority is set",true);
-		Thread.sleep(2000);
-		expected_completionTime.clear();
-		expected_completionTime.sendKeys(expTime);
-		Reporter.log("Expected Completion Time in Seconds is set",true);
-		Thread.sleep(2000);
-		max_CompletionTime.clear();
-		max_CompletionTime.sendKeys(maxTime);
-		Reporter.log("Maximum Completion Time in Seconds is set",true);
-		Thread.sleep(2000);
-		cleanupOldReqHours.clear();
-		cleanupOldReqHours.sendKeys(cleanUpHrs);
-		Reporter.log("Cleanup Requests older than Hours fields is set",true);
-		Thread.sleep(2000);
-		manualExecutionTime.clear();
-		manualExecutionTime.sendKeys(manExeTime);
-		Reporter.log("Manual Execution Time is set",true);
-		wait.until(ExpectedConditions.visibilityOf(manualTimeUnit));
-		Select manualTimeUnit_drpdown = new Select(manualTimeUnit);
-		manualTimeUnit_drpdown.selectByVisibleText(tUnit);
-		Reporter.log("Manual Execution time unit is set",true);
-		Thread.sleep(3000);
+		WorkflowListPageTA workflowlistpage = new WorkflowListPageTA();
+		workflowlistpage.ImportForm(wfName, wfdes, category, WFImportPath, priority, expTime, maxTime, cleanUpHrs, manExeTime, tUnit);
 		saveBtn.click();
 		Reporter.log("Save button is clicked",true);
 		//wait.until(ExpectedConditions.visibilityOf(success_msg));
@@ -180,17 +118,18 @@ public class CataloguePageTA extends TestBase{
 		Reporter.log("Workflow is enabled successfully",true);
 		Thread.sleep(3000);
 		informationpageta.validateSignOut();
-		Thread.sleep(2000);
 		wfassignment.validateSingleWorkflowAssignment(wfName);
 		loginpageta.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
 		Reporter.log("User logged in successfully",true);
 		//wait.until(ExpectedConditions.visibilityOf(catalogueTab));
 		Thread.sleep(5000);
+		JavascriptExecutor js= (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();",catalogueTab);
 		Reporter.log("Catalogue Tab is clicked",true);
 		Thread.sleep(2000);
 		Select category_Dropdown=new Select(categoryDropdown);
 		category_Dropdown.selectByVisibleText(category);
+		Reporter.log("Category:-"+category);
 		Thread.sleep(2000);
 		WebElement wfNameToSendRequest=driver.findElement(By.xpath("//h6[text()='"+wfName+"']"));
 		wfNameToSendRequest.click();
@@ -204,7 +143,8 @@ public class CataloguePageTA extends TestBase{
 		Thread.sleep(2000);
 		informationpageta.validateSignOut();
 	}
-	public void validateSubmitRequestDefaultCategory(String category, String wfName) throws Exception{
+	
+	public void validateSubmitRequestCustomCategory(String category, String wfName) throws Exception{
 		loginpageta.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
 		Reporter.log("User logged in successfully",true);
 		//wait.until(ExpectedConditions.visibilityOf(catalogueTab));
@@ -215,6 +155,7 @@ public class CataloguePageTA extends TestBase{
 		Thread.sleep(2000);
 		Select category_Dropdown=new Select(categoryDropdown);
 		category_Dropdown.selectByVisibleText(category);
+		Reporter.log("Category:-"+category);
 		Thread.sleep(2000);
 		WebElement wfNameToSendRequest=driver.findElement(By.xpath("//h6[text()='"+wfName+"']"));
 		wfNameToSendRequest.click();
@@ -238,11 +179,11 @@ public class CataloguePageTA extends TestBase{
 		js.executeScript("arguments[0].click();", catalogueTab);
 		Thread.sleep(5000);
 		//driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-				//Now validate page title is same as expected
+		//Now validate page title is same as expected
 		String actual_title=pageTitle.getText();
 		String expected_title=PageTitle;
 		Reporter.log("Actual page title displayed on screen is: "+actual_title+ " and Expected "
-						+ "page title is: "+expected_title,true);
+				+ "page title is: "+expected_title,true);
 		Assert.assertEquals(actual_title, expected_title,"Appropriate page didn't loaded properly");
 		Reporter.log("Respective Page is clicked and appropriate page is loaded properly",true);
 		informationpageta.validateSignOut();
