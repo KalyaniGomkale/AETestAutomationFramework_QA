@@ -270,8 +270,9 @@ public class TenantsPage extends TestBase {
 		loginpage.login(prop.getProperty("username"), prop.getProperty("password"));
 		Reporter.log("User log in Successfully",true);
 		// click Tenants Tab
-		wait.until(ExpectedConditions.visibilityOf(tenantsTab));
+		//wait.until(ExpectedConditions.visibilityOf(tenantsTab));
 		JavascriptExecutor js_tenant = (JavascriptExecutor) driver;
+		Thread.sleep(2000);
 		js_tenant.executeScript("arguments[0].click();", tenantsTab);
 		Reporter.log("Tenant tab is clicked successfully",true);
 		Thread.sleep(3000);
@@ -291,8 +292,9 @@ public class TenantsPage extends TestBase {
 	public void validateSubmitRequestDisabledTenant(String wfName,String tOrgCode) throws Exception {
 		loginpage.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
 		Reporter.log("User logged in successfully",true);
-		wait.until(ExpectedConditions.visibilityOf(catalogueTab));
+		//wait.until(ExpectedConditions.visibilityOf(catalogueTab));
 		JavascriptExecutor js= (JavascriptExecutor) driver;
+		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();",catalogueTab);
 		Reporter.log("Catalogue Tab is clicked",true);
 		Thread.sleep(2000);
@@ -319,8 +321,9 @@ public class TenantsPage extends TestBase {
 		loginpage.login(prop.getProperty("username"), prop.getProperty("password"));
 		Reporter.log("User log in Successfully",true);
 		// click Tenants Tab
-		wait.until(ExpectedConditions.visibilityOf(tenantsTab));
+		//wait.until(ExpectedConditions.visibilityOf(tenantsTab));
 		JavascriptExecutor js_tenant = (JavascriptExecutor) driver;
+		Thread.sleep(2000);
 		js_tenant.executeScript("arguments[0].click();", tenantsTab);
 		Reporter.log("Tenant tab is clicked successfully",true);
 		Thread.sleep(3000);
