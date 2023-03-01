@@ -38,17 +38,17 @@ public class PluginsPageTest extends TestBase {
 		extentTest.log(extentTest.getStatus(), "Single Plugins uploaded successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
-	/*@Test(priority = 464)
-	public void validateUploadSamePluginsTest(Method method) throws Exception {
-		extentTest = extent.createTest("validateUploadSamePluginsTest", "TC_035:Verify not able to update single plugin  with same version without snapshot");
-		//Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
+	@Test(priority = 1000)
+	public void validateUploadSameSinglePluginTest(Method method) throws Exception {
+		extentTest = extent.createTest("validateUploadSameSinglePluginTest", "TC_035:Verify not able to update single plugin  with same version without snapshot");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
 		pluginspage = new PluginsPage();
-		pluginspage.validateUploadSamePlugins("C:\\Users\\DELL\\Downloads\\AE_Automation_UploadFiles\\vbscript-3.0-complete.jar","VB-Script");
+		pluginspage.validateUploadSameSinglePlugin(prop.getProperty("uploadSinglePluginFile"),TestDataInMap.get("PluginName"));
 		extentTest.log(extentTest.getStatus(), "single plugin  with same version without snapshot cannot be uploaded is verified successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
 	//Give last priority to the test cases because can hamper other test cases beacause ootb plugin is used
-	@Test(priority = 465)
+/*	@Test(priority = 465)
 	public void validateDeletePluginNoActiveWFTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateDeletePluginNoActiveWFTest", "TC_039:To verify able to Delete plugin for which no active workflow");
 		//Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
@@ -93,7 +93,7 @@ public class PluginsPageTest extends TestBase {
 		extentTest.log(extentTest.getStatus(),"Step Unit is verified successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}*/
-	/*@Test(priority=468)
+	@Test(priority=1001)
 	public void validateUploadSinglePluginSameVersionTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateUploadSinglePluginSameVersionTest", "TC_35:Verify not able to update  single plugin  with same version (withot snapshot )");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
@@ -102,7 +102,7 @@ public class PluginsPageTest extends TestBase {
 		extentTest.log(extentTest.getStatus(),"Single plugin jar with same version is not uploaded successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
-	@Test(priority=469)
+	@Test(priority=1003)
 	public void validateSinglePluginUploadHigherVersionTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateSinglePluginUploadHigherVersionTest", "TC_36:To verify single plugin uplaod with higher version");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
@@ -111,7 +111,7 @@ public class PluginsPageTest extends TestBase {
 		extentTest.log(extentTest.getStatus(),"Single plugin jar of higher version is uploaded successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
-	@Test(priority=470)
+	@Test(priority=1002)
 	public void validateSinglePluginUploadLowerVersionTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateSinglePluginUploadLowerVersionTest", "TC_37:To verify single plugin uplaod with lower version");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
