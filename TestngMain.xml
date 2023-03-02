@@ -16,6 +16,11 @@
 					<include name="validateCreateAllotmentBasedTenantTest" />
 					<include name="validateAllocateConsumptionBasedTest" />
 					<include name="validateAmendLicenseTest" />
+					<include name="validateDisableTenantTest" />
+					<include name="validateSubmitRequestDisabledTenantTest" />
+					<include name="validateSubmitRequestEnableTenantTest" />
+					<include name="validateDisableAllomentBasedTenantTest" />
+					<include name="validateEnableAllomentBasedTenantTest" />
 				</methods>
 			</class>
 			<class name="com.ae.qa.testcases.SystemUsersPageTest">
@@ -27,6 +32,7 @@
 					<include name="validateSystemUsersPageTest" />
 					<include name="validateCreatingTenantLicenseAdminTest" />
 					<include name="validateEditTenantLicenseAdminTest" />
+					<include name="validateDeleteSystemAdminTest" />
 				</methods>
 			</class>
 			<class name="com.ae.qa.testcases.TenantUsersPageTest">
@@ -148,6 +154,14 @@
 					<include name="ValidateCreatingTenantUserTest" />
 					<include name="ValidateBulkUserUploadWithEmailTest" />
 					<include name="ValidateBulkUserUploadWithoutEmailTest" />
+					<include name="ValidateUnlockUserAccessApplicationTest" />
+					<include name="ValidateEnableUser" />
+					<include name="ValidateDisabledUserTuserTest" />
+					<include name="validateDisabledDeleteTuserTest" />
+					<include name="validateEditTenantUserTest" />
+					<include name="validateCreateActivityMonitorSpaceInUsernameTest" />
+					<include name="validateCreateAgentAdminApostropheLastnameTest" />
+					<include name="validateCreateUserAdminEmailidUsernameTest" />
 				</methods>
 			</class>
 			<class
@@ -169,6 +183,8 @@
 					<include name="ValidateEditManualExecutionTest" />
 					<include name="ValidateExportWorkflowTest" />
 				<!--<include name="ValidateExportMultipleWorkflowTest" />-->
+				    <include name="validateImportWFAssistedAgent" />
+				    <include name="validateEditWFtoSequentialTest" />
 				</methods>
 			</class>
 			<class
@@ -196,6 +212,7 @@
 				<methods>
 					<include name="validateDownloadAgentTest" />
 					<include name="validateCheckStatusOfAgent" />
+					<include name="validateAgentRestartTest" />
 					<include name="validateDeleteAgentTest" />
 					<include name="validateDownloadAssistedAgentTest" />
 					<include name="validatecheckStatusOfAssistedAgent" />
@@ -208,18 +225,21 @@
 				name="com.ae.qa.testcasesTenantAdmin.WorkflowAssignmentPageTestTA">
 				<methods>
 					<include name="validateSingleWorkflowAssignmentTest" />
-					<!--  <include name="validateMultipleWorkflowAssignmentTest" /> -->
+					<include name="validateMultipleWorkflowAssignmentTest" />
 				</methods>
 			</class>
 			<class
 				name="com.ae.qa.testcasesTenantAdmin.CataloguePageTestTA">
 				<methods>
 					<include name="validateSubmitRequestTest" />
+					<include name="validateSubmitRequestDefaultCategoryTest" />
+					<include name="validateSubmitRequestCustomCategoryTest" />
 				</methods>
 			</class>
 			<class name="com.ae.qa.testcasesTenantAdmin.RequestsPageTestTA">
 				<methods>
 					<include name="validateRequestStatusTest" />
+					<include name="validateRequestsPageTATest" />
 				</methods>
 			</class>
 			<class
@@ -244,10 +264,14 @@
 					<include name="validateDailyScheduleTest" />
 					<include name="validateEditDailyScheduleTest" />
 					<include name="validateWeeklyScheduleTest" />
+					<include name="validateEditWeeklyScheduleTest" />
 					<include name="validateMonthlyScheduleTest" />
+					<include name="validateEditMonthlyScheduleTest" />
 					<include name="validateInfineScheduleTest" />
+					<include name="validateEditInfineScheduleTest" />
 					<include name="validateDeleteScheduleTest" />
 					<include name="validateTransferScheduleTest" />
+					<include name="validateSchedulerPageTATest" />
 				</methods>
 			</class>
 			<class
@@ -264,6 +288,9 @@
 					<include name="validatedeselectAllInRequests" />
 					<include name="validateSpecificColumnInRequests" />
 					<include name="validateDownloadRequestTest" />
+					<include name="validateRequestFailureReasonTest" />
+					<include name="validateRestartRequestTest" />
+					<include name="validateTerminateRequestTest" />
 				</methods>
 			</class>
 			<class
@@ -271,6 +298,8 @@
 				<methods>
 					<include name="validateAgentLogsTest" />
 					<include name="validateWorkflowLogsTest" />
+					<include name="validateAssistedAgentLogsTest" />
+					<include name="validateAgentLogsPageTATest" />
 				</methods>
 			</class>
 			<class
@@ -371,6 +400,10 @@
 			<class name="com.ae.qa.testcases.PluginsPageTest">
 				<methods>
 					<include name="validateUploadSinglePluginsTest" />
+					<include name="validateUploadSameSinglePluginTest" />
+					<include name="validateUploadSinglePluginSameVersionTest" />
+					<include name="validateSinglePluginUploadLowerVersionTest" />
+					<include name=" validateSinglePluginUploadHigherVersionTest" />
 				</methods>
 			</class>
 			<class name="com.ae.qa.testcases.PluginAssignmentsPageTest">
@@ -378,13 +411,26 @@
 					<include name="validateAssignPluginSingleTenantTest" />
 					<include name="validateAssignTenantSinglePluginTest" />
 					<include name="validateAssignPluginAllTenantTest" />
+					<include name="validateWFInActiveAfterSysadminRemovesPluginPermissionTest" />
+					<include name="validateWFFailureAfterSysadminRemovesPluginPermissionTest" />
+					<include name="validateWFActiveSuccessAfterSysadminAssignPluginPermissionTest" />
 					<include name="validatePluginAssignmentsPageTest" />
 				</methods>
 			</class>
 			<class name="com.ae.qa.testcases.FileManagementPageTest">
 				<methods>
 					<include name="validateUploadDriverTest" />
+					<include name="validateEditUploadDriverTest" />
+					<include name="validateDeleteUploadDriverTest" />
 					<include name="validateFileManagmentPageTest" />
+				</methods>
+			</class>
+			<class name="com.ae.qa.testcasesTenantAdmin.FileManagementPageTestTA">
+				<methods>
+					<include name="validateUploadWFFileManagementTest" />
+					<include name="validateEditWFFileManagementTest" />
+					<include name="validateFileManagementPageTATest" />
+					<include name="validateDeleteUploadWFFileManagementTest" />
 				</methods>
 			</class>
 			<class name="com.ae.qa.testcases.WorkflowsPageTest">
@@ -412,6 +458,9 @@
 					<include name="validateEditIntegrationServicesTest" />
 					<include name="validateDownloadIntegrationServicesTest" />
 					<include name="validateEnableIntForMultipleTATest" />
+					<include name="validateEditConfJobLowerLimitTest" />
+					<include name="validateEditUpdateResponseJobLowerLimitTest" />
+					<include name="validateIntegrationServiceStatusTest" />
 					<include name="validateIntegrationServicesPageTest" />
 				</methods>
 			</class>
@@ -419,6 +468,7 @@
 				<methods>
 					<include name="validateAddIntegrationTypesTest" />
 					<include name="validateEditIntegrationTypesTest" />
+					<include name="validateDeleteIntegrationTypeTest" />
 					<include name="validateIntegrationTypePageTest" />
 				</methods>
 			</class>
@@ -435,17 +485,27 @@
 				</methods>
 			</class>
 			<class
-				name="com.ae.qa.testcasesTenantAdmin.IntegrationServicePageTestTA">
+				name="com.ae.qa.testcasesTenantAdmin.UserGroupsPageTestTA">
 				<methods>
-					<include name="validateAddIntegrationServicesTATest" />
-					<include name="validateEditIntegrationServicesTATest" />
-					<include name="validateDownloadIntegrationServicesTATest" />
+					<include name="validateDeleteUserGroup" />
+				</methods>
+			</class>
+			<class
+				name="com.ae.qa.testcasesTenantAdmin.ProcessStudioPageTestTA">
+				<methods>
+					<include name="validateDownloadandAssignPSTest" />
+					<include name="validateUnAssignPSTest" />
+					<include name="validateProcessStudioPageTATest" />
+					<include name="validateProcessStudioDownloadLinuxTest" />
 				</methods>
 			</class>
 			<class
 				name="com.ae.qa.testcasesTenantAdmin.IntegrationTypesPageTestTA">
 				<methods>
 					<include name="validateAddIntegrationTypesTATest" />
+					<include name="validateEditIntegrationTypesTATest" />
+					<include name="validateIntegrationTypesPageTATest" />
+					<include name="validateDeleteIntegrationTypeTATest" />
 				</methods>
 			</class>
 			<class
@@ -460,7 +520,7 @@
 					<include name="ValidateConfigureOKTAwidOpenIDTest" />
 				</methods>
 			</class>
-			<class name="com.ae.qa.testcases.HolidayCalenderPageTestTA">
+			<class name="com.ae.qa.testcasesTenantAdmin.HolidayCalenderPageTestTA">
 				<methods>
 					<include name="validateCreateHolidayCalenderTest" />
 					<include name="validateCreateHolidayCalenderUpcomingYearTest" />
@@ -505,6 +565,60 @@
 				<methods>
 					<include name="ValidateDeletePSTest" />
 				</methods>
+			</class>
+			<class name="com.ae.qa.testcases.TenantsPageTest">
+				<methods>
+					<include name="validateAdvSearchForOrgCodeEqualToTenantPageTest" />
+					</methods>
+			</class>
+			<class name="com.ae.qa.testcases.TenantUsersPageTest">
+				<methods>
+					<include name="validateAdvSearchForUserNameIsLikeTenantusersPageTest" />
+					</methods>
+			</class>
+			<class name="com.ae.qa.testcases.PluginsPageTest">
+				<methods>
+					<include name="validateAdvSearchForPluginNameBeginsWithPluginPageTest" />
+					</methods>
+			</class>
+			<class name="com.ae.qa.testcases.AuditLogsPageTest">
+				<methods>
+					<include name="validateOperationDropdownEqualToAuditLogsPageTest" />
+					<include name="validateAdvSearchForUserNameEqualToAuditLogsPageTest" />
+					<include name="validateStatusDropdownEqualToAuditLogsPageTest" />
+					</methods>
+			</class>
+			<class name="com.ae.qa.testcasesTenantAdmin.TenantUsersPageTestTA">
+				<methods>
+					<include name="validateAdvSearchForUserNameEndsWithTenantuserPageTATest" />
+					</methods>
+			</class>
+			<class name="com.ae.qa.testcasesTenantAdmin.WorkflowListPageTestTA">
+				<methods>
+					<include name="validateAdvSearchForWFNameIsLikeWorkflowsPageTATest" />
+					</methods>
+			</class>
+			<class name="com.ae.qa.testcasesTenantAdmin.SchedulerPageTestTA">
+				<methods>
+					<include name="validateAdvSearchForScheduleNameEqualToSchedulerPageTATest" />
+					</methods>
+			</class>
+			<class name="com.ae.qa.testcasesTenantAdmin.RequestsPageTestTA">
+				<methods>
+					<include name="validateAdvSearchForIDEqualToRequestPageTATest" />
+					<include name="validateAdvSearchForWFNameEqualToRequestPageTATest" />
+					<include name="validateAdvSearchForStatusEqualToRequestPageTATest" />
+					</methods>
+			</class>
+			<class name="com.ae.qa.testcasesTenantAdmin.AuditLogsPageTestTA">
+				<methods>
+					<include name="validateAdvSearchForUserNameEqualToAuditLogsPageTATest" />
+					</methods>
+			</class>
+			<class name="com.ae.qa.testcasesTenantAdmin.PluginsPageTestTA">
+				<methods>
+					<include name="validateAdvSearchForPluginNameEqualToPluginsPageTATest" />
+					</methods>
 			</class>
 		</classes>
 	</test>
