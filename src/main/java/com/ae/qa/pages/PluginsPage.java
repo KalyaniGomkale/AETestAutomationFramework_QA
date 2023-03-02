@@ -92,6 +92,7 @@ public class PluginsPage extends TestBase {
 	WebElement searchField;
 	@FindBy(id = "assignedToAllTenantCheck")
 	WebElement assignToAllTenantCheck;
+	
 
 	public PluginsPage() {
 		PageFactory.initElements(driver, this);
@@ -128,7 +129,8 @@ public class PluginsPage extends TestBase {
 		Thread.sleep(1000);
 		saveBtn.click();
 		Reporter.log("Save button is selected",true);
-		Thread.sleep(10000);
+		Thread.sleep(80000);
+		js.executeScript("arguments[0].click();", backBtn);		
 		informationpage.validateSignOut();
 		//For uploading PS Plugins
 		loginpage.login(prop.getProperty("username"), prop.getProperty("password"));
