@@ -40,7 +40,7 @@ public class SmtpPageTestTA extends TestBase {
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}
 	//closure test case
-	@Test(priority = 553,dependsOnMethods="validateAddSmtpServerTATest")
+	@Test(priority = 2500,dependsOnMethods="validateAddSmtpServerTATest")
  	public void validateDeleteSmtpServerTATest(Method method) throws Exception {
 		extentTest = extent.createTest("validateDeleteSmtpServerTATest", "TC_488: Verify user is able to delete smtp details");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
