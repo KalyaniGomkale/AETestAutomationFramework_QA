@@ -75,7 +75,7 @@ public class PluginAssignmentsPage extends TestBase {
 	WebElement assignAllBox;
 	@FindBy(xpath = "//button[@name='submit']")
 	WebElement SaveBtn;
-	@FindBy(xpath="(//span[@class='fa fa-caret-right'])[1]")
+	@FindBy(xpath="//legend[@id='conf-toggle']/span[@class='fa fa-caret-right']")
 	WebElement configParamBar;
 	@FindBy(id = "no1")
 	WebElement configParam1;
