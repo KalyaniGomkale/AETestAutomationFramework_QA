@@ -83,7 +83,7 @@ public class RequestsPageTA extends TestBase {
 	WebElement confirmTerminateBtn;
 	@FindBy(id="num2")
 	WebElement configParamInput;
-	@FindBy(xpath="(//span[@class='fa fa-caret-right'])[2]")
+	@FindBy(xpath="//legend[@id='conf-toggle']/span[@class='fa fa-caret-right']")
 	WebElement configParamBar;
 
 	public RequestsPageTA() {
