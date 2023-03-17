@@ -20,17 +20,17 @@ public class SmtpPageTestTA extends TestBase {
 		super();
 	}
 
-	@Test(priority = 118)
+	@Test(priority = 118,alwaysRun=true)
 	public void validateAddSmtpServerTATest(Method method) throws Exception {
 		extentTest = extent.createTest("validateAddSmtpServerTATest", "TC_486: Verify user able to set smtp connection");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
 		smtppageta = new SmtpPageTA();
-		smtppageta.validateSetSmtpServerTA(TestDataInMap.get("Host"),TestDataInMap.get("Port"),TestDataInMap.get("SmtpUserName"),
+		smtppageta.validateSetSmtpServerTA(TestDataInMap.get("Operation"),TestDataInMap.get("Host"),TestDataInMap.get("Port"),TestDataInMap.get("SmtpUserName"),
 				TestDataInMap.get("SmtpPswd"),TestDataInMap.get("encryptType"),TestDataInMap.get("PersonalName"));
 		extentTest.log(extentTest.getStatus(), "SMTP connection done successfully");  
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}
-	@Test(priority = 119,dependsOnMethods="validateAddSmtpServerTATest")
+	@Test(priority = 119,dependsOnMethods="validateAddSmtpServerTATest",alwaysRun=true)
 	public void validateEditSmtpServerTATest(Method method) throws Exception {
 		extentTest = extent.createTest("validateEditSmtpServerTATest", "TC_487: Verify user able to edit smtp details");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
@@ -40,7 +40,7 @@ public class SmtpPageTestTA extends TestBase {
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}
 	//closure test case
-	@Test(priority = 2500,dependsOnMethods="validateAddSmtpServerTATest")
+	@Test(priority = 2500,dependsOnMethods="validateAddSmtpServerTATest",alwaysRun=true)
  	public void validateDeleteSmtpServerTATest(Method method) throws Exception {
 		extentTest = extent.createTest("validateDeleteSmtpServerTATest", "TC_488: Verify user is able to delete smtp details");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
@@ -49,7 +49,7 @@ public class SmtpPageTestTA extends TestBase {
 		extentTest.log(extentTest.getStatus(), "SMTP details delete successfully");  
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}
-	 @Test(priority=199)
+	 @Test(priority=199,alwaysRun=true)
 		public void validateSMTPPageTATest(Method method) throws Exception {
 			extentTest = extent.createTest("validateSMTPPageTATest", "TC_Additional:Verify Clicking SMTP tab and checking that appropiate page is loaded");
 			Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
