@@ -61,6 +61,10 @@ public class AuditLogsPage extends TestBase {
 		JavascriptExecutor js_tenant = (JavascriptExecutor) driver;
 		js_tenant.executeScript("arguments[0].click();", logsTab);
 		Reporter.log("Clicked on logs tab",true);
+		Thread.sleep(2000);
+		js_tenant.executeScript("arguments[0].click();", auditLogsTab);
+		Reporter.log("Clicked on audit logs tab",true);
+		Thread.sleep(2000);
 		downloadLogsBtn.click();
 		Thread.sleep(2000);
 		downloadBtn.click();
@@ -82,6 +86,9 @@ public class AuditLogsPage extends TestBase {
 		Thread.sleep(2000);
 		JavascriptExecutor js_tenant = (JavascriptExecutor) driver;
 		js_tenant.executeScript("arguments[0].click();", logsTab);
+		Thread.sleep(2000);
+		js_tenant.executeScript("arguments[0].click();", auditLogsTab);
+		Reporter.log("Clicked on audit logs tab",true);
 		Thread.sleep(2000);
 		showColumnDrpdown.click();
 		Thread.sleep(5000);
@@ -106,6 +113,9 @@ public class AuditLogsPage extends TestBase {
 		Thread.sleep(2000);
 		JavascriptExecutor js_tenant = (JavascriptExecutor) driver;
 		js_tenant.executeScript("arguments[0].click();", logsTab);
+		Thread.sleep(2000);
+		js_tenant.executeScript("arguments[0].click();", auditLogsTab);
+		Reporter.log("Clicked on audit logs tab",true);
 		Thread.sleep(2000);
 		showColumnDrpdown.click();
 		Thread.sleep(5000);
@@ -146,6 +156,9 @@ public class AuditLogsPage extends TestBase {
 		Thread.sleep(2000);
 		JavascriptExecutor js_tenant = (JavascriptExecutor) driver;
 		js_tenant.executeScript("arguments[0].click();", logsTab);
+		Thread.sleep(2000);
+		js_tenant.executeScript("arguments[0].click();", auditLogsTab);
+		Reporter.log("Clicked on audit logs tab",true);
 		Thread.sleep(2000);
 		showColumnDrpdown.click();
 		Thread.sleep(5000);
@@ -194,6 +207,9 @@ public class AuditLogsPage extends TestBase {
 		JavascriptExecutor js_tenant = (JavascriptExecutor) driver;
 		js_tenant.executeScript("arguments[0].click();", logsTab);
 		Thread.sleep(2000);
+		js_tenant.executeScript("arguments[0].click();", auditLogsTab);
+		Reporter.log("Clicked on audit logs tab",true);
+		Thread.sleep(2000);
 		ArrayList<String> actual_content = new ArrayList<String>();
 		ArrayList<String> expected_content=new ArrayList<String>();
 		expected_content.add("LOGOUT");
@@ -225,6 +241,9 @@ public class AuditLogsPage extends TestBase {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();",logsTab);
 		Thread.sleep(5000);
+		js.executeScript("arguments[0].click();", auditLogsTab);
+		Reporter.log("Clicked on audit logs tab",true);
+		Thread.sleep(2000);
 		//driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 				//Now validate page title is same as expected
 		String actual_title=pageTitle.getText();
