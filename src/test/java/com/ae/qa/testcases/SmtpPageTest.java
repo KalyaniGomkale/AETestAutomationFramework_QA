@@ -21,17 +21,17 @@ public class SmtpPageTest extends TestBase {
 		super();
 	}
 
-	@Test(priority = 20)
+	@Test(priority = 20,alwaysRun=true)
 	public void validateAddSmtpServerTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateAddSmtpServerTest", "TC_104: Verify configuration of smtp");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
 		smtppage = new SmtpPage();
 		System.out.println(TestDataInMap.get("Host")+TestDataInMap.get("Port")+TestDataInMap.get("uname")+TestDataInMap.get("pswd")+TestDataInMap.get("encryptType")+TestDataInMap.get("PersonalName"));
-		smtppage.validateAddSmtpServer(TestDataInMap.get("Host"),TestDataInMap.get("Port"),TestDataInMap.get("uname"),TestDataInMap.get("pswd"),TestDataInMap.get("encryptType"),TestDataInMap.get("PersonalName"));
+		smtppage.validateAddSmtpServer(TestDataInMap.get("Operation"),TestDataInMap.get("Host"),TestDataInMap.get("Port"),TestDataInMap.get("uname"),TestDataInMap.get("pswd"),TestDataInMap.get("encryptType"),TestDataInMap.get("PersonalName"));
 		extentTest.log(extentTest.getStatus(),"SMTP server configured successfully.");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
-	@Test(priority=166)
+	@Test(priority=166,alwaysRun=true)
 	public void validateSMTPPageTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateSMTPPageTest", "TC_Additional:Verify Clicking SMTP tab and checking that appropiate page is loaded");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
