@@ -23,7 +23,7 @@ public class SmtpPageTA extends TestBase {
 	public InformationPageTA informationpageta=new InformationPageTA();
 	@FindBy(xpath = "//span[(text()='Settings')]")
 	WebElement settingsTab;
-	@FindBy(xpath = "//li/a[contains(text(),'SMTP')]")
+	@FindBy(xpath = "//li/a[contains(text(),'Email Configuration')]")
 	WebElement smtpTab;
 	@FindBy(xpath = "//button[@name='add-new']")
 	WebElement addSmtpBtn;
@@ -59,23 +59,25 @@ public class SmtpPageTA extends TestBase {
 	WebElement protocolDropdown;
 	@FindBy(xpath="(//span[@class='mul-checkmark'])[4]")
 	WebElement protocol;
+	@FindBy(xpath="//label[text()='Configuration Type:']/../select")
+	WebElement configurationType;
 
 	 
 	public SmtpPageTA() {
 		PageFactory.initElements(driver, this);
 	}
 
-	public void validateSetSmtpServerTA(String hname, String portno, String uName, String pswd, String encrypType,
+	public void validateSetSmtpServerTA(String configType,String hname, String portno, String uName, String pswd, String encrypType,
 			String pName) throws Exception {
 		loginpageta.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
 		Reporter.log("User logged in successfully",true);
 		//wait.until(ExpectedConditions.visibilityOf(settingsTab));
-		Thread.sleep(5000);
+		Thread.sleep(3000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", settingsTab);
 		Reporter.log("Settings tab clicked",true);
 		//wait.until(ExpectedConditions.visibilityOf(smtpTab));
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", smtpTab);
 		Reporter.log("SMTP tab clicked",true);
 		Thread.sleep(2000);
@@ -83,7 +85,10 @@ public class SmtpPageTA extends TestBase {
 		Thread.sleep(3000);
 		js.executeScript("arguments[0].click();", addSmtpBtn);
 		Reporter.log("Add smtp config button clicked",true);
-		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		Thread.sleep(2000);
+		Select configurationType_DropDown = new Select(configurationType);
+		configurationType_DropDown.selectByVisibleText(configType);
+		Thread.sleep(1000);
 		hostName.sendKeys(hname);
 		Thread.sleep(2000);
 		portNo.sendKeys(portno);
@@ -108,7 +113,7 @@ public class SmtpPageTA extends TestBase {
 		testConnectionBtn.click();
 		driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
 		String Actual_testConnectionMsg = successMsgBox.getText();
-		String Expected_testConnectionMsg = "SMTP test connection successful";
+		String Expected_testConnectionMsg = "Email test connection successful";
 		Assert.assertEquals(Actual_testConnectionMsg, Expected_testConnectionMsg, "Test connection Failed");
 		Reporter.log("Tested connection successfully",true);
 		Thread.sleep(6000);
@@ -142,7 +147,7 @@ public class SmtpPageTA extends TestBase {
 		testConnectionBtn.click();
 		driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
 		String Actual_testConnectionMsg = successMsgBox.getText();
-		String Expected_testConnectionMsg = "SMTP test connection successful";
+		String Expected_testConnectionMsg = "Email test connection successful";
 		Assert.assertEquals(Actual_testConnectionMsg, Expected_testConnectionMsg, "Test connection Failed");
 		Reporter.log("Tested connection successfully",true);
 		Thread.sleep(6000);
