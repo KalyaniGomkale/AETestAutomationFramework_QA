@@ -218,16 +218,20 @@ public class HomePageTA extends TestBase{
 		js.executeScript("arguments[0].click();", licenseDetailTab);
 		Reporter.log("License Details Tab is clicked",true);
 		Thread.sleep(2000);
-		List<WebElement> license_details = driver.findElements(By.xpath("//table[@class='ae-table table table-hover table-bordered table-striped']/tr/td"));
+		List<WebElement> license_details = driver.findElements(By.xpath("//div[@class='card-deck m-0']/div/div/span/../h4"));
 		Thread.sleep(2000);
 		ArrayList<String> actual_LicenseDetails = new ArrayList<String>();
 		for (WebElement element : license_details) {
+			if(actual_LicenseDetails.contains("0/") && actual_LicenseDetails.contains("1/")){
+				actual_LicenseDetails.remove("0/");
+				actual_LicenseDetails.remove("1/");
+			}
 			String element_value = element.getText();
 			Reporter.log(element_value);
 			actual_LicenseDetails.add(element_value);
 			Thread.sleep(4000);
 		}
-		Reporter.log("Actual License details :-" +actual_LicenseDetails);
+		Reporter.log("Actual License details :-" +actual_LicenseDetails,true);
 		ArrayList<String> expected_LicenseDetails = new ArrayList<String>();
 		expected_LicenseDetails.add(prop.getProperty("LicenseType"));
 		expected_LicenseDetails.add(prop.getProperty("ProcessStudios"));
@@ -237,7 +241,7 @@ public class HomePageTA extends TestBase{
 		expected_LicenseDetails.add(prop.getProperty("GracePeriod"));
 		expected_LicenseDetails.add(prop.getProperty("StartDate"));
 		expected_LicenseDetails.add(prop.getProperty("ExpiryDate"));
-		Reporter.log("Expected License details :-" +expected_LicenseDetails);
+		Reporter.log("Expected License details :-" +expected_LicenseDetails,true);
 		if(actual_LicenseDetails.equals(expected_LicenseDetails)) {
 			Assert.assertTrue(true);
 			Reporter.log("License details are validated successfully",true);
