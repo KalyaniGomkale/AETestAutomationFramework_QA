@@ -34,7 +34,7 @@ public class CredentialsPageTA extends TestBase {
 	WebElement credName;
 	@FindBy(id="credentialDescription")
 	WebElement credDescp;
-	@FindBy(id="userName")
+	@FindBy(id="username")
 	WebElement userName;
 	@FindBy(id="password")
 	WebElement password;
@@ -109,8 +109,8 @@ public class CredentialsPageTA extends TestBase {
 		createBtn.click();
 		Reporter.log("Create button is clicked",true);
 		driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
-		String record_verify=driver.findElement(By.xpath("//a[@class='text-truncate']/span[@title='"+CredName+"']")).getText();
-		String expected_cred=CredName+" (Native)";
+		String record_verify=driver.findElement(By.xpath("//div[@id='cred-container']/div/a/input/../label[@title='"+CredName+", Native']")).getText();
+		String expected_cred=CredName;
 		Assert.assertEquals(record_verify, expected_cred,"credentials record not found in table.");
 		Reporter.log("Record for "+CredName+" credential found in table",true);
 		Thread.sleep(3000);
@@ -132,7 +132,7 @@ public class CredentialsPageTA extends TestBase {
 		js.executeScript("arguments[0].click();", credentialsTab);
 		Reporter.log("Credentials tab clicked",true);
 		Thread.sleep(4000);
-		WebElement edit_Cred=driver.findElement(By.xpath("//span[@title='"+CredName+"']/../../div/span[@title='Edit Credential']"));
+		WebElement edit_Cred=driver.findElement(By.xpath("//label[@title='"+CredName+", Native']/../../div/span[@title='Edit Credential']"));
 		edit_Cred.click();
 		Reporter.log("Edit button corresponding to credentials clicked",true);
 		Thread.sleep(3000);
@@ -285,7 +285,7 @@ public class CredentialsPageTA extends TestBase {
 		js.executeScript("arguments[0].click();", credentialsTab);
 		Reporter.log("Credentials tab clicked",true);
 		Thread.sleep(4000);
-		WebElement cred_Name=driver.findElement(By.xpath("//a/span[@title='KG_Private1']/../input"));
+		WebElement cred_Name=driver.findElement(By.xpath("//div/a[@id='cred-4-drag']/input"));
 		cred_Name.click();
 		Reporter.log("Credential which needs to add in crenetial pool is selcted",true);
 		Select CredPool_drpdown = new Select(credPool_drpdown);
@@ -348,7 +348,7 @@ public class CredentialsPageTA extends TestBase {
 		js.executeScript("arguments[0].click();", credentialsTab);
 		Reporter.log("Credentials tab clicked",true);
 		Thread.sleep(4000);
-		WebElement delete_btn=driver.findElement(By.xpath("//div[@class='togglable-actions d-flex']/../a/span[@title='"+CredName+"']/../../div/span[@title='Delete credential']"));
+		WebElement delete_btn=driver.findElement(By.xpath("//label[@title='"+CredName+", Native']/../../div/span[@title='Delete credential']"));
 		delete_btn.click();
 		Thread.sleep(3000);
 		delete_popup.click();
