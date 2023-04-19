@@ -538,6 +538,7 @@ public class TenantUsersPageTA extends TestBase {
 		informationpageta.validateSignOut();
 		Thread.sleep(2000);
 		loginpageta.login(UserName,Newpassword);
+		wait.until(ExpectedConditions.visibilityOf(alertMessage));
 		String actual_message=alertMessage.getText();
 		String expected_message=Messages.failPasswordPolicy;
 		Reporter.log("Actual Message on screen is: "+actual_message+ " and Expected "
@@ -568,7 +569,7 @@ public class TenantUsersPageTA extends TestBase {
 		Thread.sleep(2000);
 		confirmEnableBtn.click();
 		Reporter.log("Enabled button is clicked",true);
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.visibilityOf(alertMessage));
 		String actual_Message=alertMessage.getText();
 		System.out.println("Actual Success Message:- "+actual_Message);
 		String expected_Message=Messages.Enableuser;
@@ -648,7 +649,7 @@ public class TenantUsersPageTA extends TestBase {
 		nextBtn.click();
 		Thread.sleep(2000);
 		confirmEnableBtn.click();
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.visibilityOf(alertMessage));
 		String actual_Message=alertMessage.getText();
 		System.out.println("Actual Success Message:- "+actual_Message);
 		String expected_Message=Messages.unlock_TA;
@@ -664,7 +665,7 @@ public class TenantUsersPageTA extends TestBase {
 		deleteUserPeriod.sendKeys(Duration);
 		Thread.sleep(2000);
 		disableBtn.click();
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.visibilityOf(alertMessage));
 		String actual_message=alertMessage.getText();
 		System.out.println("Actual Success Message:- "+actual_message);
 		String expected_message=Messages.Disableuser;
@@ -715,6 +716,7 @@ public class TenantUsersPageTA extends TestBase {
 		Thread.sleep(5000);
 		js.executeScript("arguments[0].click();", saveBtn);
 		Reporter.log("Save Button is clicked",true);
+		wait.until(ExpectedConditions.visibilityOf(editUserMsg));
 		String actual_EditUserMsg = editUserMsg.getText();
 		String expected_EditUserMsg = Messages.editSystemUser;
 		System.out.println("Actual Edit Username Msg:- " + actual_EditUserMsg);

@@ -94,6 +94,7 @@ public class SystemSettingsPage extends TestBase {
 		Thread.sleep(5000);
 		js.executeScript("arguments[0].click();", AgentsTab);
 		Reporter.log("User navigated to Agents Tab",true);
+		wait.until(ExpectedConditions.visibilityOf(agentPopup));
 		String actual_agentPopup=agentPopup.getText();
 		Reporter.log("When server settings are not done & user try to download agent.Popup is : "+actual_agentPopup,true);
 		String expected_agentPopup="It seems you have not configured the server URL for this server. Please contact administrator";
@@ -126,6 +127,7 @@ public class SystemSettingsPage extends TestBase {
 		Thread.sleep(2000);
 		verifyUrlBtn.click();
 		Reporter.log("Verify button is clicked",true);
+		wait.until(ExpectedConditions.visibilityOf(alertMessage));
 		String actual_success_msg =alertMessage.getText();
 		String expected_success_msg = Messages.setInvalidServerUrl;
 		System.out.println("actual success msg is: " + actual_success_msg);

@@ -27,10 +27,8 @@ public class WorkflowAssignmentPageTA extends TestBase {
 	WebElement wfAssignmentTab;
 	@FindBy(id="edit")
 	WebElement editBtn;
-	@FindBy(xpath = "//div[@class='right-inner-addon']/input[@id='rightSearch']")
+	@FindBy(xpath = "//input[@id='rightSearch2']")
 	WebElement rightSearchBar;
-	@FindBy(xpath="//a/input[contains(@id,'desktop')]")
-	WebElement selectWorkflow;
 	@FindBy(id="save")
 	WebElement saveBtn;
 	@FindBy(id="popup-button-ok")
@@ -69,6 +67,7 @@ public class WorkflowAssignmentPageTA extends TestBase {
 		//First search the workflow you want to assign to agent
 		rightSearchBar.sendKeys(workflowName);
 		Reporter.log("Workflow is searched",true);
+		WebElement selectWorkflow = driver.findElement(By.xpath("(//a[@title='"+workflowName+"']/input)[2]"));
 		if(!selectWorkflow.isSelected()) {
 			selectWorkflow.click();
 		} else {

@@ -15,7 +15,7 @@ public class PurgeSchedulePageTestTA extends TestBase {
 	public PurgeSchedulePageTestTA() {
 		super();
 	}
-	 @Test(priority=192)
+	 @Test(priority=192,alwaysRun=true)
 		public void validatePurgeSchedulePageTATest(Method method) throws Exception {
 			extentTest = extent.createTest("validatePurgeSchedulePageTATest", "TC_Additional:Verify Clicking Purge Schedule tab and checking that appropiate page is loaded");
 			Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());

@@ -39,11 +39,11 @@ public class AuditLogsPageTA extends TestBase {
 	WebElement downloadBtn;
 	@FindBy(xpath = "//div/p[contains(text(),'Audit Logs download started')]")
 	WebElement successMsg;
-	@FindBy(xpath = "//span[@class='mul-dorpdown-button']")
+	@FindBy(id = "selectedColumns")
 	WebElement showColumnDrpdown;
 	@FindBy(xpath = "//span[@class='mul-checkmark']")
 	WebElement selectAllCheckBox;
-	@FindBy(xpath = "//span[@class='mul-dorpdown-button']/div")
+	@FindBy(xpath = "//div[@class='mul-dropdown-button']/div")
 	WebElement columnCount;
 	@FindBy(xpath="//div[@class='title-div']/h2")
 	WebElement pageTitle;
@@ -66,6 +66,7 @@ public class AuditLogsPageTA extends TestBase {
 		Thread.sleep(2000);
 		downloadBtn.click();
 		Reporter.log("Clicked the download button", true);
+		wait.until(ExpectedConditions.visibilityOf(successMsg));
 		String actual_successMsg = successMsg.getText();
 		System.out.println("Actual success msg: " + actual_successMsg);
 		String expected_successMsg = Messages.downloadAuditLogs;

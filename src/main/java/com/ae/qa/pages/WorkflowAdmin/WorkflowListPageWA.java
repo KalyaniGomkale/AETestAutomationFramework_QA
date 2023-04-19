@@ -85,7 +85,7 @@ public class WorkflowListPageWA extends TestBase{
 	WebElement importDrpDwn;
 	@FindBy(xpath = "//span[text()='Update']")
 	WebElement updateBtnDropdown;
-	@FindBy(xpath = "//ae-multiselect[@id='workflow_name']/div/span")
+	@FindBy(xpath = "//ae-multiselect[@id='workflow_name']/div")
 	WebElement updateSelectWF;
 	@FindBy(xpath = "//div[@class='right-inner-addon']/input[@name='search']")
 	WebElement searchBar;
@@ -218,8 +218,7 @@ public class WorkflowListPageWA extends TestBase{
 		Thread.sleep(3000);
 		saveBtn.click();
 		Reporter.log("Save button is clicked",true);
-		//wait.until(ExpectedConditions.visibilityOf(success_msg));
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.visibilityOf(success_msg));
 		String Actual_successMsg = success_msg.getText();
 		System.out.println("Actual Message : " + Actual_successMsg);
 		String Expected_successMsg = Messages.updateWorkflow;
@@ -241,8 +240,7 @@ public class WorkflowListPageWA extends TestBase{
 		js.executeScript("arguments[0].click();", saveBtn);
 		//saveBtn.click();
 		Reporter.log("Save button is clicked",true);
-		//wait.until(ExpectedConditions.visibilityOf(success_msg));
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.visibilityOf(success_msg));
 		String Actual_successMsg = success_msg.getText();
 		System.out.println("Actual Message : " + Actual_successMsg);
 		String Expected_successMsg = Messages.updateWorkflow;
@@ -355,7 +353,7 @@ public class WorkflowListPageWA extends TestBase{
 		WfsList.click();
 		Thread.sleep(2000);
 		ExportBtn.click();
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.visibilityOf(success_msg));
 		String actual_successMsg = success_msg.getText();
 		System.out.println("Actual success msg: " + actual_successMsg);
 		String expected_successMsg = Messages.exportWorkflow;
@@ -398,8 +396,7 @@ public class WorkflowListPageWA extends TestBase{
 		Reporter.log("Cleanup Requests older than Hours fields is set",true);
 		js.executeScript("arguments[0].click();", saveBtn);
 		Reporter.log("Save button is clicked",true);
-		//wait.until(ExpectedConditions.visibilityOf(success_msg));
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.visibilityOf(success_msg));
 		String Actual_successMsg = success_msg.getText();
 		System.out.println("Actual Message : " + Actual_successMsg);
 		String Expected_successMsg = Messages.updateWorkflow;
@@ -464,8 +461,7 @@ public class WorkflowListPageWA extends TestBase{
 		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();",saveBtn);
 		Reporter.log("Save button is clicked",true);
-		//wait.until(ExpectedConditions.visibilityOf(success_msg));
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.visibilityOf(success_msg));
 		String Actual_successMsg = success_msg.getText();
 		System.out.println("Actual Message : " + Actual_successMsg);
 		String Expected_successMsg = Messages.updateWorkflow;

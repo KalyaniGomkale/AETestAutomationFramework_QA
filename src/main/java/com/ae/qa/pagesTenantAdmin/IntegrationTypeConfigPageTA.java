@@ -173,7 +173,7 @@ public class IntegrationTypeConfigPageTA extends TestBase {
 		submitBtn.click();
 		Reporter.log("Submit button is clicked",true);
 		extentTest.createNode("config param set").info("Done");
-		 driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
+		wait.until(ExpectedConditions.elementToBeClickable(alertMessage));
 		  String Actual_Msg=alertMessage.getText();
 		  String Expected_Msg="Integration configuration ["+configName+"] created";
 		  Reporter.log("Actual message is :"+Actual_Msg,true);

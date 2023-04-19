@@ -60,6 +60,8 @@ public class AgentListPageAA extends TestBase{
 	WebElement downloadBtn;
 	@FindBy(id = "ipAddressToUse")
 	WebElement ipAddress;
+	@FindBy(xpath="//legend/span[@class='fa fa-caret-right']")
+	WebElement RDPSettingsDropdown;
 
 	public AgentListPageAA() {
 		PageFactory.initElements(driver, this);
@@ -83,6 +85,7 @@ public class AgentListPageAA extends TestBase{
 		agentName.sendKeys(ChangeAgentName);
 		Thread.sleep(2000);
 		saveBtn.click();
+		wait.until(ExpectedConditions.visibilityOf(alertMessage));
 		String actual_Message=alertMessage.getText();
 		String expected_Message=Messages.editAgentSettingMsg;
 		Reporter.log("Actual message displayed on screen is: "+actual_Message+ " and Expected "
@@ -109,57 +112,74 @@ public class AgentListPageAA extends TestBase{
 		JavascriptExecutor js=(JavascriptExecutor)driver;
 		js.executeScript("arguments[0].click();", AgentsTab);
 		Reporter.log("User navigated to Agents Tab",true);
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", AssistedAgentTab);
 		Reporter.log("User navigated to Assisted Agents Tab",true);
-		Thread.sleep(2000);
-		for(int i=0;i<1;i++) {
-			refreshTable.click();	
-			String AgentStatus=status.getText();
-			Reporter.log("Current status of Assisted Agent is: "+AgentStatus);
-			Thread.sleep(3000);
-			if(AgentStatus.equals("Running")) {
-				Assert.assertEquals(AgentStatus,"Running","Assisted Agent is not in running mode");
-				break;
-			}
+		Thread.sleep(3000);
+		for(int i=0;i<4;i++) {
+			refreshTable.click();
 		}
-		Reporter.log("Assisted Agent is in running mode",true);
+		Thread.sleep(3000);
+		String AgentStatus=status.getText();
+		Reporter.log("Current status of Agent is: "+AgentStatus);
+		Thread.sleep(3000);
+		if(AgentStatus.equals("Running")) {
+			Assert.assertEquals(AgentStatus,"Running","Agent is not in running mode");
+		}
+		Reporter.log("Agent is in running mode",true);
 		Thread.sleep(2000);
-		//WebElement stop_btn = driver.findElement(By.xpath("//table/tr/td[contains(text(),'"+agentName+"')]/../button[@title='Stop Agent']"));
-		WebElement stop_btn= driver.findElement(By.xpath("//button[@title='Stop Agent']"));
+		WebElement stop_btn= driver.findElement(By.xpath("//table/tr/td/span[text()='"+agentName+"']/../../td/button[@title='Stop Agent']"));
 		stop_btn.click();
 		Reporter.log("Stop Button is Clicked",true);
 		Thread.sleep(2000);
 		confirmStopBtn.click();
 		Reporter.log("Confirm Stop Button is Clicked",true);
+		wait.until(ExpectedConditions.visibilityOf(alertMessage));
+		String actual_Message=alertMessage.getText();
+		Reporter.log("Actual_Message:-"+actual_Message,true);
+		String expected_Message="Stopping agent ["+agentName+"] is in progress";
+		Reporter.log("Expected Message:- "+expected_Message,true);
+		Assert.assertEquals(actual_Message, expected_Message,"Agent not deleted successfully");
+		Reporter.log("Agent is stopped successfully",true);
+		informationpageta.validateSignOut();
+		loginpage.login(prop.getProperty("username_AA"), prop.getProperty("password_AA"));
+		Reporter.log("User LogIn Succesfully",true);
+		//wait.until(ExpectedConditions.visibilityOf(AgentsTab));
+		Thread.sleep(3000);
+		js.executeScript("arguments[0].click();", AgentsTab);
+		Reporter.log("User navigated to Agents Tab",true);
+		Thread.sleep(2000);
+		js.executeScript("arguments[0].click();", AssistedAgentTab);
+		Reporter.log("User navigated to Assisted Agents Tab",true);
 		Thread.sleep(10000);
-		for(int i=0;i<10;i++) {
-			refreshTable.click();	
-			String AgentStatus=status.getText();
-			Reporter.log("Current status of Assisted Agent is: "+AgentStatus);
-			Thread.sleep(8000);
-			if(AgentStatus.equals("Stopped")) {
-				Assert.assertEquals(AgentStatus,"Stopped","Assisted Agent is not in Stopped mode");
-				break;
-			}
+		for(int i=0;i<4;i++) {
+			refreshTable.click();
+		}
+		Thread.sleep(3000);
+		String AgentStatus1=status.getText();
+		Reporter.log("Current status of Agent is: "+AgentStatus);
+		Thread.sleep(3000);
+		if(AgentStatus1.equals("Stopped")) {
+			Assert.assertEquals(AgentStatus1,"Stopped","Agent is not in Stopped mode");
 		}
 		Reporter.log("Agent is in Stopped mode",true);
 		Thread.sleep(2000);
-		//WebElement delete_btn = driver.findElement(By.xpath("//table/tr/td[contains(text(),'"+agentName+"')]/../button[@title='Delete Agent']"));
-		WebElement delete_btn= driver.findElement(By.xpath("//button[@title='Delete Agent']"));
+		
+		WebElement delete_btn= driver.findElement(By.xpath("//table/tr/td/span[text()='"+agentName+"']/../../td/button[@title='Delete Agent']"));
 		delete_btn.click();
 		Reporter.log("Delete Button is Clicked",true);
 		Thread.sleep(2000);
 		confirmDeleteBtn.click();
 		Reporter.log("Confirm Delete Button is Clicked",true);
-		Thread.sleep(4000);
-		String actual_Message=alertMessage.getText();
-		System.out.println("Actual_Message:-"+actual_Message);
-		String expected_Message=Messages.deleteAgent;
-		System.out.println("Expected Message:- "+expected_Message);
-		Assert.assertEquals(actual_Message, expected_Message,"Assisted Agent not deleted successfully");
-		Reporter.log("Assisted Agent is deleted successfully",true);
+		wait.until(ExpectedConditions.visibilityOf(alertMessage));
+		String actual_Message1=alertMessage.getText();
+		System.out.println("Actual_Message:-"+actual_Message1);
+		String expected_Message1="Agent ["+agentName+"] deleted successfully";
+		System.out.println("Expected Message:- "+expected_Message1);
+		Assert.assertEquals(actual_Message1, expected_Message1,"Agent not deleted successfully");
+		Reporter.log("Agent is deleted successfully",true);
 		informationpageta.validateSignOut();
+
 	}
 	public void downloadAgentAA() throws Exception
 	{
@@ -238,6 +258,7 @@ public class AgentListPageAA extends TestBase{
 		agentName.sendKeys(ChangeAgentName);
 		Thread.sleep(2000);
 		saveBtn.click();
+		wait.until(ExpectedConditions.visibilityOf(alertMessage));
 		String actual_Message=alertMessage.getText();
 		String expected_Message=Messages.editAgentSettingMsg;
 		Reporter.log("Actual message displayed on screen is: "+actual_Message+ " and Expected "
@@ -284,7 +305,7 @@ public class AgentListPageAA extends TestBase{
 		confirmStopBtn.click();
 		Reporter.log("Confirm Stop Button is Clicked",true);
 		Thread.sleep(10000);
-		for(int i=0;i<1;i++) {
+		for(int i=0;i<4;i++) {
 			refreshTable.click();	
 			String AgentStatus=status.getText();
 			Reporter.log("Current status of Assisted Agent is: "+AgentStatus);
@@ -299,7 +320,7 @@ public class AgentListPageAA extends TestBase{
 		Reporter.log("Agent is stopped successfully",true);
 		informationpageta.validateSignOut();
 	}
-	public void validateDeleteAgentAA() throws Exception{
+	public void validateDeleteAgentAA(String agentName) throws Exception{
 		loginpage.login(prop.getProperty("username_AA"), prop.getProperty("password_AA"));
 		Reporter.log("User LogIn Succesfully",true);
 		//wait.until(ExpectedConditions.visibilityOf(AgentsTab));
@@ -326,10 +347,10 @@ public class AgentListPageAA extends TestBase{
 		Thread.sleep(2000);
 		confirmDeleteBtn.click();
 		Reporter.log("Confirm Delete Button is Clicked",true);
-		Thread.sleep(4000);
+		wait.until(ExpectedConditions.visibilityOf(alertMessage));
 		String actual_Message=alertMessage.getText();
 		System.out.println("Actual_Message:-"+actual_Message);
-		String expected_Message=Messages.deleteAgent;
+		String expected_Message="Agent ["+agentName+"] deleted successfully";
 		System.out.println("Expected Message:- "+expected_Message);
 		Assert.assertEquals(actual_Message, expected_Message,"Agent not deleted successfully");
 		Reporter.log("Agent is deleted successfully",true);
@@ -347,12 +368,15 @@ public class AgentListPageAA extends TestBase{
 		Thread.sleep(4000);
 		js.executeScript("arguments[0].click();", editBtn);
 		Reporter.log("User clicked on Edit Btn",true);
+		RDPSettingsDropdown.click();
+		Reporter.log("RDP settings dropdown is clicked",true);
 		for(int i = 0; i < 50; i++) {
 			ipAddress.sendKeys(Keys.BACK_SPACE);
 		}
 		ipAddress.sendKeys(ChangeIPAdress);
 		Thread.sleep(2000);
 		saveBtn.click();
+		wait.until(ExpectedConditions.visibilityOf(alertMessage));
 		String actual_Message=alertMessage.getText();
 		String expected_Message=Messages.editAgentSettingMsg;
 		Reporter.log("Actual message displayed on screen is: "+actual_Message+ " and Expected "

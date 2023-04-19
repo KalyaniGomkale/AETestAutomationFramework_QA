@@ -139,8 +139,7 @@ public class TenantUsersPageUA extends TestBase{
 		JavascriptExecutor js5 = (JavascriptExecutor) driver;
 		js5.executeScript("arguments[0].click();", createBtn);
 		Reporter.log(RoleName + " is created successfully",true);
-		//wait.until(ExpectedConditions.visibilityOf(alertMessage));
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.visibilityOf(alertMessage));
 		String actual_successMsg = alertMessage.getText();
 		String expected_successMsg = Messages.createUser;
 		System.out.println("Actual message:" + actual_successMsg);
@@ -188,8 +187,7 @@ public class TenantUsersPageUA extends TestBase{
 		JavascriptExecutor js5 = (JavascriptExecutor) driver;
 		js5.executeScript("arguments[0].click();", createBtn);
 		Reporter.log(RoleName + " is created successfully",true);
-		//wait.until(ExpectedConditions.visibilityOf(alertMessage));
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.visibilityOf(alertMessage));
 		String actual_successMsg = alertMessage.getText();
 		String expected_successMsg = Messages.createUser;
 		System.out.println("Actual message:" + actual_successMsg);

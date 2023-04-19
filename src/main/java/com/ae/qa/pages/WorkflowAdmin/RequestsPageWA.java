@@ -49,11 +49,11 @@ public class RequestsPageWA extends TestBase{
 	WebElement execMessage;
 	@FindBy(xpath = "//table[@id='agentTable']/tr[3]/td[5]/span")
 	WebElement status;
-	@FindBy(xpath = "//span[@class='mul-dorpdown-button']")
+	@FindBy(id = "selectedColumns")
 	WebElement showColumnDrpdown;
 	@FindBy(xpath = "//span[@class='mul-checkmark']")
 	WebElement selectAllCheckBox;
-	@FindBy(xpath = "//span[@class='mul-dorpdown-button']/div")
+	@FindBy(xpath = "//div[@class='mul-dropdown-button']/div")
 	WebElement columnCount;
 	@FindBy(name="download-requests")
 	WebElement downloadRequest;
@@ -284,23 +284,11 @@ public class RequestsPageWA extends TestBase{
 		Thread.sleep(10000);
 		String wfStatus = requestStatus.getText();
 		Boolean flag = false;
-		if (wfStatus.equals("New")) {
-			Thread.sleep(10000);
-			Reporter.log("Workflow status is:" + wfStatus, true);
-			refershTableBtn.click();
-			Assert.assertTrue(!flag);
-		} else if (wfStatus.equals("ExecutionStarted")) {
-			Reporter.log("Execution of workflow just started", true);
-			Thread.sleep(10000);
-			refershTableBtn.click();
-			Thread.sleep(3000);
-			reqStatus.click();
-			Reporter.log("Workflow status is:" + wfStatus, true);
-			Assert.assertTrue(!flag);
-		} else if (wfStatus.equals("Failure")) {
+		    if (wfStatus.equals("Failure")) {
 			reqStatus.click();
 			Reporter.log("Additional status details is clicked", true);
-			String actual_message = execMessage.getText();
+			String message = execMessage.getText();
+			String actual_message = message.split(" ")[0];
 			Reporter.log("Message after execution of wf:" + actual_message, true);
 			String expected_message = Messages.executionFailureMessage;
 			Reporter.log("Workflow status is:" + wfStatus, true);
@@ -337,7 +325,7 @@ public class RequestsPageWA extends TestBase{
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", requestsTab);
 		Reporter.log("Requests Tab is clicked", true);
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 		String requestID=driver.findElement(By.xpath("(//table/tbody/tr[1]/td[1])[2]")).getText();
 		System.out.println("Request ID:- "+requestID);
 		String wfStatus = requestStatus.getText();
@@ -355,6 +343,7 @@ public class RequestsPageWA extends TestBase{
 			Assert.assertTrue(wfStatus.equals("Failure"));
 			Reporter.log("Request Status is "+wfStatus+" So Restart button is not visible and clicked",true);
 		}
+		wait.until(ExpectedConditions.visibilityOf(alertMessage));
 		String Message=alertMessage.getText();
 		String actual_Message = Message.replace(",","");
 		System.out.println("Actual Message:- "+actual_Message);

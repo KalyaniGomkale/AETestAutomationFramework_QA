@@ -155,7 +155,7 @@ public class SysadminPolicyPage extends TestBase {
 		}
 		System.out.println("Expected Arraylist is:" + Output_Attempts);
 		okBtn.click();
-		Thread.sleep(3000);
+		wait.until(ExpectedConditions.visibilityOf(PopUpMsg));
 		String Actual_SuccessMsg = PopUpMsg.getText();
 		String Expected_SuccessMsg = Messages.updatePasswordPolicy;
 		System.out.println("Actual Message after password policy update:" + Actual_SuccessMsg);
@@ -240,6 +240,7 @@ public class SysadminPolicyPage extends TestBase {
 			Assert.assertTrue(false,
 					"No.of last pswd to be checked provided by user does not match with message in Confirm policy.");
 		}
+		wait.until(ExpectedConditions.visibilityOf(PopUpMsg));
 		String Actual_SuccessMsg = PopUpMsg.getText();
 		String Expected_SuccessMsg = Messages.updatePasswordPolicy;
 		System.out.println("Actual Message after password policy update:" + Actual_SuccessMsg);
@@ -340,6 +341,7 @@ public class SysadminPolicyPage extends TestBase {
 		} else {
 			Assert.assertTrue(false, "No.of attempts provided by user does not match with message in Confirm policy.");
 		}
+		wait.until(ExpectedConditions.visibilityOf(PopUpMsg));
 		String Actual_SuccessMsg = PopUpMsg.getText();
 		String Expected_SuccessMsg = Messages.updatePasswordPolicy;
 		System.out.println("Actual Message after password policy update:" + Actual_SuccessMsg);
@@ -350,6 +352,7 @@ public class SysadminPolicyPage extends TestBase {
 		for (int i = 1; i <= NoOfAttempt; i++) {
 			if (i < NoOfAttempt) {
 				loginpage.login(Username,invalidPwd);
+				wait.until(ExpectedConditions.visibilityOf(PopUpMsg));
 				String Actual_Msg = PopUpMsg.getText();
 				System.out.println("Actual_msg:" + Actual_Msg);
 				if (Actual_Msg.contentEquals("You have made [" + i
@@ -366,6 +369,7 @@ public class SysadminPolicyPage extends TestBase {
 			} else if (i == NoOfAttempt) {
 				System.out.println(i + "th Unsuccessful attempt");
 				loginpage.login(Username,invalidPwd);
+				wait.until(ExpectedConditions.visibilityOf(PopUpMsg));
 				String Actual_Fail = PopUpMsg.getText();
 				System.out.println("Actual_msg:" + Actual_Fail);
 				String Expected_Fail = Messages.failPasswordPolicy;

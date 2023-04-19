@@ -36,7 +36,7 @@ public class TenantUsersPage extends TestBase {
 	WebElement tenantUsersTab;
 	@FindBy(xpath = "//button[@name='add-cred']/span")
 	WebElement addBtn;
-	@FindBy(xpath = "//ae-multiselect[@id='tenantOrgCode']")
+	@FindBy(xpath = "//ae-multiselect[@id='tenantOrgCode']/div")
 	WebElement tenantdropdown;
 	@FindBy(id = "fname")
 	WebElement fName;
@@ -96,10 +96,11 @@ public class TenantUsersPage extends TestBase {
 		// Start form 
 		//Locating the select dropdown for Tenant
 		//driver.manage().timeouts().pageLoadTimeout(15, TimeUnit.SECONDS);
-		Thread.sleep(3000);
 		tenantdropdown.click();
+		//js.executeScript("arguments[0].click();", tenantdropdown);
 		Thread.sleep(3000);
-		WebElement select_tenant=driver.findElement(By.xpath("//div[@id='options-list']/li/label[contains(text(),'"+tenantOrgCode+"')]/span"));
+		WebElement select_tenant=driver.findElement(By.xpath("//label/span[text()='"+tenantOrgCode+"']/../input/../span[2]"));
+		//js.executeScript("arguments[0].click();", select_tenant);
 		select_tenant.click();
 		Thread.sleep(3000);
 		tenantdropdown.click();
@@ -163,6 +164,7 @@ public class TenantUsersPage extends TestBase {
 		}
 		userMail.sendKeys(NewUserMail);
 		saveBtn.click();
+		wait.until(ExpectedConditions.visibilityOf(editUserMsg));
 		String actual_EditUserMsg = editUserMsg.getText();
 		String expected_EditUserMsg = Messages.editUser;
 		System.out.println("Actual Username:" + actual_EditUserMsg);

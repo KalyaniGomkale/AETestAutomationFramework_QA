@@ -18,7 +18,7 @@ public class HomePageTest extends TestBase {
 		super();
 	}
 
-	@Test(priority=144)
+	@Test(priority=144,alwaysRun=true)
 	public void validateSearchFunctionalityTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateSearchFunctionalityTest", "TC_135:Search functionality in sidebar menu");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
@@ -27,7 +27,7 @@ public class HomePageTest extends TestBase {
 		extentTest.log(extentTest.getStatus(), "Search functionality in sidebar menu is validated successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
-	@Test(priority=700)
+	@Test(priority=700,alwaysRun=true)
 	public void validateHomePageForConsumptionTabTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateHomePageForConsumptionTabTest", "TC_91:Verify able to view Home page");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
@@ -36,10 +36,10 @@ public class HomePageTest extends TestBase {
 		extentTest.log(extentTest.getStatus(), "Home page is verified successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
-	@Test(priority=701)
+	@Test(priority=701,alwaysRun=true)
 	public void validateUploadLicenseTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateUploadLicenseTest", "TC_91:Verify  Upload sysadmin licene with user sysadmin");
-		//Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
 		homepage = new HomePage();
 		homepage.validateUploadLicense();
 		extentTest.log(extentTest.getStatus(), "Upload license for user sysadmin is verified successfully");

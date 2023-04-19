@@ -52,11 +52,11 @@ public class AgentListPageTA extends TestBase{
 	WebElement refreshTable;
 	@FindBy(xpath="//table[@id='agentTable']/tr[3]/td[5]/span")
 	WebElement status;
-	@FindBy(xpath="//span[@class='mul-dorpdown-button']")
+	@FindBy(id = "selectedColumns")
 	WebElement showColumnDrpdown;
 	@FindBy(xpath="//span[@class='mul-checkmark']")
 	WebElement selectAllCheckBox;
-	@FindBy(xpath = "//span[@class='mul-dorpdown-button']/div")
+	@FindBy(xpath = "//div[@class='mul-dropdown-button']/div")
 	WebElement columnCount;
 	@FindBy(xpath="//div[@class='title-div']/h2")
 	WebElement pageTitle;
@@ -284,6 +284,7 @@ public class AgentListPageTA extends TestBase{
 		//Verify when user try to assign wf without registering agent
 		//js.executeScript("arguments[0].click();", WorkflowAssignmentTab);	
 		Thread.sleep(3000);
+		js.executeScript("arguments[0].click();", WorkflowAssignmentTab);	
 		Reporter.log("User navigated to workflow assignment Tab",true);
 		Thread.sleep(3000);
 		String expected_agentNotRegError=agentNotReg.getText();
@@ -306,7 +307,7 @@ public class AgentListPageTA extends TestBase{
 		TestUtil.unzip(prop.getProperty("zipFilePathA"),prop.getProperty("destDirA"));
 		Reporter.log("File unzipped properly",true);
 		ProcessBuilder pb= new ProcessBuilder("cmd", "/c", "AgentRunA.bat");
-		File dir = new File(prop.getProperty("AssistedAgentRegBatFilePath"));
+		File dir = new File(prop.getProperty("AgentRegBatFileAssisted"));
 		pb.directory(dir);
 		Process process = pb.start();
 		Thread.sleep(5000);		
@@ -361,7 +362,7 @@ public class AgentListPageTA extends TestBase{
 		}
 		Thread.sleep(4000);
 		saveBtn.click();
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.visibilityOf(alertMessage));
 		String actual_Message=alertMessage.getText();
 		String expected_Message=Messages.assignToUser;
 		System.out.println("Actual Message:- "+actual_Message);
@@ -396,7 +397,7 @@ public class AgentListPageTA extends TestBase{
 		Thread.sleep(2000);
 		confirmStopBtn.click();
 		Reporter.log("Confirm Stop Button is Clicked",true);
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.visibilityOf(alertMessage));
 		String actual_Message=alertMessage.getText();
 		Reporter.log("Actual_Message:-"+actual_Message,true);
 		String expected_Message="Stopping agent ["+agentName+"] is in progress";
@@ -430,7 +431,7 @@ public class AgentListPageTA extends TestBase{
 		Thread.sleep(2000);
 		confirmDeleteBtn.click();
 		Reporter.log("Confirm Delete Button is Clicked",true);
-		Thread.sleep(4000);
+		wait.until(ExpectedConditions.visibilityOf(alertMessage));
 		String actual_Message1=alertMessage.getText();
 		System.out.println("Actual_Message:-"+actual_Message1);
 		String expected_Message1="Agent ["+agentName+"] deleted successfully";
@@ -468,7 +469,7 @@ public class AgentListPageTA extends TestBase{
 		Thread.sleep(2000);
 		confirmStopBtn.click();
 		Reporter.log("Confirm Stop Button is Clicked",true);
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.visibilityOf(alertMessage));
 		String actual_Message=alertMessage.getText();
 		Reporter.log("Actual_Message:-"+actual_Message,true);
 		String expected_Message="Stopping agent ["+agentName+"] is in progress";
@@ -497,13 +498,13 @@ public class AgentListPageTA extends TestBase{
 		}
 		Reporter.log("Agent is in Stopped mode",true);
 		Thread.sleep(2000);
-		WebElement delete_btn= driver.findElement(By.xpath("//table/tr/td/span[text()='\"+agentName+\"']/../../td/button[@title='Delete Agent']"));
+		WebElement delete_btn= driver.findElement(By.xpath("//table/tr/td/span[text()='"+agentName+"']/../../td/button[@title='Delete Agent']"));
 		delete_btn.click();
 		Reporter.log("Delete Button is Clicked",true);
 		Thread.sleep(2000);
 		confirmDeleteBtn.click();
 		Reporter.log("Confirm Delete Button is Clicked",true);
-		Thread.sleep(4000);
+		wait.until(ExpectedConditions.visibilityOf(alertMessage));
 		String actual_Message1=alertMessage.getText();
 		System.out.println("Actual_Message:-"+actual_Message1);
 		String expected_Message1="Agent ["+agentName+"] deleted successfully";
@@ -548,7 +549,7 @@ public class AgentListPageTA extends TestBase{
 		}
 		Thread.sleep(4000);
 		saveBtn.click();
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.visibilityOf(alertMessage));
 		String actual_Message=alertMessage.getText();
 		String expected_Message=Messages.assignToUser;
 		System.out.println("Actual Message:- "+actual_Message);
@@ -584,6 +585,7 @@ public class AgentListPageTA extends TestBase{
 		agentName.sendKeys(EditedAgentName);
 		Thread.sleep(2000);
 		saveBtn.click();
+		wait.until(ExpectedConditions.visibilityOf(alertMessage));
 		String actual_Message=alertMessage.getText();
 		String expected_Message=Messages.editAgentSettingMsg;
 		Reporter.log("Actual message displayed on screen is: "+actual_Message+ " and Expected "
@@ -602,7 +604,7 @@ public class AgentListPageTA extends TestBase{
 		}
 		informationpageta.validateSignOut();
 	}
-	public void validateAgentRestart() throws Exception{
+	public void validateAgentRestart(String agentName) throws Exception{
 		loginpage.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
 		Reporter.log("User LogIn Succesfully",true);
 		//wait.until(ExpectedConditions.visibilityOf(AgentsTab));
@@ -628,9 +630,10 @@ public class AgentListPageTA extends TestBase{
 		Thread.sleep(2000);
 		confirmRestartBtn.click();
 		Reporter.log("Confirm Restart Button is Clicked",true);
+		wait.until(ExpectedConditions.visibilityOf(alertMessage));
 		String actual_Message=alertMessage.getText();
 		System.out.println("Actual Message:- "+actual_Message);
-		String expected_Message=Messages.stopAgent;
+		String expected_Message="Stopping agent ["+agentName+"] is in progress";
 		System.out.println("Expected Message:- "+expected_Message);
 		Assert.assertEquals(actual_Message, expected_Message,"Stopping agent is not in progress");
 		Reporter.log("Restart button is clicked and agent is going in Stopped Status successfully",true);

@@ -16,7 +16,7 @@ public class ExternalAppsTestTA extends TestBase {
 		super();
 	}
 
-	@Test(priority=900)
+	@Test(priority=900,alwaysRun=true)
 	public void validateRegisterExternalAppTATest(Method method) throws Exception {
 		extentTest = extent.createTest("validateRegisterExternalAppTATest", "TC_653:Verify can register External app");
 		//Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
@@ -25,7 +25,7 @@ public class ExternalAppsTestTA extends TestBase {
 		extentTest.log(extentTest.getStatus(), "External Apps is registred successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}
-	@Test(priority=901)
+	@Test(priority=901,alwaysRun=true)
 	public void validateOpenExternalAppTATest(Method method) throws Exception {
 		extentTest = extent.createTest("validateOpenExternalAppTATest", "TC_654:Verify can open External app");
 		//Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
@@ -34,7 +34,7 @@ public class ExternalAppsTestTA extends TestBase {
 		extentTest.log(extentTest.getStatus(), "External Apps is opened successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}
-	@Test(priority=902)
+	@Test(priority=902,alwaysRun=true)
 	public void validateOpenExternalAppNewTabTATest(Method method) throws Exception {
 		extentTest = extent.createTest("validateOpenExternalAppNewTabTATest", "TC_Additional:Verify can open External app in new tab");
 		//Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
@@ -43,7 +43,7 @@ public class ExternalAppsTestTA extends TestBase {
 		extentTest.log(extentTest.getStatus(), "External Apps is opened successfully in new tab");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}
-	@Test(priority=182)
+	@Test(priority=182,alwaysRun=true)
 	public void validateExternalAppsPageTATest(Method method) throws Exception {
 		extentTest = extent.createTest("validateExternalAppsPageTATest", "TC_Additional:Verify Clicking External Apps tab and checking that appropiate page is loaded");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());

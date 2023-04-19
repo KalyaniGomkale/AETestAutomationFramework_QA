@@ -90,6 +90,7 @@ public class PurgeSchedulePage extends TestBase {
 		Thread.sleep(10000);
 		if (dayofmonth <= 28) {
 			js.executeScript("arguments[0].click();", saveBtn);
+			wait.until(ExpectedConditions.visibilityOf(success_Message));
 			String Actual_SuccessMsg = success_Message.getText();
 			System.out.println(
 					"Actual success message after setting purging schedule for day of Month:" + Actual_SuccessMsg);
@@ -147,6 +148,7 @@ public class PurgeSchedulePage extends TestBase {
 		Minutes_dropdwn.selectByValue(min);
 		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", saveBtn);
+		wait.until(ExpectedConditions.visibilityOf(success_Message));
 		String Actual_SuccessMsg = success_Message.getText();
 		System.out
 				.println("Actual success message after setting purging schedule for day of week:" + Actual_SuccessMsg);

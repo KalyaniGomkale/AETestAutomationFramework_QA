@@ -33,7 +33,7 @@ public class LoginPageTest extends TestBase {
 	  ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName()); 
 	  }*/
 
-	  @Test(priority=1) 
+	  @Test(priority=1,alwaysRun=true) 
 	  public void ValidateFirstTimeLoginTest(Method method) throws Exception { 
 	  extentTest = extent.createTest( "ValidateFirstTimeLoginTest","TC_1: Verify sysadmin user able to change first time password");
 	  Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
@@ -45,7 +45,7 @@ public class LoginPageTest extends TestBase {
 	  }
 	 
 
-	@Test(priority = 38)
+	@Test(priority = 38,alwaysRun=true)
 	public void validateForgotPswdTest(Method method) throws Exception {
 	extentTest = extent.createTest("validateForgotPswdTest",
 				"TC_111: This will validate forgot password link present on Login Page");
@@ -65,7 +65,7 @@ public class LoginPageTest extends TestBase {
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
 	
-	@Test(priority = 39)
+	@Test(priority = 39,alwaysRun=true)
 	public void ValidateSettingPwdWOComplexityTest(Method method) throws Exception {
 		extentTest = extent.createTest("ValidateSettingPwdWOComplexityTest","TC_115: Verify password complexity while reset password");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
@@ -78,7 +78,7 @@ public class LoginPageTest extends TestBase {
 	}
 	
 //Use sysadmin1 data do in last
-	@Test(priority = 40)
+	@Test(priority = 40,alwaysRun=true)
 	public void ValidateResetPswdTest(Method method) throws Exception {
 		extentTest = extent.createTest("ValidateResetPswd","TC_112: Verify sysadmin user able to reset password after answering correct to security ques");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
@@ -88,7 +88,7 @@ public class LoginPageTest extends TestBase {
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
 
-	@Test(priority = 41, dependsOnMethods = { "ValidateResetPswdTest" })
+	@Test(priority = 41, dependsOnMethods = { "ValidateResetPswdTest" },alwaysRun=true)
 	public void ValidateLoginWithResetPswdTest(Method method) throws Exception {
 		extentTest = extent.createTest("ValidateLoginWithResetPswdTest",
 	"TC_113: Verify sysadmin user able to login with new password and navigates on Tenants Page");
@@ -100,7 +100,7 @@ public class LoginPageTest extends TestBase {
 	}
 	
 	//While setting data for this pre-requisite is sysadmin should have set security questions before
-	@Test(priority = 136)
+	@Test(priority = 136,alwaysRun=true)
 	public void validateUnlockUserWithSecQueAndResetPswdTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateUnlockUserWithSecQueAndResetPswdTest",
 				"TC_127:Verify User get unlock by answering security answers and reset password");
@@ -112,7 +112,7 @@ public class LoginPageTest extends TestBase {
 		extentTest.log(extentTest.getStatus(), "User set new password by unlocking user by answer");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
-	@Test(priority = 137)
+	@Test(priority = 137,alwaysRun=true)
 	public void ValidateLoginOfUnlockUserTest(Method method) throws Exception {
 		extentTest = extent.createTest("ValidateLoginWithResetPswdTest","TC_128: Verify if user is able to get access to application after change password");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());

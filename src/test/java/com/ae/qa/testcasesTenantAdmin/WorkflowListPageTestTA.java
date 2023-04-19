@@ -20,7 +20,7 @@ public class WorkflowListPageTestTA extends TestBase {
 		super();
 	}
 
-/*	@Test(priority=54)
+	@Test(priority=54)
 	public void validateImportWorkflowTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateImportWorkflowTest", "TC_082: Verify Import PS workflow w/o parameter & enable the workflow");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
@@ -72,7 +72,7 @@ public class WorkflowListPageTestTA extends TestBase {
 		workflowlistpageta.ValidateExportWorkflow(TestDataInMap.get("wfName"));
 		extentTest.log(extentTest.getStatus(), "Workflow exported successfully from development environment");  
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());	
-	}*/
+	}
 	@Test(priority=98)
 	public void validateImportWorkflowWithConfigParamTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateImportWorkflowWithConfigParamTest", "TC_083: Verify Import PS workflow with config parameter");
@@ -119,7 +119,7 @@ public class WorkflowListPageTestTA extends TestBase {
 		extentTest.log(extentTest.getStatus(), "Workflow with configuration param as credentials imported successfully");  
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());	
 	}
-	/*@Test(priority=102)
+	@Test(priority=102)
 	public void ValidateShowFileStructureTest(Method method) throws Exception {
 		extentTest = extent.createTest("ValidateShowFileStructureTest", "TC_095: Verify show file structure while importing workflow");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
@@ -166,7 +166,7 @@ public class WorkflowListPageTestTA extends TestBase {
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
 		workflowlistpageta = new WorkflowListPageTA(); 
 		workflowlistpageta.validateImportWFAssistedAgent(TestDataInMap.get("wfName"),TestDataInMap.get("wfDes"),TestDataInMap.get("wfCategory"),
-				prop.getProperty("WFForAssistedAgent"),TestDataInMap.get("priority"),TestDataInMap.get("expTime"),TestDataInMap.get("maxTime"),
+				prop.getProperty("WFToImportPath"),TestDataInMap.get("priority"),TestDataInMap.get("expTime"),TestDataInMap.get("maxTime"),
 				TestDataInMap.get("cleanUpHrs"),TestDataInMap.get("manExeTime"),TestDataInMap.get("tUnit"));
 		extentTest.log(extentTest.getStatus(), "Workflow for assisted agent is imported successfully"); 
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());	
@@ -192,7 +192,7 @@ public class WorkflowListPageTestTA extends TestBase {
 		workflowlistpageta.vaildateExportMutlipleWorkflow();
 		extentTest.log(extentTest.getStatus(), "Multiple workflow at a time are selected and verified");  
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());	
-	}
+	}*/
 	@Test(priority=318)
 	public void ValidateShowFileStructureWorkflowTest(Method method) throws Exception {
 		extentTest = extent.createTest("ValidateShowFileStructureWorkflowTest", "TC_60: Verify show file structure on workflow list page");
@@ -256,7 +256,7 @@ public class WorkflowListPageTestTA extends TestBase {
 		extentTest.log(extentTest.getStatus(), "update workflow uses config parameter as credentials and credential pool is updated successfully");  
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}*/
-/*	@Test(priority=1051)
+	@Test(priority=1051)
 	public void validateEditWFtoSequentialTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateEditWFtoSequentialTest", "TC_163: To verify workflow get edited to Sequential");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
@@ -266,7 +266,7 @@ public class WorkflowListPageTestTA extends TestBase {
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());	
 	}
     	//For Workflow Name
-	@Test(priority = 3155)
+/*	@Test(priority = 3155)
 	public void validateAdvSearchForWFNameEqualToWorkflowsPageTATest(Method method) throws Exception {
 		extentTest = extent.createTest("validateAdvSearchForWFNameEqualToWorkflowsPageTATest", "TC_009: To Verfiy Advance search for workflow name with equals criteria");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AdvancedSearchsheetname"),method.getName());

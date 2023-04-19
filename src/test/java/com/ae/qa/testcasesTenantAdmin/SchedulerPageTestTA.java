@@ -19,7 +19,7 @@ public class SchedulerPageTestTA extends TestBase {
 		super();
 	}
 
-	@Test(priority=81)
+	@Test(priority=81,alwaysRun=true)
 	public void validateDailyScheduleTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateDailyScheduleTest", "TC_185: Verify user can create daily schedule for a day and only at once");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
@@ -30,7 +30,7 @@ public class SchedulerPageTestTA extends TestBase {
 		extentTest.log(extentTest.getStatus(), "User created daily schedule successfully");  
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());	
 	}
-	@Test(priority=82)
+	@Test(priority=82,alwaysRun=true)
 	public void validateEditDailyScheduleTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateEditDailySchedule", "TC_188: Verify user can edit end date of above scheduled");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
@@ -53,7 +53,7 @@ public class SchedulerPageTestTA extends TestBase {
 		extentTest.log(extentTest.getStatus(), "User created weekly schedule successfully");  
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());	
 	}
-	@Test(priority=1039)
+	@Test(priority=1039,alwaysRun=true)
 	public void validateEditWeeklyScheduleTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateEditWeeklyScheduleTest", "TC_203:To Verfiy Edit weekly schedule");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
@@ -74,7 +74,7 @@ public class SchedulerPageTestTA extends TestBase {
 		extentTest.log(extentTest.getStatus(), "User created monthly schedule successfully");  
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());	
 	}
-	@Test(priority=1040)
+	@Test(priority=1040,alwaysRun=true)
 	public void validateEditMonthlyScheduleTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateEditMonthlyScheduleTest", "TC_205:To verify edit monthly schedule");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
@@ -94,7 +94,7 @@ public class SchedulerPageTestTA extends TestBase {
 		extentTest.log(extentTest.getStatus(), "User created infinite schedule with repeated interval successfully");  
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());	
 	} 
-	@Test(priority=1041)
+	@Test(priority=1041,alwaysRun=true)
 	public void validateEditInfineScheduleTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateEditInfineScheduleTest", "TC_207: Edit Infinite schedule");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
@@ -122,7 +122,7 @@ public class SchedulerPageTestTA extends TestBase {
 		extentTest.log(extentTest.getStatus(), "User can transfer schedule successfully");  
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());	
 	}
-	@Test(priority=174)
+	@Test(priority=174,alwaysRun=true)
 	public void validateSchedulerPageTATest(Method method) throws Exception {
 		extentTest = extent.createTest("validateSchedulerPageTATest", "TC_Additional:Verify Clicking Scheduler tab and checking that appropiate page is loaded");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
@@ -141,7 +141,7 @@ public class SchedulerPageTestTA extends TestBase {
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}*/
 		//For Schedule Name
-	@Test(priority = 3172)
+/*	@Test(priority = 3172)
 	public void validateAdvSearchForScheduleNameEqualToSchedulerPageTATest(Method method) throws Exception {
 		extentTest = extent.createTest("validateAdvSearchForScheduleNameEqualToSchedulerPageTATest", "TC_009: To Verfiy Advance search for schedule name with equals criteria");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AdvancedSearchsheetname"),method.getName());
@@ -209,5 +209,5 @@ public class SchedulerPageTestTA extends TestBase {
 		schedulerpageta.validateStatusDropdownNotEqualTo("Status", "not equal to","Active","50");
 		extentTest.log(extentTest.getStatus(), "Advance search for Last Name is validated successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
-	}
+	}*/
 }

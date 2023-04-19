@@ -17,7 +17,7 @@ public class CataloguePageTestTA extends TestBase{
 		super();
 	}
 
-	@Test(priority=73)
+	@Test(priority=73,alwaysRun=true)
 	public void validateSubmitRequestTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateSubmitRequestTest", "TC_082: Verify if user can submit request for specific workflow");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
@@ -26,7 +26,7 @@ public class CataloguePageTestTA extends TestBase{
 		extentTest.log(extentTest.getStatus(), "Request for a workflow submitted successfully");  
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());	
 	}
-	@Test(priority=1024)
+	@Test(priority=1024,alwaysRun=true)
 	public void validateSubmitRequestDefaultCategoryTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateSubmitRequestDefaultCategoryTest", "TC_356: Verfiy can submit request from Default category");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
@@ -36,7 +36,7 @@ public class CataloguePageTestTA extends TestBase{
 		extentTest.log(extentTest.getStatus(), "Submit request from custom category is verified successfully");  
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());	
 	}
-	@Test(priority=1025)
+	@Test(priority=1025,alwaysRun=true)
 	public void validateSubmitRequestCustomCategoryTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateSubmitRequestCustomCategoryTest", "TC_357: Verfiy can submit request from Custom category");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
@@ -45,7 +45,7 @@ public class CataloguePageTestTA extends TestBase{
 		extentTest.log(extentTest.getStatus(), "Submit request from default category is verified successfully");  
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());	
 	}
-	@Test(priority=181)
+	@Test(priority=181,alwaysRun=true)
 	public void validateCataloguePageTATest(Method method) throws Exception {
 		extentTest = extent.createTest("validateCataloguePageTATest", "TC_Additional:Verify Clicking Catalogue tab and checking that appropiate page is loaded");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());

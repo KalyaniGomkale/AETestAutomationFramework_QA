@@ -16,7 +16,7 @@ public class FileManagementPageTestTA extends TestBase {
 	public FileManagementPageTestTA() {
 		super();
 	}
-	@Test(priority=198)
+	@Test(priority=198,alwaysRun=true)
 	public void validateFileManagementPageTATest(Method method) throws Exception {
 		extentTest = extent.createTest("validateFileManagementPageTATest", "TC_Additional:Verify Clicking File Management tab and checking that appropiate page is loaded");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
@@ -26,7 +26,7 @@ public class FileManagementPageTestTA extends TestBase {
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}
 
-	@Test(priority=1026)
+	@Test(priority=1026,alwaysRun=true)
 	public void validateUploadWFFileManagementTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateUploadWFFileManagementTest", "TC_257: Verify respective file get copy when upload file for more than one workflow");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
@@ -35,7 +35,7 @@ public class FileManagementPageTestTA extends TestBase {
 		extentTest.log(extentTest.getStatus(), "Workflow file is uploaded successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}
-	@Test(priority=1027)
+	@Test(priority=1027,alwaysRun=true)
 	public void validateEditWFFileManagementTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateEditWFFileManagementTest", "TC_258: Verify edit with same file name with edited data");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
@@ -44,7 +44,7 @@ public class FileManagementPageTestTA extends TestBase {
 		extentTest.log(extentTest.getStatus(), "Workflow file is edited successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}
-	@Test(priority=1028)
+	@Test(priority=1028,alwaysRun=true)
 	public void validateDeleteUploadWFFileManagementTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateDeleteUploadWFFileManagementTest", "TC_259: Verify delete file");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());

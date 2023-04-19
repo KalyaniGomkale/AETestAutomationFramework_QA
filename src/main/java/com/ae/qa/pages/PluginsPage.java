@@ -191,7 +191,7 @@ public class PluginsPage extends TestBase {
 		Thread.sleep(2000);
 		uploadSingeJarBtn.click();
 		Reporter.log("Single Plugin Jar started uploading",true);
-		driver.manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS);
+		wait.until(ExpectedConditions.visibilityOf(alertMessage));
 		String actual_success_msg =alertMessage.getText();
 		String expected_success_msg =Messages.singlePluginUpload;
 		System.out.println("actual success msg is: " + actual_success_msg);
@@ -219,7 +219,7 @@ public class PluginsPage extends TestBase {
 		Thread.sleep(3000);
 		uploadSingeJarBtn.click();
 		Reporter.log("Single Plugin Jar started uploading",true);
-		driver.manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS);
+		wait.until(ExpectedConditions.visibilityOf(alertMessage));
 		String actual_failure_msg =alertMessage.getText();
 		String expected_failure_msg ="Duplicate plugin name ["+PluginName+"]";
 		System.out.println("actual failure msg is: " + actual_failure_msg);
@@ -248,7 +248,7 @@ public class PluginsPage extends TestBase {
 		deletePluginBtn.click();
 		Reporter.log("Delete button is clicked",true);
 		confirmDeleteBtn.click();
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.visibilityOf(alertMessage));
 		String actual_failure_msg =alertMessage.getText();
 		String expected_failure_msg ="Step/Entry [ScriptValueMod] from plugin ["+pName+"] is being used in workflows ["+wfName+"]. Make these workflows inactive and try again";
 		System.out.println("actual failure msg is: " + actual_failure_msg);
@@ -272,7 +272,7 @@ public class PluginsPage extends TestBase {
 		deletePluginBtn1.click();
 		Reporter.log("Delete button is clicked",true);
 		confirmDeleteBtn.click();
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.visibilityOf(alertMessage));
 		String actual_success_msg =alertMessage.getText();
 		String expected_success_msg =Messages.singlePluginDelete;
 		System.out.println("actual success msg is: " + actual_success_msg);
@@ -317,6 +317,7 @@ public class PluginsPage extends TestBase {
 		Thread.sleep(2000);
 		WebElement sliderToEnableWF1=driver.findElement(By.xpath("//table/tr/td[@title='"+wfName+"']/../td/label/span"));
 		sliderToEnableWF1.click();
+		wait.until(ExpectedConditions.visibilityOf(success_Message));
 		String actual_FailureMsg = success_Message.getText();
 		System.out.println("Actual Failure Message:-" + actual_FailureMsg);
 		String expected_FailureMsg = "["+wfName+"] contains one or more invalid steps/entries";
@@ -362,6 +363,7 @@ public class PluginsPage extends TestBase {
 		Thread.sleep(2000);
 		WebElement sliderToEnableWF1=driver.findElement(By.xpath("//table/tr/td[@title='"+wfName+"']/../td/label/span"));
 		sliderToEnableWF1.click();
+		wait.until(ExpectedConditions.visibilityOf(success_Message));
 		String actual_FailureMsg = success_Message.getText();
 		System.out.println("Actual Failure Message:-" + actual_FailureMsg);
 		String expected_FailureMsg = "["+wfName+"] contains one or more invalid steps/entries";
@@ -391,7 +393,7 @@ public class PluginsPage extends TestBase {
 		Reporter.log("Assign to all checkbox is clicked",true);
 		uploadSingeJarBtn.click();
 		Reporter.log("Single Plugin Jar started uploading",true);
-		driver.manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS);
+		wait.until(ExpectedConditions.visibilityOf(alertMessage));
 		String actual_success_msg =alertMessage.getText();
 		String expected_success_msg =Messages.singlePluginUpload;
 		System.out.println("actual success msg is: " + actual_success_msg);
@@ -417,7 +419,7 @@ public class PluginsPage extends TestBase {
 		uploadJar.sendKeys(prop.getProperty("uploadHigherVersionPlugin"));
 		Thread.sleep(3000);
 		uploadSingeJarBtn.click();
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.visibilityOf(alertMessage));
 		String actual_success_msg =alertMessage.getText();
 		String expected_success_msg ="Duplicate plugin name ["+pluginName+"]";
 		Reporter.log("actual success msg is: " + actual_success_msg);
@@ -429,11 +431,12 @@ public class PluginsPage extends TestBase {
 	public void validateSinglePluginUploadHigherVersion(String pluginName) throws Exception{
 		loginpage.login(prop.getProperty("username"), prop.getProperty("password"));
 		Reporter.log("User log in Successfully",true);
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 		//First search for tab and click on it
 		//wait.until(ExpectedConditions.visibilityOf(pluginsTab));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();",pluginsTab);
+		Thread.sleep(2000);
 		wb.changePageSize("50");
 		Thread.sleep(2000);
 		String actual_PluginVersion = driver.findElement(By.xpath("//table/tbody/tr/td[@title='"+pluginName+"']/../td[2]")).getText();
@@ -445,8 +448,7 @@ public class PluginsPage extends TestBase {
 		updateUploadJar.sendKeys(prop.getProperty("uploadHigherVersionPlugin"));
 		Thread.sleep(2000);
 		saveBtn.click();
-		Thread.sleep(2000);
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.visibilityOf(alertMessage));
 		String actual_success_msg =alertMessage.getText();
 		String expected_success_msg =Messages.singlePluginUpload;
 		System.out.println("actual success msg is: " + actual_success_msg);
@@ -463,11 +465,12 @@ public class PluginsPage extends TestBase {
 	public void validateSinglePluginUploadLowerVersion(String pluginName) throws Exception{
 		loginpage.login(prop.getProperty("username"), prop.getProperty("password"));
 		Reporter.log("User log in Successfully",true);
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 		//First search for tab and click on it
 		//wait.until(ExpectedConditions.visibilityOf(pluginsTab));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();",pluginsTab);
+		Thread.sleep(2000);
 		wb.changePageSize("50");
 		Thread.sleep(2000);
 		WebElement editBtn = driver.findElement(By.xpath("//table/tbody/tr/td[@title='"+pluginName+"']/../td/span[@title='Edit Plugin']"));
@@ -476,8 +479,7 @@ public class PluginsPage extends TestBase {
 		updateUploadJar.sendKeys(prop.getProperty("uploadLowerVersionPlugin"));
 		Thread.sleep(2000);
 		saveBtn.click();
-		Thread.sleep(2000);
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.visibilityOf(alertMessage));
 		String actual_success_msg =alertMessage.getText();
 		String expected_success_msg ="Cannot upload plugin ["+pluginName+"] with version lower than [4.3]";
 		System.out.println("actual success msg is: " + actual_success_msg);

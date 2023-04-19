@@ -20,7 +20,7 @@ public class PurgeSchedulePageTest extends TestBase {
 		super();
 	}
 
-	@Test(priority=36)
+	@Test(priority=36,alwaysRun=true)
 	public void validatePurgingScheduleDayTest(Method method) throws Exception {
 		extentTest = extent.createTest( "validatePurgingScheduleDayTest","TC_066: verify that sysadmin can create a purging schedule for -any day of the month" ); 
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
@@ -31,7 +31,7 @@ public class PurgeSchedulePageTest extends TestBase {
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
 
-	@Test(priority = 37)
+	@Test(priority = 37,alwaysRun=true)
 	public void validatePurgingScheduleWeekendTest(Method method) throws Exception {
 		extentTest = extent.createTest("validatePurgingScheduleWeekendTest","TC_067: To verify validation for weekday purging schedule-day of week");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
@@ -39,8 +39,9 @@ public class PurgeSchedulePageTest extends TestBase {
 		//purgeschedulepage.validatePurgingScheduleWeekend("Day of Week", "Friday", "Fourth", "4", "2");
 		purgeschedulepage.validatePurgingScheduleWeekend(TestDataInMap.get("Criteria"),TestDataInMap.get("DayOfWeek"),TestDataInMap.get("WeekdayOfMonth"),TestDataInMap.get("StartTimeHR"),TestDataInMap.get("StartTimeMin"));
 		extentTest.log(extentTest.getStatus(), "SA can create a purging schedule for any day of week successfully");
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
-	@Test(priority=161)
+	@Test(priority=161,alwaysRun=true)
 	public void validatePurgeSchedulePageTest(Method method) throws Exception {
 		extentTest = extent.createTest("validatePurgeSchedulePageTest", "TC_Additional:Verify Clicking Purge Schedule tab and checking that appropiate page is loaded");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());

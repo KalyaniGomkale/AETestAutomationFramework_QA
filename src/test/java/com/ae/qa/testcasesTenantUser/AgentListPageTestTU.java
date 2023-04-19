@@ -49,7 +49,7 @@ public class AgentListPageTestTU extends TestBase {
 		extentTest = extent.createTest("validateAssistedAgentDeleteTU", "TC_7: To verify delete assisted agent");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TUsheetname"),method.getName());
 		agentlistpagetu = new AgentListPageTU();
-		agentlistpagetu.validateAssistedAgentDeleteTU();
+		agentlistpagetu.validateAssistedAgentDeleteTU(TestDataInMap.get("AgentName"));
 		extentTest.log(extentTest.getStatus(), "Assisted Agent Deleted successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TUsheetname"), "Pass", method.getName());
 	}

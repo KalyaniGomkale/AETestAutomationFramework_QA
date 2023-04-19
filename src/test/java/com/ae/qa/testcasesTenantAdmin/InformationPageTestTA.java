@@ -21,7 +21,7 @@ public class InformationPageTestTA extends TestBase {
 	}
 	//No data required
 
-	@Test (priority=123)
+	@Test (priority=123,alwaysRun=true)
 	public void validateLastLoginTATest(Method method) throws Exception  {
 		extentTest = extent.createTest( "validateLastLoginTest","TC_072: To Veify Last Login date and time");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
@@ -72,7 +72,7 @@ public class InformationPageTestTA extends TestBase {
 		extentTest.log(extentTest.getStatus(), "Tenant Logo removed successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}
-	@Test(priority=604)
+	@Test(priority=604,alwaysRun=true)
 	public void validateChangeTenantLogoTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateChangeTenantLogoTest", "TC_091: Change Tenant Logo");
 		//Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
@@ -81,7 +81,7 @@ public class InformationPageTestTA extends TestBase {
 		extentTest.log(extentTest.getStatus(), "Tenant Logo is changed successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}
-	@Test(priority=300)
+	@Test(priority=300,alwaysRun=true)
 	public void validateAboutTabTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateAboutTab", "TC_45: To verify About tab");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());

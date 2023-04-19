@@ -18,7 +18,7 @@ public class CredentialsPageTestTA extends TestBase {
 		super();
 	}
 
-	@Test(priority=64)
+	@Test(priority=64,alwaysRun=true)
 	public void ValidateCreateCredentialsTest(Method method) throws Exception
 	{
 		extentTest = extent.createTest("ValidateCreateCredentialsTest", "TC_222: To verify user can create credentials");
@@ -29,7 +29,7 @@ public class CredentialsPageTestTA extends TestBase {
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}
 
-	@Test(priority=65)
+	@Test(priority=65,alwaysRun=true)
 	public void ValidateEditCredentialsTest(Method method) throws Exception
 	{
 		extentTest = extent.createTest("ValidateEditCredentialsTest", "TC_223: To verify user can edit credentials");
@@ -41,7 +41,7 @@ public class CredentialsPageTestTA extends TestBase {
 		extentTest.log(extentTest.getStatus(), "Credentials Edited successfully");  
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}
-	@Test(priority=66)
+	@Test(priority=66,alwaysRun=true)
 	public void ValidateDuplicateCredentialsTest(Method method) throws Exception
 	{
 		extentTest = extent.createTest("ValidateCreateCredentialsTest", "TC_222: To verify user can create duplicate credentials");
@@ -51,7 +51,7 @@ public class CredentialsPageTestTA extends TestBase {
 		extentTest.log(extentTest.getStatus(), "Credentials with duplicate name can't be created");  
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}
-	@Test(priority=67)
+	@Test(priority=67,alwaysRun=true)
 	public void ValidateCreateCredentialPoolTest(Method method) throws Exception
 	{
 		extentTest = extent.createTest("ValidateCreateCredentialPoolTest", "TC_xxx: To verify user can create credential Pool");
@@ -61,7 +61,7 @@ public class CredentialsPageTestTA extends TestBase {
 		extentTest.log(extentTest.getStatus(), "Credential Pool Created successfully");  
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}
-	@Test(priority=68)
+	@Test(priority=68,alwaysRun=true)
 	public void ValidateDuplicateCredentialPoolTest(Method method) throws Exception
 	{
 		extentTest = extent.createTest("ValidateDuplicateCredentialPoolTest", "TC_xxx: To verify user can create duplicate credential pool");
@@ -71,7 +71,7 @@ public class CredentialsPageTestTA extends TestBase {
 		extentTest.log(extentTest.getStatus(), "Credential Pool with duplicate name can't be created");  
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}
-	@Test(priority=69)
+	@Test(priority=69,alwaysRun=true)
 	public void ValidateMoveCredentialToPoolTest(Method method) throws Exception
 	{
 		extentTest = extent.createTest("ValidateMoveCredentialToPoolTest", "TC_226: To verify user can move credential to credential pool");
@@ -82,7 +82,7 @@ public class CredentialsPageTestTA extends TestBase {
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}
 	//closure activities
-	@Test(priority=551)
+	@Test(priority=551,alwaysRun=true)
 	public void ValidateDeleteCredentialPoolTest(Method method) throws Exception
 	{
 		extentTest = extent.createTest("ValidateDeleteCredentialPoolTest", "TC_226: To verify user can delete credential pool");
@@ -92,7 +92,7 @@ public class CredentialsPageTestTA extends TestBase {
 		extentTest.log(extentTest.getStatus(), "Credential Pool deleted Successfully");  
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}
-	@Test(priority=552)
+	@Test(priority=552,alwaysRun=true)
 	public void ValidateDeleteCredentialTest(Method method) throws Exception
 	{
 		extentTest = extent.createTest("ValidateDeleteCredentialTest", "TC_226: To verify user can delete credential");
@@ -102,7 +102,7 @@ public class CredentialsPageTestTA extends TestBase {
 		extentTest.log(extentTest.getStatus(), "Credential deleted Successfully");  
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}
-	@Test(priority=176)
+	@Test(priority=176,alwaysRun=true)
 	public void validateCredentialsPageTATest(Method method) throws Exception {
 		extentTest = extent.createTest("validateCredentialsPageTATest", "TC_Additional:Verify Clicking Credentials tab and checking that appropiate page is loaded");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());

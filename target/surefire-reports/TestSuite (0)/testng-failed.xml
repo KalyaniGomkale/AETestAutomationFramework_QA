@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite thread-count="1" parallel="methods" name="Failed suite [TestSuite (0)]" guice-stage="DEVELOPMENT" verbose="0">
   <listeners>
     <listener class-name="com.ae.qa.Listeners.ITestListenerImplementation"/>
   </listeners>
   <test thread-count="1" parallel="methods" name="AESanity(failed)" verbose="0">
     <classes>
-      <class name="com.ae.qa.testcasesUserAdmin.InformationPageTestUA">
+      <class name="com.ae.qa.testcasesActivityMonitor.InformationPageTestAM">
         <methods>
-          <include name="endReport"/>
           <include name="setExtent"/>
           <include name="initialization"/>
+          <include name="validateLastLoginAMTest" invocation-numbers="0"/>
+          <include name="endReport"/>
           <include name="getResult"/>
-          <include name="validateLastLoginUATest" invocation-numbers="0"/>
         </methods>
-      </class> <!-- com.ae.qa.testcasesUserAdmin.InformationPageTestUA -->
+      </class> <!-- com.ae.qa.testcasesActivityMonitor.InformationPageTestAM -->
     </classes>
   </test> <!-- AESanity(failed) -->
 </suite> <!-- Failed suite [TestSuite (0)] -->

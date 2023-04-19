@@ -72,7 +72,7 @@ public class IntegrationTypesPageTA extends TestBase {
 		Thread.sleep(3000);
 		submitBtn.click();
 		Reporter.log("Submit Button is clicked",true);
-		driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
+		wait.until(ExpectedConditions.visibilityOf(alertMessage));
 		String actual_Msg=alertMessage.getText();
 		String expected_Msg="Integration type ["+typeName+"] created successfully";
 		Assert.assertEquals(actual_Msg,expected_Msg,"Integration type not created.");
@@ -104,8 +104,7 @@ public class IntegrationTypesPageTA extends TestBase {
 		submitBtn.click();
 		Reporter.log("Submit Button is clicked",true);
 		String typename_lowerCase=typeName.toLowerCase();
-		//driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.visibilityOf(alertMessage));
 		String actual_Msg=alertMessage.getText();
 		String expected_Msg="Integration type jar for ["+typename_lowerCase+"] updated successfully";
 		Assert.assertEquals(actual_Msg,expected_Msg,"Integration type not updated.");
@@ -125,7 +124,7 @@ public class IntegrationTypesPageTA extends TestBase {
 		deleteBtn.click();
 		Reporter.log("Delete button is clicked successfully",true);
 		confirmDeleteBtn.click();
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.visibilityOf(alertMessage));
 		String actual_Msg=alertMessage.getText();
 		String expected_Msg="Integration type ["+typeName+"] deleted successfully";
 		Assert.assertEquals(actual_Msg,expected_Msg,"Integration type is not deleted successfully.");

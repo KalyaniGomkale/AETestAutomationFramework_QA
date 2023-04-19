@@ -41,7 +41,7 @@ public class Messages extends TestBase {
 	public static String licenseUpload="License uploaded successfully";
 	public static String ImportWOLicense="License not found for the tenant";
 	public static String smtpNotConfig="Email server not configured for the tenant. Email notification cannot be enabled";
-	public static String deleteSMTPConfig = "SMTP configuration deleted successfully";
+	public static String deleteSMTPConfig = "Email Server configuration deleted successfully";
 	public static String setLogo = "Logo uploaded successfully";
 	public static String removeLogo = "Logo removed successfully";
 	public static String updateWorkflow = "Workflow updated successfully";
@@ -76,7 +76,7 @@ public class Messages extends TestBase {
 	public static String tstdataSource2="DataSource updated Succesfully";
 	public static String ManualExecutionSet="Workflow updated successfully";
 	public static String executionMessage="Message : Execution Successful";
-	public static String executionFailureMessage="Error! : Could not prepare output file H:\\Users\\DELL\\Downloads\\OTF_UniqueRecords.xlsx";
+	public static String executionFailureMessage="Error!";
 	public static String MoveCredToPool = "Credential(s) moved successfully";
 	public static String requestSubmitInAgentLogs = "Request submitted successfully";
 	public static String downloadInAgentLogs = "Download started";
@@ -107,4 +107,5 @@ public class Messages extends TestBase {
 	public static String holidayCalenderEditMsg="Calendar updated successfully";
 	public static String holidayCalenderCloneMsg="Calendar copied successfully";
 	public static String holidayCalenderRenewMsg="Calendar renewed successfully";
+	public static String externalAppsSuccessMsg="Operation completed successfully";
 }

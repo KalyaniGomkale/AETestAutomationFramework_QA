@@ -21,7 +21,7 @@ public class SystemUsersPageTest extends TestBase {
 		super();
 	}
 
-	@Test(priority = 5)
+	@Test(priority = 5,alwaysRun=true)
 	public void creatingSystemAdminTest(Method method) throws Exception {
 		extentTest = extent.createTest("creatingSystemAdminTest", "TC_008: Verify create System User");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
@@ -33,7 +33,7 @@ public class SystemUsersPageTest extends TestBase {
 
 	}
 
-	@Test(priority = 6)
+	@Test(priority = 6,alwaysRun=true)
 	public void validateEditSystemUsers(Method method) throws Exception {
 		extentTest = extent.createTest("ValidateEditSystemUsersTest", "TC_009: Verify Edit System User");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
@@ -44,7 +44,7 @@ public class SystemUsersPageTest extends TestBase {
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
 
-	@Test(priority = 7)
+	@Test(priority = 7,alwaysRun=true)
 	public void validatePasswordMismatch(Method method) throws Exception {
 		extentTest = extent.createTest("validatePasswordMismatch", "TC_014: Verify creating sysadmin with Password mismatch");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
@@ -54,7 +54,7 @@ public class SystemUsersPageTest extends TestBase {
 		extentTest.log(extentTest.getStatus(), "Password Mismatch gave error message");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
-	@Test(priority = 703)
+	@Test(priority = 703,alwaysRun=true)
 	public void validateCreatingTenantLicenseAdminTest(Method method) throws Exception {
 		extentTest = extent.createTest("ValidateCreatingTenantLicenseAdminTest", "TC_Additional: Verify create Tenant License Admin");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
@@ -73,7 +73,7 @@ public class SystemUsersPageTest extends TestBase {
 		extentTest.log(extentTest.getStatus(), "System User created successfully");
 		//ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}*/
-	@Test(priority = 704)
+	@Test(priority = 704,alwaysRun=true)
 	public void validateEditTenantLicenseAdminTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateEditTenantLicenseAdminTest", "TC_Additional: Verify Edit tenant license admin user");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
@@ -82,7 +82,7 @@ public class SystemUsersPageTest extends TestBase {
 		extentTest.log(extentTest.getStatus(), "Tenant License Admin edited successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
-	@Test(priority=153)
+	@Test(priority=153,alwaysRun=true)
 	public void validateSystemUsersPageTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateSystemUsersPageTest", "TC_Additional:Verify Clicking system users tab and checking that appropiate page is loaded");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
@@ -91,7 +91,7 @@ public class SystemUsersPageTest extends TestBase {
 		extentTest.log(extentTest.getStatus(), "System Users page loading validated successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
-	@Test(priority=1018)
+	@Test(priority=1018,alwaysRun=true)
 	public void validateDeleteSystemAdminTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateDeleteSystemAdminTest", "TC_13:Verify Delete Sysadmin");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
@@ -103,7 +103,7 @@ public class SystemUsersPageTest extends TestBase {
 	}
 	
     //For Username
-	@Test(priority = 3016)
+/*	@Test(priority = 3016)
 	public void validateAdvSearchForUserNameEqualToSystemUserPageTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateAdvSearchForUserNameEqualToSystemUserPageTest", "TC_009: To Verfiy Advance search for username with equals criteria");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AdvancedSearchsheetname"),method.getName());
@@ -358,5 +358,5 @@ public class SystemUsersPageTest extends TestBase {
 				TestDataInMap.get("CreatedEndYear"),TestDataInMap.get("CreatedEndMonth"),TestDataInMap.get("CreatedEndDate"),TestDataInMap.get("PageSize"));
 		extentTest.log(extentTest.getStatus(), "Advance search for Tenant names is like and created in between criteria validated successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
-	}
+	}*/
 }

@@ -75,7 +75,7 @@ public class IntegrationServicesPageTA extends TestBase {
 		js.executeScript("arguments[0].click();", integrationTab);
 		// click on services Tab
 		js.executeScript("arguments[0].click();", servicesTab);
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		Thread.sleep(3000);
 		addBtn.click();
 		Thread.sleep(3000);
 		Name.sendKeys(serviceName);
@@ -209,6 +209,7 @@ public class IntegrationServicesPageTA extends TestBase {
 				+allowedNoOfConfig2,true);
 		submitBtn.click();
 		Reporter.log("Submit button is clicked",true);
+		wait.until(ExpectedConditions.visibilityOf(alertMessage));
 		String actual_success_msg = alertMessage.getText();
 		String expected_success_msg = Messages.enableIntegrationServices;
 		System.out.println("actual success msg is: " + actual_success_msg);

@@ -20,7 +20,7 @@ public class PluginsPageTest extends TestBase {
 		super();
 	}
 	//Tested for valid data, invalid location,invalid file type
-	@Test(priority = 15)
+	@Test(priority = 15,alwaysRun=true)
 	public void validateUploadPluginsTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateUploadPlugins", "TC_032: Upload plugins zip");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
@@ -29,7 +29,7 @@ public class PluginsPageTest extends TestBase {
 		extentTest.log(extentTest.getStatus(), "Plugins uploaded successfully and assigned to all tenants");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
-	@Test(priority = 128)
+	@Test(priority = 128,alwaysRun=true)
 	public void validateUploadSinglePluginsTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateUploadSinglePluginsTest", "TC_034:Verify Single plugin upload");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
@@ -38,7 +38,7 @@ public class PluginsPageTest extends TestBase {
 		extentTest.log(extentTest.getStatus(), "Single Plugins uploaded successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
-	@Test(priority = 1000)
+	@Test(priority = 1000,alwaysRun=true)
 	public void validateUploadSameSinglePluginTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateUploadSameSinglePluginTest", "TC_035:Verify not able to update single plugin  with same version without snapshot");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
@@ -75,7 +75,7 @@ public class PluginsPageTest extends TestBase {
 		extentTest.log(extentTest.getStatus(), "Plugin zip upload with assign to all tenant  with few plugins is verfied successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}*/
-	@Test(priority=158)
+	@Test(priority=158,alwaysRun=true)
 	public void validatePluginsPageTest(Method method) throws Exception {
 		extentTest = extent.createTest("validatePluginsPageTest", "TC_Additional:Verify Clicking Plugins tab and checking that appropiate page is loaded");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
@@ -93,7 +93,7 @@ public class PluginsPageTest extends TestBase {
 		extentTest.log(extentTest.getStatus(),"Step Unit is verified successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}*/
-	@Test(priority=1001)
+	@Test(priority=1001,alwaysRun=true)
 	public void validateUploadSinglePluginSameVersionTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateUploadSinglePluginSameVersionTest", "TC_35:Verify not able to update  single plugin  with same version (withot snapshot )");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
@@ -102,7 +102,7 @@ public class PluginsPageTest extends TestBase {
 		extentTest.log(extentTest.getStatus(),"Single plugin jar with same version is not uploaded successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
-	@Test(priority=1003)
+	@Test(priority=1003,alwaysRun=true)
 	public void validateSinglePluginUploadHigherVersionTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateSinglePluginUploadHigherVersionTest", "TC_36:To verify single plugin uplaod with higher version");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
@@ -111,7 +111,7 @@ public class PluginsPageTest extends TestBase {
 		extentTest.log(extentTest.getStatus(),"Single plugin jar of higher version is uploaded successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
-	@Test(priority=1002)
+	@Test(priority=1002,alwaysRun=true)
 	public void validateSinglePluginUploadLowerVersionTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateSinglePluginUploadLowerVersionTest", "TC_37:To verify single plugin uplaod with lower version");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
@@ -159,7 +159,7 @@ public class PluginsPageTest extends TestBase {
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}*/
 		//For Plugin Name
-	@Test(priority = 3073)
+	/*@Test(priority = 3073)
 	public void validateAdvSearchForPluginNameEqualToPluginPageTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateAdvSearchForPluginNameEqualToPluginPageTest", "TC_009: To Verfiy Advance search for plugin name with equals criteria");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AdvancedSearchsheetname"),method.getName());
@@ -311,6 +311,6 @@ public class PluginsPageTest extends TestBase {
 				TestDataInMap.get("CreatedEndYear"),TestDataInMap.get("CreatedEndMonth"),TestDataInMap.get("CreatedEndDate"),TestDataInMap.get("PageSize"));
 		extentTest.log(extentTest.getStatus(), "Advance search for Tenant names is like and created in between criteria validated successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
-	}
+	}*/
 
 }

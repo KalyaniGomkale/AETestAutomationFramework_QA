@@ -91,6 +91,8 @@ public class LoginPage extends TestBase {
 	WebElement newConfirmPswd;
 	@FindBy(xpath = "//div/h2[contains(text(),'Home')]")
 	WebElement homePageTitle;
+	@FindBy(xpath = "//div/h2[contains(text(),'Tenants')]")
+	WebElement tenantsPageTitle;
 	
 	
 	// initialize all this Object Repository
@@ -176,7 +178,7 @@ public class LoginPage extends TestBase {
 	//	JavascriptExecutor js2 = (JavascriptExecutor) driver;
 		//js2.executeScript("arguments[0].click();", resetBtn);
 		Reporter.log("Set new password successfully",true);
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		wait.until(ExpectedConditions.visibilityOf(successMsg));
 		String actual_msg = successMsg.getText();
 		String expected_msg = Messages.resetPassword;
 		Thread.sleep(11000);
@@ -187,13 +189,13 @@ public class LoginPage extends TestBase {
 		//InformationPage informationpage=new InformationPage();
 		//informationpage.validateSignOut();
 	}
-
+  // need to update the tc when consumption tab is true
 	public void ValidateLoginWithResetPswd(String Username,String Password) throws Exception {
 		LoginPage loginpage = new LoginPage();
 		loginpage.login(Username,Password);
-		String PageTitle = homePageTitle.getText();
+		String PageTitle = tenantsPageTitle.getText();
 		System.out.println("User is Login with new paswword and navigated to " + PageTitle + " page.");
-		Assert.assertEquals(PageTitle, "Home", "User is not navigated to tenants page");
+		Assert.assertEquals(PageTitle, "Tenants", "User is not navigated to tenants page");
 		InformationPage informationpage=new InformationPage();
 		informationpage.validateSignOut();	
 	}
@@ -207,6 +209,7 @@ public class LoginPage extends TestBase {
 		submitBtn.click();
 		Reporter.log("submitted",true);
 		Thread.sleep(8000);
+		wait.until(ExpectedConditions.visibilityOf(successMsg));
 		String actual_msg = successMsg.getText();
 		String expected_msg = Messages.PwSetNotSecurityQuestion;
 		Thread.sleep(11000);
@@ -260,6 +263,7 @@ public class LoginPage extends TestBase {
 		System.out.println("Expected Arraylist is:" + Output_Attempts);
 		okBtn.click();
 		Thread.sleep(3000);
+		wait.until(ExpectedConditions.visibilityOf(PopUpMsg));
 		String Actual_SuccessMsg = PopUpMsg.getText();
 		String Expected_SuccessMsg = Messages.updatePasswordPolicy;
 		System.out.println("Actual Message after password policy update:" + Actual_SuccessMsg);

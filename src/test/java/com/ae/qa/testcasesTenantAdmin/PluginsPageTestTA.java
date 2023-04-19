@@ -17,7 +17,7 @@ public class PluginsPageTestTA extends TestBase {
 	public PluginsPageTestTA() {
 		super();
 	}
-	@Test(priority=190)
+	@Test(priority=190,alwaysRun=true)
 	public void validatePluginsPageTATest(Method method) throws Exception {
 		extentTest = extent.createTest("validatePluginsPageTATest", "TC_Additional:Verify Clicking Plugins tab and checking that appropiate page is loaded");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());

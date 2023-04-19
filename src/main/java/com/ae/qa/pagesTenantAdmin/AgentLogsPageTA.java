@@ -37,7 +37,7 @@ public class AgentLogsPageTA extends TestBase {
 	WebElement requestRadioBtn;
 	@FindBy(id = "agentType")
 	WebElement agentType;
-	@FindBy(xpath = "//span[@class='mul-dorpdown-button']")
+	@FindBy(xpath = "//ae-multiselect[@id='agentList']/div")
 	WebElement selectAgent;
 	@FindBy(id="startDate-datepicker")
 	WebElement startDate;
@@ -91,7 +91,7 @@ public class AgentLogsPageTA extends TestBase {
 		Thread.sleep(3000);
 		selectAgent.click();
 		Thread.sleep(3000);
-		WebElement Agent=driver.findElement(By.xpath("//label[contains(text(),'"+AgentName+"')]/span"));
+		WebElement Agent=driver.findElement(By.xpath("//label/span[contains(text(),'"+AgentName+"')]/../span[2]"));
 		Agent.click();
 		Reporter.log("Agent is been selected",true);
 		Thread.sleep(3000);
@@ -119,7 +119,7 @@ public class AgentLogsPageTA extends TestBase {
 		Thread.sleep(5000);
 		submitBtn.click();
 		Reporter.log("Agent log submitted successfully",true);
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		wait.until(ExpectedConditions.visibilityOf(alertMessage));
 		String actual_message = alertMessage.getText();
 		String expected_message = Messages.requestSubmitInAgentLogs;
 		Reporter.log("Actual Success Msg:" + actual_message,true);
@@ -131,7 +131,7 @@ public class AgentLogsPageTA extends TestBase {
 		Thread.sleep(2000);
 		WebElement downloadBtn=driver.findElement(By.xpath("//table/tr/td[text()='"+AgentName+"']/../td/span"));
 		downloadBtn.click();
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		wait.until(ExpectedConditions.visibilityOf(alertMessage));
 		String actual_message1 = alertMessage.getText();
 		String expected_message1 = Messages.downloadInAgentLogs;
 		Reporter.log("Actual Success Msg:" + actual_message1,true);
@@ -161,7 +161,7 @@ public class AgentLogsPageTA extends TestBase {
 		Reporter.log("Request ID entered.",true);
 		Thread.sleep(2000);
 		submitBtn.click();
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		wait.until(ExpectedConditions.visibilityOf(alertMessage));
 		String actual_message = alertMessage.getText();
 		String expected_message = Messages.requestSubmitInAgentLogs;
 		Reporter.log("Actual Success Msg:" + actual_message,true);
@@ -173,7 +173,7 @@ public class AgentLogsPageTA extends TestBase {
 		Thread.sleep(2000);
 		WebElement downloadBtn=driver.findElement(By.xpath("//table/tr/td[text()='"+RequestID+"']/../td/span"));
 		downloadBtn.click();
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		wait.until(ExpectedConditions.visibilityOf(alertMessage));
 		String actual_message1 = alertMessage.getText();
 		String expected_message1 = Messages.downloadInAgentLogs;
 		Reporter.log("Actual Success Msg:" + actual_message1,true);

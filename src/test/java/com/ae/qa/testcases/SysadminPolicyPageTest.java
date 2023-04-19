@@ -19,7 +19,7 @@ public class SysadminPolicyPageTest extends TestBase {
 	}
 
 	//sysadmin1 data can be use
-	@Test(priority = 26)
+	@Test(priority = 26,alwaysRun=true)
 	public void validatePswdComplexityTest(Method method) throws Exception {
 		extentTest = extent.createTest("validatePswdComplexityTest", "TC_123: To verify how system behaves when user violates the password complexity");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
@@ -52,7 +52,7 @@ public class SysadminPolicyPageTest extends TestBase {
 		extentTest.log(extentTest.getStatus(), "No of Attempts for password is validated successfully"); 
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	} 
-	@Test(priority=167)
+	@Test(priority=167,alwaysRun=true)
 	public void validateSysadminPolicyPageTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateSysadminPolicyPageTest", "TC_Additional:Verify Clicking Sysadmin Policy tab and checking that appropiate page is loaded");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());

@@ -17,7 +17,7 @@ public class AgentLogsPageTestTA extends TestBase {
 		super();
 	}
 
-	@Test(priority = 95)
+	@Test(priority = 95,alwaysRun=true)
 	public void validateAgentLogsTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateAgentLogsTest", "TC_360: Verify download agent logs");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
@@ -27,7 +27,7 @@ public class AgentLogsPageTestTA extends TestBase {
 		extentTest.log(extentTest.getStatus(), "Agent logs downloaded successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}
-	@Test(priority = 96)
+	@Test(priority = 96,alwaysRun=true)
 	public void validateWorkflowLogsTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateWorkflowLogsTest", "TC_363: Verify download workflow logs");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
@@ -36,7 +36,7 @@ public class AgentLogsPageTestTA extends TestBase {
 		extentTest.log(extentTest.getStatus(), "Workflow logs downloaded successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}
-	@Test(priority=184)
+	@Test(priority=184,alwaysRun=true)
 	public void validateAgentLogsPageTATest(Method method) throws Exception {
 		extentTest = extent.createTest("validateAgentLogsPageTATest", "TC_Additional:Verify Clicking Agent Logs tab and checking that appropiate page is loaded");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
@@ -45,7 +45,7 @@ public class AgentLogsPageTestTA extends TestBase {
 		extentTest.log(extentTest.getStatus(), "Agent Logs Page loading validated successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}
-	@Test(priority = 2008)
+	@Test(priority = 2008,alwaysRun=true)
 	public void validateAssistedAgentLogsTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateAssistedAgentLogsTest", "TC_159: Verify download Assisted agent logs");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());

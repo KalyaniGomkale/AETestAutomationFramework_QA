@@ -218,14 +218,10 @@ public class HomePageTA extends TestBase{
 		js.executeScript("arguments[0].click();", licenseDetailTab);
 		Reporter.log("License Details Tab is clicked",true);
 		Thread.sleep(2000);
-		List<WebElement> license_details = driver.findElements(By.xpath("//div[@class='card-deck m-0']/div/div/span/../h4"));
+		List<WebElement> license_details = driver.findElements(By.xpath("//table[@class='ae-table table table-hover table-bordered table-striped']/tr/th/../../tr/td"));
 		Thread.sleep(2000);
 		ArrayList<String> actual_LicenseDetails = new ArrayList<String>();
 		for (WebElement element : license_details) {
-			if(actual_LicenseDetails.contains("0/") && actual_LicenseDetails.contains("1/")){
-				actual_LicenseDetails.remove("0/");
-				actual_LicenseDetails.remove("1/");
-			}
 			String element_value = element.getText();
 			Reporter.log(element_value);
 			actual_LicenseDetails.add(element_value);
@@ -236,7 +232,7 @@ public class HomePageTA extends TestBase{
 		expected_LicenseDetails.add(prop.getProperty("LicenseType"));
 		expected_LicenseDetails.add(prop.getProperty("ProcessStudios"));
 		expected_LicenseDetails.add(prop.getProperty("AgentWorkerThreads"));
-		expected_LicenseDetails.add(prop.getProperty("AssistedAgent"));
+		expected_LicenseDetails.add(prop.getProperty("AssistedAgents"));
 		expected_LicenseDetails.add(prop.getProperty("StepUnits"));
 		expected_LicenseDetails.add(prop.getProperty("GracePeriod"));
 		expected_LicenseDetails.add(prop.getProperty("StartDate"));

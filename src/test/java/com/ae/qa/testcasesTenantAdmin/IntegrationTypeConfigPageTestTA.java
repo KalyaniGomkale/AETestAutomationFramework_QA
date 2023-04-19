@@ -20,7 +20,7 @@ import com.ae.qa.util.ExcelHandler;
 			super();
 		}
 		
-		@Test(priority=150)
+		@Test(priority=150,alwaysRun=true)
 		public void validateTypeConfBothTATest(Method method) throws Exception {
 			extentTest = extent.createTest("validateTypeConfBothTATest", "TC_475:Create Type  Configuration with IS  and IT created by Tenant Admin");
 			Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
@@ -36,7 +36,7 @@ import com.ae.qa.util.ExcelHandler;
 			extentTest.log(extentTest.getStatus(), "Integration configuration created successfully");
 			ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 		}
-		 @Test(priority=197)
+		 @Test(priority=197,alwaysRun=true)
 			public void validateIntegrationTypeConfigurationsTabPageTATest(Method method) throws Exception {
 				extentTest = extent.createTest("validateIntegrationTypeConfigurationsTabPageTATest", "TC_Additional:Verify Clicking Integration Type configurations tab and checking that appropiate page is loaded");
 				Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());

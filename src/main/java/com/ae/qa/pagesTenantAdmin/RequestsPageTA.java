@@ -43,11 +43,11 @@ public class RequestsPageTA extends TestBase {
 	WebElement execMessage;
 	@FindBy(xpath = "//table[@id='agentTable']/tr[3]/td[5]/span")
 	WebElement status;
-	@FindBy(xpath = "//span[@class='mul-dorpdown-button']")
+	@FindBy(id = "selectedColumns")
 	WebElement showColumnDrpdown;
 	@FindBy(xpath = "//span[@class='mul-checkmark']")
 	WebElement selectAllCheckBox;
-	@FindBy(xpath = "//span[@class='mul-dorpdown-button']/div")
+	@FindBy(xpath = "//div[@class='mul-dropdown-button']/div")
 	WebElement columnCount;
 	@FindBy(name="download-requests")
 	WebElement downloadRequest;
@@ -339,7 +339,7 @@ public class RequestsPageTA extends TestBase {
 		saveBtn.click();
 		Reporter.log("Save button is clicked",true);
 		//wait.until(ExpectedConditions.visibilityOf(success_msg));
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.visibilityOf(success_msg));
 		String Actual_successMsg = success_msg.getText();
 		System.out.println("Actual Message : " + Actual_successMsg);
 		String Expected_successMsg = Messages.updateWorkflow;
@@ -428,6 +428,7 @@ public class RequestsPageTA extends TestBase {
 			Assert.assertTrue(wfStatus.equals("Failure"));
 			Reporter.log("Request Status is "+wfStatus+" So Restart button is not visible and clicked",true);
 		}
+		wait.until(ExpectedConditions.visibilityOf(alertMessage));
 		String actual_Message=alertMessage.getText();
 		System.out.println("Actual Message:- "+actual_Message);
 		String expected_Message="Request ["+requestID+"] has been restarted";
@@ -449,8 +450,7 @@ public class RequestsPageTA extends TestBase {
 		Thread.sleep(3000);
 		saveBtn.click();
 		Reporter.log("Save button is clicked",true);
-		//wait.until(ExpectedConditions.visibilityOf(success_msg));
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.visibilityOf(success_msg));
 		String Actual_successMsg = success_msg.getText();
 		System.out.println("Actual Message : " + Actual_successMsg);
 		String Expected_successMsg = Messages.updateWorkflow;
@@ -505,6 +505,7 @@ public class RequestsPageTA extends TestBase {
 			Assert.assertTrue(wfStatus.equals("ExecutionStarted"));
 			Reporter.log("Request Status is "+wfStatus+" So Terminate button is not visible and clicked",true);
 		}
+		wait.until(ExpectedConditions.visibilityOf(alertMessage));
 		String actual_Message=alertMessage.getText();
 		System.out.println("Actual Message:- "+actual_Message);
 		String expected_Message="Request ["+requestID+"] termination has been initiated";

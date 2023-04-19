@@ -22,7 +22,7 @@ public class UserGroupsPageTestTA extends TestBase {
 		super();
 	}
 
-	@Test(priority=48)
+	@Test(priority=48,alwaysRun=true)
 	public void validateCreateUserGroup(Method method) throws Exception {
 		extentTest = extent.createTest("creatingTenantUserTest", "TC_066: To verify create Group");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
@@ -33,7 +33,7 @@ public class UserGroupsPageTestTA extends TestBase {
 	}
 
 
-	@Test (priority=49)
+	@Test (priority=49,alwaysRun=true)
 	public void validateEditUserGroup(Method method) throws Exception {
 		extentTest = extent.createTest("validateEditUserGroup", "TC_067:To verify edit user Group");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
@@ -44,7 +44,7 @@ public class UserGroupsPageTestTA extends TestBase {
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}
 
-	@Test (priority=50)
+	@Test (priority=50,alwaysRun=true)
 	public void validateAddUserToGroup(Method method) throws Exception {
 		extentTest = extent.createTest("validateAddUserToGroup", "TC_068:To verify adding user to user Group");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
@@ -54,7 +54,7 @@ public class UserGroupsPageTestTA extends TestBase {
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}
 
-	@Test (priority=51)
+	@Test (priority=51,alwaysRun=true)
 	public void validateRemoveUserFromGroup(Method method) throws Exception {
 		extentTest = extent.createTest("validateRemoveUserFromGroup", "TC_069:To verify removing user from user Group");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
@@ -110,7 +110,7 @@ public class UserGroupsPageTestTA extends TestBase {
 		extentTest.log(extentTest.getStatus(), "Workflow access after removing user from group is verified successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}*/
-	@Test(priority = 172)
+	@Test(priority = 172,alwaysRun=true)
 	public void validateUserGroupsPageTATest(Method method) throws Exception {
 		extentTest = extent.createTest("validateUserGroupsPageTATest",
 				"TC_Additional:Verify Clicking User Groups tab and checking that appropiate page is loaded");

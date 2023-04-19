@@ -20,7 +20,7 @@ public class AuditLogsPageTest extends TestBase {
 	}
 
 	//No data required
-    @Test(priority = 10)
+    @Test(priority = 10,alwaysRun=true)
 	public void validatedownloadingAuditLogs(Method method) throws Exception {
 		extentTest = extent.createTest("validatedownloadingAuditLogs", "TC_022: Verify download audit logs");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
@@ -30,7 +30,7 @@ public class AuditLogsPageTest extends TestBase {
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
 
-	@Test(priority = 11)
+	@Test(priority = 11,alwaysRun=true)
 	public void validatecheckColumnsInAuditLogs(Method method) throws Exception {
 		extentTest = extent.createTest("validatecheckColumnsInAuditLogs", "TC_026: Verify show columns- Check All option");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
@@ -40,7 +40,7 @@ public class AuditLogsPageTest extends TestBase {
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
 
-	@Test(priority = 12)
+	@Test(priority = 12,alwaysRun=true)
 	public void validatedeselectAllInAuditLogs(Method method) throws Exception {
 		extentTest = extent.createTest("validatedeselectAllInAuditLogs", "TC_027: Verify show columns- Uncheck All option");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
@@ -50,7 +50,7 @@ public class AuditLogsPageTest extends TestBase {
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
 
-	@Test(priority = 13)
+	@Test(priority = 13,alwaysRun=true)
 	public void verifySpecificColumnTest(Method method) throws Exception {
 		extentTest = extent.createTest("verifySpecificColumnTest", "TC_028: Verify show columns- specific column get display ");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
@@ -60,7 +60,7 @@ public class AuditLogsPageTest extends TestBase {
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
 
-	@Test (priority = 32)
+	@Test (priority = 32,alwaysRun=true)
 	public void verifycheckLogsTest(Method method) throws Exception  {
 		extentTest = extent.createTest("verifycheckLogsTest", "TC_031: Verify whether logs are shown in table for last activities ");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
@@ -69,7 +69,7 @@ public class AuditLogsPageTest extends TestBase {
 		extentTest.log(extentTest.getStatus(), "Logs are shown in table for last activities are validated.");	
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
-	@Test(priority=156)
+	@Test(priority=156,alwaysRun=true)
 	public void validateLogsPageTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateLogsPageTest", "TC_Additional:Verify Clicking Logs tab and checking that appropiate page is loaded");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
@@ -79,7 +79,7 @@ public class AuditLogsPageTest extends TestBase {
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
 	// For Entity
-/*	@Test(priority = 3098)
+	/*@Test(priority = 3098)
 	public void validateEntityDropdownEqualToAuditLogsPageTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateStateDropdownEqualToAuditLogsPageTest", "TC_009: To Verfiy Advance search for Entity with equals criteria");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AdvancedSearchsheetname"),method.getName());

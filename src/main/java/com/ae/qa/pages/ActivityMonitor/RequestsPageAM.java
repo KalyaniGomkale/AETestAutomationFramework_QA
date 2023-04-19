@@ -44,11 +44,11 @@ public class RequestsPageAM extends TestBase{
 	WebElement execMessage;
 	@FindBy(xpath = "//table[@id='agentTable']/tr[3]/td[5]/span")
 	WebElement status;
-	@FindBy(xpath = "//span[@class='mul-dorpdown-button']")
+	@FindBy(id = "selectedColumns")
 	WebElement showColumnDrpdown;
 	@FindBy(xpath = "//span[@class='mul-checkmark']")
 	WebElement selectAllCheckBox;
-	@FindBy(xpath = "//span[@class='mul-dorpdown-button']/div")
+	@FindBy(xpath = "//div[@class='mul-dropdown-button']/div")
 	WebElement columnCount;
 	@FindBy(name="download-requests")
 	WebElement downloadRequest;

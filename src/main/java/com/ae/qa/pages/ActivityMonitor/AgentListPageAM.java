@@ -30,11 +30,11 @@ public class AgentListPageAM extends TestBase{
 	WebElement AgentsTab;
 	@FindBy(xpath="//a[text()='Agent List']")
 	WebElement AgentListTab;
-	@FindBy(xpath="//span[@class='mul-dorpdown-button']")
+	@FindBy(id = "selectedColumns")
 	WebElement showColumnDrpdown;
 	@FindBy(xpath="//span[@class='mul-checkmark']")
 	WebElement selectAllCheckBox;
-	@FindBy(xpath = "//span[@class='mul-dorpdown-button']/div")
+	@FindBy(xpath = "//div[@class='mul-dropdown-button']/div")
 	WebElement columnCount;
 	@FindBy(id ="btnAssisted")
 	WebElement AssistedAgentTab;
@@ -56,14 +56,14 @@ public class AgentListPageAM extends TestBase{
 		Thread.sleep(2000);
 		String Actual_AgentName = driver.findElement(By.xpath("//table/tr/td/span[text()='" +AgentName + "']")).getText();
 		System.out.println("Actual Agent Name:- "+Actual_AgentName);
-		String Expected_AgentName=prop.getProperty("AgentName");
+		String Expected_AgentName= AgentName;
 		System.out.println("Expected Agent Name:-"+Expected_AgentName);
 		if(Actual_AgentName.contentEquals(Expected_AgentName)){
 			Assert.assertTrue(true);
 			Reporter.log("Agent details is verified successfully.",true);
 		}else {
 			Assert.assertTrue(false);
-			Reporter.log("Agent deatils are not verified successfully.",true);
+			Reporter.log("Agent details are not verified successfully.",true);
 		}
 		informationpageta.validateSignOut();
 	}
@@ -194,7 +194,7 @@ public class AgentListPageAM extends TestBase{
 		Thread.sleep(5000);
 		String Actual_AssitedAgentName = driver.findElement(By.xpath("//table/tr/td/span[text()='" +AgentName + "']")).getText();
 		System.out.println("Actual Agent Name:- "+Actual_AssitedAgentName);
-		String Expected_AssistedAgentName=prop.getProperty("AgentName");
+		String Expected_AssistedAgentName= AgentName;
 		System.out.println("Expected Agent Name:-"+Expected_AssistedAgentName);
 		if(Actual_AssitedAgentName.contentEquals(Expected_AssistedAgentName)){
 			Assert.assertTrue(true);

@@ -35,7 +35,7 @@ public class SchedulerPageTA extends TestBase {
 	WebElement tenantUsersTab;
 	@FindBy(xpath = "//button[@name='add-new']")
 	WebElement addNewBtn;
-	@FindBy(xpath="//div[@class='mul-position']/span")
+	@FindBy(xpath="//div[@class='mul-position']")
 	WebElement workflowDrpdwn;
 	@FindBy(id="scheduleName")
 	WebElement scheduleName; 
@@ -66,7 +66,7 @@ public class SchedulerPageTA extends TestBase {
 	@FindBy(xpath="//span[text()='Requests']")
 	WebElement requestTab;
 	//@FindBy(xpath="//div[@class='mul-position']/span[@class='mul-dorpdown-button']")
-	@FindBy(xpath="//*[@id='selectedWeekDays']/div/span")
+	@FindBy(xpath="//ae-multiselect[@id='selectedWeekDays']/div")
 	WebElement weekly_dropdown;
 	@FindBy(id="repeatInstruct")
 	WebElement repeatCheckbox;
@@ -80,9 +80,9 @@ public class SchedulerPageTA extends TestBase {
 	WebElement endTimeMin;
 	@FindBy(id="wfExecStartTime")
 	WebElement startTime;
-	@FindBy(xpath="//*[@id='selectedMonth']/div/span")
+	@FindBy(xpath="//ae-multiselect[@id='selectedMonth']/div")
 	WebElement monthly_dropdown;
-	@FindBy(xpath="//*[@id='selectedDayofMonth']/div/span")
+	@FindBy(xpath="//ae-multiselect[@id='selectedDayofMonth']/div")
 	WebElement dayOfMonth;
 	@FindBy(xpath="//span[@class='mul-checkmark']")
 	WebElement day;
@@ -148,7 +148,7 @@ public class SchedulerPageTA extends TestBase {
 		Thread.sleep(5000);
 		Reporter.log("Schedule form details started",true);
 		workflowDrpdwn.click();
-		WebElement search_wfName=driver.findElement(By.xpath("//label[contains(text(),'"+wfName+"')]/span"));
+		WebElement search_wfName=driver.findElement(By.xpath("//label/span[text()='"+wfName+"']/../input/../span[2]"));
 		search_wfName.click();
 		Thread.sleep(3000);
 		scheduleName.sendKeys(schedulename);
@@ -190,7 +190,7 @@ public class SchedulerPageTA extends TestBase {
 		Thread.sleep(2000);
 		submitBtn.click();
 		Reporter.log("Schedule submitted",true);
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		wait.until(ExpectedConditions.visibilityOf(actual_Msg));
 		String actual_message = actual_Msg.getText();
 		String expected_message = Messages.createSchedule;
 		Reporter.log("Actual Success Msg:" + actual_message,true);
@@ -230,7 +230,7 @@ public class SchedulerPageTA extends TestBase {
 		Reporter.log("End date changed",true);
 		submitBtn.click();
 		Reporter.log("Submit button clicked",true);
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		wait.until(ExpectedConditions.visibilityOf(actual_Msg));
 		String actual_message = actual_Msg.getText();
 		String expected_message = Messages.editSchedule;
 		Reporter.log("Actual Success Msg:" + actual_message,true);
@@ -259,7 +259,7 @@ public class SchedulerPageTA extends TestBase {
 		Thread.sleep(5000);
 		Reporter.log("Schedule form details started",true);
 		workflowDrpdwn.click();
-		WebElement search_wfName=driver.findElement(By.xpath("//label[contains(text(),'"+wfName+"')]/span"));
+		WebElement search_wfName=driver.findElement(By.xpath("//label/span[text()='"+wfName+"']/../input/../span[2]"));
 		search_wfName.click();
 		Thread.sleep(3000);
 		scheduleName.sendKeys(schedulename);
@@ -301,7 +301,7 @@ public class SchedulerPageTA extends TestBase {
 		Thread.sleep(2000);
 		weekly_dropdown.click();
 		Thread.sleep(2000);
-		WebElement schedule_day=driver.findElement(By.xpath("//label[contains(text(),'"+day+"')]/span"));
+		WebElement schedule_day=driver.findElement(By.xpath("//span[text()='"+day+"']/../input/../span[2]"));
 		schedule_day.click();
 		Thread.sleep(2000);
 		weekly_dropdown.click();
@@ -323,7 +323,7 @@ public class SchedulerPageTA extends TestBase {
 		Reporter.log("End Time is selected",true);
 		submitBtn.click();
 		Reporter.log("Schedule submitted",true);
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		wait.until(ExpectedConditions.visibilityOf(actual_Msg));
 		String actual_message = actual_Msg.getText();
 		String expected_message = Messages.createSchedule;
 		Reporter.log("Actual Success Msg:" + actual_message,true);
@@ -347,7 +347,7 @@ public class SchedulerPageTA extends TestBase {
 		editBtn.click();
 		weekly_dropdown.click();
 		Thread.sleep(2000);
-		WebElement schedule_day=driver.findElement(By.xpath("//label[contains(text(),'"+day+"')]/span"));
+		WebElement schedule_day=driver.findElement(By.xpath("//span[text()='"+day+"']/../input/../span[2]"));
 		schedule_day.click();
 		Thread.sleep(2000);
 		weekly_dropdown.click();
@@ -361,7 +361,7 @@ public class SchedulerPageTA extends TestBase {
 		Reporter.log("Repeat time is selcted",true);
 		submitBtn.click();
 		Reporter.log("Submit button clicked",true);
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		wait.until(ExpectedConditions.visibilityOf(actual_Msg));
 		String actual_message = actual_Msg.getText();
 		String expected_message = Messages.editSchedule;
 		Reporter.log("Actual Success Msg:" + actual_message,true);
@@ -392,7 +392,7 @@ public class SchedulerPageTA extends TestBase {
 		Thread.sleep(5000);
 		Reporter.log("Schedule form details started",true);
 		workflowDrpdwn.click();
-		WebElement search_wfName=driver.findElement(By.xpath("//label[contains(text(),'"+wfName+"')]/span"));
+		WebElement search_wfName=driver.findElement(By.xpath("//label/span[text()='"+wfName+"']/../input/../span[2]"));
 		search_wfName.click();
 		Thread.sleep(3000);
 		scheduleName.sendKeys(schedulename);
@@ -430,14 +430,14 @@ public class SchedulerPageTA extends TestBase {
 		Thread.sleep(2000);
 		monthly_dropdown.click();
 		Thread.sleep(2000);
-		WebElement schedule_month=driver.findElement(By.xpath("//label[contains(text(),'"+ScheduleMonth+"')]/span"));
+		WebElement schedule_month=driver.findElement(By.xpath("//span[text()='"+ScheduleMonth+"']/../input/../span[2]"));
 		schedule_month.click();
 		Thread.sleep(2000);
 		monthly_dropdown.click();
 		Thread.sleep(2000);
 		dayOfMonth.click();
 		Thread.sleep(2000);
-		WebElement day= driver.findElement(By.xpath("(//div[@class='mul-options-list pb-2']/li/label[contains(text(),'"+Day+"')])[1]/span"));
+		WebElement day= driver.findElement(By.xpath("//span[text()='"+Day+"']/../input/../span[2]"));
 		day.click();
 		Thread.sleep(2000);
 		repeatCheckbox.click();
@@ -456,7 +456,7 @@ public class SchedulerPageTA extends TestBase {
 		Reporter.log("End Time is selected",true);
 		submitBtn.click();
 		Reporter.log("Schedule submitted",true);
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		wait.until(ExpectedConditions.visibilityOf(actual_Msg));
 		String actual_message = actual_Msg.getText();
 		String expected_message = Messages.createSchedule;
 		Reporter.log("Actual Success Msg:" + actual_message,true);
@@ -483,13 +483,13 @@ public class SchedulerPageTA extends TestBase {
 		Thread.sleep(2000);
 		monthly_dropdown.click();
 		Thread.sleep(2000);
-		WebElement schedule_month=driver.findElement(By.xpath("//label[contains(text(),'"+ScheduleMonth+"')]/span"));
+		WebElement schedule_month=driver.findElement(By.xpath("//span[text()='"+ScheduleMonth+"']/../input/../span[2]"));
 		schedule_month.click();
 		Thread.sleep(2000);
 		monthly_dropdown.click();
 		submitBtn.click();
 		Reporter.log("Submit button clicked",true);
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		wait.until(ExpectedConditions.visibilityOf(actual_Msg));
 		String actual_message = actual_Msg.getText();
 		String expected_message = Messages.editSchedule;
 		Reporter.log("Actual Success Msg:" + actual_message,true);
@@ -520,7 +520,7 @@ public class SchedulerPageTA extends TestBase {
 		Thread.sleep(5000);
 		Reporter.log("Schedule form details started",true);
 		workflowDrpdwn.click();
-		WebElement search_wfName=driver.findElement(By.xpath("//label[contains(text(),'"+wfName+"')]/span"));
+		WebElement search_wfName=driver.findElement(By.xpath("//label/span[text()='"+wfName+"']/../input/../span[2]"));
 		search_wfName.click();
 		Thread.sleep(3000);
 		scheduleName.sendKeys(schedulename);
@@ -551,7 +551,7 @@ public class SchedulerPageTA extends TestBase {
 		inf_startMin.sendKeys(ExecMin);
 		weekly_dropdown.click();
 		Thread.sleep(2000);
-		WebElement schedule_day=driver.findElement(By.xpath("//label[contains(text(),'"+day+"')]/span"));
+		WebElement schedule_day=driver.findElement(By.xpath("//span[text()='"+day+"']/../input/../span[2]"));
 		schedule_day.click();
 		Thread.sleep(2000);
 		weekly_dropdown.click();
@@ -572,7 +572,7 @@ public class SchedulerPageTA extends TestBase {
 		Thread.sleep(2000);
 		submitBtn.click();
 		Reporter.log("Schedule submitted",true);
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		wait.until(ExpectedConditions.visibilityOf(actual_Msg));
 		String actual_message = actual_Msg.getText();
 		String expected_message = Messages.createSchedule;
 		Reporter.log("Actual Success Msg:" + actual_message,true);
@@ -599,14 +599,14 @@ public class SchedulerPageTA extends TestBase {
 		Thread.sleep(2000);
 		monthly_dropdown.click();
 		Thread.sleep(2000);
-		WebElement schedule_month=driver.findElement(By.xpath("//label[contains(text(),'"+ScheduleMonth+"')]/span"));
+		WebElement schedule_month=driver.findElement(By.xpath("//span[text()='"+ScheduleMonth+"']/../input/../span[2]"));
 		schedule_month.click();
 		Thread.sleep(2000);
 		monthly_dropdown.click();
 		Thread.sleep(2000);
 		dayOfMonth.click();
 		Thread.sleep(2000);
-		WebElement day= driver.findElement(By.xpath("(//div[@class='mul-options-list pb-2']/li/label[contains(text(),'"+Day+"')])[1]/span"));
+		WebElement day= driver.findElement(By.xpath("//span[text()='"+Day+"']/../input/../span[2]"));
 		day.click();
 		Thread.sleep(2000);
 		if(repeatCheckbox.isSelected()){
@@ -615,7 +615,7 @@ public class SchedulerPageTA extends TestBase {
 		}
 		submitBtn.click();
 		Reporter.log("Submit button clicked",true);
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		wait.until(ExpectedConditions.visibilityOf(actual_Msg));
 		String actual_message = actual_Msg.getText();
 		String expected_message = Messages.editSchedule;
 		Reporter.log("Actual Success Msg:" + actual_message,true);
@@ -646,7 +646,7 @@ public class SchedulerPageTA extends TestBase {
 		Reporter.log("Delete schedule button clicked",true);
 		Thread.sleep(3000);
 		deletePopupBtn.click();
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		wait.until(ExpectedConditions.visibilityOf(actual_Msg));
 		String actual_message = actual_Msg.getText();
 		String expected_message = scheduleDescrip+" deleted successfully";
 		Reporter.log("Actual Success Msg:" + actual_message,true);
@@ -686,7 +686,7 @@ public class SchedulerPageTA extends TestBase {
 		Thread.sleep(3000);
 		transferBtn.click();
 		Reporter.log("Transfer button clicked",true);
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		wait.until(ExpectedConditions.visibilityOf(actual_Msg));
 		String actual_message = actual_Msg.getText();
 		String expected_message = Messages.transferSchedule;
 		Reporter.log("Actual Success Msg:" + actual_message,true);
@@ -712,6 +712,7 @@ public class SchedulerPageTA extends TestBase {
 		WebElement deleteBtn=driver.findElement(By.xpath("//table/tr/td/div[@title='"+UserName+"']/../../td/span[@title='Delete User']"));
 		deleteBtn.click();
 		deletePopupBtn.click();
+		wait.until(ExpectedConditions.visibilityOf(actual_Msg));
 		String actual_message = actual_Msg.getText();
 		String expected_message = Messages.deleteScheduleCreatedUser;
 		Reporter.log("Actual Success Msg:" + actual_message,true);

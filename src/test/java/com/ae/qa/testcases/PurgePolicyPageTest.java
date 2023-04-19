@@ -19,7 +19,7 @@ public class PurgePolicyPageTest extends TestBase {
 	public PurgePolicyPageTest() {
 		super();
 	}
-	@Test(priority = 33)
+	@Test(priority = 33,alwaysRun=true)
 	public void validateWFReqLessThanNotfTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateWFReqLessThanNotfTest","TC_064: To verify that user will get proper error when notification History is greater than workflow request");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
@@ -30,7 +30,7 @@ public class PurgePolicyPageTest extends TestBase {
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
 	
-	@Test(priority = 34)
+	@Test(priority = 34,alwaysRun=true)
 	public void validatePurgePolicyDurationTest(Method method) throws Exception {
 		extentTest = extent.createTest("validatePurgePolicyDurationTest","TC_064: To verify that SA can specify different purging duration for each of  the entities on creation/update of purge policy");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
@@ -41,7 +41,7 @@ public class PurgePolicyPageTest extends TestBase {
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
 	
-	@Test(priority = 35,dependsOnMethods="validatePurgePolicyDurationTest")
+	@Test(priority = 35,dependsOnMethods="validatePurgePolicyDurationTest",alwaysRun=true)
 	public void validateUpdatePurgePolicyEntityTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateUpdatePurgePolicyEntityTest","TC_065: To verify that SA is able to update an existing purging policy for each of the  purgable entities");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
@@ -51,7 +51,7 @@ public class PurgePolicyPageTest extends TestBase {
 		extentTest.log(extentTest.getStatus(), "SA can update different purging entity successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
-	@Test(priority=160)
+	@Test(priority=160,alwaysRun=true)
 	public void validatePurgePolicyPageTest(Method method) throws Exception {
 		extentTest = extent.createTest("validatePurgePolicyPageTest", "TC_Additional:Verify Clicking Purge Policy tab and checking that appropiate page is loaded");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());

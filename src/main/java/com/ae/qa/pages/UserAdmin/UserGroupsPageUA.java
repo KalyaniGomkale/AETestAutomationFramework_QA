@@ -86,7 +86,7 @@ public class UserGroupsPageUA extends TestBase{
 		descriptionField.sendKeys(description);
 		Thread.sleep(5000);
 		js.executeScript("arguments[0].click();", createBtnUG);
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		wait.until(ExpectedConditions.visibilityOf(actual_userGroupMsg));
 		String actual_userGroup = actual_userGroupMsg.getText();
 		String expected_userGroup = Messages.userGroup;
 		Reporter.log("Actual Username:" + actual_userGroup,true);
@@ -116,7 +116,7 @@ public class UserGroupsPageUA extends TestBase{
 		descriptionField.sendKeys(updateDescrp);
 		Reporter.log("Description of user group updated",true);
 		updateBtn.click();
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		wait.until(ExpectedConditions.visibilityOf(actual_userGroupMsg));
 		String actual_userGroup = actual_userGroupMsg.getText();
 		String expected_userGroup = Messages.editUserGroup;
 		Reporter.log("Actual Username:" + actual_userGroup,true);
@@ -149,7 +149,7 @@ public class UserGroupsPageUA extends TestBase{
 		allUser_drpdown.selectByVisibleText(user1);
 		System.out.println("User to add:"+user1);
 		assignBtn.click();
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		wait.until(ExpectedConditions.visibilityOf(actual_userGroupMsg));
 		String actual_userGroup = actual_userGroupMsg.getText();
 		String expected_userGroup = Messages.assignUserToGroup;
 		Reporter.log("Actual Username:" + actual_userGroup,true);
@@ -184,7 +184,7 @@ public class UserGroupsPageUA extends TestBase{
 		allUser_drpdown.selectByVisibleText(user1);
 		System.out.println("User to add:"+user1);
 		removeBtn.click();
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		wait.until(ExpectedConditions.visibilityOf(actual_userGroupMsg));
 		String actual_userGroup = actual_userGroupMsg.getText();
 		String expected_userGroup = Messages.removeUserFromGroup;
 		Reporter.log("Actual Username:" + actual_userGroup,true);
@@ -224,7 +224,7 @@ public class UserGroupsPageUA extends TestBase{
 		allUser_drpdown1.selectByVisibleText(user2);
 		System.out.println("User to add:"+user2);
 		assignBtn.click();
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		wait.until(ExpectedConditions.visibilityOf(actual_userGroupMsg));
 		String actual_userGroup = actual_userGroupMsg.getText();
 		String expected_userGroup = Messages.assignUserToGroup;
 		Reporter.log("Actual Username:" + actual_userGroup,true);
@@ -261,7 +261,7 @@ public class UserGroupsPageUA extends TestBase{
 		Thread.sleep(3000);
 		Reporter.log("Delete button is clicked",true);
 		deletePopupBtn.click();
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		wait.until(ExpectedConditions.visibilityOf(actual_userGroupMsg));
 		String actual_userGroup = actual_userGroupMsg.getText();
 		String expected_userGroup = Messages.deleteUserGroup;
 		Reporter.log("Actual Username:" + actual_userGroup,true);

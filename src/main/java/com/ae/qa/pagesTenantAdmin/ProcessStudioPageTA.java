@@ -65,7 +65,7 @@ public class ProcessStudioPageTA extends TestBase{
 		Thread.sleep(3000);
 		downloadBtn.click();
 		Reporter.log("Process-studio download started",true);
-		Thread.sleep(10000);
+		Thread.sleep(40000);
 		//download will continue, assign the license
 		updateBtn.click();
 		Thread.sleep(3000);
@@ -185,7 +185,7 @@ public class ProcessStudioPageTA extends TestBase{
 				PSCheckboxes.get(i).click();
 				
 			}
-		Thread.sleep(3000);
+		wait.until(ExpectedConditions.visibilityOf(alertMessage));
 		String actual_Message=alertMessage.getText();
 		System.out.println("Actual Message PS_Limit:- "+actual_Message);
 		String expected_Message=Messages.PSUploadLimitMsg;

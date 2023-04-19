@@ -16,7 +16,7 @@ public class TenantPolicyPageTestTA extends TestBase {
 	public TenantPolicyPageTestTA() {
 		super();
 	}
-    @Test(priority = 120)
+    @Test(priority = 120,alwaysRun=true)
 	public void validatePswdComplexityTATest(Method method) throws Exception {
 		extentTest = extent.createTest("validatePswdComplexityTATest", "TC_582:Verify Password Complexity Criteria");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
@@ -45,7 +45,7 @@ public class TenantPolicyPageTestTA extends TestBase {
 		extentTest.log(extentTest.getStatus(), "No of Attempts for password is validated successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}
-	 @Test(priority=202)
+	 @Test(priority=202,alwaysRun=true)
 		public void validateTenantPolicyPageTATest(Method method) throws Exception {
 			extentTest = extent.createTest("validateTenantPolicyPageTATest", "TC_Additional:Verify Clicking Tenant Policy tab and checking that appropiate page is loaded");
 			Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
@@ -54,7 +54,7 @@ public class TenantPolicyPageTestTA extends TestBase {
 			extentTest.log(extentTest.getStatus(), "Tenant Policy Page loading validated successfully");
 			ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 		}
-	@Test(priority = 205)
+	@Test(priority = 205,alwaysRun=true)
 	public void validateUnlockTenantBySysadminTATest(Method method) throws Exception {
 		extentTest = extent.createTest("validateUnlockTenantBySysadminTATest", "TC_564: Verify whether respective System admin is able to unlock the locked Tenant Admin user");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
@@ -63,7 +63,7 @@ public class TenantPolicyPageTestTA extends TestBase {
 		extentTest.log(extentTest.getStatus(), "TA account unlocked by sysadmin successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}
-	@Test(priority = 206)
+	@Test(priority = 206,alwaysRun=true)
 	public void validateUnlockTenantUserRespectToTATest(Method method) throws Exception {
 		extentTest = extent.createTest("validateUnlockTenantUserRespectToTATest", "TC_565: Verify whether respective Tenant admin is able to unlock the locked Tenant Admin user");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());

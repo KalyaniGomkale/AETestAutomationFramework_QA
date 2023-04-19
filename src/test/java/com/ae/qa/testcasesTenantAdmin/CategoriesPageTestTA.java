@@ -21,7 +21,7 @@ public class CategoriesPageTestTA extends TestBase {
 		super();
 	}
 
-	@Test(priority=59)
+	@Test(priority=59,alwaysRun=true)
    public void ValidateCreateCategoryTest(Method method) throws Exception
    {
 	   extentTest = extent.createTest("ValidateCreateCategoryTest", "TC_209: To verify can create catagory with mandotary field only");
@@ -32,7 +32,7 @@ public class CategoriesPageTestTA extends TestBase {
 	   ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
    }
 
-   @Test(priority=60)
+   @Test(priority=60,alwaysRun=true)
    public void ValidateEditCategoryTest(Method method) throws Exception
    {
 	   extentTest = extent.createTest("ValidateEditCategoryTest", "TC_210: To verify edit category");
@@ -42,7 +42,7 @@ public class CategoriesPageTestTA extends TestBase {
 	   extentTest.log(extentTest.getStatus(), "Category edited successfully");  
 	   ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
    }
-	@Test(priority=61)
+	@Test(priority=61,alwaysRun=true)
 	public void ValidateAssignWFToCategoryTest(Method method) throws Exception
 	{
 		extentTest = extent.createTest("ValidateAssignWFToCategoryTest", "TC_211: To verify user can assign workflow to category");
@@ -53,7 +53,7 @@ public class CategoriesPageTestTA extends TestBase {
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}
 
-	@Test(priority=63)
+	@Test(priority=63,alwaysRun=true)
 	public void ValidateCreateDuplicateCategoryTest(Method method) throws Exception
 	{
 		extentTest = extent.createTest("ValidateCreateDuplicateCategoryTest", "TC_213: To verify user can remove workflow from category");
@@ -64,7 +64,7 @@ public class CategoriesPageTestTA extends TestBase {
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}
 
-	@Test(priority=2000)
+	@Test(priority=2000,alwaysRun=true)
 	public void ValidateRemoveWFFromCategoryTest(Method method) throws Exception
 	{
 		extentTest = extent.createTest("ValidateRemoveWFFromCategoryTest", "TC_212: To verify user can remove workflow from category");
@@ -85,7 +85,7 @@ public class CategoriesPageTestTA extends TestBase {
 		extentTest.log(extentTest.getStatus(), "Category deleted successfully");  
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}
-	@Test(priority=175)
+	@Test(priority=175,alwaysRun=true)
 	public void validateCategoriesPageTATest(Method method) throws Exception {
 		extentTest = extent.createTest("validateCategoriesPageTATest", "TC_Additional:Verify Clicking Categories tab and checking that appropiate page is loaded");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());

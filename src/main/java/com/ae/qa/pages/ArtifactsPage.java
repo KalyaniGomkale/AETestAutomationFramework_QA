@@ -27,6 +27,8 @@ public class ArtifactsPage extends TestBase {
 	  WebElement ArtifactsTab;
 	  @FindBy(xpath="//span[text()='Logs']")
 	  WebElement LogsTab;
+	  @FindBy(xpath="//a[text()='Audit Logs']")
+		WebElement auditLogsTab;
 	  @FindBy(name="upload")
 	  WebElement uploadBtn;
 ////button[@name='upload']
@@ -91,7 +93,7 @@ public class ArtifactsPage extends TestBase {
 			Reporter.log("Artifact name has given correctly",true);
 			uploadSubmitBtn.click();
 			Reporter.log("Upload PS button clicked",true);
-			Thread.sleep(2000);
+			wait.until(ExpectedConditions.visibilityOf(alertMessage));
 			String actual_SuccessMsg = alertMessage.getText();
 			Reporter.log("Success message for valid Artifact name: " + actual_SuccessMsg,true);
 			String expected_SuccessMsg = Messages.validArtifactName;
@@ -99,9 +101,11 @@ public class ArtifactsPage extends TestBase {
 			Reporter.log("Artifact uploaded successfully",true);
 			Thread.sleep(3000);
 			js.executeScript("arguments[0].click();", LogsTab);
+			Thread.sleep(2000);
+			js.executeScript("arguments[0].click();", auditLogsTab);
 			Thread.sleep(2000);			
 			String actual_Entity=entity.getText();
-			Thread.sleep(2000);	
+			Thread.sleep(3000);	
 			String actual_Operation=operation.getText();
 			Reporter.log("Actual Entity after uploading PS Upload: "+actual_Entity,true);
 			Reporter.log("Actual Operation after uploading PS Upload: "+actual_Operation,true);

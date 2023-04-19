@@ -27,12 +27,10 @@ public class WorkflowsPage extends TestBase {
 	WebElement workflowsTab;
 	@FindBy(id = "operation")
 	WebElement operationDropdown;
-	@FindBy(xpath = "//span[@class='mul-dorpdown-button']")
+	@FindBy(xpath = "//ae-multiselect[@id='reason']/div")
 	WebElement reasondropdown;
-	@FindBy(xpath="//label[contains(text(),'Plugin Update')]/span")
+	@FindBy(xpath="//label/span[text()='Plugin Update']/../span[2]")
 	WebElement pluginUpdateCheckbox;
-	@FindBy(xpath = "//span[@class='mul-checkmark']")
-	WebElement PluginCheckbox;
 	@FindBy(xpath = "//button[text()='Enable']")
 	WebElement enableBtn;
 	@FindBy(xpath="//button[text()='Disable']")
@@ -68,7 +66,7 @@ public class WorkflowsPage extends TestBase {
 		Thread.sleep(3000);
 		disableBtn.click();
 		Reporter.log("Disable button is selected, now verify message",true);
-		Thread.sleep(3000);
+		wait.until(ExpectedConditions.visibilityOf(Message));
 		String actualMessage=Message.getText();
 		String expectedMessage="Workflow disabled";
 		Reporter.log("Message get after disabling workflow: "+actualMessage,true);
@@ -94,7 +92,7 @@ public class WorkflowsPage extends TestBase {
 		Thread.sleep(3000);
 		enableBtn.click();
 		Reporter.log("Enable button is selected, now verify message",true);
-		Thread.sleep(3000);
+		wait.until(ExpectedConditions.visibilityOf(Message));
 		String actualMessage= Message.getText();
 		String expectedMessage="Workflow enabled successfully";
 		Reporter.log("Message get after enabling workflow: "+actualMessage,true);

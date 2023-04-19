@@ -74,6 +74,7 @@ public class PurgePolicyPage extends TestBase {
 		NotificationHistory.sendKeys("" +NotHistory);
 		Thread.sleep(2000);	
 		js.executeScript("arguments[0].click();", saveBtn);
+		wait.until(ExpectedConditions.visibilityOf(alert_Message));
 		String Actual_ErrorMsg = alert_Message.getText();
 		Reporter.log("Actual Error when notification history is gretaer than wf request" + Actual_ErrorMsg,true);
 		String Expected_ErrorMsg = Messages.purgeError;
@@ -111,6 +112,7 @@ public class PurgePolicyPage extends TestBase {
 	//		UserSessionHistory.sendKeys("" + userSessionHist);
 			Thread.sleep(2000);
 			js.executeScript("arguments[0].click();", saveBtn);
+			wait.until(ExpectedConditions.visibilityOf(alert_Message));
 			String Actual_SuccessMsg = alert_Message.getText();
 			Reporter.log("Actual success message after setting purging policy:" + Actual_SuccessMsg,true);
 			String Expected_SuccessMsg = Messages.purgePolicyDuration;
@@ -162,6 +164,7 @@ public class PurgePolicyPage extends TestBase {
 	//		UserSessionHistory.sendKeys("" + userSessionHist);
 			Thread.sleep(5000);
 			js.executeScript("arguments[0].click();", saveBtn);
+			wait.until(ExpectedConditions.visibilityOf(alert_Message));
 			String Actual_SuccessMsg = alert_Message.getText();
 			Reporter.log("Actual success message after setting purging policy:" + Actual_SuccessMsg,true);
 			String Expected_SuccessMsg = Messages.purgePolicyDuration;

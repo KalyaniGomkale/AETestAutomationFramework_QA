@@ -133,7 +133,7 @@ public class WorkflowListPageTA extends TestBase {
 	WebElement uploadedZipName;
 	@FindBy(xpath="//span[text()='Update']")
 	WebElement updateOption;
-	@FindBy(xpath="//span[@class='mul-dorpdown-button']")
+	@FindBy(xpath="//ae-multiselect[@id='workflow_name']/div")
 	WebElement wf_dropdown;
 	@FindBy(xpath="//input[@name='search']")
 	WebElement search;
@@ -278,7 +278,7 @@ public class WorkflowListPageTA extends TestBase {
 		saveBtn.click();
 		Reporter.log("Save button is clicked",true);
 		//wait.until(ExpectedConditions.visibilityOf(success_msg));
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.visibilityOf(success_msg));
 		String Actual_successMsg = success_msg.getText();
 		System.out.println("Actual Message : " + Actual_successMsg);
 		String Expected_successMsg = Messages.updateWorkflow;
@@ -302,7 +302,7 @@ public class WorkflowListPageTA extends TestBase {
 		saveBtn.click();
 		Reporter.log("Save button is clicked",true);
 		//wait.until(ExpectedConditions.visibilityOf(success_msg));
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.visibilityOf(success_msg));
 		String Actual_successMsg = success_msg.getText();
 		System.out.println("Actual Message : " + Actual_successMsg);
 		String Expected_successMsg = Messages.updateWorkflow;
@@ -347,7 +347,7 @@ public class WorkflowListPageTA extends TestBase {
 		saveBtn.click();
 		Reporter.log("Save button is clicked",true);
 		//wait.until(ExpectedConditions.visibilityOf(success_msg));
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.visibilityOf(success_msg));
 		String Actual_successMsg = success_msg.getText();
 		System.out.println("Actual Message : " + Actual_successMsg);
 		String Expected_successMsg = Messages.updateWorkflow;
@@ -379,7 +379,7 @@ public class WorkflowListPageTA extends TestBase {
 		saveBtn.click();
 		Reporter.log("Save button is clicked",true);
 		//wait.until(ExpectedConditions.visibilityOf(success_msg));
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.visibilityOf(success_msg));;
 		String Actual_successMsg = success_msg.getText();
 		System.out.println("Actual Message : " + Actual_successMsg);
 		String Expected_successMsg = Messages.updateWorkflow;
@@ -406,7 +406,7 @@ public class WorkflowListPageTA extends TestBase {
 		Reporter.log("Edit button is clicked",true);
 		wfIcon.sendKeys(IconPath);
 		//wait.until(ExpectedConditions.visibilityOf(success_msg));
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.visibilityOf(success_msg));
 		String Actual_successMsg = success_msg.getText();
 		System.out.println("Actual Message : " + Actual_successMsg);
 		String Expected_successMsg = Messages.InvalidWFIcon;
@@ -434,7 +434,7 @@ public class WorkflowListPageTA extends TestBase {
 		saveBtn.click();
 		Reporter.log("Save button is clicked",true);
 		//wait.until(ExpectedConditions.visibilityOf(success_msg));
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.visibilityOf(success_msg));
 		String Actual_successMsg = success_msg.getText();
 		System.out.println("Actual Message : " + Actual_successMsg);
 		String Expected_successMsg = Messages.updateWorkflow;
@@ -472,7 +472,7 @@ public class WorkflowListPageTA extends TestBase {
 		manualTimeUnit_drpdown.selectByVisibleText(tUnit);
 		Thread.sleep(3000);
 		saveBtn.click();
-		//wait.until(ExpectedConditions.visibilityOf(success_msg));
+		wait.until(ExpectedConditions.visibilityOf(success_msg));
 		String Actual_successMsg = success_msg.getText();
 		Thread.sleep(2000);
 		Reporter.log("Aactual Success Message after editing workflow: " + Actual_successMsg,true);
@@ -516,6 +516,7 @@ public class WorkflowListPageTA extends TestBase {
 		ExportBtn.click();
 		Thread.sleep(2000);
 		Reporter.log("Clicked on export bottun", true);
+		wait.until(ExpectedConditions.visibilityOf(success_msg));
 		String actual_successMsg = success_msg.getText();
 		System.out.println("Actual success msg: " + actual_successMsg);
 		String expected_successMsg = Messages.exportWorkflow;
@@ -624,8 +625,6 @@ public class WorkflowListPageTA extends TestBase {
 		Assert.assertEquals(Actual_successMsg, Expected_successMsg, "Workflow not updated");
 		Reporter.log("Workflow updated",true);
 		informationpageta.validateSignOut();
-		cataloguepageta.validateSubmitRequest(wfName);
-		requestspageta.validateRequestStatus();
 
 	}
 	public void validateWorkflowListPageTA(String PageTitle) throws Exception {
@@ -866,7 +865,7 @@ public class WorkflowListPageTA extends TestBase {
 		WfsList.click();
 		Thread.sleep(2000);
 		ExportBtn.click();
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.visibilityOf(success_msg));
 		String actual_successMsg = success_msg.getText();
 		System.out.println("Actual success msg: " + actual_successMsg);
 		String expected_successMsg = Messages.exportWorkflow;

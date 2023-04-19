@@ -196,8 +196,7 @@ public class CataloguePageWA extends TestBase{
 		ImportForm(wfName,wfdes,category,WFImportPath,priority,expTime,maxTime,cleanUpHrs,manExeTime,tUnit);
 		saveBtn.click();
 		Reporter.log("Save button is clicked",true);
-		//wait.until(ExpectedConditions.visibilityOf(success_msg));
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.visibilityOf(success_msg));
 		String Actual_successMsg = success_msg.getText();
 		System.out.println("Actual Message : " + Actual_successMsg);
 		String Expected_successMsg = Messages.updateWorkflow;

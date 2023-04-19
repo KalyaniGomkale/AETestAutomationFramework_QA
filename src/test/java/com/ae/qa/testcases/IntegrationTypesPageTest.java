@@ -19,7 +19,7 @@ public class IntegrationTypesPageTest extends TestBase {
 		super();
 	}
 
-	@Test(priority=142)
+	@Test(priority=142,alwaysRun=true)
 	public void validateAddIntegrationTypesTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateAddIntegrationTypesTest", "TC_96: Verify adding integration services");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
@@ -28,7 +28,7 @@ public class IntegrationTypesPageTest extends TestBase {
 		extentTest.log(extentTest.getStatus(), "Integration Type created successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
-	@Test(priority=143)
+	@Test(priority=143,alwaysRun=true)
 	public void validateEditIntegrationTypesTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateEditIntegrationTypesTest", "TC_97: Verify editing integration services");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
@@ -37,7 +37,7 @@ public class IntegrationTypesPageTest extends TestBase {
 		extentTest.log(extentTest.getStatus(), "Integration type edited successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
-	@Test(priority=1012)
+	@Test(priority=1012,alwaysRun=true)
 	public void validateDeleteIntegrationTypeTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateDeleteIntegrationTypeTest", "TC_92:Verify Delete Integration Type");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
@@ -46,7 +46,7 @@ public class IntegrationTypesPageTest extends TestBase {
 		extentTest.log(extentTest.getStatus(), "Integration Service Status is verified successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
-	@Test(priority=163)
+	@Test(priority=163,alwaysRun=true)
 	public void validateIntegrationTypePageTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateIntegrationTypePageTest", "TC_Additional:Verify Clicking Integration types tab and checking that appropiate page is loaded");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());

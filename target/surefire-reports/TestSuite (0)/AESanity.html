@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>AESanity</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>1/0/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>2/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Tue Jul 12 10:35:23 IST 2022</td>
+<td>Started on:</td><td>Tue Apr 18 18:37:39 IST 2023</td>
 </tr>
-<tr><td>Total time:</td><td>73 seconds (73468 ms)</td>
+<tr><td>Total time:</td><td>142 seconds (142477 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -67,33 +67,96 @@ function toggleAllBoxes() {
 </tr>
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
-<table width='100%' border='1' class='invocation-passed'>
-<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
 <tr><td><b>Test method</b></td>
+<td><b>Attribute(s)</b></td>
 <td width="30%"><b>Exception</b></td>
 <td width="10%"><b>Time (seconds)</b></td>
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.ae.qa.testcasesUserAdmin.InformationPageTestUA.validateLastLoginUATest()'><b>validateLastLoginUATest</b><br>Test class: com.ae.qa.testcasesUserAdmin.InformationPageTestUA<br>Parameters: public void com.ae.qa.testcasesUserAdmin.InformationPageTestUA.validateLastLoginUATest(java.lang.reflect.Method) throws java.lang.Exception<br/>
-<a href="#Output-1187057577" onClick='toggleBox("Output-1187057577", this, "Show output", "Hide output");'>Show output</a>
+<td title='com.ae.qa.testcasesActivityMonitor.InformationPageTestAM.validateLastLoginAMTest()'><b>validateLastLoginAMTest</b><br>Test class: com.ae.qa.testcasesActivityMonitor.InformationPageTestAM<br>Parameters: public void com.ae.qa.testcasesActivityMonitor.InformationPageTestAM.validateLastLoginAMTest(java.lang.reflect.Method) throws java.lang.Exception<br/>
+<a href="#Output-506416476" onClick='toggleBox("Output-506416476", this, "Show output", "Hide output");'>Show output</a>
 
-<a href="#Output-1187057577" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-1187057577">
+<a href="#Output-506416476" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-506416476">
 User log in Successfully<br/>
 started creating new Tenant<br/>
 User is created successfully<br/>
-User Admin created successfully<br/>
-User signed out successfully<br/>
-User changed first time password of User Successfully<br/>
-User log in Successfully<br/>
-Last login time displayed successfully<br/>
+</div>
+</td>
+<td><div><pre>java.lang.AssertionError: User not created. expected [User created successfully] but found [The username [AMRani1] is taken. Please try another username]
+	at com.ae.qa.pagesTenantAdmin.TenantUsersPageTA.valiateCreatingTenantUser(TenantUsersPageTA.java:275)
+	at com.ae.qa.pages.ActivityMonitor.InformationPageAM.validateLastLoginAM(InformationPageAM.java:65)
+	at com.ae.qa.testcasesActivityMonitor.InformationPageTestAM.validateLastLoginAMTest(InformationPageTestAM.java:26)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+... Removed 17 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace506416476", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace506416476'><pre>java.lang.AssertionError: User not created. expected [User created successfully] but found [The username [AMRani1] is taken. Please try another username]
+	at org.testng.Assert.fail(Assert.java:110)
+	at org.testng.Assert.failNotEquals(Assert.java:1413)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:149)
+	at org.testng.Assert.assertEquals(Assert.java:131)
+	at org.testng.Assert.assertEquals(Assert.java:655)
+	at com.ae.qa.pagesTenantAdmin.TenantUsersPageTA.valiateCreatingTenantUser(TenantUsersPageTA.java:275)
+	at com.ae.qa.pages.ActivityMonitor.InformationPageAM.validateLastLoginAM(InformationPageAM.java:65)
+	at com.ae.qa.testcasesActivityMonitor.InformationPageTestAM.validateLastLoginAMTest(InformationPageTestAM.java:26)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:677)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:221)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:962)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:194)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+</pre></div></td>
+<td>45</td>
+<td>com.ae.qa.testcasesActivityMonitor.InformationPageTestAM@5c00384f</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td><b>Attribute(s)</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.ae.qa.testcasesActivityMonitor.InformationPageTestAM.validateViewProfileAMTest()'><b>validateViewProfileAMTest</b><br>Test class: com.ae.qa.testcasesActivityMonitor.InformationPageTestAM<br>Parameters: public void com.ae.qa.testcasesActivityMonitor.InformationPageTestAM.validateViewProfileAMTest(java.lang.reflect.Method) throws java.lang.Exception<br/>
+<a href="#Output-1898080292" onClick='toggleBox("Output-1898080292", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1898080292" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1898080292">
+User logged in successfully<br/>
+Profile details validation successfully.<br/>
 User signed out successfully<br/>
 </div>
 </td>
 <td></td>
-<td>66</td>
-<td>com.ae.qa.testcasesUserAdmin.InformationPageTestUA@55cf0d14</td></tr>
+<td>44</td>
+<td>com.ae.qa.testcasesActivityMonitor.InformationPageTestAM@5c00384f</td></tr>
+<tr>
+<td title='com.ae.qa.testcasesActivityMonitor.InformationPageTestAM.validateAboutTabAMTest()'><b>validateAboutTabAMTest</b><br>Test class: com.ae.qa.testcasesActivityMonitor.InformationPageTestAM<br>Parameters: public void com.ae.qa.testcasesActivityMonitor.InformationPageTestAM.validateAboutTabAMTest(java.lang.reflect.Method) throws java.lang.Exception<br/>
+<a href="#Output-1606225412" onClick='toggleBox("Output-1606225412", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1606225412" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1606225412">
+User log in successfully<br/>
+User signed out successfully<br/>
+</div>
+</td>
+<td></td>
+<td>25</td>
+<td>com.ae.qa.testcasesActivityMonitor.InformationPageTestAM@5c00384f</td></tr>
 </table><p>
 </body>
 </html>

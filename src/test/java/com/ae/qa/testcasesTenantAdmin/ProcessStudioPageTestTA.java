@@ -17,7 +17,7 @@ public class ProcessStudioPageTestTA extends TestBase{
 		super();
 	}
 
-	@Test(priority=1034)
+	@Test(priority=1034,alwaysRun=true)
 	public void validateDownloadandAssignPSTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateDownloadandAssignPSTest", "TC_585/6: Verify if user can download PS & assign ps license to TA");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
@@ -26,7 +26,7 @@ public class ProcessStudioPageTestTA extends TestBase{
 		extentTest.log(extentTest.getStatus(), "PS downloaded and assigned to TA successfully");  
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());	
 	}
-	@Test(priority=1035)
+	@Test(priority=1035,alwaysRun=true)
 	public void validateUnAssignPSTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateDownloadandUnAssignPSTest", "TC_214: Verify able to unasign user");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
@@ -45,7 +45,7 @@ public class ProcessStudioPageTestTA extends TestBase{
 		extentTest.log(extentTest.getStatus(), "Assign PS to user as per license is verified successfully");  
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());	
 	}*/
-	@Test(priority=1036)
+	@Test(priority=1036,alwaysRun=true)
 	public void validateProcessStudioPageTATest(Method method) throws Exception {
 		extentTest = extent.createTest("validateProcessStudioPageTATest", "TC_Additional:Verify Clicking Process Studio tab and checking that appropiate page is loaded");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
@@ -54,7 +54,7 @@ public class ProcessStudioPageTestTA extends TestBase{
 		extentTest.log(extentTest.getStatus(), "Process Studio Registration Page loading validated successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}
-	@Test(priority=1037)
+	@Test(priority=1037,alwaysRun=true)
 	public void validateProcessStudioDownloadLinuxTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateProcessStudioDownloadLinuxTest", "TC_256:Verify PS download for Linux");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());

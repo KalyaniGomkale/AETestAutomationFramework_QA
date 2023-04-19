@@ -66,10 +66,10 @@ public class SecurityQuestionsPage extends TestBase {
 		System.out.println("Security Question tab clicked");
 		Thread.sleep(3000);
 		skipBtn.click();
-		String actual_pageTitle = homePageTitle.getText();
+		String actual_pageTitle = tenantPageTitle.getText();
 		System.out.println("User navigated to " + actual_pageTitle + "Tab");
-		Assert.assertEquals(actual_pageTitle, "Home", "User is not navigated to Home tab");
-		Reporter.log("User skipped the set security question and navigated to Home Tab",true);
+		Assert.assertEquals(actual_pageTitle, "Tenants", "User is not navigated to Tenants tab");
+		Reporter.log("User skipped the set security question and navigated to Tenants Tab",true);
 		informationpage.validateSignOut();
 	}
 
@@ -96,6 +96,7 @@ public class SecurityQuestionsPage extends TestBase {
 			Thread.sleep(2000);
 		}
 		saveBtn.click();
+		wait.until(ExpectedConditions.visibilityOf(success_Setmsg));
 		String actual_successMsg = success_Setmsg.getText();
 		String expected_successMsg = Messages.securityQuestions;
 		System.out.println("Actual message:" + actual_successMsg);
@@ -131,6 +132,7 @@ public class SecurityQuestionsPage extends TestBase {
 		JavascriptExecutor js2 = (JavascriptExecutor) driver;
 		js2.executeScript("arguments[0].click();", saveBtn);
 		//Thread.sleep(2000);
+		wait.until(ExpectedConditions.visibilityOf(alertMessage));
 		String actual_successMsg = alertMessage.getText();
 		String expected_successMsg = Messages.failueInupdatingSecurityQues;
 		System.out.println("Actual message:" + actual_successMsg);
@@ -163,6 +165,7 @@ public class SecurityQuestionsPage extends TestBase {
 		JavascriptExecutor js2 = (JavascriptExecutor) driver;
 		js2.executeScript("arguments[0].click();", saveBtn);
 		// Thread.sleep(20000);
+		wait.until(ExpectedConditions.visibilityOf(success_msg));
 		String actual_successMsg = success_msg.getText();
 		String expected_successMsg = Messages.updatingSecurityQues;
 		System.out.println("Actual message:" + actual_successMsg);
@@ -199,6 +202,7 @@ public class SecurityQuestionsPage extends TestBase {
 		// pswd.sendKeys(prop.getProperty("password"));
 		saveBtn.click();
 		// Thread.sleep(10000);
+		wait.until(ExpectedConditions.visibilityOf(success_Setmsg));
 		String actual_successMsg = success_Setmsg.getText();
 		System.out.println("Actual message:" + actual_successMsg);
 		Assert.assertEquals(actual_successMsg, Messages.securityQuestions);

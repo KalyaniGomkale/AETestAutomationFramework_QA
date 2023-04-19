@@ -195,7 +195,7 @@ public class CredentialsPageTA extends TestBase {
 		Thread.sleep(3000);
 		createBtn.click();
 		Reporter.log("Create button is clicked",true);
-		driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
+		wait.until(ExpectedConditions.visibilityOf(successMsgBox));
 		String Actual_testMsg=successMsgBox.getText();
 		String Expected_testMsg="Duplicate credential name ["+CredName+"]";
 		Reporter.log("Actual Duplicate Category message is :"+Actual_testMsg,true);
@@ -260,7 +260,7 @@ public class CredentialsPageTA extends TestBase {
 		Thread.sleep(3000);
 		createPoolBtn.click();
 		Reporter.log("Create button is clicked",true);
-		driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
+		wait.until(ExpectedConditions.visibilityOf(successMsgBox));
 		String Actual_testMsg=successMsgBox.getText();
 		String Expected_testMsg="Duplicate credential pool name ["+CredPoolName+"]";
 		Reporter.log("Actual Duplicate Category Pool message is :"+Actual_testMsg,true);
@@ -285,7 +285,7 @@ public class CredentialsPageTA extends TestBase {
 		js.executeScript("arguments[0].click();", credentialsTab);
 		Reporter.log("Credentials tab clicked",true);
 		Thread.sleep(4000);
-		WebElement cred_Name=driver.findElement(By.xpath("//div/a[@id='cred-4-drag']/input"));
+		WebElement cred_Name=driver.findElement(By.xpath("//div/a/input[@id='cred-1']"));
 		cred_Name.click();
 		Reporter.log("Credential which needs to add in crenetial pool is selcted",true);
 		Select CredPool_drpdown = new Select(credPool_drpdown);
@@ -294,7 +294,7 @@ public class CredentialsPageTA extends TestBase {
 		Thread.sleep(2000);
 		moveBtn.click();
 		Reporter.log("Move Button is clicked",true);
-		driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
+		wait.until(ExpectedConditions.visibilityOf(successMsgBox));
 		String Actual_testMsg=successMsgBox.getText();
 		String Expected_testMsg=Messages.MoveCredToPool;
 		Reporter.log("Actual message is :"+Actual_testMsg,true);
@@ -324,7 +324,7 @@ public class CredentialsPageTA extends TestBase {
 		Thread.sleep(3000);
 		delete_popup.click();
 		Reporter.log("Delete button on popup is confirmed",true);
-		driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
+		wait.until(ExpectedConditions.visibilityOf(successMsgBox));
 		String Actual_testMsg=successMsgBox.getText();
 		String Expected_testMsg= "Credential pool ["+CredPoolName+"] deleted successfully";
 		Reporter.log("Actual message is :"+Actual_testMsg,true);
@@ -353,7 +353,7 @@ public class CredentialsPageTA extends TestBase {
 		Thread.sleep(3000);
 		delete_popup.click();
 		Reporter.log("Delete button on popup is confirmed",true);
-		driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
+		wait.until(ExpectedConditions.visibilityOf(successMsgBox));
 		String Actual_testMsg=successMsgBox.getText();
 		String Expected_testMsg= "Credential ["+CredName+"] deleted successfully";
 		Reporter.log("Actual message is :"+Actual_testMsg,true);

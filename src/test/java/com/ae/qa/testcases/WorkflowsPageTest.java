@@ -20,7 +20,7 @@ WorkflowsPage workflowspage;
 		super();
 	}
 	
-	@Test(priority = 133)
+	@Test(priority = 133,alwaysRun=true)
 	public void validateDisableWorkflowsTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateDisableWorkflowsTest", "TC_xxx:Verify DISABLE workflow with reason plugin upgrade");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
@@ -29,7 +29,7 @@ WorkflowsPage workflowspage;
 		extentTest.log(extentTest.getStatus(), "Workflow DISABLED with reason plugin upgarde successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
-	@Test(priority = 134)
+	@Test(priority = 134,alwaysRun=true)
 	public void validateEnableWorkflowsTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateEnableWorkflowsTest", "TC_XXX: Verify ENABLE workflow with reason plugin upgrade");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
@@ -39,7 +39,7 @@ WorkflowsPage workflowspage;
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
 	
-	@Test(priority=155)
+	@Test(priority=155,alwaysRun=true)
 	public void validateWorkflowsPageTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateWorkflowsPageTest", "TC_Additional:Verify Clicking Workflows tab and checking that appropiate page is loaded");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());

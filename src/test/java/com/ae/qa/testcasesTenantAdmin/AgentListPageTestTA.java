@@ -18,7 +18,7 @@ public class AgentListPageTestTA extends TestBase {
 		super();
 	}
 
-	@Test(priority=70)
+	@Test(priority=70,alwaysRun=true)
 	public void validateDownloadAgentTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateDownloadAgentTest", "TC_227: Verify if user can download & register agent");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
@@ -28,7 +28,7 @@ public class AgentListPageTestTA extends TestBase {
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}
 
-	@Test(priority=71)
+	@Test(priority=71,alwaysRun=true)
 	public void validateCheckStatusOfAgent(Method method) throws Exception {
 		extentTest = extent.createTest("validateCheckStatusOfAgent", "TC_361: Verify status of agent");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
@@ -38,7 +38,7 @@ public class AgentListPageTestTA extends TestBase {
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}
 
-	@Test(priority=88)
+	@Test(priority=88,alwaysRun=true)
 	public void validatecheckColumnsInAgentList(Method method) throws Exception {
 		extentTest = extent.createTest("validatecheckColumnsInAgentList", "TC_241:To Verify - Show colum check all option");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
@@ -47,7 +47,7 @@ public class AgentListPageTestTA extends TestBase {
 		extentTest.log(extentTest.getStatus(), "Check All option on Agent List validated successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}
-	@Test(priority=89)
+	@Test(priority=89,alwaysRun=true)
 	public void validatedeselectAllInAgentListTA(Method method) throws Exception {
 		extentTest = extent.createTest("validatedeselectAllInAgentListTA", "TC_242:To Verify - Show colum Uncheck all option");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
@@ -56,7 +56,7 @@ public class AgentListPageTestTA extends TestBase {
 		extentTest.log(extentTest.getStatus(), "UnCheck All option on Agent List validated successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}
-	@Test(priority=90)
+	@Test(priority=90,alwaysRun=true)
 	public void validateSpecificColumnInAgentList(Method method) throws Exception {
 		extentTest = extent.createTest("validateSpecificColumnInAgentList", "TC_243:To Verify - Specific column get display");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
@@ -65,7 +65,7 @@ public class AgentListPageTestTA extends TestBase {
 		extentTest.log(extentTest.getStatus(), "Specific column get displayed successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}
-	@Test(priority=2000)
+	@Test(priority=2000,alwaysRun=true)
 	public void validateDeleteAgentTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateDeleteAgentTest", "TC_: Verify Delete Agent");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
@@ -75,7 +75,7 @@ public class AgentListPageTestTA extends TestBase {
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}
 	//Regression test case
-	@Test(priority=2002)
+	@Test(priority=2002,alwaysRun=true)
 	public void validateDownloadAssistedAgentTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateDownloadAssistedAgentTest", "TC_: Verify if user can download & register Assisted agent");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
@@ -84,7 +84,7 @@ public class AgentListPageTestTA extends TestBase {
 		extentTest.log(extentTest.getStatus(), "Assisted Agent registered successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}
-	@Test(priority=2003)
+	@Test(priority=2003,alwaysRun=true)
 	public void validatecheckStatusOfAssistedAgent(Method method) throws Exception {
 		extentTest = extent.createTest("validatecheckStatusOfAssistedAgent", "TC_: Verify status of Assisted agent");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
@@ -93,7 +93,7 @@ public class AgentListPageTestTA extends TestBase {
 		extentTest.log(extentTest.getStatus(), "Assisted Agent status is checked successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}
-	@Test(priority=2001)
+	@Test(priority=2001,alwaysRun=true)
 	public void validateassignAssistedAgentToUser(Method method) throws Exception {
 		extentTest = extent.createTest("validateassignAssistedAgentToUser", "TC_132: Veify able to assign Assisted agent to Users with Enterprise licese");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
@@ -102,7 +102,7 @@ public class AgentListPageTestTA extends TestBase {
 		extentTest.log(extentTest.getStatus(), "Assisn To User registered successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}
-	@Test(priority=2004)
+	@Test(priority=2004,alwaysRun=true)
 	public void validateunassignAssistedAgentToUser(Method method) throws Exception {
 		extentTest = extent.createTest("validateunassignAssistedAgentToUser", "TC_133: Verify able to unassign assisted agent");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
@@ -111,7 +111,7 @@ public class AgentListPageTestTA extends TestBase {
 		extentTest.log(extentTest.getStatus(), "Assisn To User registered successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}
-	@Test(priority=2005)
+	@Test(priority=2005,alwaysRun=true)
 	public void ValidateEditAssistedAgentName(Method method) throws Exception {
 		extentTest = extent.createTest("ValidateEditAssistedAgentName", "TC_135: Verify Edit Agent Name");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
@@ -130,16 +130,16 @@ public class AgentListPageTestTA extends TestBase {
 		extentTest.log(extentTest.getStatus(), "Agent Deleted successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}*/
-	@Test(priority=1019)
+	@Test(priority=1019,alwaysRun=true)
 	public void validateAgentRestartTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateAgentRestartTest", "TC_114: Verify Agent Restart");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
 		agentlistpageta = new AgentListPageTA();
-		agentlistpageta.validateAgentRestart();	
+		agentlistpageta.validateAgentRestart(TestDataInMap.get("AgentName"));	
 		extentTest.log(extentTest.getStatus(), "Agent Restart Successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}
-	@Test(priority=177)
+	@Test(priority=177,alwaysRun=true)
 	public void validateAgentListPageTATest(Method method) throws Exception {
 		extentTest = extent.createTest("validateAgentListPageTATest", "TC_Additional:Verify Clicking Agent List tab and checking that appropiate page is loaded");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());

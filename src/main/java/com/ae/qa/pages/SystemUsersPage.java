@@ -71,7 +71,7 @@ public class SystemUsersPage extends TestBase {
 	WebElement alertMessage;
 	@FindBy(id = "role")
 	WebElement roledropdown;
-	@FindBy(xpath = "//span[@class='mul-dorpdown-button']")
+	@FindBy(xpath = "//ae-multiselect[@id='tenantOrgCode']/div")
 	WebElement tenantdrpdownlist;
 	@FindBy(xpath = "//*[@id='uploadModal']/div/div/form/div[1]/fieldset/div/label/input")
 	WebElement chooseFileFromDesktop;
@@ -107,6 +107,7 @@ public class SystemUsersPage extends TestBase {
 		log.info("started creating new system admin");
 		// Start form
 		tenantdrpdownlist.click();
+		//js.executeScript("arguments[0].click();", tenantdrpdownlist);
 		Thread.sleep(3000);
 		// Select select = new Select(tenantdrpdownlist);
 		// select.selectByValue("SYSADMIN");
@@ -144,8 +145,7 @@ public class SystemUsersPage extends TestBase {
 		Reporter.log("User is created successfully", true);
 		Thread.sleep(15000);
 		for (int i = 0; i <= 2; i++) {
-			String actual_UserName = driver.findElement(By.xpath("//table/tr/td/label[@title='" + UserName + "']"))
-					.getText();
+			String actual_UserName = driver.findElement(By.xpath("//table/tr/td/label[@title='" + UserName + "']")).getText();
 			String expected_UserName = UserName;
 			System.out.println("Actual Username:" + actual_UserName);
 			System.out.println("Expected Username:" + expected_UserName);
@@ -197,6 +197,7 @@ public class SystemUsersPage extends TestBase {
 		Thread.sleep(4000);
 		userMail.sendKeys(NewUserMail);
 		saveBtn.click();
+		wait.until(ExpectedConditions.visibilityOf(editUserMsg));
 		String actual_EditUserMsg = editUserMsg.getText();
 		String expected_EditUserMsg = Messages.editSystemUser;
 		System.out.println("Actual Username:" + actual_EditUserMsg);
@@ -241,6 +242,7 @@ public class SystemUsersPage extends TestBase {
 		Thread.sleep(4000);
 		userMail.sendKeys(NewUserMail);
 		saveBtn.click();
+		wait.until(ExpectedConditions.visibilityOf(editUserMsg));
 		String actual_EditUserMsg = editUserMsg.getText();
 		String expected_EditUserMsg = Messages.editSystemUser;
 		System.out.println("Actual Username:" + actual_EditUserMsg);
@@ -270,7 +272,7 @@ public class SystemUsersPage extends TestBase {
 		Thread.sleep(5000);
 		// wait till success message comes
 		// driver.manage().timeouts().implicitlyWait(180, TimeUnit.SECONDS);
-		Thread.sleep(5000);
+		wait.until(ExpectedConditions.visibilityOf(successMsgBox));
 		String Actual_LicenseUploadMsg = successMsgBox.getText();
 		String Expected_LicenseUploadMsg = Messages.licenseUpload;
 		System.out.println("Actual Success Message:" + Actual_LicenseUploadMsg);
@@ -291,7 +293,7 @@ public class SystemUsersPage extends TestBase {
 		driver.findElement(By.xpath("//table/tr/td/span[2]")).click();
 		Reporter.log("Clicking on Delete Button", true);
 		confirmDeleteBtn.click();
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.visibilityOf(successMsgBox));
 		String Actual_successMsg = successMsgBox.getText();
 		String Expected_successMsg = Messages.deletionOfUser;
 		System.out.println("Actual Success Message:" + Actual_successMsg);

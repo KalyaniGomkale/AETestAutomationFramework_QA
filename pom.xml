@@ -26,7 +26,7 @@
 		<dependency>
 			<groupId>org.testng</groupId>
 			<artifactId>testng</artifactId>
-			<version>6.14.3</version>
+			<version>7.6.0</version>
 			<scope>compile</scope>
 		</dependency>
 
@@ -118,7 +118,6 @@
 			<version>1.6.2</version>
 		</dependency>
 
-
 	</dependencies>
 
 	<build>
@@ -138,7 +137,7 @@
 					<testFailureIgnore>true</testFailureIgnore>
 					<suiteXmlFiles>
 						<!-- TestNG suite XML files -->
-						<suiteXmlFile>Rohil.xml</suiteXmlFile>
+						<suiteXmlFile>TestngMain.xml</suiteXmlFile>
 					</suiteXmlFiles>
 				</configuration>
 			</plugin>
@@ -158,7 +157,7 @@
 			</plugin>
 
 			<!-- Post-Man plugin -->
-			<plugin>
+			<!--<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.0</version>
@@ -169,7 +168,7 @@
 					<source>1.7</source>
 					<target>1.7</target>
 				</configuration>
-			</plugin>
+			</plugin>-->
 			<plugin>
 				<groupId>ch.fortysix</groupId>
 				<artifactId>maven-postman-plugin</artifactId>

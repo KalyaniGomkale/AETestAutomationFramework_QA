@@ -103,7 +103,7 @@ public class UserGroupsPageTA extends TestBase {
 		Thread.sleep(5000);
 		js.executeScript("arguments[0].click();", createBtnUG);
 		//driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-		Thread.sleep(5000);
+		wait.until(ExpectedConditions.visibilityOf(actual_userGroupMsg));
 		String actual_userGroup = actual_userGroupMsg.getText();
 		String expected_userGroup = Messages.userGroup;
 		Reporter.log("Actual Username:" + actual_userGroup,true);
@@ -134,7 +134,7 @@ public class UserGroupsPageTA extends TestBase {
 		Reporter.log("Description of user group updated",true);
 		updateBtn.click();
 		//driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-		Thread.sleep(3000);
+		wait.until(ExpectedConditions.visibilityOf(actual_userGroupMsg));
 		String actual_userGroup = actual_userGroupMsg.getText();
 		String expected_userGroup = Messages.editUserGroup;
 		Reporter.log("Actual Username:" + actual_userGroup,true);
@@ -168,7 +168,7 @@ public class UserGroupsPageTA extends TestBase {
 		System.out.println("User to add:"+user1);
 		assignBtn.click();
 		//driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		Thread.sleep(3000);
+		wait.until(ExpectedConditions.visibilityOf(actual_userGroupMsg));
 		String actual_userGroup = actual_userGroupMsg.getText();
 		String expected_userGroup = Messages.assignUserToGroup;
 		Reporter.log("Actual Username:" + actual_userGroup,true);
@@ -204,7 +204,7 @@ public class UserGroupsPageTA extends TestBase {
 		System.out.println("User to add:"+user1);
 		removeBtn.click();
 		//driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		Thread.sleep(3000);
+		wait.until(ExpectedConditions.visibilityOf(actual_userGroupMsg));
 		String actual_userGroup = actual_userGroupMsg.getText();
 		String expected_userGroup = Messages.removeUserFromGroup;
 		Reporter.log("Actual Username:" + actual_userGroup,true);
@@ -258,7 +258,7 @@ public class UserGroupsPageTA extends TestBase {
 		Thread.sleep(5000);
 		js.executeScript("arguments[0].click();", createBtnUG);
 		//driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-		Thread.sleep(3000);
+		wait.until(ExpectedConditions.visibilityOf(actual_userGroupMsg));
 		String actual_userGroup = actual_userGroupMsg.getText();
 		String expected_userGroup = "Duplicate user group name ["+groupName+"]";
 		Reporter.log("Actual Username:" + actual_userGroup,true);
@@ -286,7 +286,7 @@ public class UserGroupsPageTA extends TestBase {
 		Reporter.log("Delete button is clicked",true);
 		deletePopupBtn.click();
 		//driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		Thread.sleep(3000);
+		wait.until(ExpectedConditions.visibilityOf(actual_userGroupMsg));
 		String actual_userGroup = actual_userGroupMsg.getText();
 		String expected_userGroup = Messages.deleteUserGroup;
 		Reporter.log("Actual Username:" + actual_userGroup,true);
@@ -329,7 +329,7 @@ public class UserGroupsPageTA extends TestBase {
 		Thread.sleep(2000);
 		saveBtn.click();
 		Reporter.log("Save button is clicked", true);
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.visibilityOf(alertMessage));
 		String actual_SuccessMsg = alertMessage.getText();
 		Reporter.log("Actual Success Message:- " +actual_SuccessMsg);
 		String expected_SuccessMsg=Messages.permissionsSuccessMsg;
@@ -365,7 +365,7 @@ public class UserGroupsPageTA extends TestBase {
 		wfDescription.sendKeys(wfdes);
 		submitBtn.click();
 		Reporter.log("Save button is clicked",true);
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.visibilityOf(alertMessage));
 		String Actual_successMsg = alertMessage.getText();
 		System.out.println("Actual Message : " + Actual_successMsg);
 		String Expected_successMsg = Messages.updateWorkflow;
@@ -405,7 +405,7 @@ public class UserGroupsPageTA extends TestBase {
 		Thread.sleep(2000);
 		saveBtn.click();
 		Reporter.log("Save button is clicked", true);
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.visibilityOf(alertMessage));
 		String actual_SuccessMsg = alertMessage.getText();
 		Reporter.log("Actual Success Message:- " +actual_SuccessMsg);
 		String expected_SuccessMsg=Messages.permissionsSuccessMsg;
@@ -448,7 +448,7 @@ public class UserGroupsPageTA extends TestBase {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", workflowsTab);
 		Reporter.log("Workflows Tab is clicked", true);
-		Thread.sleep(3000);
+		wait.until(ExpectedConditions.visibilityOf(NoRecordMessage));
 		String actual_Message = NoRecordMessage.getText();
 		Reporter.log("Actual Message:- "+actual_Message);
 		String expected_Message = Messages.recordFoundMessage;

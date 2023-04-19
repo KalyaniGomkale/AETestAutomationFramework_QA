@@ -50,7 +50,7 @@ public class SmtpPage extends TestBase {
 	WebElement saveBtn;
 	@FindBy(xpath="//div[@class='title-div']/h2")
 	WebElement pageTitle;
-	@FindBy(xpath="//span[@class='mul-dorpdown-button']")
+	@FindBy(id="protocols")
 	WebElement protocolDropdown;
 	@FindBy(xpath="(//span[@class='mul-checkmark'])[4]")
 	WebElement protocol;
@@ -75,7 +75,7 @@ public class SmtpPage extends TestBase {
 		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", smtpTab);
 		System.out.println("SMTP tab clicked");
-		Thread.sleep(50000);
+		Thread.sleep(3000);
 		js.executeScript("arguments[0].click();", addSmtpBtn);
 		Thread.sleep(2000);
 		Reporter.log("Add smtp config button clicked",true);
@@ -104,14 +104,16 @@ public class SmtpPage extends TestBase {
 		personalName.sendKeys(pName);
 		Thread.sleep(2000);
 		testConnectionBtn.click();
-		driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
+		//driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);	
+		Thread.sleep(5000);
 		String Actual_testConnectionMsg = successMsgBox.getText();
 		String Expected_testConnectionMsg = "Email test connection successful";
 		Assert.assertEquals(Actual_testConnectionMsg, Expected_testConnectionMsg, "Test connection Failed");
 		Reporter.log("Test connection successfully",true);
 		Thread.sleep(6000);
 		saveBtn.click();
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		wait.until(ExpectedConditions.visibilityOf(successMsgBox));
+		//driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		String Actual_smtpConnectionMsg = successMsgBox.getText();
 		String Expected_smtpConnectionMsg = Messages.addSmtpServer;
 		Assert.assertEquals(Actual_smtpConnectionMsg, Expected_smtpConnectionMsg, "SMTP configuration Failed");

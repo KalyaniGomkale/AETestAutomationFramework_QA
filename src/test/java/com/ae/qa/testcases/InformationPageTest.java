@@ -18,7 +18,7 @@ public class InformationPageTest extends TestBase {
 		super();
 	}
 
-   @Test(priority = 29)
+   @Test(priority = 29,alwaysRun=true)
 	public void validateLastLoginTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateLastLoginTest", "TC_117: It should check Last Login details");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
@@ -28,7 +28,7 @@ public class InformationPageTest extends TestBase {
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
 
-	@Test(priority = 30)
+	@Test(priority = 30,alwaysRun=true)
 	public void validateViewProfileTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateViewProfileTest", "TC_118: It should check Profile Details");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
@@ -47,7 +47,7 @@ public class InformationPageTest extends TestBase {
 		extentTest.log(extentTest.getStatus(), "About AE Details");
 	}*/
 
-	@Test(priority = 31)
+	@Test(priority = 31,alwaysRun=true)
 	public void validateChangePasswordTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateChangePasswordTest", "TC_120: Change password of user");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
@@ -65,7 +65,7 @@ public class InformationPageTest extends TestBase {
 		extentTest.log(extentTest.getStatus(), "User signed out successfully");
 	}*/
 	//Regression Test case
-	@Test(priority=301)
+	@Test(priority=301,alwaysRun=true)
 	public void validateAboutTabTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateAboutTab", "TC_74: To verify About tab");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());

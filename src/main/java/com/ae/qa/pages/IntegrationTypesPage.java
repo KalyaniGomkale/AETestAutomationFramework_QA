@@ -102,7 +102,7 @@ public class IntegrationTypesPage extends TestBase {
 		submitBtn.click();
 		Reporter.log("Submit Button is clicked",true);
 		String typename_lowerCase=typeName.toLowerCase();
-		driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
+		wait.until(ExpectedConditions.visibilityOf(alertMessage));
 		String actual_Msg=alertMessage.getText();
 		String expected_Msg="Integration type jar for ["+typename_lowerCase+"] updated successfully";
 		Assert.assertEquals(actual_Msg,expected_Msg,"Integration type not updated.");
@@ -125,7 +125,7 @@ public class IntegrationTypesPage extends TestBase {
 		deleteBtn.click();
 		Thread.sleep(2000);
 		confirmDeleteBtn.click();
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.visibilityOf(alertMessage));
 		String actual_success_msg = alertMessage.getText();
 		String expected_success_msg = "Integration type ["+typeName+"] deleted successfully";
 		Reporter.log("Actual success msg is: " + actual_success_msg,true);

@@ -13,6 +13,7 @@ import java.lang.reflect.Method;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
+import java.time.LocalTime;
 import java.util.Date;
 import org.apache.commons.io.FileUtils;
 import java.io.FileInputStream;
@@ -27,6 +28,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.io.FileHandler;
@@ -84,6 +86,7 @@ public class TestBase {
 	@BeforeTest
 	public static ExtentReports setExtent() {
 		htmlReporter = new ExtentHtmlReporter(System.getProperty("user.dir") + "/test-output/AEExtentReport.html");
+		//htmlReporter.setAppendExisting(true);
 		htmlReporter.config().setEncoding("uft-8");
 		htmlReporter.config().setDocumentTitle("Automation Test Report");
 		htmlReporter.config().setReportName("AE Extent Report"); // Name of the report
@@ -140,14 +143,23 @@ public class TestBase {
 		//	System.setProperty("webdriver.chrome.driver", prop.getProperty("chromeDriverPath"));
 			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();
-		} else if (browserName.contentEquals("Firefox")) {
+		} else if (browserName.equals("Firefox")) {
 			//System.setProperty("webdriver.gecko.driver", prop.getProperty("ffDriverPath"));
-			WebDriverManager.firefoxdriver().setup();
+			System.out.println("Firefox browser");
+			System.setProperty("webdriver.gecko.driver","C:\\Users\\kalyani.gomkale\\Downloads\\AE_Automation_UploadFiles\\geckodriver-v0.32.2-win32\\geckodriver.exe");
+		//	WebDriverManager.firefoxdriver().setup();
 			driver = new FirefoxDriver();
 		}  else if (browserName.contentEquals("IE")) {
 			//System.setProperty("webdriver.ie.driver",prop.getProperty("IEDriverPath"));
 			WebDriverManager.iedriver().setup();
 			driver=new InternetExplorerDriver();
+		}
+			else if (browserName.contentEquals("Edge")) {
+				//System.setProperty("webdriver.ie.driver",prop.getProperty("IEDriverPath"));
+				System.out.println("Edge browser");
+				System.setProperty("webdriver.edge.driver","C:\\Users\\kalyani.gomkale\\Downloads\\edgedriver_win64\\msedgedriver.exe");
+				WebDriverManager.edgedriver().setup();
+				driver=new EdgeDriver();
 		} 
 		else {
 			System.out.println("Current framework support chrome or Firefox or IE browser. Please select any one of them.");
@@ -184,7 +196,7 @@ public class TestBase {
 			extentTest.log(Status.FAIL,
 					MarkupHelper.createLabel(result1.getThrowable() + " - Test Case Failed", ExtentColor.RED));
 			extentTest.log(Status.FAIL,
-					"<a href='C:\\Program Files\\AutomationEdge\\tools\\apache-tomcat-9.0.36\\logs\\automationedge.log'> ViewAutomationEdgeLogs </a>");
+					"<a href='C:\\Program Files\\AutomationEdge\\tools\\apache-tomcat-9.0.62\\logs\\automationedge.log'> ViewAutomationEdgeLogs </a>");
 			// To capture screenshot path and store the path of the screenshot in the string
 			// "screenshotPath"
 			// We do pass the path captured by this method in to the extent reports using
@@ -214,8 +226,8 @@ public class TestBase {
 	public void endReport() {
 		// used to erase any previous data on the report and create a new report
 		extent.flush();
-		SendMail sendmail= new SendMail();
-		sendmail.sendExtentReport();
+		//SendMail sendmail= new SendMail();
+		//sendmail.sendExtentReport();
 	}
 	
 	

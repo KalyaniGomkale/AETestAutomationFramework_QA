@@ -64,11 +64,11 @@ public class DashboardsPageWA extends TestBase{
 	WebElement reportTypedrpdown;
 	@FindBy(xpath="//input[@value='workflow']")
 	WebElement generateOnWF;
-	@FindBy(xpath="//span[@class='mul-dorpdown-button']")
+	@FindBy(xpath="//div[@class='mul-dropdown-button']")
 	WebElement selectWFs;
 	@FindBy(xpath="//input[@name='search']")
 	WebElement searchBar;
-	@FindBy(xpath="//*[@id='options-list']/li/label/span")
+	@FindBy(xpath="//*[@id='options-list']/li/label/span[2]")
 	WebElement wfCheckbox;
 	@FindBy(id="rowCount")
 	WebElement pageSize;
@@ -161,7 +161,7 @@ public class DashboardsPageWA extends TestBase{
 		createNewDashboardWA(dashboardTitle,dashboardDescp,timeUnit,refreshTime,dashboardDuration);
 		Thread.sleep(3000);
 		createBtn.click();
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		wait.until(ExpectedConditions.visibilityOf(alertMessage));
 		String actual_message1 = alertMessage.getText();
 		String expected_message1 = Messages.dashboardCreation;
 		Reporter.log("Actual Success Msg:" + actual_message1,true);
@@ -213,7 +213,7 @@ public class DashboardsPageWA extends TestBase{
 		changeReportTitle.sendKeys(NewReportTitle);
 		Thread.sleep(2000);
 		saveBtn.click();
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		wait.until(ExpectedConditions.visibilityOf(alertMessage));
 		String Actual_savedReport=alertMessage.getText();
 		String Expected_savedReport=Messages.reportAddition;
 		Assert.assertEquals(Actual_savedReport,Expected_savedReport,"Report created successfully");
@@ -259,7 +259,7 @@ public class DashboardsPageWA extends TestBase{
 		Thread.sleep(3000);
 		createBtn.click();
 		Reporter.log("Create Button clicked successfully",true);
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		wait.until(ExpectedConditions.visibilityOf(alertMessage));
 		String actual_message1 = alertMessage.getText();
 		String expected_message1 = Messages.dashboardCreation;
 		Reporter.log("Actual Success Msg:" + actual_message1,true);
@@ -324,7 +324,7 @@ public class DashboardsPageWA extends TestBase{
 		Thread.sleep(5000);
 		updateBtn.click();
 		Reporter.log("Update Button clicked successfully",true);
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		wait.until(ExpectedConditions.visibilityOf(alertMessage));
 		String actual_message1 = alertMessage.getText();
 		String expected_message1 = Messages.updateDashboard;
 		Reporter.log("Actual Success Msg:" + actual_message1,true);
@@ -353,8 +353,7 @@ public class DashboardsPageWA extends TestBase{
 		changeReportTitle.sendKeys(NewReportTitle);
 		Thread.sleep(2000);
 		saveBtn.click();
-		//driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-		Thread.sleep(3000);
+		wait.until(ExpectedConditions.visibilityOf(alertMessage));
 		String Actual_savedReport=alertMessage.getText();
 		String Expected_savedReport=Messages.reportAddition;
 		Assert.assertEquals(Actual_savedReport,Expected_savedReport,"Report created successfully");
@@ -383,7 +382,7 @@ public class DashboardsPageWA extends TestBase{
 		Thread.sleep(3000);
 		setAsDefault.click();
 		Reporter.log("Set as Default option clicked",true);
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		wait.until(ExpectedConditions.visibilityOf(alertMessage));
 		String Actual_Message=alertMessage.getText();
 		String Expected_Message=Messages.reportAsDefault;
 		Assert.assertEquals(Actual_Message,Expected_Message,"Report not saved as default successfully");
@@ -405,7 +404,7 @@ public class DashboardsPageWA extends TestBase{
 		createBtn.click();
 		Thread.sleep(3000);
 		createBtn.click();
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		wait.until(ExpectedConditions.visibilityOf(alertMessage));
 		String actual_message1 = alertMessage.getText();
 		String expected_message1 = Messages.dashboardCreation;
 		Reporter.log("Actual Success Msg:" + actual_message1,true);
@@ -433,6 +432,7 @@ public class DashboardsPageWA extends TestBase{
 		Thread.sleep(3000);
 		deletePopup.click();
 		Reporter.log("Delete button clicked on popup");
+		wait.until(ExpectedConditions.visibilityOf(alertMessage));
 		String Actual_Msg=alertMessage.getText();
 		String Expected_Msg = Messages.deleteDashboard;
 		Reporter.log("After deleting dashboard with report, actual message get is: "+Actual_Msg,true);

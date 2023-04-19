@@ -8,6 +8,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -98,7 +99,7 @@ public class HolidayCalenderPageTA extends TestBase{
 		year_drpdown.selectByVisibleText(cYear);
 		Thread.sleep(3000);
 		weeklyOffSelect.click();
-		WebElement weekDay_Select = driver.findElement(By.xpath("//label[contains(text(),'"+weekDay+"')]/input/../span"));
+		WebElement weekDay_Select = driver.findElement(By.xpath("//label/span[text()='"+weekDay+"']/../input/../span[2]"));
 		weekDay_Select.click();
 		weeklyOffSelect.click();
 		Thread.sleep(2000);
@@ -120,7 +121,7 @@ public class HolidayCalenderPageTA extends TestBase{
 			String startMonth,String startDate) throws Exception{
 		ImportHolidayCalender(cName,cDescrp,cYear,weekDay,tagName,startYear,startMonth,startDate);
 		submitBtn.click();
-		Thread.sleep(5000);
+		wait.until(ExpectedConditions.visibilityOf(alertMessage));
 		String actual_SucessMessage = alertMessage.getText();
 		String expected_SuccessMessage = Messages.hoildayCalenderSuccessMsg;
 		System.out.println("Actual Success Msg:" + actual_SucessMessage);
@@ -139,6 +140,7 @@ public class HolidayCalenderPageTA extends TestBase{
 			String startMonth,String startDate) throws Exception{
 		ImportHolidayCalender(cName,cDescrp,cYear,weekDay,tagName,startYear,startMonth,startDate);
 		submitBtn.click();
+		wait.until(ExpectedConditions.visibilityOf(alertMessage));
 		String actual_SucessMessage = alertMessage.getText();
 		String expected_SuccessMessage = Messages.hoildayCalenderSuccessMsg;
 		System.out.println("Actual Success Msg:" + actual_SucessMessage);
@@ -168,7 +170,7 @@ public class HolidayCalenderPageTA extends TestBase{
 		editBtn.click();
 		Thread.sleep(2000);
 		weeklyOffSelect.click();
-		WebElement weekDay_Select = driver.findElement(By.xpath("//label[contains(text(),'"+weekDay+"')]/input/../span"));
+		WebElement weekDay_Select = driver.findElement(By.xpath("//label/span[text()='"+weekDay+"']/../input/../span[2]"));
 		weekDay_Select.click();
 		weeklyOffSelect.click();
 		Thread.sleep(2000);
@@ -187,6 +189,7 @@ public class HolidayCalenderPageTA extends TestBase{
 		start_day_picker.click();
 		Thread.sleep(2000);
 		submitBtn.click();
+		wait.until(ExpectedConditions.visibilityOf(alertMessage));
 		String actual_SucessMessage = alertMessage.getText();
 		String expected_SuccessMessage = Messages.holidayCalenderEditMsg;
 		System.out.println("Actual Success Msg:" + actual_SucessMessage);
@@ -231,7 +234,7 @@ public class HolidayCalenderPageTA extends TestBase{
 		deleteBtn.click();
 		Thread.sleep(2000);
 		submitBtn.click();
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.visibilityOf(alertMessage));
 		String actual_SucessMessage = alertMessage.getText();
 		String expected_SuccessMessage = Messages.holidayCalenderEditMsg;
 		System.out.println("Actual Success Msg:" + actual_SucessMessage);
@@ -260,7 +263,7 @@ public class HolidayCalenderPageTA extends TestBase{
 		year_drpdown.selectByVisibleText(cloneYear);
 		Thread.sleep(2000);
 		cloneSubmitBtn.click();
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.visibilityOf(alertMessage));
 		String actual_SucessMessage = alertMessage.getText();
 		String expected_SuccessMessage = Messages.holidayCalenderCloneMsg;
 		System.out.println("Actual Success Msg:" + actual_SucessMessage);
@@ -283,7 +286,7 @@ public class HolidayCalenderPageTA extends TestBase{
 		editBtn.click();
 		Thread.sleep(4000);
 		weeklyOffSelect.click();
-		WebElement weekDay_Select = driver.findElement(By.xpath("//label[contains(text(),'"+cloneWeekDay+"')]/input/../span"));
+		WebElement weekDay_Select = driver.findElement(By.xpath("//label/span[text()='"+cloneWeekDay+"']/../input/../span[2]"));
 		weekDay_Select.click();
 		weeklyOffSelect.click();
 		Thread.sleep(2000);
@@ -298,7 +301,7 @@ public class HolidayCalenderPageTA extends TestBase{
 		start_day_picker.click();
 		Thread.sleep(2000);
 		submitBtn.click();
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.visibilityOf(alertMessage));
 		String actual_SucessMessage = alertMessage.getText();
 		String expected_SuccessMessage = Messages.holidayCalenderEditMsg;
 		System.out.println("Actual Success Msg:" + actual_SucessMessage);
@@ -317,7 +320,7 @@ public class HolidayCalenderPageTA extends TestBase{
 		renewBtn.click();
 		Thread.sleep(2000);
 		renewSubmitBtn.click();
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.visibilityOf(alertMessage));
 		String actual_SucessMessage = alertMessage.getText();
 		String expected_SuccessMessage = Messages.holidayCalenderRenewMsg;
 		System.out.println("Actual Success Msg:" + actual_SucessMessage);
@@ -342,7 +345,7 @@ public class HolidayCalenderPageTA extends TestBase{
 		WebElement editBtn = driver.findElement(By.xpath("(//table/tr/td[text()='"+cName+"']/../td[5]/span[@title='Edit Calendar'])[1]"));
 		editBtn.click();
 		weeklyOffSelect.click();
-		WebElement weekDay_Select = driver.findElement(By.xpath("//label[contains(text(),'"+WeekDay+"')]/input/../span"));
+		WebElement weekDay_Select = driver.findElement(By.xpath("//label/span[text()='"+WeekDay+"']/../input/../span[2]"));
 		weekDay_Select.click();
 		weeklyOffSelect.click();
 		Thread.sleep(2000);
@@ -357,7 +360,7 @@ public class HolidayCalenderPageTA extends TestBase{
 		start_day_picker.click();
 		Thread.sleep(2000);
 		submitBtn.click();
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.visibilityOf(alertMessage));
 		String actual_SucessMessage = alertMessage.getText();
 		String expected_SuccessMessage = Messages.holidayCalenderEditMsg;
 		System.out.println("Actual Success Msg:" + actual_SucessMessage);
@@ -405,7 +408,7 @@ public class HolidayCalenderPageTA extends TestBase{
 		deleteBtn.click();
 		Thread.sleep(2000);
 		submitBtn.click();
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.visibilityOf(alertMessage));
 		String actual_SucessMessage = alertMessage.getText();
 		String expected_SuccessMessage = Messages.holidayCalenderEditMsg;
 		System.out.println("Actual Success Msg:" + actual_SucessMessage);
@@ -431,7 +434,7 @@ public class HolidayCalenderPageTA extends TestBase{
 		deleteBtn.click();
 		Thread.sleep(2000);
 		renewSubmitBtn.click();
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.visibilityOf(alertMessage));
 		String actual_SucessMessage = alertMessage.getText();
 		String expected_SuccessMessage = "Holiday calendar ["+cName+", "+calenderYear+"] successfully deleted";
 		System.out.println("Actual Success Msg:" + actual_SucessMessage);

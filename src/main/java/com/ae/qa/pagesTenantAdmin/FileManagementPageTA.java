@@ -24,7 +24,7 @@ public class FileManagementPageTA extends TestBase{
 	WebElement fileManagementTab;
 	@FindBy(xpath = "//button[@name='new-req']")
 	WebElement uploadBtn;
-	@FindBy(xpath = "//span[@class='mul-dorpdown-button']")
+	@FindBy(xpath = "//div[@class='mul-dropdown-button']")
 	WebElement wfDropdown;
 	@FindBy(xpath = "//input[@formcontrolname='search']")
 	WebElement searchBar;
@@ -87,7 +87,7 @@ public class FileManagementPageTA extends TestBase{
 		Thread.sleep(3000);
 		submitBtn.click();
 		Reporter.log("Submit button is clicked",true);
-		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+		wait.until(ExpectedConditions.visibilityOf(success_Message));
 		String Actual_successMsg = success_Message.getText();
 		System.out.println("Actual Sucess Message" + Actual_successMsg);
 		String Expected_successMsg = Messages.fileUpload;
@@ -121,7 +121,7 @@ public class FileManagementPageTA extends TestBase{
 		Thread.sleep(3000);
 		submitBtn.click();
 		Reporter.log("Submit button is clicked",true);
-		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+		wait.until(ExpectedConditions.visibilityOf(success_Message));
 		String Actual_successMsg = success_Message.getText();
 		System.out.println("Actual Sucess Message" + Actual_successMsg);
 		String Expected_successMsg = Messages.fileUpload;
@@ -146,7 +146,7 @@ public class FileManagementPageTA extends TestBase{
 		Reporter.log("Delete button is clicked successfully",true);
 		Thread.sleep(3000);
 		confirmDeleteBtn.click();
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.visibilityOf(success_Message));
 		String Actual_successMsg = success_Message.getText();
 		System.out.println("Actual Sucess Message" + Actual_successMsg);
 		String Expected_successMsg = "Successfully deleted file: ["+FileName+"]";

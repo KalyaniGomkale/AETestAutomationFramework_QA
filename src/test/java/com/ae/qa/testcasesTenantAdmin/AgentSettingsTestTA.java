@@ -15,7 +15,7 @@ public class AgentSettingsTestTA extends TestBase {
 	public AgentSettingsTestTA() {
 		super();
 	}
-	 @Test(priority=180)
+	 @Test(priority=180,alwaysRun=true)
 		public void validateAgentSettingsPageTATest(Method method) throws Exception {
 			extentTest = extent.createTest("validateAgentSettingsPageTATest", "TC_Additional:Verify Clicking Agent Settings tab and checking that appropiate page is loaded");
 			Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());

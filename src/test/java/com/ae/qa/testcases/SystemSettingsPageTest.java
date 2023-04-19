@@ -18,7 +18,7 @@ public class SystemSettingsPageTest extends TestBase {
 		super();
 	}
 	
-	@Test(priority = 16)
+	@Test(priority = 16,alwaysRun=true)
 	public void validateAgentServerNotSetTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateAgentServerNotSetTest", "TC_101: Verify popup when user try to download agent without server settings");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
@@ -57,7 +57,7 @@ public class SystemSettingsPageTest extends TestBase {
 		extentTest.log(extentTest.getStatus(), "Sysadmin is able to edit URL & cleanup request for server URL setting");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
-		@Test(priority=165)
+		@Test(priority=165,alwaysRun=true)
 		public void validateSystemSettingsPageTest(Method method) throws Exception {
 			extentTest = extent.createTest("validateSystemSettingsPageTest", "TC_Additional:Verify Clicking System Settings tab and checking that appropiate page is loaded");
 			Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());

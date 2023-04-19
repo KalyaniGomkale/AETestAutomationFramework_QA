@@ -174,7 +174,7 @@ public class TenantPolicyPageTA extends TestBase{
 		}
 		Reporter.log("Expected Arraylist is:" + Output_Attempts,true);
 		okBtn.click();
-		Thread.sleep(3000);
+		wait.until(ExpectedConditions.visibilityOf(PopUpMsg));
 		String Actual_SuccessMsg = PopUpMsg.getText();
 		String Expected_SuccessMsg = Messages.updatePasswordPolicy;
 		System.out.println("Actual Message after password policy update:" + Actual_SuccessMsg);
@@ -255,6 +255,7 @@ public class TenantPolicyPageTA extends TestBase{
 			Assert.assertTrue(false,
 					"No.of last pswd to be checked provided by user does not match with message in Confirm policy.");
 		}
+		wait.until(ExpectedConditions.visibilityOf(PopUpMsg));
 		String Actual_SuccessMsg = PopUpMsg.getText();
 		String Expected_SuccessMsg = Messages.updatePasswordPolicy;
 		System.out.println("Actual Message after password policy update:" + Actual_SuccessMsg);
@@ -353,6 +354,7 @@ public class TenantPolicyPageTA extends TestBase{
 		} else {
 			Assert.assertTrue(false, "No.of attempts provided by user does not match with message in Confirm policy.");
 		}
+		wait.until(ExpectedConditions.visibilityOf(PopUpMsg));
 		String Actual_SuccessMsg = PopUpMsg.getText();
 		String Expected_SuccessMsg = Messages.updatePasswordPolicy;
 		Reporter.log("Actual Message after password policy update:" + Actual_SuccessMsg,true);
@@ -414,6 +416,7 @@ public class TenantPolicyPageTA extends TestBase{
 		Unlock_cnfPswd.sendKeys(CnfPswd);
 		Thread.sleep(2000);
 		enableBtn.click();
+		wait.until(ExpectedConditions.visibilityOf(PopUpMsg));
 		String Actual_SuccessMsg = PopUpMsg.getText();
 		String Expected_SuccessMsg = Messages.unlock_TA;
 		System.out.println("Actual Message after password policy update:" + Actual_SuccessMsg);
@@ -498,6 +501,7 @@ public class TenantPolicyPageTA extends TestBase{
 		} else {
 			Assert.assertTrue(false, "No.of attempts provided by user does not match with message in Confirm policy.");
 		}
+		wait.until(ExpectedConditions.visibilityOf(PopUpMsg));
 		String Actual_SuccessMsg = PopUpMsg.getText();
 		String Expected_SuccessMsg = Messages.updatePasswordPolicy;
 		Reporter.log("Actual Message after password policy update:" + Actual_SuccessMsg,true);

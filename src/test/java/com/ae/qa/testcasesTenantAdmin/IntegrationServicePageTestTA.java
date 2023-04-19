@@ -22,7 +22,7 @@ public class IntegrationServicePageTestTA extends TestBase {
 		super();
 	}
 
-	@Test(priority=146)
+	@Test(priority=146,alwaysRun=true)
 	public void validateAddIntegrationServicesTATest(Method method) throws Exception {
 		extentTest = extent.createTest("validateAddIntegrationServicesTestTA", "TC_463: Verify adding integration services");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
@@ -50,7 +50,7 @@ public class IntegrationServicePageTestTA extends TestBase {
 		extentTest.log(extentTest.getStatus(), "Integration services downloaded successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}
-	@Test(priority=1029)
+	@Test(priority=1029,alwaysRun=true)
 	public void validateEditConfJobLowerLimitIntegrationServicesTATest(Method method) throws Exception {
 		extentTest = extent.createTest("validateEditConfJobLowerLimitIntegrationServicesTATest", "TC_493:Verify Edit  conf job Lower limit Minutes");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
@@ -59,7 +59,7 @@ public class IntegrationServicePageTestTA extends TestBase {
 		extentTest.log(extentTest.getStatus(), "Conf job lower limit is edited successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}
-	@Test(priority=1030)
+	@Test(priority=1030,alwaysRun=true)
 	public void validateEditUpdateResponseJobLowerLimitIntegrationServicesTATest(Method method) throws Exception {
 		extentTest = extent.createTest("validateEditUpdateResponseJobLowerLimitIntegrationServicesTest", "TC_494:Verify Edit Update Response Job Lower Limit (in seconds");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
@@ -68,7 +68,7 @@ public class IntegrationServicePageTestTA extends TestBase {
 		extentTest.log(extentTest.getStatus(), "Update Response lower limit is edited successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}
-	@Test(priority=195)
+	@Test(priority=195,alwaysRun=true)
 	public void validateIntegrationServicesPageTATest(Method method) throws Exception {
 		extentTest = extent.createTest("validateIntegrationServicesPageTATest", "TC_Additional:Verify Clicking Integration Services tab and checking that appropiate page is loaded");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());

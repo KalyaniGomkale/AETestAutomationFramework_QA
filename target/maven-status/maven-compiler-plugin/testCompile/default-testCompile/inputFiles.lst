@@ -1,90 +1,90 @@
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcasesTenantAdmin\AgentListPageTestTA.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcases\AuditLogsPageTest.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcasesActivityMonitor\InformationPageTestAM.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcasesTenantAdmin\HolidayCalenderPageTestTA.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcasesTenantAdmin\SmtpPageTestTA.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcasesTenantAdmin\CataloguePageTestTA.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcasesWorkflowAdmin\SchedulerPageTestWA.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcasesAgentAdmin\AgentListPageTestAA.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcasesTenantUser\RequestPageTestTU.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcasesTenantAdmin\ProcessStudioPageTestTA.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcases\FileManagementPageTest.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcases\SystemUsersPageTest.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcases\SmtpPageTest.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcasesTenantAdmin\ArchivedPageTestTA.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcases\PurgePolicyPageTest.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcasesTenantAdmin\CredentialsPageTestTA.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcases\TenantsPageTest.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcasesTenantAdmin\TenantPolicyPageTestTA.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcasesWorkflowAdmin\PluginsPageTestWA.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcasesTenantUser\SchedulerPageTestTU.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcases\IntegrationServicePageTest.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcases\InformationPageTest.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcases\WorkflowsPageTest.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcasesTenantAdmin\TemplatesPageTestTA.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcases\SysadminPolicyPageTest.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcasesTenantAdmin\InformationPageTestTA.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcasesTenantAdmin\IntegrationTypeConfigPageTestTA.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcasesTenantAdmin\LicenseDetailsPageTestTA.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcasesTenantAdmin\IntegrationServicePageTestTA.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcasesActivityMonitor\AgentListPageTestAM.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcasesAgentAdmin\PluginsPageTestAA.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcasesTenantAdmin\IPWhitelistingPageTestTA.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcasesTenantAdmin\ProxySettingsPageTestTA.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcasesTenantAdmin\DashboardsPageTestTA.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcasesUserAdmin\UserGroupsPageTestUA.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcasesTenantAdmin\HomePageTestTA.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcasesTenantAdmin\PurgePolicyPageTestTA.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcasesUserAdmin\TenantUsersPageTestUA.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcasesTenantAdmin\LDAPPageTestTA.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcasesActivityMonitor\DashboardsPageTestAM.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcasesTenantAdmin\TenantUserSSOPageTestTA.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcasesTenantAdmin\SingleSignOnPageTestTA.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcasesWorkflowAdmin\WorkflowListPageTestWA.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcasesTenantAdmin\PermissionsPageTestTA.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcases\ArtifactsPageTest.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcasesTenantAdmin\AgentLogsPageTestTA.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcasesTenantAdmin\CategoriesPageTestTA.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcasesTenantUser\CataloguePageTestTU.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcasesTenantAdmin\DataSourcesPageTestTA.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcasesTenantUser\AgentListPageTestTU.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcasesTenantAdmin\AgentSettingsTestTA.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcasesWorkflowAdmin\CataloguePageTestWA.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcases\LoginPageTest.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcases\SecurityQuestionsPageTest.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcasesTenantAdmin\LoginPageTestTA.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcasesWorkflowAdmin\CategoriesPageTestWA.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcasesWorkflowAdmin\CredentialsPageTestWA.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcasesWorkflowAdmin\RequestsPageTestWA.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcasesTenantUser\DashboardsPageTestTU.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcases\IntegrationTypesPageTest.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcasesActivityMonitor\RequestsPageTestAM.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcasesUserAdmin\InformationPageTestUA.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcasesTenantAdmin\FileManagementPageTestTA.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcasesTenantAdmin\SchedulerPageTestTA.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcases\HomePageTest.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcasesTenantAdmin\RequestsPageTestTA.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcasesTenantAdmin\WorkflowAssignmentPageTestTA.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcasesWorkflowAdmin\AgentLogsPageTestWA.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcasesTenantUser\WorkflowListPageTestTU.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcases\PluginAssignmentsPageTest.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcasesTenantAdmin\EmailNotificationPageTestTA.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcasesTenantAdmin\AuditLogsPageTestTA.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcasesTenantAdmin\UserGroupsPageTestTA.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcases\TenantUsersPageTest.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcasesWorkflowAdmin\DashboardsPageTestWA.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcases\SystemSettingsPageTest.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcasesAgentAdmin\InformationPageTestAA.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcasesTenantAdmin\ExternalAppsTestTA.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcasesTenantAdmin\TenantUsersPageTestTA.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcasesTenantAdmin\EmailReportsPageTestTA.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcasesTenantAdmin\WorkflowListPageTestTA.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcases\PurgeSchedulePageTest.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcasesTenantAdmin\PluginsPageTestTA.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcasesUserAdmin\CategoriesPageTestUA.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcasesWorkflowAdmin\AgentListPageTestWA.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcasesWorkflowAdmin\InformationPageTestWA.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcases\PluginsPageTest.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcasesTenantAdmin\PurgeSchedulePageTestTA.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcasesTenantAdmin\IntegrationTypesPageTestTA.java
-F:\Automation Edge Project\AutomationEdgePortal_7.0(1)WorkSpace\src\test\java\com\ae\qa\testcasesTenantUser\InformationPageTestTU.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcases\AuditLogsPageTest.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcasesTenantAdmin\CredentialsPageTestTA.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcasesWorkflowAdmin\WorkflowListPageTestWA.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcasesTenantAdmin\RequestsPageTestTA.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcasesAgentAdmin\PluginsPageTestAA.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcasesTenantAdmin\PurgeSchedulePageTestTA.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcasesTenantAdmin\IntegrationTypeConfigPageTestTA.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcases\HomePageTest.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcasesTenantAdmin\LicenseDetailsPageTestTA.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcasesAgentAdmin\InformationPageTestAA.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcasesTenantAdmin\PluginsPageTestTA.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcases\SystemUsersPageTest.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcasesTenantUser\AgentListPageTestTU.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcases\PluginAssignmentsPageTest.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcasesActivityMonitor\AgentListPageTestAM.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcasesTenantAdmin\LoginPageTestTA.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcasesWorkflowAdmin\PluginsPageTestWA.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcasesTenantAdmin\WorkflowAssignmentPageTestTA.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcases\SecurityQuestionsPageTest.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcasesTenantAdmin\AgentLogsPageTestTA.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcasesWorkflowAdmin\DashboardsPageTestWA.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcases\InformationPageTest.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcasesActivityMonitor\InformationPageTestAM.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcasesTenantAdmin\IntegrationTypesPageTestTA.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcasesTenantAdmin\PurgePolicyPageTestTA.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcasesTenantAdmin\CataloguePageTestTA.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcasesTenantAdmin\IPWhitelistingPageTestTA.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcases\TenantsPageTest.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcasesTenantAdmin\HolidayCalenderPageTestTA.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcasesTenantAdmin\UserGroupsPageTestTA.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcases\PurgePolicyPageTest.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcasesTenantAdmin\TenantUserSSOPageTestTA.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcasesTenantUser\InformationPageTestTU.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcasesTenantUser\RequestPageTestTU.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcasesTenantAdmin\AgentSettingsTestTA.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcasesUserAdmin\UserGroupsPageTestUA.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcasesTenantAdmin\TemplatesPageTestTA.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcases\WorkflowsPageTest.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcasesTenantAdmin\HomePageTestTA.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcasesTenantAdmin\PermissionsPageTestTA.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcasesTenantAdmin\LDAPPageTestTA.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcasesTenantUser\CataloguePageTestTU.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcases\PluginsPageTest.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcasesTenantAdmin\WorkflowListPageTestTA.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcases\PurgeSchedulePageTest.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcasesTenantAdmin\EmailReportsPageTestTA.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcasesTenantAdmin\DataSourcesPageTestTA.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcasesActivityMonitor\DashboardsPageTestAM.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcasesTenantAdmin\AuditLogsPageTestTA.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcasesUserAdmin\CategoriesPageTestUA.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcasesTenantAdmin\SingleSignOnPageTestTA.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcasesWorkflowAdmin\CredentialsPageTestWA.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcases\IntegrationTypesPageTest.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcases\TenantUsersPageTest.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcasesTenantAdmin\SmtpPageTestTA.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcases\SystemSettingsPageTest.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcases\SmtpPageTest.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcasesTenantAdmin\DashboardsPageTestTA.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcasesTenantAdmin\CategoriesPageTestTA.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcasesTenantUser\WorkflowListPageTestTU.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcasesAgentAdmin\AgentListPageTestAA.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcasesWorkflowAdmin\AgentListPageTestWA.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcasesTenantAdmin\ArchivedPageTestTA.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcasesTenantAdmin\IntegrationServicePageTestTA.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcasesWorkflowAdmin\CataloguePageTestWA.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcasesTenantAdmin\TenantPolicyPageTestTA.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcasesTenantUser\SchedulerPageTestTU.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcasesWorkflowAdmin\AgentLogsPageTestWA.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcasesWorkflowAdmin\RequestsPageTestWA.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcasesTenantAdmin\ProxySettingsPageTestTA.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcases\LoginPageTest.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcasesTenantAdmin\AgentListPageTestTA.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcasesTenantAdmin\InformationPageTestTA.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcasesTenantAdmin\ProcessStudioPageTestTA.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcasesUserAdmin\InformationPageTestUA.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcases\SysadminPolicyPageTest.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcasesTenantUser\DashboardsPageTestTU.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcasesTenantAdmin\SchedulerPageTestTA.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcasesActivityMonitor\RequestsPageTestAM.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcasesWorkflowAdmin\InformationPageTestWA.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcasesTenantAdmin\ExternalAppsTestTA.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcasesWorkflowAdmin\CategoriesPageTestWA.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcases\ArtifactsPageTest.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcases\FileManagementPageTest.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcases\IntegrationServicePageTest.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcasesTenantAdmin\EmailNotificationPageTestTA.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcasesWorkflowAdmin\SchedulerPageTestWA.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcasesTenantAdmin\FileManagementPageTestTA.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcasesUserAdmin\TenantUsersPageTestUA.java
+E:\KalyaniG\AEWorkspace\AEQATestAutomationFramework\src\test\java\com\ae\qa\testcasesTenantAdmin\TenantUsersPageTestTA.java

@@ -29,7 +29,7 @@ public class HomePageTestTA extends TestBase {
 		extentTest.log(extentTest.getStatus(), "License uploaded successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}
-	@Test(priority=145)
+	@Test(priority=145,alwaysRun=true)
 	public void validateSearchFunctionalityTATest(Method method) throws Exception {
 		extentTest = extent.createTest("validateSearchFunctionalityTest", "TC_022:Search functionality in sidebar menu");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
@@ -38,7 +38,7 @@ public class HomePageTestTA extends TestBase {
 		extentTest.log(extentTest.getStatus(), "Search functionality in sidebar menu is validated successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}
-	@Test(priority=169)
+	@Test(priority=169,alwaysRun=true)
 	public void validateHomePageTATest(Method method) throws Exception {
 		extentTest = extent.createTest("validateSearchFunctionalityTest", "TC_Additional:Verify Clicking Home tab and checking that appropiate page is loaded");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
@@ -47,7 +47,7 @@ public class HomePageTestTA extends TestBase {
 		extentTest.log(extentTest.getStatus(), "Home Page loading validated successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}
-	@Test(priority=707)
+	@Test(priority=707,alwaysRun=true)
 	public void validateLicenseDetailTabTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateLicenseDetailTabTest", "TC_19:- Verify License Details tab");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
@@ -56,14 +56,14 @@ public class HomePageTestTA extends TestBase {
 		extentTest.log(extentTest.getStatus(), "License Details Tab is verified successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}
-	@Test(priority=708)
+	@Test(priority=708,alwaysRun=true)
 	public void validateLicenseDetailHomepageTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateLicenseDetailHomepageTest", "TC_18:- Verify License Details");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
 		homepageta = new HomePageTA();
 		homepageta.validateLicenseDetailHomepage();
 		extentTest.log(extentTest.getStatus(), "License Details verified successfully");
-		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
+	    ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}
 }
 

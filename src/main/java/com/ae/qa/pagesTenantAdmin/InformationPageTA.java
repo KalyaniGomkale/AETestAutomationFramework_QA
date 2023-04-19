@@ -192,7 +192,7 @@ public class InformationPageTA extends TestBase {
 		//js1.executeScript("arguments[0].click();", saveBtn);
 		saveBtn.click();		
 		Reporter.log("Save button is clicked",true);
-		driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+		wait.until(ExpectedConditions.elementToBeClickable(success_msg_logo));
 		String Actual_successMsg = success_msg_logo.getText();
 		System.out.println("Success Message after uploading logo: " + Actual_successMsg);
 		String Expected_successMsg = Messages.setLogo;
@@ -215,7 +215,7 @@ public class InformationPageTA extends TestBase {
 		Thread.sleep(2000);
 		saveBtn.click();		
 		Reporter.log("Save button is clicked",true);
-		driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+		wait.until(ExpectedConditions.elementToBeClickable(success_msg_logo));
 		String Actual_successMsg = success_msg_logo.getText();
 		System.out.println("Success Message after uploading logo: " + Actual_successMsg);
 		String Expected_successMsg = Messages.setLogo;

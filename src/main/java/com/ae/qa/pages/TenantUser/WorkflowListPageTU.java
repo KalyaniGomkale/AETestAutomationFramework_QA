@@ -67,6 +67,8 @@ public class WorkflowListPageTU extends TestBase{
 	WebElement wfViewButton;
 	@FindBy(xpath="//button[@title='User View']")
 	WebElement userViewButton;
+	@FindBy(xpath="//button[contains(text(),'Users')]")
+	WebElement usersButton;
 	@FindBy(xpath="(//span[@class='dropdown-toggle fa fa-search floating-search'])[2]")
 	WebElement rightTabSearchBar;
 	@FindBy(xpath="(//span[@class='dropdown-toggle fa fa-search floating-search'])[1]")
@@ -114,6 +116,7 @@ public class WorkflowListPageTU extends TestBase{
 		Thread.sleep(2000);
 		saveBtn1.click();
 		Reporter.log("Save button is clicked",true);
+		wait.until(ExpectedConditions.visibilityOf(success_msg));
 		String Actual_SuccessMsg = success_msg.getText();
 		System.out.println("Actual Message for User Permissions : " + Actual_SuccessMsg);
 		String Expected_SuccessMsg = Messages.permissionsSuccessMsg;
@@ -138,12 +141,16 @@ public class WorkflowListPageTU extends TestBase{
 		leftTabSearchBar.click();
 		Reporter.log("Left Search Bar is clicked",true);
 		WebElement searchBarField1 = driver.findElement(By.id("l-search"));
+		Thread.sleep(2000);
 		searchBarField1.sendKeys(Username);
 		tUser.click();
-		Thread.sleep(5000);
-		rightTabSearchBar.click();
+		Thread.sleep(2000);
+		usersButton.click();
+		Thread.sleep(2000);
+		js.executeScript("arguments[0].click();", rightTabSearchBar);
 		Reporter.log("Search Bar is clicked",true);
 		WebElement searchBarField2 = driver.findElement(By.id("r-search"));
+		Thread.sleep(2000);
 		searchBarField2.sendKeys(wfName);
 		Thread.sleep(5000);
 		//For View Permissions for Workflow
@@ -161,6 +168,7 @@ public class WorkflowListPageTU extends TestBase{
 		Thread.sleep(2000);
 		saveBtn1.click();
 		Reporter.log("Save button is clicked",true);
+		wait.until(ExpectedConditions.visibilityOf(success_msg));
 		String Actual_SuccessMsg1 = success_msg.getText();
 		System.out.println("Actual Message for Workflow permissions : " + Actual_SuccessMsg1);
 		String Expected_SuccessMsg1 = Messages.permissionsSuccessMsg;
@@ -201,6 +209,7 @@ public class WorkflowListPageTU extends TestBase{
 		JavascriptExecutor js=(JavascriptExecutor)driver;
 		js.executeScript("arguments[0].click();", workflowTab);
 		Reporter.log("Workflow tab is clicked", true);
+		Thread.sleep(2000);
 		Boolean WfName = driver.findElement(By.xpath("//table/tr/td[contains(@title,'"+wfName+"')]")).isDisplayed();
 		if(WfName){
 			Assert.assertTrue(WfName, "Workflow is not present in table");
@@ -209,6 +218,7 @@ public class WorkflowListPageTU extends TestBase{
 			Reporter.log("Workflow is not present in table", true);
 			Assert.assertTrue(false);
 		}
+		Thread.sleep(2000);
 		WebElement edit_btn = driver.findElement(By.xpath("//table/tr/td[@title='"+wfName+"']/../td/span[@title='Edit Workflow']"));
 		js.executeScript("arguments[0].click();", edit_btn);
 		Thread.sleep(3000);
@@ -221,8 +231,7 @@ public class WorkflowListPageTU extends TestBase{
 		Thread.sleep(3000);
 		saveBtn.click();
 		Reporter.log("Save button is clicked",true);
-		//wait.until(ExpectedConditions.visibilityOf(success_msg));
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.visibilityOf(success_msg));
 		String Actual_WFEditSuccessMsg = success_msg.getText();
 		System.out.println("Actual Message : " + Actual_WFEditSuccessMsg);
 		String Expected_WFEditSuccessMsg = Messages.updateWorkflow;

@@ -214,6 +214,7 @@ public class IntegrationServicesPage extends TestBase {
 				+allowedNoOfConfig2,true);
 		submitBtn.click();
 		Reporter.log("Submit button is clicked",true);
+		wait.until(ExpectedConditions.visibilityOf(alertMessage));
 		String actual_success_msg = alertMessage.getText();
 		String expected_success_msg = Messages.enableIntegrationServices;
 		System.out.println("actual success msg is: " + actual_success_msg);

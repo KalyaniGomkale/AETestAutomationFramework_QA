@@ -20,7 +20,7 @@ public class WorkflowAssignmentPageTestTA extends TestBase{
 		super();
 	}
 
-	@Test(priority=72)
+	@Test(priority=72,alwaysRun=true)
 	public void validateSingleWorkflowAssignmentTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateSingleWorkflowAssignmentTest", "Verify user is able to assign single workflow to default agent ");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
@@ -29,7 +29,7 @@ public class WorkflowAssignmentPageTestTA extends TestBase{
 		extentTest.log(extentTest.getStatus(), "Workflow assigned to agent successfully");  
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}
-	@Test(priority=178)
+	@Test(priority=178,alwaysRun=true)
 	public void validateWorkflowAssignmentPageTATest(Method method) throws Exception {
 		extentTest = extent.createTest("validateWorkflowAssignmentPageTATest", "TC_Additional:Verify Clicking Workflow Assignment tab and checking that appropiate page is loaded");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
@@ -38,7 +38,7 @@ public class WorkflowAssignmentPageTestTA extends TestBase{
 		extentTest.log(extentTest.getStatus(), "Workflow Assignment Page loading validated successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}
-	@Test(priority=709)
+	@Test(priority=709,alwaysRun=true)
 	public void validateMultipleWorkflowAssignmentTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateMultipleWorkflowAssignmentTest", "TC_142:To verify multiple workflows can get assigned to agent");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());

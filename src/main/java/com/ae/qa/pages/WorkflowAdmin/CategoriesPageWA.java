@@ -76,7 +76,7 @@ public class CategoriesPageWA extends TestBase{
 		Thread.sleep(2000);
 		CreateBtn.click();
 		Thread.sleep(2000);
-		driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
+		wait.until(ExpectedConditions.visibilityOf(successMsgBox));
 		String Actual_SuccessMsg=successMsgBox.getText();
 		String Expected_SuccessMsg=Messages.Categories;
 		Reporter.log("Actual Category created message is :"+Actual_SuccessMsg,true);
@@ -114,7 +114,7 @@ public class CategoriesPageWA extends TestBase{
 		Thread.sleep(2000);
 		CreateBtn.click();
 		Thread.sleep(2000);
-		driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
+		wait.until(ExpectedConditions.visibilityOf(successMsgBox));
 		String Actual_SuccessMsg=successMsgBox.getText();
 		String Expected_SuccessMsg=Messages.editCategories;
 		Reporter.log("Actual Category edited message is :"+Actual_SuccessMsg,true);
@@ -146,7 +146,7 @@ public class CategoriesPageWA extends TestBase{
 		drpWorkflow.selectByVisibleText(CategoryName);
 		Reporter.log("category in which wf needs to move is selected from dropdown",true);
 		moveBtn.click();
-		driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
+		wait.until(ExpectedConditions.visibilityOf(successMsgBox));
 		String Actual_SuccessMsg=successMsgBox.getText();
 		String Expected_SuccessMsg=Messages.assignWFToCategories;
 		Reporter.log("Actual message is :"+Actual_SuccessMsg,true);
@@ -178,7 +178,7 @@ public class CategoriesPageWA extends TestBase{
 		WebElement select_WFName=driver.findElement(By.xpath("//a/span[@title='"+WFName+"']/../../div/span[@title='Remove workflow']"));
 		select_WFName.click();
 		Reporter.log("Workflow assigned to category is removed",true);
-		driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
+		wait.until(ExpectedConditions.visibilityOf(successMsgBox));
 		String Actual_SuccessMsg=successMsgBox.getText();
 		String Expected_SuccessMsg=Messages.removeWFFromCategories;
 		Reporter.log("Actual message is :"+Actual_SuccessMsg,true);

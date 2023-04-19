@@ -18,7 +18,7 @@ public class SecurityQuestionsPageTest extends TestBase {
 		super();
 	}
 	//sysadmin data can work
-	@Test(priority = 21)
+	@Test(priority = 21,alwaysRun=true)
 	public void validateSkipQuesTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateSkipQuesTest",
 				"TC_105: Verify sysadmin user will be redirected to his regular dashboard after skipping answering three security questions");
@@ -30,7 +30,7 @@ public class SecurityQuestionsPageTest extends TestBase {
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
 
-	@Test(priority = 22)
+	@Test(priority = 22,alwaysRun=true)
 	public void validateSecurityQuesTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateSecurityQuesTest",
 		"TC_106: Verify sysadmin user will be asked to submit only three security question out of ten when security question answers are not set by sysadmin and he logs in");
@@ -41,7 +41,7 @@ public class SecurityQuestionsPageTest extends TestBase {
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
 	
-	@Test(priority = 23)
+	@Test(priority = 23,alwaysRun=true)
 	public void validateUpdatingSecQuesWithWrongPswdTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateUpdatingSecQuesWithWrongPswdTest",
 				"TC_109: Verify sysadmin will get error if he/she tries to update security question with wrong password");
@@ -52,7 +52,7 @@ public class SecurityQuestionsPageTest extends TestBase {
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
 
-	@Test(priority = 24)
+	@Test(priority = 24,alwaysRun=true)
 	public void validateUpdatingSecurityQuesTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateUpdatingSecurityQuesTest",
 				"TC_108: Verify sysadmin user can update answers which he already set previously when visits security questions section in his profile");
@@ -63,7 +63,7 @@ public class SecurityQuestionsPageTest extends TestBase {
 	ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
 //On sysadmin page we created sysadmin1 so using it
-	@Test(priority = 25)
+	@Test(priority = 25,alwaysRun=true)
 	public void validateSkipThenSetQuesTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateSkipThenSetQuesTest",
 				"TC_110: Verify sysadmin user able to answer the security answers which he skiped previously when he visits security question in his profile");
@@ -73,7 +73,7 @@ public class SecurityQuestionsPageTest extends TestBase {
 		extentTest.log(extentTest.getStatus(), "It will first skip the security questions and then set");
 	ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
-	@Test(priority=168)
+	@Test(priority=168,alwaysRun=true)
 	public void validateSecurityQuestionsPageTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateSecurityQuestionsPageTest", "TC_Additional:Verify Clicking Security Questions tab and checking that appropiate page is loaded");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());

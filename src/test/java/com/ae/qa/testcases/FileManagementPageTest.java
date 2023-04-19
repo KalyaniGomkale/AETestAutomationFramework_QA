@@ -23,7 +23,7 @@ public class FileManagementPageTest extends TestBase {
 		super();
 	}
 
-	@Test(priority = 132)
+	@Test(priority = 132,alwaysRun=true)
 	public void validateUploadDriverTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateUploadDriverTest", "TC_136: Verify uploading driver file through file managment");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
@@ -32,7 +32,7 @@ public class FileManagementPageTest extends TestBase {
 		extentTest.log(extentTest.getStatus(), "Chrome driver file uploaded successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
-	@Test(priority = 1004)
+	@Test(priority = 1004,alwaysRun=true)
 	public void validateEditUploadDriverTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateEditUploadDriverTest", "TC_Additional:Verify edit above uploaded driver");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
@@ -41,7 +41,7 @@ public class FileManagementPageTest extends TestBase {
 		extentTest.log(extentTest.getStatus(), "Uploaded driver is edited successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
-	@Test(priority = 1005)
+	@Test(priority = 1005,alwaysRun=true)
 	public void validateDeleteUploadDriverTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateDeleteUploadDriverTest", "TC_Additional:Verify Delete uplaoded webgui driver file");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
@@ -50,7 +50,7 @@ public class FileManagementPageTest extends TestBase {
 		extentTest.log(extentTest.getStatus(), "Uploaded driver is deleted successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
-	@Test(priority=164)
+	@Test(priority=164,alwaysRun=true)
 	public void validateFileManagmentPageTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateTenantUsersPageTest", "TC_Additional:Verify Clicking File Managment tab and checking that appropiate page is loaded");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());

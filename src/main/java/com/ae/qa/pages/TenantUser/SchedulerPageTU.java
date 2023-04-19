@@ -36,7 +36,7 @@ public class SchedulerPageTU extends TestBase{
 	WebElement schedulerTab;
 	@FindBy(xpath = "//button[@name='add-new']")
 	WebElement addNewBtn;
-	@FindBy(xpath="//div[@class='mul-position']/span")
+	@FindBy(xpath="//div[@class='mul-position']")
 	WebElement workflowDrpdwn;
 	@FindBy(id="scheduleName")
 	WebElement scheduleName; 
@@ -91,7 +91,7 @@ public class SchedulerPageTU extends TestBase{
 		Thread.sleep(5000);
 		Reporter.log("Schedule form details started",true);
 		workflowDrpdwn.click();
-		WebElement search_wfName=driver.findElement(By.xpath("//label[contains(text(),'"+wfName+"')]/span"));
+		WebElement search_wfName=driver.findElement(By.xpath("//label/span[text()='"+wfName+"']/../input/../span[2]"));
 		search_wfName.click();
 		Thread.sleep(3000);
 		scheduleName.sendKeys(schedulename);
@@ -133,7 +133,7 @@ public class SchedulerPageTU extends TestBase{
 		Thread.sleep(2000);
 		submitBtn.click();
 		Reporter.log("Schedule submitted",true);
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		wait.until(ExpectedConditions.visibilityOf(actual_Msg));
 		String actual_message = actual_Msg.getText();
 		String expected_message = Messages.createSchedule;
 		Reporter.log("Actual Success Msg:" + actual_message,true);

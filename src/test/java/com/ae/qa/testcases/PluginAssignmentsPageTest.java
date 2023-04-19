@@ -20,7 +20,7 @@ public class PluginAssignmentsPageTest extends TestBase {
 		super();
 	}
 
-	@Test(priority = 129)
+	@Test(priority = 129,alwaysRun=true)
 	public void validateAssignPluginSingleTenantTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateUploadPlugins", "TC_041: Verify assign plugin to single tenant ");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
@@ -31,7 +31,7 @@ public class PluginAssignmentsPageTest extends TestBase {
 		extentTest.log(extentTest.getStatus(), "Plugin assigned to single tenant successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
-	@Test (priority = 130)
+	@Test (priority = 130,alwaysRun=true)
 	public void validateAssignTenantSinglePluginTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateAssignTenantSinglePluginTest", "TC_044: Verify assign tenant a single plugins");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
@@ -42,7 +42,7 @@ public class PluginAssignmentsPageTest extends TestBase {
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	} 
 
-	@Test(priority = 131)
+	@Test(priority = 131,alwaysRun=true)
 	public void validateAssignPluginAllTenantTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateUploadPlugins", "TC_042: Verify assign plugin to all tenants");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
@@ -51,7 +51,7 @@ public class PluginAssignmentsPageTest extends TestBase {
 		extentTest.log(extentTest.getStatus(), "Plugin assigned to all tenants successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
-	@Test(priority=159)
+	@Test(priority=159,alwaysRun=true)
 	public void validatePluginAssignmentsPageTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateTenantUsersPageTest", "TC_Additional:Verify Clicking Plugin Assignments tab and checking that appropiate page is loaded");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
@@ -60,7 +60,7 @@ public class PluginAssignmentsPageTest extends TestBase {
 		extentTest.log(extentTest.getStatus(), "Plugin Assignments page loading validated successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
-	@Test(priority=1006)
+	@Test(priority=1006,alwaysRun=true)
 	public void validateWFInActiveAfterSysadminRemovesPluginPermissionTest(Method method) throws Exception {
 		//Workflow should be in active state
 		extentTest = extent.createTest("validateWFInActiveAfterSysadminRemovesPluginPermissionTest", "TC_38:Verify workflow active/inactive status after sysadmin removes the permission of plugin");
@@ -72,7 +72,7 @@ public class PluginAssignmentsPageTest extends TestBase {
 		extentTest.log(extentTest.getStatus(), "WF status are sysadmin removes plugin permission is verified successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
-	@Test(priority=1007,dependsOnMethods="validateWFInActiveAfterSysadminRemovesPluginPermissionTest")
+	@Test(priority=1007,dependsOnMethods="validateWFInActiveAfterSysadminRemovesPluginPermissionTest",alwaysRun=true)
 	public void validateWFFailureAfterSysadminRemovesPluginPermissionTest(Method method) throws Exception {
 		//Workflow should be in active state
 		extentTest = extent.createTest("validateWFFailureAfterSysadminRemovesPluginPermissionTest", "TC_39:Verify workflow active/inactive functioanality after sysadmin removes permission of plugin");
@@ -82,7 +82,7 @@ public class PluginAssignmentsPageTest extends TestBase {
 		extentTest.log(extentTest.getStatus(), "WF status after sysadmin removes plugin permission is verified successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
-	@Test(priority=1008,dependsOnMethods="validateWFFailureAfterSysadminRemovesPluginPermissionTest")
+	@Test(priority=1008,dependsOnMethods="validateWFFailureAfterSysadminRemovesPluginPermissionTest",alwaysRun=true)
 	public void validateWFActiveSuccessAfterSysadminAssignPluginPermissionTest(Method method) throws Exception {
 		//Workflow should be in active state
 		extentTest = extent.createTest("validateWFActiveSuccessAfterSysadminAssignPluginPermissionTest", "TC_39:Verify workflow active/inactive functioanality after sysadmin removes permission of plugin");
@@ -122,7 +122,7 @@ public class PluginAssignmentsPageTest extends TestBase {
 		extentTest.log(extentTest.getStatus(), "plugin access of newly added tenant when  assign all option not selected on Plugin assignment page is verified successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}*/	
-	@Test(priority = 37)
+	@Test(priority = 37,alwaysRun=true)
 	public void validateAssignPluginToMultipleTenantTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateUploadPlugins", "TC_043: Verify assign plugins to Specific/multiple tenants");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
@@ -131,7 +131,7 @@ public class PluginAssignmentsPageTest extends TestBase {
 		extentTest.log(extentTest.getStatus(), "Plugin assigned to specific/multiple tenants successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}	
-	@Test(priority = 39)
+	@Test(priority = 39,alwaysRun=true)
 	public void validateAssignTenantMultiplePluginsTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateAssignTenantSinglePluginTest", "TC_045: Verify assign tenant Specific/multiple plugins");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
@@ -140,7 +140,7 @@ public class PluginAssignmentsPageTest extends TestBase {
 		extentTest.log(extentTest.getStatus(), "Plugin assigned to specific/mutiple tenants successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
-	@Test (priority = 40)
+	@Test (priority = 40,alwaysRun=true)
 	public void validateAssignTenantAllPluginsTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateAssignTenantAllPluginsTest", "TC_046: Verify assigning tenant all plugins");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());

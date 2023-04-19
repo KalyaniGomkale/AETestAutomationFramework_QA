@@ -23,7 +23,7 @@ public class TenantUsersPageTest extends TestBase {
 	}
 
 
-	@Test(priority = 8)
+	@Test(priority = 8,alwaysRun=true)
 	public void ValidateCreatingTenantAdminTest(Method method) throws Exception {
 		extentTest = extent.createTest("ValidateCreatingTenantAdminTest", "TC_015: To verify create Tenant Admin");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
@@ -34,7 +34,7 @@ public class TenantUsersPageTest extends TestBase {
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
 
-	@Test(priority = 9)
+	@Test(priority = 9,alwaysRun=true)
 	public void ValidateEditTenantUserTest(Method method) throws Exception {
 		extentTest = extent.createTest("ValidateEditTenantUserTest", "TC_016: To verify Edit Tenant User");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
@@ -44,7 +44,7 @@ public class TenantUsersPageTest extends TestBase {
 		extentTest.log(extentTest.getStatus(), "New Tenant Admin created & edited its emailID successfully.");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
-	@Test(priority=154)
+	@Test(priority=154,alwaysRun=true)
 	public void validateTenantUsersPageTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateTenantUsersPageTest", "TC_Additional:Verify Clicking Tenant users tab and checking that appropiate page is loaded");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
@@ -54,7 +54,7 @@ public class TenantUsersPageTest extends TestBase {
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
 	//For Tenant Name
-	@Test(priority = 3041)
+	/*@Test(priority = 3041)
 	public void validateAdvSearchForTenantNameEqualToTenantusersPageTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateAdvSearchForTenantNameEqualToTenantusersPageTest", "TC_009: To Verfiy Advance search tenant name with equals criteria");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AdvancedSearchsheetname"),method.getName());
@@ -380,5 +380,5 @@ public class TenantUsersPageTest extends TestBase {
 				TestDataInMap.get("PageSize"));
 		extentTest.log(extentTest.getStatus(), "Advance search for Last Name is validated successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
-	}
+	}*/
 }

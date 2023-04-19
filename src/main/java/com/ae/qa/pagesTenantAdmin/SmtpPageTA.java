@@ -55,7 +55,7 @@ public class SmtpPageTA extends TestBase {
 	WebElement deleteConfirmation;
 	@FindBy(xpath="//div[@class='title-div']/h2")
 	WebElement pageTitle;
-	@FindBy(xpath="//span[@class='mul-dorpdown-button']")
+	@FindBy(id="protocols")
 	WebElement protocolDropdown;
 	@FindBy(xpath="(//span[@class='mul-checkmark'])[4]")
 	WebElement protocol;
@@ -111,14 +111,14 @@ public class SmtpPageTA extends TestBase {
 		personalName.sendKeys(pName);
 		Thread.sleep(2000);
 		testConnectionBtn.click();
-		driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
+		wait.until(ExpectedConditions.visibilityOf(successMsgBox));
 		String Actual_testConnectionMsg = successMsgBox.getText();
 		String Expected_testConnectionMsg = "Email test connection successful";
 		Assert.assertEquals(Actual_testConnectionMsg, Expected_testConnectionMsg, "Test connection Failed");
 		Reporter.log("Tested connection successfully",true);
 		Thread.sleep(6000);
 		saveBtn.click();
-		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+		wait.until(ExpectedConditions.visibilityOf(successMsgBox));
 		String Actual_smtpConnectionMsg = successMsgBox.getText();
 		String Expected_smtpConnectionMsg = Messages.addSmtpServer;
 		Assert.assertEquals(Actual_smtpConnectionMsg, Expected_smtpConnectionMsg, "SMTP configuration Failed");
@@ -145,14 +145,14 @@ public class SmtpPageTA extends TestBase {
 		personalName.sendKeys(NewPersonalName);
 		Thread.sleep(2000);
 		testConnectionBtn.click();
-		driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
+		wait.until(ExpectedConditions.visibilityOf(successMsgBox));
 		String Actual_testConnectionMsg = successMsgBox.getText();
 		String Expected_testConnectionMsg = "Email test connection successful";
 		Assert.assertEquals(Actual_testConnectionMsg, Expected_testConnectionMsg, "Test connection Failed");
 		Reporter.log("Tested connection successfully",true);
 		Thread.sleep(6000);
 		saveBtn.click();
-		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+		wait.until(ExpectedConditions.visibilityOf(successMsgBox));
 		String Actual_smtpConnectionMsg = successMsgBox.getText();
 		String Expected_smtpConnectionMsg = Messages.addSmtpServer;
 		Assert.assertEquals(Actual_smtpConnectionMsg, Expected_smtpConnectionMsg, "SMTP configuration Failed");
@@ -174,7 +174,7 @@ public class SmtpPageTA extends TestBase {
 		Reporter.log("Delete button clicked",true);
 		deleteConfirmation.click();
 		Reporter.log("Confirmation popup agree for deletion",true);
-		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+		wait.until(ExpectedConditions.visibilityOf(successMsgBox));
 		String Actual_smtpConnectionMsg = successMsgBox.getText();
 		String Expected_smtpConnectionMsg = Messages.deleteSMTPConfig;
 		Assert.assertEquals(Actual_smtpConnectionMsg, Expected_smtpConnectionMsg, "SMTP configuration details not delted");

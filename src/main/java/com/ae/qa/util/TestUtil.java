@@ -41,8 +41,8 @@ import com.ae.qa.pagesTenantAdmin.LoginPageTA;
 public class TestUtil extends TestBase {
 	public LoginPageTA loginpageta = new LoginPageTA();
 //	public WebDriverWait wait = new WebDriverWait(driver,70);
-	public static long IMPLICIT_WAIT = 1200;
-	public static long PAGE_LOAD_TIMEOUT = 1260;
+	public static long IMPLICIT_WAIT = 60;
+	public static long PAGE_LOAD_TIMEOUT = 360;
 	public static final int BUFFER_SIZE = 4096;
 
 	@FindBy(id = "change-pswd")

@@ -26,7 +26,7 @@ public class ArtifactsPageTest extends TestBase {
 	}
 
 	// reusable data change version after 7.0.0 release
-	@Test(priority = 14)
+	@Test(priority = 14,alwaysRun=true)
 	public void validateUploadPSTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateUploadPSTest",
 				"TC_xx & TC_XX: To Verfiy uploading PS artifacts with invalid name,"
@@ -40,7 +40,7 @@ public class ArtifactsPageTest extends TestBase {
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
 
-	@Test(priority = 135)
+	@Test(priority = 135,alwaysRun=true)
 	public void ValidateUpdatePSTest(Method method) throws Exception {
 		extentTest = extent.createTest("ValidateUpdatePSTest", "TC_XXX: To Verfiy uploading PS artifacts");
 		Map<String, String> TestDataInMap = ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),
@@ -51,7 +51,7 @@ public class ArtifactsPageTest extends TestBase {
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
 
-	@Test(priority = 157)
+	@Test(priority = 157,alwaysRun=true)
 	public void validateArtifactsPageTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateArtifactsPageTest",
 				"TC_Additional:Verify Clicking Artifacts tab and checking that appropiate page is loaded");
@@ -63,7 +63,7 @@ public class ArtifactsPageTest extends TestBase {
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
 
-	@Test(priority = 2020)
+	@Test(priority = 2020,alwaysRun=true)
 	public void ValidateDeletePSTest(Method method) throws Exception {
 		extentTest = extent.createTest("ValidateDeletePSTest", "TC_XXX: To Verfiy deletion of  PS artifacts");
 		Map<String, String> TestDataInMap = ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),

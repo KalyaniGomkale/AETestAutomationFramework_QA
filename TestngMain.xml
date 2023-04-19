@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="TestSuite" thread-count="1" parallel="methods">
 	<test name="AESanity">
 
 
 		<classes>
-			<!-- <class name="com.ae.qa.testcases.LoginPageTest"> <methods> <include 
-				name="ValidateFirstTimeLoginTest" /> </methods> </class> -->
+			<class name="com.ae.qa.testcases.LoginPageTest"> <methods> 
+				<include name="ValidateFirstTimeLoginTest" />
+				 </methods>
+			 </class> 
 			<class name="com.ae.qa.testcases.TenantsPageTest">
 				<methods>
 					<include name="validateAddNewTenant" />
@@ -500,6 +502,17 @@
 				</methods>
 			</class>
 			<class
+				name="com.ae.qa.testcasesTenantAdmin.IntegrationServicePageTestTA">
+				<methods>
+					<include name="validateAddIntegrationServicesTATest" />
+					<include name="validateEditIntegrationServicesTATest" />
+					<include name="validateDownloadIntegrationServicesTATest" />
+					<include name="validateEditConfJobLowerLimitIntegrationServicesTATest" />
+					<include name="validateEditUpdateResponseJobLowerLimitIntegrationServicesTATest" />
+					<include name="validateIntegrationServicesPageTATest" />
+				</methods>
+			</class>
+			<class
 				name="com.ae.qa.testcasesTenantAdmin.IntegrationTypesPageTestTA">
 				<methods>
 					<include name="validateAddIntegrationTypesTATest" />
@@ -565,60 +578,6 @@
 				<methods>
 					<include name="ValidateDeletePSTest" />
 				</methods>
-			</class>
-			<class name="com.ae.qa.testcases.TenantsPageTest">
-				<methods>
-					<include name="validateAdvSearchForOrgCodeEqualToTenantPageTest" />
-					</methods>
-			</class>
-			<class name="com.ae.qa.testcases.TenantUsersPageTest">
-				<methods>
-					<include name="validateAdvSearchForUserNameIsLikeTenantusersPageTest" />
-					</methods>
-			</class>
-			<class name="com.ae.qa.testcases.PluginsPageTest">
-				<methods>
-					<include name="validateAdvSearchForPluginNameBeginsWithPluginPageTest" />
-					</methods>
-			</class>
-			<class name="com.ae.qa.testcases.AuditLogsPageTest">
-				<methods>
-					<include name="validateOperationDropdownEqualToAuditLogsPageTest" />
-					<include name="validateAdvSearchForUserNameEqualToAuditLogsPageTest" />
-					<include name="validateStatusDropdownEqualToAuditLogsPageTest" />
-					</methods>
-			</class>
-			<class name="com.ae.qa.testcasesTenantAdmin.TenantUsersPageTestTA">
-				<methods>
-					<include name="validateAdvSearchForUserNameEndsWithTenantuserPageTATest" />
-					</methods>
-			</class>
-			<class name="com.ae.qa.testcasesTenantAdmin.WorkflowListPageTestTA">
-				<methods>
-					<include name="validateAdvSearchForWFNameIsLikeWorkflowsPageTATest" />
-					</methods>
-			</class>
-			<class name="com.ae.qa.testcasesTenantAdmin.SchedulerPageTestTA">
-				<methods>
-					<include name="validateAdvSearchForScheduleNameEqualToSchedulerPageTATest" />
-					</methods>
-			</class>
-			<class name="com.ae.qa.testcasesTenantAdmin.RequestsPageTestTA">
-				<methods>
-					<include name="validateAdvSearchForIDEqualToRequestPageTATest" />
-					<include name="validateAdvSearchForWFNameEqualToRequestPageTATest" />
-					<include name="validateAdvSearchForStatusEqualToRequestPageTATest" />
-					</methods>
-			</class>
-			<class name="com.ae.qa.testcasesTenantAdmin.AuditLogsPageTestTA">
-				<methods>
-					<include name="validateAdvSearchForUserNameEqualToAuditLogsPageTATest" />
-					</methods>
-			</class>
-			<class name="com.ae.qa.testcasesTenantAdmin.PluginsPageTestTA">
-				<methods>
-					<include name="validateAdvSearchForPluginNameEqualToPluginsPageTATest" />
-					</methods>
 			</class>
 		</classes>
 	</test>

@@ -142,7 +142,7 @@ public class PluginAssignmentsPage extends TestBase {
 		Thread.sleep(2000);
 		JavascriptExecutor js2 = (JavascriptExecutor) driver;
 		js2.executeScript("arguments[0].click();", saveBtn);
-		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+		wait.until(ExpectedConditions.visibilityOf(success_Message));
 		String Actual_successMsg = success_Message.getText();
 		System.out.println("Actual Sucess Message" + Actual_successMsg);
 		String Expected_successMsg = Messages.assignPluginSingleTenant ;
@@ -199,7 +199,7 @@ public class PluginAssignmentsPage extends TestBase {
 		}
 		Thread.sleep(5000);
 		js.executeScript("arguments[0].click();", saveBtn);
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		wait.until(ExpectedConditions.visibilityOf(success_Message));
 		String Actual_successMsg = success_Message.getText();
 		System.out.println("Actual Sucess Message: " + Actual_successMsg);
 		String Expected_successMsg = Messages.assignPluginSingleTenant ;
@@ -247,7 +247,7 @@ public class PluginAssignmentsPage extends TestBase {
 		}
 		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", saveBtn);
-		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+		wait.until(ExpectedConditions.visibilityOf(success_Message));
 		String Actual_successMsg = success_Message.getText();
 		System.out.println("Actual Sucess Message: " + Actual_successMsg);
 		String Expected_successMsg=Messages.assignPluginSingleTenant;
@@ -309,7 +309,7 @@ public class PluginAssignmentsPage extends TestBase {
 		Thread.sleep(2000);
 		JavascriptExecutor js2 = (JavascriptExecutor) driver;
 		js2.executeScript("arguments[0].click();", saveBtn);
-		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+		wait.until(ExpectedConditions.visibilityOf(success_Message));
 		String Actual_successMsg = success_Message.getText();
 		System.out.println("Actual Sucess Message" + Actual_successMsg);
 		String Expected_successMsg = Messages.assignPluginSingleTenant ;
@@ -368,7 +368,7 @@ public class PluginAssignmentsPage extends TestBase {
 		Reporter.log(PluginName2+" is selected", true);
 		JavascriptExecutor js2 = (JavascriptExecutor) driver;
 		js2.executeScript("arguments[0].click();", saveBtn);
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		wait.until(ExpectedConditions.visibilityOf(success_Message));
 		String Actual_successMsg = success_Message.getText();
 		System.out.println("Actual Sucess Message" + Actual_successMsg);
 		String Expected_successMsg = Messages.assignPluginSingleTenant ;
@@ -410,7 +410,7 @@ public class PluginAssignmentsPage extends TestBase {
 		Thread.sleep(5000);
 		JavascriptExecutor js2 = (JavascriptExecutor) driver;
 		js2.executeScript("arguments[0].click();", saveBtn);
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		wait.until(ExpectedConditions.visibilityOf(success_Message));
 		String Actual_successMsg = success_Message.getText();
 		System.out.println("Actual Sucess Message" + Actual_successMsg);
 		String Expected_successMsg = Messages.assignPluginSingleTenant ;
@@ -456,7 +456,8 @@ public class PluginAssignmentsPage extends TestBase {
 		js.executeScript("arguments[0].click();", pluginsTab);
 		Reporter.log("Plugin Tab is Selected",true);
 		// click on pluginAssignments Tab
-		wait.until(ExpectedConditions.visibilityOf(pluginAssignmentsTab));
+		Thread.sleep(2000);
+		//wait.until(ExpectedConditions.visibilityOf(pluginAssignmentsTab));
 		js.executeScript("arguments[0].click();", pluginAssignmentsTab);
 		Reporter.log("Plugin Assignment tab is Selected",true);
 		if (!pluginRadioBtn.isSelected()) {
@@ -464,6 +465,7 @@ public class PluginAssignmentsPage extends TestBase {
 		} else {
 			System.out.println("Plugin Radio Btn is already selected");
 		}
+		Thread.sleep(3000);
         Select plugin_dropdwn = new Select(pluginList);
 		plugin_dropdwn.selectByValue(pluginName);
 		Thread.sleep(3000);
@@ -474,11 +476,12 @@ public class PluginAssignmentsPage extends TestBase {
 		} else {
 			System.out.println("Tenant Checkbox is already unchecked");
 		}
+		Thread.sleep(2000);
 		okBtn.click();
 		Thread.sleep(2000);
 		saveBtn.click();
 		Reporter.log("Save Button is Clicked",true);
-		Thread.sleep(4000);
+		wait.until(ExpectedConditions.visibilityOf(success_Message));
 		String Actual_SuccessMsg = success_Message.getText();
 		System.out.println("Actual Success Message" + Actual_SuccessMsg);
 		String Expected_SuccessMsg = Messages.assignPluginSingleTenant;
@@ -526,6 +529,7 @@ public class PluginAssignmentsPage extends TestBase {
 		Thread.sleep(2000);
 		WebElement sliderToEnableWF=driver.findElement(By.xpath("//table/tr/td[@title='"+wfName+"']/../td/label/span"));
 		sliderToEnableWF.click();
+		wait.until(ExpectedConditions.visibilityOf(success_Message));
 		String Actual_FailureMsg = success_Message.getText();
 		System.out.println("Actual Failure Message" + Actual_FailureMsg);
 		String Expected_FailureMsg = "["+wfName+"] contains one or more invalid steps/entries";
@@ -566,7 +570,7 @@ public class PluginAssignmentsPage extends TestBase {
 		Thread.sleep(2000);
 		saveBtn.click();
 		Reporter.log("Save Button is Clicked",true);
-		Thread.sleep(4000);
+		wait.until(ExpectedConditions.visibilityOf(success_Message));
 		String Actual_SuccessMsg = success_Message.getText();
 		System.out.println("Actual Success Message" + Actual_SuccessMsg);
 		String Expected_SuccessMsg = Messages.assignPluginSingleTenant;
