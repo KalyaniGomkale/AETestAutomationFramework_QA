@@ -273,13 +273,13 @@ public class RequestsPageTA extends TestBase {
 	public void validateRequestAdvSearch() throws Exception {
 		loginpageta.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
 		Reporter.log("User logged in successfully", true);
-		Thread.sleep(10000);
+		Thread.sleep(2000);
 		//wait.until(ExpectedConditions.visibilityOf(requestsTab));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", requestsTab);
 		Reporter.log("Requests Tab is clicked", true);
 		refershTableBtn.click();
-		Thread.sleep(10000);
+		Thread.sleep(2000);
 		// webelements.AdvanceSearchField("name", "eq", tName);
 		// webelements.ExtraAdvanceSearch("orgCode", "eq", orgCode);
 	}
@@ -517,25 +517,28 @@ public class RequestsPageTA extends TestBase {
 		loginpageta.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
 		Reporter.log("User log in Successfully", true);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", requestsTab);
 		wb.validateClickOnAdvanceSearch();
 	}
 	public void HandleEnterFieldValue(String SearchColumn,String SearchCriteria,String SearchFor,String PageSize)
 			throws Exception {
 		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria,SearchFor);
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		System.out.println("Page size changed to 50");
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 	}
+	////////////////////////////For ID//////////////////////////////////////////////////////////////////////////////
 	public void validateAdvSearchForIDEqualTo(String SearchColumn, String SearchCriteria, String AdvSearchFor,
 			String PageSize) throws Exception {
 		validateAdvSearch();
+		Thread.sleep(2000);
 		HandleEnterFieldValue(SearchColumn, SearchCriteria, AdvSearchFor, PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate ID : " + AdvSearchFor + " record for " + SearchCriteria
 				+ " criteria is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement> op = driver
 				.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[1]"));
 		for (int i = 0; i < op.size(); i++) {
@@ -551,10 +554,12 @@ public class RequestsPageTA extends TestBase {
 	public void validateAdvSearchForIDNotEqualTo(String SearchColumn, String SearchCriteria, String AdvSearchFor,
 			String PageSize) throws Exception {
 		validateAdvSearch();
+		Thread.sleep(2000);
 		HandleEnterFieldValue(SearchColumn, SearchCriteria, AdvSearchFor, PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate ID : " + AdvSearchFor + " record for " + SearchCriteria
 				+ " criteria is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement> op = driver
 				.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[1]"));
 		for (int i = 0; i < op.size(); i++) {
@@ -569,10 +574,12 @@ public class RequestsPageTA extends TestBase {
 	public void validateAdvSearchForIDLessThan(String SearchColumn, String SearchCriteria, String AdvSearchFor,
 			String PageSize) throws Exception {
 		validateAdvSearch();
+		Thread.sleep(2000);
 		HandleEnterFieldValue(SearchColumn, SearchCriteria, AdvSearchFor, PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate ID : " + AdvSearchFor + " record for " + SearchCriteria
 				+ " criteria is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement> op = driver
 				.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[1]"));
 		for (int i = 0; i < op.size(); i++) {
@@ -589,10 +596,12 @@ public class RequestsPageTA extends TestBase {
 	public void validateAdvSearchForIDGreaterThan(String SearchColumn, String SearchCriteria, String AdvSearchFor,
 			String PageSize) throws Exception {
 		validateAdvSearch();
+		Thread.sleep(2000);
 		HandleEnterFieldValue(SearchColumn, SearchCriteria, AdvSearchFor, PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate ID : " + AdvSearchFor + " record for " + SearchCriteria
 				+ " criteria is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement> op = driver
 				.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[1]"));
 		for (int i = 0; i < op.size(); i++) {
@@ -609,14 +618,15 @@ public class RequestsPageTA extends TestBase {
 	public void validateAdvSearchForIDInRange(String SearchColumn, String SearchCriteria, String SearchField1,
 			String SearchField2,String PageSize) throws Exception {
 		validateAdvSearch();
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchFieldForRange(SearchColumn, SearchCriteria,SearchField1,SearchField2);
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		System.out.println("Page size changed to 50");
-		Thread.sleep(3000);
 		// Verify data in table now//2-4
 		Reporter.log("Below validation is to validate ID : " + SearchCriteria
 				+ " of "+SearchField1+"-"+SearchField2+" is visible in webtable or not", true);
+		Thread.sleep(2000);
 		List<WebElement> op = driver
 				.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[1]"));
 		for (int i = 0; i < op.size(); i++) {
@@ -634,14 +644,15 @@ public class RequestsPageTA extends TestBase {
 	public void validateAdvSearchForIDNotInRange(String SearchColumn, String SearchCriteria, String SearchField1,
 			String SearchField2, String PageSize) throws Exception {
 		validateAdvSearch();
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchFieldForRange(SearchColumn, SearchCriteria,SearchField1,SearchField2);
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		System.out.println("Page size changed to 50");
-		Thread.sleep(3000);
 		// Verify data in table now//2-4
 		Reporter.log("Below validation is to validate ID : " + SearchCriteria
 				+ " of "+SearchField1+"-"+SearchField2+" is visible in webtable or not", true);
+		Thread.sleep(2000);
 		List<WebElement> op = driver
 				.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[1]"));
 		for (int i = 0; i < op.size(); i++) {
@@ -656,15 +667,17 @@ public class RequestsPageTA extends TestBase {
 		} 
 		informationpageta.validateSignOut();
 	}
-	//For Workflow Name
+	/////////////////////////////////For Workflow Name//////////////////////////////////////////////////////////////////
 	public void validateAdvSearchForWFNameEqualTo(String SearchColumn,String SearchCriteria,
 			String wfName,String PageSize)throws Exception {
 		validateAdvSearch();
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria, wfName);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new Workflow name record is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[2]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total workflow record present in table are :"+op.size());
@@ -677,11 +690,13 @@ public class RequestsPageTA extends TestBase {
 	public void validateAdvSearchForWFNameNotEqualTo(String SearchColumn,String SearchCriteria,
 			String wfName,String PageSize)throws Exception {
 		validateAdvSearch();
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria, wfName);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new Workflow name record is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[2]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total workflow record present in table are :"+op.size());
@@ -694,12 +709,13 @@ public class RequestsPageTA extends TestBase {
 	public void validateAdvSearchForWFNameIsLike(String SearchColumn,String SearchCriteria,
 			String advSearchFor,String PageSize)throws Exception {
 		validateAdvSearch();
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria,advSearchFor);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new Workflow name record is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[2]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total workflow record present in table are :"+op.size());
@@ -712,12 +728,13 @@ public class RequestsPageTA extends TestBase {
 	public void validateAdvSearchForWFNameBeginsWith(String SearchColumn,String SearchCriteria,
 			String advSearchFor,String PageSize)throws Exception {
 		validateAdvSearch();
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria,advSearchFor);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new Workflow name record is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[2]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total workflow record present in table are :"+op.size());
@@ -732,12 +749,13 @@ public class RequestsPageTA extends TestBase {
 	public void validateAdvSearchForWFNameEndsWith(String SearchColumn,String SearchCriteria,
 			String advSearchFor,String PageSize)throws Exception {
 		validateAdvSearch();
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria,advSearchFor);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new Workflow name record is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[2]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total workflow record present in table are :"+op.size());
@@ -747,15 +765,19 @@ public class RequestsPageTA extends TestBase {
 			Assert.assertTrue(actual_WFName.contains(advSearchFor));
 		}
 	}
-	//For priority
+	///////////////////////////////////////////////////For priority//////////////////////////////////////////////////////////////////////////////
 	public void validatePriorityDropdownEqualTo(String colunmValue,String comparatorType,String searchValue,String PageSize) throws Exception {
 		validateAdvSearch();
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchDropDown(colunmValue,comparatorType,searchValue);
+		Thread.sleep(2000);
+		showColumnDrpdown.click();
+		driver.findElement(By.xpath("//a/span[text()='Priority']")).click();
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new Priority record is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[3]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Priority record present in table are :"+op.size());
@@ -767,11 +789,16 @@ public class RequestsPageTA extends TestBase {
 	}
 	public void validatePriorityDropdownNotEqualTo(String colunmValue,String comparatorType,String searchValue,String PageSize)throws Exception {
 		validateAdvSearch();
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchDropDown(colunmValue,comparatorType,searchValue);
+		Thread.sleep(2000);
+		showColumnDrpdown.click();
+		driver.findElement(By.xpath("//a/span[text()='Priority']")).click();
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new Priority record is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[3]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Priority record present in table are :"+op.size());
@@ -781,16 +808,17 @@ public class RequestsPageTA extends TestBase {
 			Assert.assertFalse(actual_Priority.equalsIgnoreCase(searchValue));
 		}
 	}
-	//For Status
+	//////////////////////////////////////For Status///////////////////////////////////////////////////////////////////
 	public void validateStatusDropdownEqualTo(String colunmValue,String comparatorType,String searchValue,String PageSize) throws Exception {
 		validateAdvSearch();
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchDropDown(colunmValue,comparatorType,searchValue);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new Status record is visible in webtable", true);
-		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[4]/span[1]"));
+		Thread.sleep(2000);
+		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[3]/span[1]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Status record present in table are :"+op.size());
 			Thread.sleep(3000);
@@ -801,31 +829,36 @@ public class RequestsPageTA extends TestBase {
 	}
 	public void validateStatusDropdownNotEqualTo(String colunmValue,String comparatorType,String searchValue,String PageSize) throws Exception {
 		validateAdvSearch();
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchDropDown(colunmValue,comparatorType,searchValue);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new Status record is visible in webtable", true);
-		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[4]/span[1]"));
+		Thread.sleep(2000);
+		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[3]/span[1]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Status record present in table are :"+op.size());
-			Thread.sleep(3000);
+			Thread.sleep(2000);
 			String actual_Status=op.get(i).getText();
 			System.out.println("actual_Status present in table are: "+actual_Status);
-			Assert.assertTrue(actual_Status.equalsIgnoreCase(searchValue));
+			Assert.assertFalse(actual_Status.equalsIgnoreCase(searchValue));
 		}
 	}
-	//For Source
+	///////////////////////////////////////For Source///////////////////////////////////////////////////////////////
 	public void validateAdvSearchForSourceEqualTo(String SearchColumn,String SearchCriteria,
 			String source,String PageSize)throws Exception {
 		validateAdvSearch();
 		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria, source);
 		Thread.sleep(2000);
+		showColumnDrpdown.click();
+		driver.findElement(By.xpath("//a/span[text()='Source']")).click();
+		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new Source record is visible in webtable", true);
-		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[7]"));
+		Thread.sleep(2000);
+		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[5]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Source record present in table are :"+op.size());
 			Thread.sleep(3000);
@@ -839,10 +872,14 @@ public class RequestsPageTA extends TestBase {
 		validateAdvSearch();
 		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria, source);
 		Thread.sleep(2000);
+		showColumnDrpdown.click();
+		driver.findElement(By.xpath("//a/span[text()='Source']")).click();
+		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new Source record is visible in webtable", true);
-		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[7]"));
+		Thread.sleep(2000);
+		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[5]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Source record present in table are :"+op.size());
 			Thread.sleep(3000);
@@ -854,13 +891,17 @@ public class RequestsPageTA extends TestBase {
 	public void validateAdvSearchForSourceIsLike(String SearchColumn,String SearchCriteria,
 			String advSearchFor,String PageSize)throws Exception {
 		validateAdvSearch();
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria,advSearchFor);
+		Thread.sleep(2000);
+		showColumnDrpdown.click();
+		driver.findElement(By.xpath("//a/span[text()='Source']")).click();
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new Source record is visible in webtable", true);
-		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[7]"));
+		Thread.sleep(2000);
+		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[5]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Source record present in table are :"+op.size());
 			Thread.sleep(3000);
@@ -872,13 +913,17 @@ public class RequestsPageTA extends TestBase {
 	public void validateAdvSearchForSourceBeginsWith(String SearchColumn,String SearchCriteria,
 			String advSearchFor,String PageSize)throws Exception {
 		validateAdvSearch();
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria,advSearchFor);
+		Thread.sleep(2000);
+		showColumnDrpdown.click();
+		driver.findElement(By.xpath("//a/span[text()='Source']")).click();
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new Source record is visible in webtable", true);
-		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[7]"));
+		Thread.sleep(2000);
+		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[5]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Source record present in table are :"+op.size());
 			Thread.sleep(3000);
@@ -892,13 +937,17 @@ public class RequestsPageTA extends TestBase {
 	public void validateAdvSearchForSourceEndsWith(String SearchColumn,String SearchCriteria,
 			String advSearchFor,String PageSize)throws Exception {
 		validateAdvSearch();
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria,advSearchFor);
+		Thread.sleep(2000);
+		showColumnDrpdown.click();
+		driver.findElement(By.xpath("//a/span[text()='Source']")).click();
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new Source record is visible in webtable", true);
-		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[7]"));
+		Thread.sleep(2000);
+		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[5]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Source record present in table are :"+op.size());
 			Thread.sleep(3000);
@@ -907,16 +956,21 @@ public class RequestsPageTA extends TestBase {
 			Assert.assertTrue(actual_Source.contains(advSearchFor));
 		}
 	}
-	//For Source ID
+	/////////////////////////////////////For Source ID///////////////////////////////////////////////////////////////////
 	public void validateAdvSearchForSourceIDEqualTo(String SearchColumn,String SearchCriteria,
 			String sourceID,String PageSize)throws Exception {
 		validateAdvSearch();
+		Thread.sleep(2000);
+		showColumnDrpdown.click();
+		driver.findElement(By.xpath("//a/span[text()='Source Id']")).click();
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria, sourceID);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new Source ID record is visible in webtable", true);
-		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[8]"));
+		Thread.sleep(2000);
+		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[5]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Source ID record present in table are :"+op.size());
 			Thread.sleep(3000);
@@ -928,12 +982,17 @@ public class RequestsPageTA extends TestBase {
 	public void validateAdvSearchForSourceIDNotEqualTo(String SearchColumn,String SearchCriteria,
 			String sourceID,String PageSize)throws Exception {
 		validateAdvSearch();
+		Thread.sleep(2000);
+		showColumnDrpdown.click();
+		driver.findElement(By.xpath("//a/span[text()='Source Id']")).click();
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria, sourceID);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new Source ID record is visible in webtable", true);
-		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[8]"));
+		Thread.sleep(2000);
+		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[5]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Source ID record present in table are :"+op.size());
 			Thread.sleep(3000);
@@ -945,13 +1004,17 @@ public class RequestsPageTA extends TestBase {
 	public void validateAdvSearchForSourceIDIsLike(String SearchColumn,String SearchCriteria,
 			String advSearchFor,String PageSize)throws Exception {
 		validateAdvSearch();
-		Thread.sleep(5000);
+		Thread.sleep(2000);
+		showColumnDrpdown.click();
+		driver.findElement(By.xpath("//a/span[text()='Source Id']")).click();
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria,advSearchFor);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new Source ID record is visible in webtable", true);
-		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[8]"));
+		Thread.sleep(2000);
+		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[5]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Source ID record present in table are :"+op.size());
 			Thread.sleep(3000);
@@ -963,13 +1026,17 @@ public class RequestsPageTA extends TestBase {
 	public void validateAdvSearchForSourceIDBeginsWith(String SearchColumn,String SearchCriteria,
 			String advSearchFor,String PageSize)throws Exception {
 		validateAdvSearch();
-		Thread.sleep(5000);
+		Thread.sleep(2000);
+		showColumnDrpdown.click();
+		driver.findElement(By.xpath("//a/span[text()='Source Id']")).click();
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria,advSearchFor);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new Source ID record is visible in webtable", true);
-		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[8]"));
+		Thread.sleep(2000);
+		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[5]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Source ID record present in table are :"+op.size());
 			Thread.sleep(3000);
@@ -983,13 +1050,17 @@ public class RequestsPageTA extends TestBase {
 	public void validateAdvSearchForSourceIDEndsWith(String SearchColumn,String SearchCriteria,
 			String advSearchFor,String PageSize)throws Exception {
 		validateAdvSearch();
-		Thread.sleep(5000);
+		Thread.sleep(2000);
+		showColumnDrpdown.click();
+		driver.findElement(By.xpath("//a/span[text()='Source Id']")).click();
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria,advSearchFor);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new Source ID record is visible in webtable", true);
-		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[8]"));
+		Thread.sleep(2000);
+		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[5]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Source ID record present in table are :"+op.size());
 			Thread.sleep(3000);
@@ -998,16 +1069,18 @@ public class RequestsPageTA extends TestBase {
 			Assert.assertTrue(actual_SourceID.contains(advSearchFor));
 		}
 	}
-	//For Agent Name
+	////////////////////////////////////////////For Agent Name//////////////////////////////////////////////////////////////////
 	public void validateAdvSearchForAgentNameEqualTo(String SearchColumn,String SearchCriteria,
 			String agentName,String PageSize)throws Exception {
 		validateAdvSearch();
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria, agentName);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new Agent Name record is visible in webtable", true);
-		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[6]"));
+		Thread.sleep(2000);
+		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[4]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Agent Name record present in table are :"+op.size());
 			Thread.sleep(3000);
@@ -1019,12 +1092,14 @@ public class RequestsPageTA extends TestBase {
 	public void validateAdvSearchForAgentNameNotEqualTo(String SearchColumn,String SearchCriteria,
 			String agentName,String PageSize)throws Exception {
 		validateAdvSearch();
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria, agentName);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new Agent Name record is visible in webtable", true);
-		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[6]"));
+		Thread.sleep(2000);
+		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[4]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Agent Name record present in table are :"+op.size());
 			Thread.sleep(3000);
@@ -1036,13 +1111,14 @@ public class RequestsPageTA extends TestBase {
 	public void validateAdvSearchForAgentNameIsLike(String SearchColumn,String SearchCriteria,
 			String advSearchFor,String PageSize)throws Exception {
 		validateAdvSearch();
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria,advSearchFor);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new Agent Name record is visible in webtable", true);
-		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[6]"));
+		Thread.sleep(2000);
+		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[4]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Agent Name record present in table are :"+op.size());
 			Thread.sleep(3000);
@@ -1054,13 +1130,14 @@ public class RequestsPageTA extends TestBase {
 	public void validateAdvSearchForAgentNameBeginsWith(String SearchColumn,String SearchCriteria,
 			String advSearchFor,String PageSize)throws Exception {
 		validateAdvSearch();
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria,advSearchFor);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new Agent Name record is visible in webtable", true);
-		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[6]"));
+		Thread.sleep(2000);
+		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[4]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Agent Name record present in table are :"+op.size());
 			Thread.sleep(3000);
@@ -1074,13 +1151,14 @@ public class RequestsPageTA extends TestBase {
 	public void validateAdvSearchForAgentNameEndsWith(String SearchColumn,String SearchCriteria,
 			String advSearchFor,String PageSize)throws Exception {
 		validateAdvSearch();
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria,advSearchFor);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new Agent Name record is visible in webtable", true);
-		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[6]"));
+		Thread.sleep(2000);
+		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[4]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Agent Name record present in table are :"+op.size());
 			Thread.sleep(3000);
@@ -1089,16 +1167,21 @@ public class RequestsPageTA extends TestBase {
 			Assert.assertTrue(actual_AgentName.contains(advSearchFor));
 		}
 	}
-	//For Submitted By
+	///////////////////////////////////////////For Submitted By////////////////////////////////////////////////////////
 	public void validateAdvSearchForSubmittedByEqualTo(String SearchColumn,String SearchCriteria,
 			String tname,String PageSize)throws Exception {
 		validateAdvSearch();
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria, tname);
+		Thread.sleep(2000);
+		showColumnDrpdown.click();
+		driver.findElement(By.xpath("//a/span[text()='Submitted By']")).click();
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new Submitted By record is visible in webtable", true);
-		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[9]"));
+		Thread.sleep(2000);
+		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[5]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Submitted By record present in table are :"+op.size());
 			Thread.sleep(3000);
@@ -1110,12 +1193,17 @@ public class RequestsPageTA extends TestBase {
 	public void validateAdvSearchForSubmittedByNotEqualTo(String SearchColumn,String SearchCriteria,
 			String tname,String PageSize)throws Exception {
 		validateAdvSearch();
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria, tname);
+		Thread.sleep(2000);
+		showColumnDrpdown.click();
+		driver.findElement(By.xpath("//a/span[text()='Submitted By']")).click();
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new Submitted By record is visible in webtable", true);
-		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[9]"));
+		Thread.sleep(2000);
+		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[5]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Submitted By record present in table are :"+op.size());
 			Thread.sleep(3000);
@@ -1127,13 +1215,17 @@ public class RequestsPageTA extends TestBase {
 	public void validateAdvSearchForSubmittedByIsLike(String SearchColumn,String SearchCriteria,
 			String advSearchFor,String PageSize)throws Exception {
 		validateAdvSearch();
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria,advSearchFor);
+		Thread.sleep(2000);
+		showColumnDrpdown.click();
+		driver.findElement(By.xpath("//a/span[text()='Submitted By']")).click();
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new Submitted By record is visible in webtable", true);
-		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[9]"));
+		Thread.sleep(2000);
+		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[5]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Submitted By record present in table are :"+op.size());
 			Thread.sleep(3000);
@@ -1145,13 +1237,17 @@ public class RequestsPageTA extends TestBase {
 	public void validateAdvSearchForSubmittedByBeginsWith(String SearchColumn,String SearchCriteria,
 			String advSearchFor,String PageSize)throws Exception {
 		validateAdvSearch();
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria,advSearchFor);
+		Thread.sleep(2000);
+		showColumnDrpdown.click();
+		driver.findElement(By.xpath("//a/span[text()='Submitted By']")).click();
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new Submitted By record is visible in webtable", true);
-		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[9]"));
+		Thread.sleep(2000);
+		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[5]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Submitted By record present in table are :"+op.size());
 			Thread.sleep(3000);
@@ -1165,13 +1261,17 @@ public class RequestsPageTA extends TestBase {
 	public void validateAdvSearchForSubmittedByEndsWith(String SearchColumn,String SearchCriteria,
 			String advSearchFor,String PageSize)throws Exception {
 		validateAdvSearch();
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria,advSearchFor);
+		Thread.sleep(2000);
+		showColumnDrpdown.click();
+		driver.findElement(By.xpath("//a/span[text()='Submitted By']")).click();
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new Submitted By record is visible in webtable", true);
-		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[9]"));
+		Thread.sleep(2000);
+		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[5]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Submitted By record present in table are :"+op.size());
 			Thread.sleep(3000);
@@ -1180,7 +1280,7 @@ public class RequestsPageTA extends TestBase {
 			Assert.assertTrue(actual_SubmittedBy.contains(advSearchFor));
 		}
 	}
-	//For Created
+	//////////////////////////////////For Calender///////////////////////////////////////////////////////////////////////////
 	public void validateHandleCalender(String CreatedCriteria,String startYear,String startMonth,String startDate) throws Exception {
 		loginpageta.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -1195,7 +1295,7 @@ public class RequestsPageTA extends TestBase {
 		validateHandleCalender(CreatedCriteria,startYear,startMonth,startDate);
 		wb.changePageSize(PageSize);
 		Thread.sleep(2000);
-		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[10]"));
+		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[5]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total records found are: "+op.size());
 			Thread.sleep(3000);
@@ -1215,7 +1315,7 @@ public class RequestsPageTA extends TestBase {
 		validateHandleCalender(CreatedCriteria,startYear,startMonth,startDate);
 		wb.changePageSize(PageSize);
 		Thread.sleep(2000);
-		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[10]"));
+		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[5]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total records found are: "+op.size());
 			Thread.sleep(3000);
@@ -1237,7 +1337,7 @@ public class RequestsPageTA extends TestBase {
 		validateHandleCalender(CreatedCriteria,startYear,startMonth,startDate);
 		wb.changePageSize(PageSize);
 		Thread.sleep(2000);
-		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[10]"));
+		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[5]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total records found are: "+op.size());
 			Thread.sleep(3000);
@@ -1266,7 +1366,7 @@ public class RequestsPageTA extends TestBase {
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		Thread.sleep(2000);
-		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[10]"));
+		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[5]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total records found are: "+op.size());
 			Thread.sleep(3000);
@@ -1299,7 +1399,7 @@ public class RequestsPageTA extends TestBase {
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		Thread.sleep(2000);
-		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[10]"));
+		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-bordered table-hover']/tbody/tr/td[5]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total records found are: "+op.size());
 			Thread.sleep(3000);

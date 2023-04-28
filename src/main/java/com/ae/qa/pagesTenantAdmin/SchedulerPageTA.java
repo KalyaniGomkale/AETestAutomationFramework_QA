@@ -745,20 +745,22 @@ public class SchedulerPageTA extends TestBase {
 		loginpageta.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
 		Reporter.log("User log in Successfully", true);
 		JavascriptExecutor js_tenant = (JavascriptExecutor) driver;
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		js_tenant.executeScript("arguments[0].click();", workflowsTab);
 		js_tenant.executeScript("arguments[0].click();", schedulerTab);
 		wb.validateClickOnAdvanceSearch();
 	}
-
+////////////////////////////////For Schedule Name////////////////////////////////////////////////////////////////////
 	public void validateAdvSearchForScheduleNameEqualTo(String SearchColumn,String SearchCriteria,
 			String scheduleName,String PageSize)throws Exception {
 		validateAdvSearch();
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria,scheduleName);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement>op=driver.findElements(By.xpath("//div[@class='workflow-list-container table-responsive']/table/tr/td[1]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Schedule record present in table are :"+op.size());
@@ -772,11 +774,13 @@ public class SchedulerPageTA extends TestBase {
 	public void validateAdvSearchForScheduleNameNotEqualTo(String SearchColumn,String SearchCriteria,
 			String scheduleName,String PageSize)throws Exception {
 		validateAdvSearch();
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria, scheduleName);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement>op=driver.findElements(By.xpath("//div[@class='workflow-list-container table-responsive']/table/tr/td[1]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Schedule record present in table are :"+op.size());
@@ -789,11 +793,13 @@ public class SchedulerPageTA extends TestBase {
 	public void validateAdvSearchForScheduleNameIsLike(String SearchColumn,String SearchCriteria,
 			String advSearchFor,String PageSize)throws Exception {
 		validateAdvSearch();
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria,advSearchFor);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement>op=driver.findElements(By.xpath("//div[@class='workflow-list-container table-responsive']/table/tr/td[1]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Schedule record present in table are :"+op.size());
@@ -806,11 +812,13 @@ public class SchedulerPageTA extends TestBase {
 	public void validateAdvSearchForScheduleNameBeginsWith(String SearchColumn,String SearchCriteria,
 			String advSearchFor,String PageSize)throws Exception {
 		validateAdvSearch();
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria,advSearchFor);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement>op=driver.findElements(By.xpath("//div[@class='workflow-list-container table-responsive']/table/tr/td[1]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Schedule record present in table are :"+op.size());
@@ -825,11 +833,13 @@ public class SchedulerPageTA extends TestBase {
 	public void validateAdvSearchForScheduleNameEndsWith(String SearchColumn,String SearchCriteria,
 			String advSearchFor,String PageSize)throws Exception {
 		validateAdvSearch();
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria,advSearchFor);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement>op=driver.findElements(By.xpath("//div[@class='workflow-list-container table-responsive']/table/tr/td[1]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Schedule record present in table are :"+op.size());
@@ -839,13 +849,16 @@ public class SchedulerPageTA extends TestBase {
 			Assert.assertTrue(actual_ScheduleName.contains(advSearchFor));
 		}
 	}
+	////////////////////////////////////For Status///////////////////////////////////////////////////////////////////
 	public void validateStatusDropdownEqualTo(String colunmValue,String comparatorType,String searchValue,String PageSize) throws Exception {
 		validateAdvSearch();
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchDropDown(colunmValue,comparatorType,searchValue);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement>op=driver.findElements(By.xpath("//div[@class='workflow-list-container table-responsive']/table/tr/td[7]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Workflow record present in table are :"+op.size());
@@ -858,11 +871,13 @@ public class SchedulerPageTA extends TestBase {
 	}
 	public void validateStatusDropdownNotEqualTo(String colunmValue,String comparatorType,String searchValue,String PageSize)throws Exception {
 		validateAdvSearch();
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchDropDown(colunmValue,comparatorType,searchValue);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement>op=driver.findElements(By.xpath("//div[@class='workflow-list-container table-responsive']/table/tr/td[7]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Workflow record present in table are :"+op.size());

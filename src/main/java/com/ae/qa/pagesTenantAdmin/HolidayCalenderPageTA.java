@@ -471,15 +471,17 @@ public class HolidayCalenderPageTA extends TestBase{
 		js.executeScript("arguments[0].click();", holidayCalenderTab);
 		wb.validateClickOnAdvanceSearch();
 	}
-	//For Holiday Calender Name
+////////////////////////////////////For Holiday Calender Name//////////////////////////////////////////////////////////
 	public void validateAdvSearchForNameEqualTo(String SearchColumn,String SearchCriteria,
 			String Name,String PageSize)throws Exception {
 		validateAdvSearch();
+		Thread.sleep(2000);	
 		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria, Name);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new Holiday name record is visible in webtable", true);
+		Thread.sleep(2000);	
 		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-hover table-bordered table-striped mb-0']/tr/td[1]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Holidayname record present in table are :"+op.size());
@@ -492,11 +494,13 @@ public class HolidayCalenderPageTA extends TestBase{
 	public void validateAdvSearchForNameNotEqualTo(String SearchColumn,String SearchCriteria,
 			String Name,String PageSize)throws Exception {
 		validateAdvSearch();
+		Thread.sleep(2000);	
 		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria, Name);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new Holiday name record is visible in webtable", true);
+		Thread.sleep(2000);	
 		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-hover table-bordered table-striped mb-0']/tr/td[1]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total workflow record present in table are :"+op.size());
@@ -509,12 +513,13 @@ public class HolidayCalenderPageTA extends TestBase{
 	public void validateAdvSearchForNameIsLike(String SearchColumn,String SearchCriteria,
 			String advSearchFor,String PageSize)throws Exception {
 		validateAdvSearch();
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria,advSearchFor);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new Holiday name record is visible in webtable", true);
+		Thread.sleep(2000);	
 		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-hover table-bordered table-striped mb-0']/tr/td[1]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Holiday name record present in table are :"+op.size());
@@ -527,12 +532,13 @@ public class HolidayCalenderPageTA extends TestBase{
 	public void validateAdvSearchForNameBeginsWith(String SearchColumn,String SearchCriteria,
 			String advSearchFor,String PageSize)throws Exception {
 		validateAdvSearch();
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria,advSearchFor);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new Holiday name record is visible in webtable", true);
+		Thread.sleep(2000);	
 		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-hover table-bordered table-striped mb-0']/tr/td[1]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Holiday name record present in table are :"+op.size());
@@ -547,12 +553,13 @@ public class HolidayCalenderPageTA extends TestBase{
 	public void validateAdvSearchForNameEndsWith(String SearchColumn,String SearchCriteria,
 			String advSearchFor,String PageSize)throws Exception {
 		validateAdvSearch();
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria,advSearchFor);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new Holiday name record is visible in webtable", true);
+		Thread.sleep(2000);	
 		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-hover table-bordered table-striped mb-0']/tr/td[1]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Holiday name record present in table are :"+op.size());
@@ -565,19 +572,21 @@ public class HolidayCalenderPageTA extends TestBase{
 	public void HandleEnterFieldValue(String SearchColumn,String SearchCriteria,String SearchFor,String PageSize)
 			throws Exception {
 		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria,SearchFor);
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		System.out.println("Page size changed to 50");
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 	}
-	//For Year
+	/////////////////////////////////////For Year//////////////////////////////////////////////////////////////////////
 	public void validateAdvSearchForYearEqualTo(String SearchColumn, String SearchCriteria, String AdvSearchFor,
 			String PageSize) throws Exception {
 		validateAdvSearch();
+		Thread.sleep(2000);
 		HandleEnterFieldValue(SearchColumn, SearchCriteria, AdvSearchFor, PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate Year : " + AdvSearchFor + " record for " + SearchCriteria
 				+ " criteria is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement> op = driver
 				.findElements(By.xpath("//table[@class='ae-table table table-hover table-bordered table-striped mb-0']/tr/td[2]"));
 		for (int i = 0; i < op.size(); i++) {
@@ -593,10 +602,12 @@ public class HolidayCalenderPageTA extends TestBase{
 	public void validateAdvSearchForYearNotEqualTo(String SearchColumn, String SearchCriteria, String AdvSearchFor,
 			String PageSize) throws Exception {
 		validateAdvSearch();
+		Thread.sleep(2000);
 		HandleEnterFieldValue(SearchColumn, SearchCriteria, AdvSearchFor, PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate Year : " + AdvSearchFor + " record for " + SearchCriteria
 				+ " criteria is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement> op = driver
 				.findElements(By.xpath("//table[@class='ae-table table table-hover table-bordered table-striped mb-0']/tr/td[2]"));
 		for (int i = 0; i < op.size(); i++) {
@@ -611,10 +622,12 @@ public class HolidayCalenderPageTA extends TestBase{
 	public void validateAdvSearchForYearLessThan(String SearchColumn, String SearchCriteria, String AdvSearchFor,
 			String PageSize) throws Exception {
 		validateAdvSearch();
+		Thread.sleep(2000);
 		HandleEnterFieldValue(SearchColumn, SearchCriteria, AdvSearchFor, PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate Year : " + AdvSearchFor + " record for " + SearchCriteria
 				+ " criteria is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement> op = driver
 				.findElements(By.xpath("//table[@class='ae-table table table-hover table-bordered table-striped mb-0']/tr/td[2]"));
 		for (int i = 0; i < op.size(); i++) {
@@ -631,10 +644,12 @@ public class HolidayCalenderPageTA extends TestBase{
 	public void validateAdvSearchForYearGreaterThan(String SearchColumn, String SearchCriteria, String AdvSearchFor,
 			String PageSize) throws Exception {
 		validateAdvSearch();
+		Thread.sleep(2000);
 		HandleEnterFieldValue(SearchColumn, SearchCriteria, AdvSearchFor, PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate Year : " + AdvSearchFor + " record for " + SearchCriteria
 				+ " criteria is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement> op = driver
 				.findElements(By.xpath("//table[@class='ae-table table table-hover table-bordered table-striped mb-0']/tr/td[2]"));
 		for (int i = 0; i < op.size(); i++) {
@@ -651,14 +666,15 @@ public class HolidayCalenderPageTA extends TestBase{
 	public void validateAdvSearchForYearInRange(String SearchColumn, String SearchCriteria, String SearchField1,
 			String SearchField2,String PageSize) throws Exception {
 		validateAdvSearch();
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchFieldForRange(SearchColumn, SearchCriteria,SearchField1,SearchField2);
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		System.out.println("Page size changed to 50");
-		Thread.sleep(3000);
 		// Verify data in table now//2-4
 		Reporter.log("Below validation is to validate Year : " + SearchCriteria
 				+ " of "+SearchField1+"-"+SearchField2+" is visible in webtable or not", true);
+		Thread.sleep(2000);
 		List<WebElement> op = driver
 				.findElements(By.xpath("//table[@class='ae-table table table-hover table-bordered table-striped mb-0']/tr/td[2]"));
 		for (int i = 0; i < op.size(); i++) {
@@ -676,14 +692,15 @@ public class HolidayCalenderPageTA extends TestBase{
 	public void validateAdvSearchForYearNotInRange(String SearchColumn, String SearchCriteria, String SearchField1,
 			String SearchField2, String PageSize) throws Exception {
 		validateAdvSearch();
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchFieldForRange(SearchColumn, SearchCriteria,SearchField1,SearchField2);
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		System.out.println("Page size changed to 50");
-		Thread.sleep(3000);
 		// Verify data in table now//2-4
 		Reporter.log("Below validation is to validate Year : " + SearchCriteria
 				+ " of "+SearchField1+"-"+SearchField2+" is visible in webtable or not", true);
+		Thread.sleep(2000);
 		List<WebElement> op = driver
 				.findElements(By.xpath("//table[@class='ae-table table table-hover table-bordered table-striped mb-0']/tr/td[2]"));
 		for (int i = 0; i < op.size(); i++) {
@@ -701,12 +718,13 @@ public class HolidayCalenderPageTA extends TestBase{
 	//For Time Zone
 	public void validateTimeZoneDropdownEqualTo(String colunmValue,String comparatorType,String searchValue,String PageSize) throws Exception {
 		validateAdvSearch();
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchDropDown(colunmValue,comparatorType,searchValue);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new Time Zone record is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-hover table-bordered table-striped mb-0']/tr/td[3]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total TimeZone record present in table are :"+op.size());
@@ -719,11 +737,13 @@ public class HolidayCalenderPageTA extends TestBase{
 	}
 	public void validateTimeZoneDropdownNotEqualTo(String colunmValue,String comparatorType,String searchValue,String PageSize)throws Exception {
 		validateAdvSearch();
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchDropDown(colunmValue,comparatorType,searchValue);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new TimeZone record is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement>op=driver.findElements(By.xpath("//table[@class='ae-table table table-hover table-bordered table-striped mb-0']/tr/td[3]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total TimeZone record present in table are :"+op.size());

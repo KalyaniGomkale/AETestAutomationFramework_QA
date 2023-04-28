@@ -59,7 +59,7 @@ public class FileManagementPageTest extends TestBase {
 		extentTest.log(extentTest.getStatus(), "File Managment page loading validated successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
-/*	//For File Name
+	//For File Name
 	@Test(priority = 3088)
 	public void validateAdvSearchForFileNameEqualToFileManagementPageTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateAdvSearchForFileNameEqualToFileManagementPageTest", "TC_009: To Verfiy Advance search for file name with equals criteria");
@@ -160,6 +160,6 @@ public class FileManagementPageTest extends TestBase {
 				TestDataInMap.get("CreatedEndYear"),TestDataInMap.get("CreatedEndMonth"),TestDataInMap.get("CreatedEndDate"),TestDataInMap.get("PageSize"));
 		extentTest.log(extentTest.getStatus(), "Advance search for Tenant names is like and created in between criteria validated successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
-	}*/
+	}
 
 }

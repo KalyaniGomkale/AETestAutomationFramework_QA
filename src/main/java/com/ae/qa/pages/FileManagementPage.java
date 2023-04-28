@@ -161,23 +161,25 @@ public class FileManagementPage extends TestBase {
 		loginpage.login(prop.getProperty("username"), prop.getProperty("password"));
 		Reporter.log("User log in Successfully", true);
 		JavascriptExecutor js_tenant = (JavascriptExecutor) driver;
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		js_tenant.executeScript("arguments[0].click();", fileManagmentTab);
 		wb.validateClickOnAdvanceSearch();
 	}
-	
+	///////////////////////////////For File Name//////////////////////////////////////////////////////////////////
 	public void validateAdvSearchForFileNameEqualTo(String SearchColumn,String SearchCriteria,
 			String fileName,String PageSize)throws Exception {
 		validateAdvSearch();
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria, fileName);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table w-100 table-responsive']/table/tr/td[1]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total File record present in table are :"+op.size());
-			Thread.sleep(3000);
+			Thread.sleep(2000);
 			String actual_FileName=op.get(i).getText();
 			System.out.println("actual_File Name present in table are: "+actual_FileName);
 			Assert.assertTrue(actual_FileName.equals(fileName));
@@ -186,15 +188,17 @@ public class FileManagementPage extends TestBase {
 	public void validateAdvSearchForFileNameNotEqualTo(String SearchColumn,String SearchCriteria,
 			String fileName,String PageSize)throws Exception {
 		validateAdvSearch();
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria, fileName);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table w-100 table-responsive']/table/tr/td[1]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total File record present in table are :"+op.size());
-			Thread.sleep(3000);
+			Thread.sleep(2000);
 			String actual_FileName=op.get(i).getText();
 			System.out.println("actual_File Name present in table are: "+actual_FileName);
 			Assert.assertFalse(actual_FileName.equals(fileName));
@@ -203,16 +207,17 @@ public class FileManagementPage extends TestBase {
 	public void validateAdvSearchForFileNameIsLike(String SearchColumn,String SearchCriteria,
 			String advSearchFor,String PageSize)throws Exception {
 		validateAdvSearch();
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria,advSearchFor);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table w-100 table-responsive']/table/tr/td[1]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total File record present in table are :"+op.size());
-			Thread.sleep(3000);
+			Thread.sleep(2000);
 			String actual_FileName=op.get(i).getText();
 			System.out.println("actual_File Name present in table are: "+actual_FileName);
 			Assert.assertTrue(actual_FileName.contains(advSearchFor));
@@ -221,44 +226,47 @@ public class FileManagementPage extends TestBase {
 	public void validateAdvSearchForFileNameBeginsWith(String SearchColumn,String SearchCriteria,
 			String advSearchFor,String PageSize)throws Exception {
 		validateAdvSearch();
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria,advSearchFor);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table w-100 table-responsive']/table/tr/td[1]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total File record present in table are :"+op.size());
-			Thread.sleep(3000);
+			Thread.sleep(2000);
 			String actual_FileName=op.get(i).getText();
-			String lowercase_FileName = actual_FileName.toLowerCase();
+			//String lowercase_FileName = actual_FileName.toLowerCase();
 			System.out.println("actual_File Name present in table are: "+actual_FileName);
-			Assert.assertTrue(lowercase_FileName.contains(advSearchFor));
+			Assert.assertTrue(actual_FileName.contains(advSearchFor));
 		}
 	}
 	public void validateAdvSearchForFileNameEndsWith(String SearchColumn,String SearchCriteria,
 			String advSearchFor,String PageSize)throws Exception {
 		validateAdvSearch();
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria,advSearchFor);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table w-100 table-responsive']/table/tr/td[1]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Tenant record present in table are :"+op.size());
-			Thread.sleep(3000);
+			Thread.sleep(2000);
 			String actual_TenantName=op.get(i).getText();
 			System.out.println("actual_Tenant Name present in table are: "+actual_TenantName);
 			Assert.assertTrue(actual_TenantName.contains(advSearchFor));
 		}
 	}
+	///////////////////////////////////////For Calender//////////////////////////////////////////////////////////////////
 	public void validateHandleCalenderForUploaded(String CreatedCriteria,String startYear,String startMonth,String startDate) throws Exception {
 		loginpage.login(prop.getProperty("username"), prop.getProperty("password"));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", fileManagmentTab);
 		wb.validateClickOnAdvanceSearch();
 		Thread.sleep(2000);
@@ -268,6 +276,7 @@ public class FileManagementPage extends TestBase {
 
 	public void validateUploadedEqualTo(String CreatedCriteria,String startYear,String startMonth,String startDate,String PageSize) throws Exception {
 		validateHandleCalenderForUploaded(CreatedCriteria,startYear,startMonth,startDate);
+		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		Thread.sleep(2000);
 		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table w-100 table-responsive']/table/tr/td[3]"));
@@ -289,6 +298,7 @@ public class FileManagementPage extends TestBase {
 
 	public void validateUploadedBefore(String CreatedCriteria,String startYear,String startMonth,String startDate,String PageSize) throws Exception {
 		validateHandleCalenderForUploaded(CreatedCriteria,startYear,startMonth,startDate);
+		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		Thread.sleep(2000);
 		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table w-100 table-responsive']/table/tr/td[3]"));
@@ -311,6 +321,7 @@ public class FileManagementPage extends TestBase {
 	}
 	public void validateUploadedAfter(String CreatedCriteria,String startYear,String startMonth,String startDate,String PageSize) throws Exception {
 		validateHandleCalenderForUploaded(CreatedCriteria,startYear,startMonth,startDate);
+		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		Thread.sleep(2000);
 		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table w-100 table-responsive']/table/tr/td[3]"));
@@ -336,6 +347,7 @@ public class FileManagementPage extends TestBase {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", fileManagmentTab);
+		Thread.sleep(2000);
 		wb.validateClickOnAdvanceSearch();
 		Thread.sleep(2000);
 		wb.validateExtraAdvanceSearchForCalender("Uploaded",CreatedCriteria,startYear,startMonth,startDate,endYear,endMonth,endDate);
@@ -369,6 +381,7 @@ public class FileManagementPage extends TestBase {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", fileManagmentTab);
+		Thread.sleep(2000);
 		wb.validateClickOnAdvanceSearch();
 		Thread.sleep(2000);
 		wb.validateExtraAdvanceSearchForCalender("Uploaded",CreatedCriteria,startYear,startMonth,startDate,endYear,endMonth,endDate);

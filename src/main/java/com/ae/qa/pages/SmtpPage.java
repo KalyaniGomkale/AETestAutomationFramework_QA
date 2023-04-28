@@ -104,8 +104,7 @@ public class SmtpPage extends TestBase {
 		personalName.sendKeys(pName);
 		Thread.sleep(2000);
 		testConnectionBtn.click();
-		//driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);	
-		Thread.sleep(5000);
+		wait.until(ExpectedConditions.visibilityOf(successMsgBox));
 		String Actual_testConnectionMsg = successMsgBox.getText();
 		String Expected_testConnectionMsg = "Email test connection successful";
 		Assert.assertEquals(Actual_testConnectionMsg, Expected_testConnectionMsg, "Test connection Failed");

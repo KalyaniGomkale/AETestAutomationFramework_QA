@@ -79,7 +79,7 @@ public class AuditLogsPageTest extends TestBase {
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
 	// For Entity
-	/*@Test(priority = 3098)
+	@Test(priority = 3098)
 	public void validateEntityDropdownEqualToAuditLogsPageTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateStateDropdownEqualToAuditLogsPageTest", "TC_009: To Verfiy Advance search for Entity with equals criteria");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AdvancedSearchsheetname"),method.getName());
@@ -335,6 +335,6 @@ public class AuditLogsPageTest extends TestBase {
 				TestDataInMap.get("PageSize"));
 		extentTest.log(extentTest.getStatus(), "Advance search for Log level is validated successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
-	}*/
+	}
 
 }

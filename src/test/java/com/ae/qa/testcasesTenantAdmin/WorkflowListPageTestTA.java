@@ -265,8 +265,251 @@ public class WorkflowListPageTestTA extends TestBase {
 		extentTest.log(extentTest.getStatus(), "Worflow is edited to sequential successfully");  
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());	
 	}
-    	//For Workflow Name
-/*	@Test(priority = 3155)
+	///////////For UAT License////////////
+	@Test(priority=1300)
+	public void validateExportWFUATTest(Method method) throws Exception {
+		extentTest = extent.createTest("validateExportWFUATTest", "TC_124: To Verify Export as Non Verified workflow from UAT enviournment");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
+		workflowlistpageta = new WorkflowListPageTA(); 
+		workflowlistpageta.validateExportWFOtherCustomer(TestDataInMap.get("TenantName"),TestDataInMap.get("Description"),TestDataInMap.get("OrganizationCode"),TestDataInMap.get("fName"),TestDataInMap.get("lName"),TestDataInMap.get("emailId"),TestDataInMap.get("UserName"),TestDataInMap.get("Pswd"),TestDataInMap.get("cnfPswd"),TestDataInMap.get("role"),TestDataInMap.get("NewPswd"),
+				prop.getProperty("licenseUAT"),TestDataInMap.get("wfName"),TestDataInMap.get("wfDes"),TestDataInMap.get("wfCategory"),prop.getProperty("WFToImportPath"),TestDataInMap.get("priority"),TestDataInMap.get("expTime"),TestDataInMap.get("maxTime"),TestDataInMap.get("cleanUpHrs"),TestDataInMap.get("manExeTime"),TestDataInMap.get("tUnit"));
+		extentTest.log(extentTest.getStatus(), "Export as non verified workflow from UAT environment is verified successfully");  
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());	
+	}
+	@Test(priority=1301,dependsOnMethods="validateExportWFUATTest")
+	public void validateImportExportedWFUATTest(Method method) throws Exception {
+		extentTest = extent.createTest("validateImportExportedWFUATTest", "TC_125: To Verify import as Non Verified workflow from UAT enviournment one cusotmer to UAT  enviournment of other customer");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
+		workflowlistpageta = new WorkflowListPageTA(); 
+		workflowlistpageta.validateImportExportedWFOtherCustomer(TestDataInMap.get("OrganizationCode"),TestDataInMap.get("fName"),TestDataInMap.get("lName"),TestDataInMap.get("emailId"),TestDataInMap.get("UserName"),TestDataInMap.get("Pswd"),TestDataInMap.get("cnfPswd"),TestDataInMap.get("role"),TestDataInMap.get("NewPswd"),
+				TestDataInMap.get("wfName"),TestDataInMap.get("wfDes"),TestDataInMap.get("wfCategory"),prop.getProperty("UATExportedImportWF"),TestDataInMap.get("priority"),TestDataInMap.get("expTime"),TestDataInMap.get("maxTime"),TestDataInMap.get("cleanUpHrs"),TestDataInMap.get("manExeTime"),TestDataInMap.get("tUnit"));
+		extentTest.log(extentTest.getStatus(), "Import as Non Verified workflow from UAT enviournment one cusotmer to UAT  enviournment of other customer is verified successfully");  
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());	
+	}
+	///////////For Subscription License////////////
+	@Test(priority=1302)
+	public void validateExportWFSubscriptionTest(Method method) throws Exception {
+		extentTest = extent.createTest("validateExportWFSubscriptionTest", "TC_126: To Verify Export workflow from Subscription  enviournment");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
+		workflowlistpageta = new WorkflowListPageTA(); 
+		workflowlistpageta.validateExportWFOtherCustomer(TestDataInMap.get("TenantName"),TestDataInMap.get("Description"),TestDataInMap.get("OrganizationCode"),TestDataInMap.get("fName"),TestDataInMap.get("lName"),TestDataInMap.get("emailId"),TestDataInMap.get("UserName"),TestDataInMap.get("Pswd"),TestDataInMap.get("cnfPswd"),TestDataInMap.get("role"),TestDataInMap.get("NewPswd"),
+				prop.getProperty("licenseSubscription"),TestDataInMap.get("wfName"),TestDataInMap.get("wfDes"),TestDataInMap.get("wfCategory"),prop.getProperty("WFToImportPath"),TestDataInMap.get("priority"),TestDataInMap.get("expTime"),TestDataInMap.get("maxTime"),TestDataInMap.get("cleanUpHrs"),TestDataInMap.get("manExeTime"),TestDataInMap.get("tUnit"));
+		extentTest.log(extentTest.getStatus(), "Export workflow from Subscription environment is verified successfully");  
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());	
+	}
+	@Test(priority=1303,dependsOnMethods="validateExportWFSubscriptionTest")
+	public void validateImportExportedWFSubscriptionTest(Method method) throws Exception {
+		extentTest = extent.createTest("validateImportExportedWFSubscriptionTest", "TC_127: To Verify import as Non Verified workflow from Subscription enviournment one cusotmer to Subscription  enviournment of other customer");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
+		workflowlistpageta = new WorkflowListPageTA(); 
+		workflowlistpageta.validateImportExportedWFOtherCustomer(TestDataInMap.get("OrganizationCode"),TestDataInMap.get("fName"),TestDataInMap.get("lName"),TestDataInMap.get("emailId"),TestDataInMap.get("UserName"),TestDataInMap.get("Pswd"),TestDataInMap.get("cnfPswd"),TestDataInMap.get("role"),TestDataInMap.get("NewPswd"),
+				TestDataInMap.get("wfName"),TestDataInMap.get("wfDes"),TestDataInMap.get("wfCategory"),prop.getProperty("SubscriptionExportedImportWF"),TestDataInMap.get("priority"),TestDataInMap.get("expTime"),TestDataInMap.get("maxTime"),TestDataInMap.get("cleanUpHrs"),TestDataInMap.get("manExeTime"),TestDataInMap.get("tUnit"));
+		extentTest.log(extentTest.getStatus(), "Import as Non Verified workflow from UAT enviournment one cusotmer to Subscription  enviournment of other customer is verified successfully");  
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());	
+	}
+	///////For Enterprise License//////////////
+	@Test(priority=1304)
+	public void validateExportWFEnterpriseTest(Method method) throws Exception {
+		extentTest = extent.createTest("validateExportWFEnterpriseTest", "TC_128: To Verify Export workflow from Enterprise  enviournment");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
+		workflowlistpageta = new WorkflowListPageTA(); 
+		workflowlistpageta.validateExportWFOtherCustomer(TestDataInMap.get("TenantName"),TestDataInMap.get("Description"),TestDataInMap.get("OrganizationCode"),TestDataInMap.get("fName"),TestDataInMap.get("lName"),TestDataInMap.get("emailId"),TestDataInMap.get("UserName"),TestDataInMap.get("Pswd"),TestDataInMap.get("cnfPswd"),TestDataInMap.get("role"),TestDataInMap.get("NewPswd"),
+				prop.getProperty("licenseEnterprise"),TestDataInMap.get("wfName"),TestDataInMap.get("wfDes"),TestDataInMap.get("wfCategory"),prop.getProperty("WFToImportPath"),TestDataInMap.get("priority"),TestDataInMap.get("expTime"),TestDataInMap.get("maxTime"),TestDataInMap.get("cleanUpHrs"),TestDataInMap.get("manExeTime"),TestDataInMap.get("tUnit"));
+		extentTest.log(extentTest.getStatus(), "Export workflow from Subscription environment is verified successfully");  
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());	
+	}
+	@Test(priority=1305,dependsOnMethods="validateExportWFEnterpriseTest")
+	public void validateImportExportedWFEnterpriseTest(Method method) throws Exception {
+		extentTest = extent.createTest("validateImportExportedWFEnterpriseTest", "TC_129: To Verify import as Non Verified workflow from Enterprise enviournment one cusotmer to Enterprise  enviournment of other customer");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
+		workflowlistpageta = new WorkflowListPageTA(); 
+		workflowlistpageta.validateImportExportedWFOtherCustomer(TestDataInMap.get("OrganizationCode"),TestDataInMap.get("fName"),TestDataInMap.get("lName"),TestDataInMap.get("emailId"),TestDataInMap.get("UserName"),TestDataInMap.get("Pswd"),TestDataInMap.get("cnfPswd"),TestDataInMap.get("role"),TestDataInMap.get("NewPswd"),
+				TestDataInMap.get("wfName"),TestDataInMap.get("wfDes"),TestDataInMap.get("wfCategory"),prop.getProperty("EnterpriseExportedImportWF"),TestDataInMap.get("priority"),TestDataInMap.get("expTime"),TestDataInMap.get("maxTime"),TestDataInMap.get("cleanUpHrs"),TestDataInMap.get("manExeTime"),TestDataInMap.get("tUnit"));
+		extentTest.log(extentTest.getStatus(), "Import as Non Verified workflow from UAT enviournment one cusotmer to Subscription  enviournment of other customer is verified successfully");  
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());	
+	}
+
+	////////////////For export as verified WF/////////////////////////////////////////////////////////////////////
+	@Test(priority=1306)
+    public void validateExportVerifiedWFUATTest(Method method) throws Exception {
+	extentTest = extent.createTest("validateExportVerifiedWFUATTest", "TC_141: To Verify Export as Verified workflow from UAT enviournment");
+	Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
+	workflowlistpageta = new WorkflowListPageTA(); 
+	workflowlistpageta.validateExportVerifiedWFUAT(TestDataInMap.get("UserName"),TestDataInMap.get("NewPswd"),TestDataInMap.get("wfName"));
+	extentTest.log(extentTest.getStatus(), "Workflow with export as verified is verified successfully");  
+	ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());	
+}
+
+	////////////////For import export wf from one environment to other//////////////////////////////////
+	@Test(priority=1308)
+	public void validateExportUATWFAndImportInDevelopmentTest(Method method) throws Exception {
+		extentTest = extent.createTest("validateExportUATWFAndImportInDevelopmentTest", "TC_138: To Verify import workflow from UAT enviournment of one cusotmer to Development enviournment of other customer");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
+		workflowlistpageta = new WorkflowListPageTA(); 
+		workflowlistpageta.ImportWorkflow(TestDataInMap.get("UserName"),TestDataInMap.get("NewPswd"),TestDataInMap.get("wfName"),TestDataInMap.get("wfDes"),TestDataInMap.get("wfCategory"),prop.getProperty("UATExportedImportWF"),
+				TestDataInMap.get("priority"),TestDataInMap.get("expTime"),TestDataInMap.get("maxTime"),TestDataInMap.get("cleanUpHrs"),TestDataInMap.get("manExeTime"),TestDataInMap.get("tUnit"));
+		extentTest.log(extentTest.getStatus(), "Import workflow from UAT enviournment of one cusotmer to Development enviournment of other customer is verified successfully");  
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());	
+	}
+	@Test(priority=1309)
+	public void validateExportUATWFAndImportInSubscriptionTestTest(Method method) throws Exception {
+		extentTest = extent.createTest("validateExportUATWFAndImportInSubscriptionTestTest", "TC_142: To Verify import workflow from Subcription enviournment of one cusotmer to UAT enviournment of other customer");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
+		workflowlistpageta = new WorkflowListPageTA(); 
+		workflowlistpageta.ImportWorkflow(TestDataInMap.get("UserName"),TestDataInMap.get("NewPswd"),TestDataInMap.get("wfName"),TestDataInMap.get("wfDes"),TestDataInMap.get("wfCategory"),prop.getProperty("UATExportedImportWF"),
+				TestDataInMap.get("priority"),TestDataInMap.get("expTime"),TestDataInMap.get("maxTime"),TestDataInMap.get("cleanUpHrs"),TestDataInMap.get("manExeTime"),TestDataInMap.get("tUnit"));
+		extentTest.log(extentTest.getStatus(), "Import workflow from UAT enviournment of one cusotmer to Development enviournment of other customer is verified successfully");  
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());	
+	}
+	@Test(priority=1310)
+	public void validateExportSubscriptionWFAndImportInDevelopmentTest(Method method) throws Exception {
+		extentTest = extent.createTest("validateExportSubscriptionWFAndImportInDevelopmentTest", "TC_122: To Verify Export workflow from Dev enviournment (Dev To Subs)");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
+		workflowlistpageta = new WorkflowListPageTA(); 
+		workflowlistpageta.ImportWorkflow(TestDataInMap.get("UserName"),TestDataInMap.get("NewPswd"),TestDataInMap.get("wfName"),TestDataInMap.get("wfDes"),TestDataInMap.get("wfCategory"),prop.getProperty("SubscriptionExportedImportWF"),
+				TestDataInMap.get("priority"),TestDataInMap.get("expTime"),TestDataInMap.get("maxTime"),TestDataInMap.get("cleanUpHrs"),TestDataInMap.get("manExeTime"),TestDataInMap.get("tUnit"));
+		extentTest.log(extentTest.getStatus(), "Export workflow from Dev enviournment (Dev To Subs) is verified successfully");  
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());	
+	}
+	@Test(priority=1311)
+	public void validateExportUATWFAndImportInEnterpriseTest(Method method) throws Exception {
+		extentTest = extent.createTest("validateExportUATWFAndImportInEnterpriseTest", "TC_137: To Verify import workflow to Enterprise enviournment of one cusotmer from UAT enviournment of other customer");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
+		workflowlistpageta = new WorkflowListPageTA(); 
+		workflowlistpageta.ImportWorkflow(TestDataInMap.get("UserName"),TestDataInMap.get("NewPswd"),TestDataInMap.get("wfName"),TestDataInMap.get("wfDes"),TestDataInMap.get("wfCategory"),prop.getProperty("UATExportedImportWF"),
+				TestDataInMap.get("priority"),TestDataInMap.get("expTime"),TestDataInMap.get("maxTime"),TestDataInMap.get("cleanUpHrs"),TestDataInMap.get("manExeTime"),TestDataInMap.get("tUnit"));
+		extentTest.log(extentTest.getStatus(), "Import workflow to Enterprise enviournment of one cusotmer from UAT enviournment of other customer is verified successfully");  
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());	
+	}
+	//Need to get the expected result
+	/*@Test(priority=1312)
+public void validateExportAsVerifiedUATWFAndImportInEnterpriseTest(Method method) throws Exception {
+	extentTest = extent.createTest("validateExportAsVerifiedUATWFAndImportInEnterpriseTest", "TC_139: To Verify Export as  Verified workflow from UAT enviournment(UAT To  Enterprise)");
+	//Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
+	workflowlistpageta = new WorkflowListPageTA(); 
+	workflowlistpageta.validateExportAsVerifiedUATWFAndImportInEnterprise("EnterpriseUser10","Pune@1234","ExportVerifiedUATImportEnterprise","From UAT to Enterprise env","Default",prop.getProperty("UATExportAsVerifiedWF"),
+			"High","20","60","3","30","Minutes");
+	extentTest.log(extentTest.getStatus(), "To Verify Export as  Verified workflow from UAT enviournment(UAT To  Enterprise) is verified successfully");  
+	//ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());	
+}*/
+////////////////WF import export for same customer[License ID should be same]///////////////////////////////////////////////////
+@Test(priority=1313)
+public void validateCreateDevelopmentSameCustomerTest(Method method) throws Exception {
+	extentTest = extent.createTest("validateCreateDevelopmentSameCustomerTest", "TC_Additional: To Create new tenant with tenant user for same customer development license");
+	Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
+	workflowlistpageta = new WorkflowListPageTA(); 
+	workflowlistpageta.validateCreateTenantAdminWithUploadLicense(TestDataInMap.get("TenantName"),TestDataInMap.get("Description"),TestDataInMap.get("OrganizationCode"),TestDataInMap.get("fName"),TestDataInMap.get("lName"),TestDataInMap.get("emailId"),TestDataInMap.get("UserName"),TestDataInMap.get("Pswd"),
+			TestDataInMap.get("cnfPswd"),TestDataInMap.get("role"),TestDataInMap.get("NewPswd"),prop.getProperty("SameIDDevelopmentLicense"));
+	extentTest.log(extentTest.getStatus(), "Tenant user for same devlopment license ID is created successfully");  
+	ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());	
+}
+@Test(priority=1314)
+public void validateCreateEnterpriseSameCustomerTest(Method method) throws Exception {
+	extentTest = extent.createTest("validateCreateEnterpriseSameCustomerTest", "TC_Additional: To Create new tenant with tenant user for same customer Enterprise license");
+	Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
+	workflowlistpageta = new WorkflowListPageTA(); 
+	workflowlistpageta.validateCreateTenantAdminWithUploadLicense(TestDataInMap.get("TenantName"),TestDataInMap.get("Description"),TestDataInMap.get("OrganizationCode"),TestDataInMap.get("fName"),TestDataInMap.get("lName"),TestDataInMap.get("emailId"),TestDataInMap.get("UserName"),TestDataInMap.get("Pswd"),
+			TestDataInMap.get("cnfPswd"),TestDataInMap.get("role"),TestDataInMap.get("NewPswd"),prop.getProperty("SameIDEnterpriseLicense"));
+	extentTest.log(extentTest.getStatus(), "Tenant user for same enterprise license ID is created successfully");  
+	ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());	
+}
+@Test(priority=1315)
+public void validateCreateUATSameCustomerTest(Method method) throws Exception {
+	extentTest = extent.createTest("validateCreateUATSameCustomerTest", "TC_Additional: To Create new tenant with tenant user for same customer UAT license");
+	Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
+	workflowlistpageta = new WorkflowListPageTA(); 
+	workflowlistpageta.validateCreateTenantAdminWithUploadLicense(TestDataInMap.get("TenantName"),TestDataInMap.get("Description"),TestDataInMap.get("OrganizationCode"),TestDataInMap.get("fName"),TestDataInMap.get("lName"),TestDataInMap.get("emailId"),TestDataInMap.get("UserName"),TestDataInMap.get("Pswd"),
+			TestDataInMap.get("cnfPswd"),TestDataInMap.get("role"),TestDataInMap.get("NewPswd"),prop.getProperty("SameIDUATLicense"));
+	extentTest.log(extentTest.getStatus(), "Tenant user for same UAT license ID is created successfully");  
+	ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());	
+}
+	//////////////////////////////For import export wf for same customer/////////////////////////////////////
+	@Test(priority=1316)
+public void validateExportWFDevelopmentAndImportInUATSATest(Method method) throws Exception {
+	extentTest = extent.createTest("validateExportWFDevelopmentAndImportInUATSATest", "TC_131: To Verify import workflow from Dev enviournment of one cusotmer to UAT enviournment of same customer");
+	Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
+	workflowlistpageta = new WorkflowListPageTA(); 
+	workflowlistpageta.validateExportImportWFforSameCustomer(TestDataInMap.get("UserName"),TestDataInMap.get("NewPswd"),TestDataInMap.get("wfName"),TestDataInMap.get("wfDes"),TestDataInMap.get("wfCategory"),
+			prop.getProperty("WFToImportPath"),TestDataInMap.get("priority"),TestDataInMap.get("expTime"),TestDataInMap.get("maxTime"),TestDataInMap.get("cleanUpHrs"),TestDataInMap.get("manExeTime"),TestDataInMap.get("tUnit"),
+			TestDataInMap.get("UserName1"),TestDataInMap.get("wfName1"),prop.getProperty("SameDevelopmentExportedUATWF"));
+	extentTest.log(extentTest.getStatus(), "Import workflow from Dev enviournment of one customer to UAT enviournment of same customer is Verified successfully");  
+	ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());	
+}
+@Test(priority=1317)
+public void validateExportWFDevelopmentAndImportInEnterpriseSATest(Method method) throws Exception {
+	extentTest = extent.createTest("validateExportWFDevelopmentAndImportInEnterpriseSATest", "TC_133: To Verify import workflow from Dev enviournment of one cusotmer to Enterprise enviournment of same customer");
+	Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
+	workflowlistpageta = new WorkflowListPageTA(); 
+	workflowlistpageta.validateExportImportWFforSameCustomer(TestDataInMap.get("UserName"),TestDataInMap.get("NewPswd"),TestDataInMap.get("wfName"),TestDataInMap.get("wfDes"),TestDataInMap.get("wfCategory"),
+			prop.getProperty("WFToImportPath"),TestDataInMap.get("priority"),TestDataInMap.get("expTime"),TestDataInMap.get("maxTime"),TestDataInMap.get("cleanUpHrs"),TestDataInMap.get("manExeTime"),TestDataInMap.get("tUnit"),
+			TestDataInMap.get("UserName1"),TestDataInMap.get("wfName1"),prop.getProperty("SameDevelopmentExportedEnterpriseWF"));
+	extentTest.log(extentTest.getStatus(), "Import workflow from Dev enviournment of one customer to Enterprise enviournment of same customer is Verified successfully");  
+	ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());	
+}
+@Test(priority=1318)
+public void validateExportWFUATAndImportInEnterpriseSATest(Method method) throws Exception {
+	extentTest = extent.createTest("validateExportWFUATAndImportInEnterpriseSATest", "TC_Additional: To Verify import workflow from UAT enviournment of one cusotmer to Enterprise enviournment of same customer ");
+	Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
+	workflowlistpageta = new WorkflowListPageTA(); 
+	workflowlistpageta.validateExportImportWFforSameCustomer(TestDataInMap.get("UserName"),TestDataInMap.get("NewPswd"),TestDataInMap.get("wfName"),TestDataInMap.get("wfDes"),TestDataInMap.get("wfCategory"),
+			prop.getProperty("WFToImportPath"),TestDataInMap.get("priority"),TestDataInMap.get("expTime"),TestDataInMap.get("maxTime"),TestDataInMap.get("cleanUpHrs"),TestDataInMap.get("manExeTime"),TestDataInMap.get("tUnit"),
+			TestDataInMap.get("UserName1"),TestDataInMap.get("wfName1"),prop.getProperty("SameUATExportedEnterpriseWF"));
+	extentTest.log(extentTest.getStatus(), "Import workflow from UAT enviournment of one customer to Enterprise enviournment of same customer is Verified successfully");  
+	ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());	
+}
+	//////////////Verified Workflow///////////////////////////////////////////////////////////////////////////////////////
+	/*@Test(priority=1319)
+public void validateVerfiedStatusWFAfterUpdateVerifiedWFTest(Method method) throws Exception {
+	extentTest = extent.createTest("validateVerfiedStatusWFAfterUpdateVerifiedWFTest", "TC_143: Verify Verified status after Update of Verified workflow with verified workflow");
+	//Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
+	workflowlistpageta = new WorkflowListPageTA(); 
+	workflowlistpageta.validateVerfiedStatusWFAfterUpdateVerifiedWF("Same_UATUser","Pune@1234","Same_EnterpriseUser","Pune@1234","SameDevelopmentUATWF","SameUATEnterpriseWF",prop.getProperty("ExportAsVerifedSameCustomerWF"),"Verified");
+	extentTest.log(extentTest.getStatus(), "Verified status after Update of Verified workflow with verified workflow is verified successfully");  
+	//ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());	
+}
+@Test(priority=1320)
+public void validateVerfiedStatusWFAfterUpdateNonVerifiedWFTest(Method method) throws Exception {
+	extentTest = extent.createTest("validateVerfiedStatusWFAfterUpdateNonVerifiedWFTest", "TC_144: Verify Verified status after Update of Verified workflow with non verified workflow");
+	//Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
+	workflowlistpageta = new WorkflowListPageTA(); 
+	workflowlistpageta.validateVerfiedStatusWFAfterUpdateNonVerifiedWF("Same_EnterpriseUser","Pune@1234","SameUATEnterpriseWF","SameUATEnterpriseWF ","Verified",prop.getProperty("WFToImportPath"));
+	extentTest.log(extentTest.getStatus(), "Verified status after Update of Verified workflow with non verified workflow is verified successfully");  
+	//ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());	
+}*/
+	////////////////////////////////////Export Multiple Workflow as Verified//////////////////////////////////////////
+	/*@Test(priority=1321)
+public void validateExportMultipleAsVerifiedTest(Method method) throws Exception {
+	extentTest = extent.createTest("validateExportMultipleAsVerifiedTest", "TC_145: To Verify can export multiple workflow at a time as verified");
+	//Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
+	workflowlistpageta = new WorkflowListPageTA(); 
+	workflowlistpageta.validateExportMultipleAsVerified("Same_UATUser","Pune@1234");
+	extentTest.log(extentTest.getStatus(), "Export multiple workflow as verified is verified successfully");  
+	//ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());	
+}
+//Not getting the expected result
+@Test(priority=1322)
+public void validateImportExportedMultipleWorkflowTest(Method method) throws Exception {
+	extentTest = extent.createTest("validateImportExportedMultipleWorkflowTest", "TC_146: To verify can import workflow exported with option multiple export");
+	//Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
+	workflowlistpageta = new WorkflowListPageTA(); 
+	workflowlistpageta.ImportWorkflow("Same_EnterpriseUser","Pune@1234","ImportMultipleExportWF","From import multiple export workflow","Default",prop.getProperty("MultipleExportVerifiedWF"),
+			"High","20","60","3","30","Minutes");
+	extentTest.log(extentTest.getStatus(), "Import workflow exported with option multiple export is verified successfully");  
+	//ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());	
+}*/
+	/*@Test(priority=1323)
+public void validateExportMultipleAsNonVerifiedTest(Method method) throws Exception {
+	extentTest = extent.createTest("validateExportMultipleAsNonVerifiedTest", "TC_147: To Verify can export multiple workflow at a time as non verified");
+	//Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
+	workflowlistpageta = new WorkflowListPageTA(); 
+	workflowlistpageta.validateExportMultipleAsNonVerified("Same_UATUser","Pune@1234");
+	extentTest.log(extentTest.getStatus(), "Export multiple workflow at a time as non verified is verified successfully");  
+	//ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());	
+}*/
+
+
+	//For Workflow Name
+	@Test(priority = 3155)
 	public void validateAdvSearchForWFNameEqualToWorkflowsPageTATest(Method method) throws Exception {
 		extentTest = extent.createTest("validateAdvSearchForWFNameEqualToWorkflowsPageTATest", "TC_009: To Verfiy Advance search for workflow name with equals criteria");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AdvancedSearchsheetname"),method.getName());
@@ -440,7 +683,7 @@ public class WorkflowListPageTestTA extends TestBase {
 				TestDataInMap.get("PageSize"));
 		extentTest.log(extentTest.getStatus(), "Advance search for Last Name is validated successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
-	}*/
+	}
 }
 
 

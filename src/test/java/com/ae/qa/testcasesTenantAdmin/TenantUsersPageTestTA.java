@@ -218,7 +218,7 @@ public class TenantUsersPageTestTA extends TestBase {
 	}
 
 	//For Username
-/*	@Test(priority = 3123)
+	@Test(priority = 3123)
 	public void validateAdvSearchForUserNameEqualToTenantuserPageTATest(Method method) throws Exception {
 		extentTest = extent.createTest("validateAdvSearchForUserNameEqualToTenantuserPageTATest", "TC_009: To Verfiy Advance search for username with equals criteria");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AdvancedSearchsheetname"),method.getName());
@@ -492,5 +492,5 @@ public class TenantUsersPageTestTA extends TestBase {
 				TestDataInMap.get("PageSize"));
 		extentTest.log(extentTest.getStatus(), "Advance search for Last Name is validated successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
-	}*/
+	}
 }

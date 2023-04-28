@@ -143,6 +143,7 @@ public class ProcessStudioPageTA extends TestBase{
 		Thread.sleep(3000);
 		saveBtn.click();
 		Reporter.log("Save button is clicked",true);
+		Thread.sleep(5000);
 		//As there is no success message after ps assignment we will cross check with again going to assign ps tab
 		//and then check if checkbox is already selected
 		for(int i=1;i<30;i++) {

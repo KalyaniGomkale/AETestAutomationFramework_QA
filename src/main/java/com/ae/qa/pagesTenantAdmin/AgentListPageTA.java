@@ -307,7 +307,7 @@ public class AgentListPageTA extends TestBase{
 		TestUtil.unzip(prop.getProperty("zipFilePathA"),prop.getProperty("destDirA"));
 		Reporter.log("File unzipped properly",true);
 		ProcessBuilder pb= new ProcessBuilder("cmd", "/c", "AgentRunA.bat");
-		File dir = new File(prop.getProperty("AgentRegBatFileAssisted"));
+		File dir = new File(prop.getProperty("AgentRegBatFilePath"));
 		pb.directory(dir);
 		Process process = pb.start();
 		Thread.sleep(5000);		
@@ -688,7 +688,7 @@ public class AgentListPageTA extends TestBase{
 		loginpage.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
 		Reporter.log("User log in Successfully", true);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", AgentsTab);
 		js.executeScript("arguments[0].click();", AgentListTab);
 		wb.validateClickOnAdvanceSearch();

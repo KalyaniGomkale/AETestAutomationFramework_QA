@@ -259,20 +259,22 @@ public class AuditLogsPage extends TestBase {
 		loginpage.login(prop.getProperty("username"), prop.getProperty("password"));
 		Reporter.log("User log in Successfully", true);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", logsTab);
+		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", auditLogsTab);
 		wb.validateClickOnAdvanceSearch();
 	}
-
+/////////////////////////////For Entity//////////////////////////////////////////////////////////////////////////////////
 	public void validateEntityDropdownEqualTo(String colunmValue,String comparatorType,String searchValue,String PageSize) throws Exception {
 		validateAdvSearch();
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchDropDown(colunmValue,comparatorType,searchValue);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table']/table/tr/td[3]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Audit record present in table are :"+op.size());
@@ -288,8 +290,10 @@ public class AuditLogsPage extends TestBase {
 		wb.validateAdvanceSearchDropDown(colunmValue,comparatorType,searchValue);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
+		Thread.sleep(2000);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table']/table/tr/td[3]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Audit record present in table are :"+op.size());
@@ -300,14 +304,16 @@ public class AuditLogsPage extends TestBase {
 			Assert.assertFalse(actual_Entity.equalsIgnoreCase(searchValue));
 		}
 	}
+	/////////////////////////////////////////////For Source/////////////////////////////////////////////////////////////
 	public void validateSourceDropdownEqualTo(String colunmValue,String comparatorType,String searchValue,String PageSize) throws Exception {
 		validateAdvSearch();
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchDropDown(colunmValue,comparatorType,searchValue);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table']/table/tr/td[6]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Audit record present in table are :"+op.size());
@@ -318,7 +324,6 @@ public class AuditLogsPage extends TestBase {
 			Assert.assertTrue(actual_Source.equalsIgnoreCase(searchValue));
 		}
 	}
-
 	public void validateSourceDropdownNotEqualTo(String colunmValue,String comparatorType,String searchValue,String PageSize)throws Exception {
 		validateAdvSearch();
 		wb.validateAdvanceSearchDropDown(colunmValue,comparatorType,searchValue);
@@ -326,6 +331,7 @@ public class AuditLogsPage extends TestBase {
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table']/table/tr/td[6]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Audit record present in table are :"+op.size());
@@ -336,14 +342,17 @@ public class AuditLogsPage extends TestBase {
 			Assert.assertFalse(actual_Source.equalsIgnoreCase(searchValue));
 		}
 	}
+	///////////////////////////////////////For Username///////////////////////////////////////////////////////////////////
 	public void validateAdvSearchForUserNameEqualTo(String SearchColumn,String SearchCriteria,
 			String userName,String PageSize)throws Exception {
 		validateAdvSearch();
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria, userName);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table']/table/tr/td[2]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Audit record present in table are :"+op.size());
@@ -356,11 +365,13 @@ public class AuditLogsPage extends TestBase {
 	public void validateAdvSearchForUserNameNotEqualTo(String SearchColumn,String SearchCriteria,
 			String userName,String PageSize)throws Exception {
 		validateAdvSearch();
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria, userName);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table']/table/tr/td[2]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Audit record present in table are :"+op.size());
@@ -373,12 +384,13 @@ public class AuditLogsPage extends TestBase {
 	public void validateAdvSearchForUserNameIsLike(String SearchColumn,String SearchCriteria,
 			String advSearchFor,String PageSize)throws Exception {
 		validateAdvSearch();
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria,advSearchFor);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table']/table/tr/td[2]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Audit record present in table are :"+op.size());
@@ -391,18 +403,18 @@ public class AuditLogsPage extends TestBase {
 	public void validateAdvSearchForUserNameBeginsWith(String SearchColumn,String SearchCriteria,
 			String advSearchFor,String PageSize)throws Exception {
 		validateAdvSearch();
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria,advSearchFor);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table']/table/tr/td[2]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Audit record present in table are :"+op.size());
 			Thread.sleep(3000);
 			String actual_UserName=op.get(i).getText();
-			//String lowercase_UserName = actual_UserName.toLowerCase();
 			System.out.println("actual_Tenant User Name present in table are: "+actual_UserName);
 			Thread.sleep(3000);
 			Assert.assertTrue(actual_UserName.contains(advSearchFor));
@@ -411,12 +423,13 @@ public class AuditLogsPage extends TestBase {
 	public void validateAdvSearchForUserNameEndsWith(String SearchColumn,String SearchCriteria,
 			String advSearchFor,String PageSize)throws Exception {
 		validateAdvSearch();
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria,advSearchFor);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table']/table/tr/td[2]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Audit record present in table are :"+op.size());
@@ -426,14 +439,17 @@ public class AuditLogsPage extends TestBase {
 			Assert.assertTrue(actual_UserName.contains(advSearchFor));
 		}
 	}
+	////////////////////////////For Source IP//////////////////////////////////////////////////////////////
 	public void validateAdvSearchForSourceIPEqualTo(String SearchColumn,String SearchCriteria,
 			String sourceIP,String PageSize)throws Exception {
 		validateAdvSearch();
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria, sourceIP);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table']/table/tr/td[7]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Audit record present in table are :"+op.size());
@@ -446,11 +462,13 @@ public class AuditLogsPage extends TestBase {
 	public void validateAdvSearchForSourceIPNotEqualTo(String SearchColumn,String SearchCriteria,
 			String sourceIP,String PageSize)throws Exception {
 		validateAdvSearch();
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria, sourceIP);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table']/table/tr/td[7]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Audit record present in table are :"+op.size());
@@ -463,12 +481,13 @@ public class AuditLogsPage extends TestBase {
 	public void validateAdvSearchForSourceIPIsLike(String SearchColumn,String SearchCriteria,
 			String advSearchFor,String PageSize)throws Exception {
 		validateAdvSearch();
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria,advSearchFor);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table']/table/tr/td[7]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Audit record present in table are :"+op.size());
@@ -481,12 +500,13 @@ public class AuditLogsPage extends TestBase {
 	public void validateAdvSearchForSourceIPBeginsWith(String SearchColumn,String SearchCriteria,
 			String advSearchFor,String PageSize)throws Exception {
 		validateAdvSearch();
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria,advSearchFor);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table']/table/tr/td[7]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Audit record present in table are :"+op.size());
@@ -501,12 +521,13 @@ public class AuditLogsPage extends TestBase {
 	public void validateAdvSearchForSourceIPEndsWith(String SearchColumn,String SearchCriteria,
 			String advSearchFor,String PageSize)throws Exception {
 		validateAdvSearch();
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria,advSearchFor);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table']/table/tr/td[7]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Audit record present in table are :"+op.size());
@@ -516,14 +537,16 @@ public class AuditLogsPage extends TestBase {
 			Assert.assertTrue(actual_SourceIP.contains(advSearchFor));
 		}
 	}
+	//////////////////////////////////////////For Operation//////////////////////////////////////////////////////////////////
 	public void validateOperationDropdownEqualTo(String colunmValue,String comparatorType,String searchValue,String PageSize) throws Exception {
 		validateAdvSearch();
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchDropDown(colunmValue,comparatorType,searchValue);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table']/table/tr/td[4]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Audit record present in table are :"+op.size());
@@ -537,11 +560,13 @@ public class AuditLogsPage extends TestBase {
 
 	public void validateOperationDropdownNotEqualTo(String colunmValue,String comparatorType,String searchValue,String PageSize)throws Exception {
 		validateAdvSearch();
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchDropDown(colunmValue,comparatorType,searchValue);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table']/table/tr/td[4]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Audit record present in table are :"+op.size());
@@ -551,10 +576,11 @@ public class AuditLogsPage extends TestBase {
 			Assert.assertFalse(actual_Operation.equalsIgnoreCase(searchValue));
 		}
 	}
+	//////////////////////For Calender/////////////////////////////////////////////////////////////////////
 	public void validateHandleCalender(String CreatedCriteria,String startYear,String startMonth,String startDate) throws Exception {
 		loginpage.login(prop.getProperty("username"), prop.getProperty("password"));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", logsTab);
 		js.executeScript("arguments[0].click();", auditLogsTab);
 		wb.validateClickOnAdvanceSearch();
@@ -564,6 +590,7 @@ public class AuditLogsPage extends TestBase {
 	}
 	public void validateCreatedEqualTo(String CreatedCriteria,String startYear,String startMonth,String startDate,String PageSize) throws Exception {
 		validateHandleCalender(CreatedCriteria,startYear,startMonth,startDate);
+		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		Thread.sleep(2000);
 		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table']/table/tr/td[9]"));
@@ -585,6 +612,7 @@ public class AuditLogsPage extends TestBase {
 
 	public void validateCreatedBefore(String CreatedCriteria,String startYear,String startMonth,String startDate,String PageSize) throws Exception {
 		validateHandleCalender(CreatedCriteria,startYear,startMonth,startDate);
+		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		Thread.sleep(2000);
 		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table']/table/tr/td[9]"));
@@ -607,6 +635,7 @@ public class AuditLogsPage extends TestBase {
 	}
 	public void validateCreatedAfter(String CreatedCriteria,String startYear,String startMonth,String startDate,String PageSize) throws Exception {
 		validateHandleCalender(CreatedCriteria,startYear,startMonth,startDate);
+		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		Thread.sleep(2000);
 		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table']/table/tr/td[9]"));
@@ -632,6 +661,7 @@ public class AuditLogsPage extends TestBase {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", logsTab);
+		Thread.sleep(1000);
 		js.executeScript("arguments[0].click();", auditLogsTab);
 		wb.validateClickOnAdvanceSearch();
 		Thread.sleep(2000);
@@ -666,6 +696,7 @@ public class AuditLogsPage extends TestBase {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", logsTab);
+		Thread.sleep(1000);
 		js.executeScript("arguments[0].click();", auditLogsTab);;
 		wb.validateClickOnAdvanceSearch();
 		Thread.sleep(2000);
@@ -694,14 +725,16 @@ public class AuditLogsPage extends TestBase {
 			Reporter.log("User is getting correct records for created on date with after criteria",true);
 		}
 	}
+	////////////////////////////////////For status//////////////////////////////////////////////////////////
 	public void validateStatusDropdownEqualTo(String colunmValue,String comparatorType,String searchValue,String PageSize) throws Exception {
 		validateAdvSearch();
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchDropDown(colunmValue,comparatorType,searchValue);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table']/table/tr/td[8]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Audit record present in table are :"+op.size());
@@ -712,14 +745,15 @@ public class AuditLogsPage extends TestBase {
 			Assert.assertTrue(actual_Status.equalsIgnoreCase(searchValue));
 		}
 	}
-
 	public void validateStatusDropdownNotEqualTo(String colunmValue,String comparatorType,String searchValue,String PageSize)throws Exception {
 		validateAdvSearch();
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchDropDown(colunmValue,comparatorType,searchValue);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table']/table/tr/td[8]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Audit record present in table are :"+op.size());
@@ -729,19 +763,20 @@ public class AuditLogsPage extends TestBase {
 			Assert.assertFalse(actual_Status.equalsIgnoreCase(searchValue));
 		}
 	}
+/////////////////////////////////////////For Log Level/////////////////////////////////////////////////////////////
 	public void validateLogLevelDropdownEqualTo(String colunmValue,String comparatorType,String searchValue,String PageSize) throws Exception {
 		validateAdvSearch();
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchDropDown(colunmValue,comparatorType,searchValue);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		Thread.sleep(2000);
 		showColumnDrpdown.click();
 		driver.findElement(By.xpath("//li/div/a/span[text()='Log Level']")).click();
-		showColumnDrpdown.click();
 		Thread.sleep(2000);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table']/table/tr/td[9]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Audit record present in table are :"+op.size());
@@ -755,14 +790,17 @@ public class AuditLogsPage extends TestBase {
 
 	public void validateLogLevelDropdownNotEqualTo(String colunmValue,String comparatorType,String searchValue,String PageSize)throws Exception {
 		validateAdvSearch();
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchDropDown(colunmValue,comparatorType,searchValue);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
+		Thread.sleep(2000);
 		showColumnDrpdown.click();
 		driver.findElement(By.xpath("//li/div/a/span[text()='Log Level']")).click();
-		showColumnDrpdown.click();
+		Thread.sleep(2000);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table']/table/tr/td[9]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Audit record present in table are :"+op.size());

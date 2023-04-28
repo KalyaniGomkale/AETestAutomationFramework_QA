@@ -641,20 +641,22 @@ public class TenantsPage extends TestBase {
 		loginpage.login(prop.getProperty("username"), prop.getProperty("password"));
 		Reporter.log("User log in Successfully", true);
 		JavascriptExecutor js_tenant = (JavascriptExecutor) driver;
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		js_tenant.executeScript("arguments[0].click();", tenantsTab);
 		wb.validateClickOnAdvanceSearch();
 		Thread.sleep(2000);
 	}
+	/////////////////////////////////For OrgCode///////////////////////////////////////////////////////
 	public void validateAdvSearchForOrgCodeEqualTo(String SearchColumn,String SearchCriteria,
-			String orgCode,String PageSize)
-					throws Exception {
+			String orgCode,String PageSize) throws Exception {
 		validateAdvSearch();
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria, orgCode);
 		Thread.sleep(2000);
 		wb.changePageSize("50");
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
+		Thread.sleep(2000);
 		String actual_OrgCode = driver.findElement(By.xpath("//table/tr/td[text()='" + orgCode + "']")).getText();
 		String expected_OrgCode = orgCode;
 		System.out.println("Actual OrgCode :" + actual_OrgCode + "Expected OrgCode:" + expected_OrgCode);
@@ -665,11 +667,13 @@ public class TenantsPage extends TestBase {
 	public void validateAdvSearchForOrgCodeNotEqualTo(String SearchColumn,String SearchCriteria,
 			String orgCode,String PageSize)throws Exception {
 		validateAdvSearch();
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria, orgCode);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table-responsive']/table/tr/td[2]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Tenant record present in table are :"+op.size());
@@ -679,11 +683,10 @@ public class TenantsPage extends TestBase {
 			Assert.assertFalse(actual_TenantName.equals(orgCode));
 		}
 	}
-	public void validateAdvSearchForOrgCodeIsLike(String tName, String tDescription, String orgCode,String SearchColumn,String SearchCriteria,
+	public void validateAdvSearchForOrgCodeIsLike(String SearchColumn,String SearchCriteria,
 			String advSearchFor,String PageSize)throws Exception {
-		addNewTenants(tName,tDescription,orgCode);
 		driver.navigate().to(prop.getProperty("url"));
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		validateAdvSearch();
 		Thread.sleep(5000);
 		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria,advSearchFor);
@@ -691,6 +694,7 @@ public class TenantsPage extends TestBase {
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table-responsive']/table/tr/td[2]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Tenant record present in table are :"+op.size());
@@ -702,12 +706,14 @@ public class TenantsPage extends TestBase {
 	}
 	public void validateAdvSearchOrgBeginsWith(String SearchColumn,String SearchCriteria,String advSearchFor,String PageSize) throws Exception {
 		validateAdvSearch();
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria,advSearchFor);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		Thread.sleep(2000);
 		// Verify above created tenant is not available after adv search otherwise get error
 		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table-responsive']/table/tr/td[2]"));
+		Thread.sleep(2000);
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Tenant Name begins with:"+advSearchFor+ "is: "+op.size());
 			Thread.sleep(3000);
@@ -718,10 +724,12 @@ public class TenantsPage extends TestBase {
 	}
 	public void validateAdvSearchOrgEndsWith(String SearchColumn,String SearchCriteria,String advSearchFor,String PageSize) throws Exception {
 		validateAdvSearch();
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria,advSearchFor);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table-responsive']/table/tr/td[2]"));
+		Thread.sleep(2000);
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Tenant whose org code ends with "+advSearchFor+ "are: "+op.size());
 			Thread.sleep(3000);
@@ -730,14 +738,17 @@ public class TenantsPage extends TestBase {
 			Assert.assertTrue(actual_orgCode.endsWith(advSearchFor));
 		}
 	}
+///////////////////////////For name///////////////////////////////////////////////////////////////////////////////////////
 	public void validateAdvSearchNameEqualTo(String SearchColumn,String SearchCriteria,
 			String advSearchFor,String PageSize)throws Exception {
 		validateAdvSearch();
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria, advSearchFor);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table-responsive']/table/tr/td[1]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total tenant Name eqaul to: "+op.size());
@@ -747,10 +758,7 @@ public class TenantsPage extends TestBase {
 			Assert.assertEquals(actual_TenantName,advSearchFor,"Expected and actual Tenant name through adv search mismatched.");
 		}
 	}
-	public void validateAdvSearchNameNotEqual(String tName, String tDescription, String orgCode,
-			String SearchColumn,String SearchCriteria,String PageSize) throws Exception {
-		addNewTenants(tName,tDescription,orgCode);
-		driver.navigate().to(prop.getProperty("url"));
+	public void validateAdvSearchNameNotEqual(String tName,String SearchColumn,String SearchCriteria,String PageSize) throws Exception {
 		validateAdvSearch();
 		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria,tName);
@@ -767,10 +775,7 @@ public class TenantsPage extends TestBase {
 			Assert.assertFalse(actual_TenantName.equals(tName));
 		}
 	}
-	public void validateAdvSearchNameIsLike(String tName, String tDescription, String orgCode,
-			String SearchColumn,String SearchCriteria,String advSearchFor,String PageSize) throws Exception {
-		addNewTenants(tName,tDescription,orgCode);
-		driver.navigate().to(prop.getProperty("url"));
+	public void validateAdvSearchNameIsLike(String SearchColumn,String SearchCriteria,String advSearchFor,String PageSize) throws Exception {
 		validateAdvSearch();
 		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria,advSearchFor);
@@ -787,10 +792,7 @@ public class TenantsPage extends TestBase {
 			Assert.assertTrue(actual_TenantName.contains(advSearchFor));
 		}
 	}
-	public void validateAdvSearchNameBeginWith(String tName, String tDescription, String orgCode,
-			String SearchColumn,String SearchCriteria,String TNameBeginsWith,String PageSize) throws Exception {
-		addNewTenants(tName,tDescription,orgCode);
-		driver.navigate().to(prop.getProperty("url"));
+	public void validateAdvSearchNameBeginWith(String SearchColumn,String SearchCriteria,String TNameBeginsWith,String PageSize) throws Exception {
 		validateAdvSearch();
 		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria,TNameBeginsWith);
@@ -824,8 +826,6 @@ public class TenantsPage extends TestBase {
 			Assert.assertTrue(actual_orgCode.endsWith(advSearchFor));
 		}
 	}
-
-
 	//This take case basically handles all calender criterias
 	//exact date-done, before , after, in between ,not in between
 	public void validateHandleCalender(String CreatedCriteria,String startYear,String startMonth,String startDate) throws Exception {
@@ -837,9 +837,9 @@ public class TenantsPage extends TestBase {
 		wb.validateAdvanceSearchForCalender("Created",CreatedCriteria,startYear,startMonth,startDate);
 		Thread.sleep(2000);
 	}
-
 	public void validateCreatedEqualTo(String CreatedCriteria,String startYear,String startMonth,String startDate,String PageSize) throws Exception {
 		validateHandleCalender(CreatedCriteria,startYear,startMonth,startDate);
+		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		Thread.sleep(2000);
 		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table-responsive']/table/tr/td[4]"));
@@ -864,6 +864,7 @@ public class TenantsPage extends TestBase {
 
 	public void validateCreatedBefore(String CreatedCriteria,String startYear,String startMonth,String startDate,String PageSize) throws Exception {
 		validateHandleCalender(CreatedCriteria,startYear,startMonth,startDate);
+		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		Thread.sleep(2000);
 		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table-responsive']/table/tr/td[4]"));
@@ -889,6 +890,7 @@ public class TenantsPage extends TestBase {
 	}
 	public void validateCreatedAfter(String CreatedCriteria,String startYear,String startMonth,String startDate,String PageSize) throws Exception {
 		validateHandleCalender(CreatedCriteria,startYear,startMonth,startDate);
+		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		Thread.sleep(2000);
 		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table-responsive']/table/tr/td[4]"));
@@ -916,6 +918,7 @@ public class TenantsPage extends TestBase {
 		loginpage.login(prop.getProperty("username"), prop.getProperty("password"));
 		Thread.sleep(2000);
 		tenantsTab.click();
+		Thread.sleep(2000);
 		wb.validateClickOnAdvanceSearch();
 		Thread.sleep(2000);
 		wb.validateExtraAdvanceSearchForCalender("Created",CreatedCriteria,startYear,startMonth,startDate,endYear,endMonth,endDate);
@@ -951,6 +954,7 @@ public class TenantsPage extends TestBase {
 		loginpage.login(prop.getProperty("username"), prop.getProperty("password"));
 		Thread.sleep(2000);
 		tenantsTab.click();
+		Thread.sleep(2000);
 		wb.validateClickOnAdvanceSearch();
 		Thread.sleep(2000);
 		wb.validateExtraAdvanceSearchForCalender("Created",CreatedCriteria,startYear,startMonth,startDate,endYear,endMonth,endDate);

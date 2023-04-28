@@ -82,7 +82,7 @@ public class DataSourcesPageTA extends TestBase {
 		button.click();
 		Reporter.log("Button Clicked",true);
 		Thread.sleep(4000);
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		wait.until(ExpectedConditions.visibilityOf(successMsgBox));
 		String Actual_testMsg = successMsgBox.getText();
 		String Expected_testMsg = Messages.tstdataSource1;
 		System.out.println("Actual datsource-Test message is :" + Actual_testMsg);
@@ -92,7 +92,7 @@ public class DataSourcesPageTA extends TestBase {
 		Create.click();
 		Thread.sleep(2000);
 		Reporter.log("Create button is clicked.", true);
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		wait.until(ExpectedConditions.visibilityOf(successMsgBox));
 		String Actual_CreateMsg = successMsgBox.getText();
 		String Expected_CreateMsg = Messages.tstdataSource;
 		System.out.println("Actual created message is :" + Actual_CreateMsg);

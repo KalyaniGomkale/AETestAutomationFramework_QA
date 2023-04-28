@@ -73,7 +73,7 @@ public class TenantsPageTest extends TestBase {
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
 	//Need to add these test cases before normal agent get deleted
-	@Test(priority = 1013,alwaysRun=true)
+	@Test(priority = 1013)
 	public void validateDisableTenantTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateDisableTenantTest", "TC_135: To verfiy able to disable any tenant");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
@@ -82,7 +82,7 @@ public class TenantsPageTest extends TestBase {
 		extentTest.log(extentTest.getStatus(), "Tenant is disabled successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
-	@Test(priority = 1014 ,dependsOnMethods="validateDisableTenantTest",alwaysRun=true)
+	@Test(priority = 1014)
 	public void validateSubmitRequestDisabledTenantTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateSubmitRequestDisabledTenantTest", "TC_Additional: To verify submit reqeust of disabled tenant");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
@@ -91,7 +91,7 @@ public class TenantsPageTest extends TestBase {
 		extentTest.log(extentTest.getStatus(), "Submit request of disabled tenant is verified successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
-	@Test(priority = 1015,alwaysRun=true)
+	@Test(priority = 1015)
 	public void validateSubmitRequestEnableTenantTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateSubmitRequestEnableTenantTest", "TC_Additional: Verify Can submit reqeust once enable tenant");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
@@ -173,7 +173,7 @@ public class TenantsPageTest extends TestBase {
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
 	//About orgcode
-/*	@Test(priority = 3001)
+	@Test(priority = 3001)
 	public void validateAdvSearchForOrgCodeEqualToTenantPageTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateAdvSearchForOrgCodeEqualToTenantPageTest", "TC_003: To Verfiy Advance search for Org Code and created date with equals criteria");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AdvancedSearchsheetname"),method.getName());
@@ -198,8 +198,7 @@ public class TenantsPageTest extends TestBase {
 		extentTest = extent.createTest("validateAdvSearchForOrgCodeIsLikeTenantPageTest", "TC_003: To Verfiy Advance search for Org Code and created date with Is Like criteria");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AdvancedSearchsheetname"),method.getName());
 		tenantspage = new TenantsPage();
-		tenantspage.validateAdvSearchForOrgCodeIsLike(TestDataInMap.get("TenantName"), TestDataInMap.get("Description"),TestDataInMap.get("OrganizationCode"),
-				TestDataInMap.get("ColumnName"),TestDataInMap.get("Criterion"),TestDataInMap.get("SearchData"),TestDataInMap.get("PageSize"));
+		tenantspage.validateAdvSearchForOrgCodeIsLike(TestDataInMap.get("ColumnName"),TestDataInMap.get("Criterion"),TestDataInMap.get("SearchData"),TestDataInMap.get("PageSize"));
 		extentTest.log(extentTest.getStatus(), "Advance search for Org Code criteria validated successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
 	}
@@ -239,8 +238,7 @@ public class TenantsPageTest extends TestBase {
 		extentTest = extent.createTest("validateAdvSearchNameNotEqualTenantPageTest", "TC_003: To Verfiy Advance search for Tenant name not equal to with criteria and Created After criteria");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AdvancedSearchsheetname"),method.getName());
 		tenantspage = new TenantsPage();
-		tenantspage.validateAdvSearchNameNotEqual(TestDataInMap.get("TenantName"), TestDataInMap.get("Description"),TestDataInMap.get("OrganizationCode"),
-				TestDataInMap.get("ColumnName"),TestDataInMap.get("Criterion"),TestDataInMap.get("PageSize"));
+		tenantspage.validateAdvSearchNameNotEqual(TestDataInMap.get("SearchData"),TestDataInMap.get("ColumnName"),TestDataInMap.get("Criterion"),TestDataInMap.get("PageSize"));
 		extentTest.log(extentTest.getStatus(), "Advance search for Tenant names not equals to and created after criteria validated successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
 	}
@@ -249,8 +247,7 @@ public class TenantsPageTest extends TestBase {
 		extentTest = extent.createTest("validateAdvSearchNameIsLikeTenantPageTest", "TC_003: To Verfiy Advance search for Tenant name with is like criteria and Created in between criteria");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AdvancedSearchsheetname"),method.getName());
 		tenantspage = new TenantsPage();
-		tenantspage.validateAdvSearchNameIsLike(TestDataInMap.get("TenantName"), TestDataInMap.get("Description"),TestDataInMap.get("OrganizationCode"),
-				TestDataInMap.get("ColumnName"),TestDataInMap.get("Criterion"),TestDataInMap.get("SearchData"),TestDataInMap.get("PageSize"));
+		tenantspage.validateAdvSearchNameIsLike(TestDataInMap.get("ColumnName"),TestDataInMap.get("Criterion"),TestDataInMap.get("SearchData"),TestDataInMap.get("PageSize"));
 		extentTest.log(extentTest.getStatus(), "Advance search for Tenant names is like and created in between criteria validated successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
 	}
@@ -259,8 +256,7 @@ public class TenantsPageTest extends TestBase {
 		extentTest = extent.createTest("validateAdvSearchNameBeginWithTenantPageTest", "TC_003: To Verfiy Advance search for Tenant name begins with criteria and Created before criteria");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AdvancedSearchsheetname"),method.getName());
 		tenantspage = new TenantsPage();
-		tenantspage.validateAdvSearchNameBeginWith(TestDataInMap.get("TenantName"), TestDataInMap.get("Description"),TestDataInMap.get("OrganizationCode"),
-				TestDataInMap.get("ColumnName"),TestDataInMap.get("Criterion"),TestDataInMap.get("SearchData"),TestDataInMap.get("PageSize"));
+		tenantspage.validateAdvSearchNameBeginWith(TestDataInMap.get("ColumnName"),TestDataInMap.get("Criterion"),TestDataInMap.get("SearchData"),TestDataInMap.get("PageSize"));
 		extentTest.log(extentTest.getStatus(), "Advance search for Tenant names begins with and created before criteria validated successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
 	} 
@@ -274,7 +270,7 @@ public class TenantsPageTest extends TestBase {
 		extentTest.log(extentTest.getStatus(), "Advance search for Tenant names is like and created in between criteria validated successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
 	} 
-	//About Calender
+///About Calender
 	@Test(priority = 3011)
 	public void validateCreatedEqualToTenantPageTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateCreatedEqualToTenantPageTest", "TC_003: To Verfiy Advance search for Tenant name with is like criteria and Created in between criteria");
@@ -324,6 +320,6 @@ public class TenantsPageTest extends TestBase {
 				TestDataInMap.get("CreatedEndYear"),TestDataInMap.get("CreatedEndMonth"),TestDataInMap.get("CreatedEndDate"),TestDataInMap.get("PageSize"));
 		extentTest.log(extentTest.getStatus(), "Advance search for Tenant names is like and created in between criteria validated successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
-	}*/
+	}
 
 }

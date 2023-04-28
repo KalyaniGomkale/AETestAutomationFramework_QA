@@ -90,7 +90,7 @@ public class PurgePolicyPageTA extends TestBase {
 			if (wkfRequest >= history) {
 				Thread.sleep(5000);
 				js.executeScript("arguments[0].click();", saveBtn);
-				
+				wait.until(ExpectedConditions.visibilityOf(alert_Message));
 				String Actual_SuccessMsg = alert_Message.getText();
 				Reporter.log("Actual success message after setting purging policy:" + Actual_SuccessMsg,true);
 				String Expected_SuccessMsg = Messages.purgePolicyDuration;

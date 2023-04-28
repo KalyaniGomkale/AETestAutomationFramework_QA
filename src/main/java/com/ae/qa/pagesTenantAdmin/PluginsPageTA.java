@@ -60,19 +60,21 @@ public class PluginsPageTA extends TestBase{
 		loginpageta.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
 		Reporter.log("User log in Successfully", true);
 		JavascriptExecutor js_tenant = (JavascriptExecutor) driver;
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		js_tenant.executeScript("arguments[0].click();", pluginsTab);
 		wb.validateClickOnAdvanceSearch();
 	}
-
+///////////////////////////////For Plugin Name//////////////////////////////////////////////////////////////////////////
 	public void validateAdvSearchForPluginNameEqualTo(String SearchColumn,String SearchCriteria,
 			String pluginName,String PageSize)throws Exception {
 		validateAdvSearch();
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria, pluginName);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement>op=driver.findElements(By.xpath("//div[@class='workflow-list-container table-responsive']/table/tbody/tr/td[1]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Plugin record present in table are :"+op.size());
@@ -85,11 +87,13 @@ public class PluginsPageTA extends TestBase{
 	public void validateAdvSearchForPluginNameNotEqualTo(String SearchColumn,String SearchCriteria,
 			String pluginName,String PageSize)throws Exception {
 		validateAdvSearch();
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria, pluginName);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement>op=driver.findElements(By.xpath("//div[@class='workflow-list-container table-responsive']/table/tbody/tr/td[1]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Plugin record present in table are :"+op.size());
@@ -102,11 +106,13 @@ public class PluginsPageTA extends TestBase{
 	public void validateAdvSearchForPluginNameIsLike(String SearchColumn,String SearchCriteria,
 			String advSearchFor,String PageSize)throws Exception {
 		validateAdvSearch();
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria,advSearchFor);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement>op=driver.findElements(By.xpath("//div[@class='workflow-list-container table-responsive']/table/tbody/tr/td[1]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Plugin record present in table are :"+op.size());
@@ -119,29 +125,33 @@ public class PluginsPageTA extends TestBase{
 	public void validateAdvSearchForPluginNameBeginsWith(String SearchColumn,String SearchCriteria,
 			String advSearchFor,String PageSize)throws Exception {
 		validateAdvSearch();
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria,advSearchFor);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement>op=driver.findElements(By.xpath("//div[@class='workflow-list-container table-responsive']/table/tbody/tr/td[1]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Plugin record present in table are :"+op.size());
 			Thread.sleep(5000);
 			String actual_PluginName=op.get(i).getText();
-			String lowercase_PluginName = actual_PluginName.toLowerCase();
+			//String lowercase_PluginName = actual_PluginName.toLowerCase();
 			System.out.println("actual_Plugin Name present in table are: "+actual_PluginName);
-			Assert.assertTrue(lowercase_PluginName.contains(advSearchFor));
+			Assert.assertTrue(actual_PluginName.contains(advSearchFor));
 		}
 	}
 	public void validateAdvSearchForPluginNameEndsWith(String SearchColumn,String SearchCriteria,
 			String advSearchFor,String PageSize)throws Exception {
 		validateAdvSearch();
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria,advSearchFor);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement>op=driver.findElements(By.xpath("//div[@class='workflow-list-container table-responsive']/table/tbody/tr/td[1]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Plugin record present in table are :"+op.size());
@@ -151,10 +161,11 @@ public class PluginsPageTA extends TestBase{
 			Assert.assertTrue(actual_PluginName.contains(advSearchFor));
 		}
 	}
+	/////////////////////////For Calender////////////////////////////////////////////////////////////////////////////
 	public void validateHandleCalender(String CreatedCriteria,String startYear,String startMonth,String startDate) throws Exception {
 		loginpageta.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", pluginsTab);
 		wb.validateClickOnAdvanceSearch();
 		Thread.sleep(2000);
@@ -164,7 +175,7 @@ public class PluginsPageTA extends TestBase{
 	public void validateHandleCalenderForLastModified(String CreatedCriteria,String startYear,String startMonth,String startDate) throws Exception {
 		loginpageta.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", pluginsTab);
 		wb.validateClickOnAdvanceSearch();
 		Thread.sleep(2000);
@@ -174,6 +185,7 @@ public class PluginsPageTA extends TestBase{
 
 	public void validateCreatedEqualTo(String CreatedCriteria,String startYear,String startMonth,String startDate,String PageSize) throws Exception {
 		validateHandleCalender(CreatedCriteria,startYear,startMonth,startDate);
+		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		Thread.sleep(2000);
 		List<WebElement>op=driver.findElements(By.xpath("//div[@class='workflow-list-container table-responsive']/table/tbody/tr/td[5]"));
@@ -195,6 +207,7 @@ public class PluginsPageTA extends TestBase{
 
 	public void validateCreatedBefore(String CreatedCriteria,String startYear,String startMonth,String startDate,String PageSize) throws Exception {
 		validateHandleCalender(CreatedCriteria,startYear,startMonth,startDate);
+		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		Thread.sleep(2000);
 		List<WebElement>op=driver.findElements(By.xpath("//div[@class='workflow-list-container table-responsive']/table/tbody/tr/td[5]"));
@@ -217,6 +230,7 @@ public class PluginsPageTA extends TestBase{
 	}
 	public void validateCreatedAfter(String CreatedCriteria,String startYear,String startMonth,String startDate,String PageSize) throws Exception {
 		validateHandleCalender(CreatedCriteria,startYear,startMonth,startDate);
+		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		Thread.sleep(2000);
 		List<WebElement>op=driver.findElements(By.xpath("//div[@class='workflow-list-container table-responsive']/table/tbody/tr/td[5]"));
@@ -242,6 +256,7 @@ public class PluginsPageTA extends TestBase{
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", pluginsTab);
+		Thread.sleep(2000);
 		wb.validateClickOnAdvanceSearch();
 		Thread.sleep(2000);
 		wb.validateExtraAdvanceSearchForCalender("Created",CreatedCriteria,startYear,startMonth,startDate,endYear,endMonth,endDate);
@@ -275,6 +290,7 @@ public class PluginsPageTA extends TestBase{
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", pluginsTab);
+		Thread.sleep(2000);
 		wb.validateClickOnAdvanceSearch();
 		Thread.sleep(2000);
 		wb.validateExtraAdvanceSearchForCalender("Created",CreatedCriteria,startYear,startMonth,startDate,endYear,endMonth,endDate);
@@ -302,8 +318,10 @@ public class PluginsPageTA extends TestBase{
 			Reporter.log("User is getting correct records for created on date with after criteria",true);
 		}
 	}
+	///////////////////////////////////For Last Modified////////////////////////////////////////////////////////////////
 	public void validateLastModifiedCreatedEqualTo(String CreatedCriteria,String startYear,String startMonth,String startDate,String PageSize) throws Exception {
 		validateHandleCalenderForLastModified(CreatedCriteria,startYear,startMonth,startDate);
+		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		Thread.sleep(2000);
 		List<WebElement>op=driver.findElements(By.xpath("//div[@class='workflow-list-container table-responsive']/table/tbody/tr/td[6]"));
@@ -325,6 +343,7 @@ public class PluginsPageTA extends TestBase{
 
 	public void validateLastModifiedCreatedBefore(String CreatedCriteria,String startYear,String startMonth,String startDate,String PageSize) throws Exception {
 		validateHandleCalenderForLastModified(CreatedCriteria,startYear,startMonth,startDate);
+		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		Thread.sleep(2000);
 		List<WebElement>op=driver.findElements(By.xpath("//div[@class='workflow-list-container table-responsive']/table/tbody/tr/td[6]"));
@@ -347,6 +366,7 @@ public class PluginsPageTA extends TestBase{
 	}
 	public void validateLastModifiedCreatedAfter(String CreatedCriteria,String startYear,String startMonth,String startDate,String PageSize) throws Exception {
 		validateHandleCalenderForLastModified(CreatedCriteria,startYear,startMonth,startDate);
+		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		Thread.sleep(2000);
 		List<WebElement>op=driver.findElements(By.xpath("//div[@class='workflow-list-container table-responsive']/table/tbody/tr/td[6]"));
@@ -372,6 +392,7 @@ public class PluginsPageTA extends TestBase{
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", pluginsTab);
+		Thread.sleep(2000);
 		wb.validateClickOnAdvanceSearch();
 		Thread.sleep(2000);
 		wb.validateExtraAdvanceSearchForCalender("Last Modified",CreatedCriteria,startYear,startMonth,startDate,endYear,endMonth,endDate);
@@ -405,6 +426,7 @@ public class PluginsPageTA extends TestBase{
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", pluginsTab);
+		Thread.sleep(2000);
 		wb.validateClickOnAdvanceSearch();
 		Thread.sleep(2000);
 		wb.validateExtraAdvanceSearchForCalender("Last Modified",CreatedCriteria,startYear,startMonth,startDate,endYear,endMonth,endDate);
@@ -432,23 +454,4 @@ public class PluginsPageTA extends TestBase{
 			Reporter.log("User is getting correct records for created on date with after criteria",true);
 		}
 	}
-	public void validateSearchFunctionalityPluginTA(String PageSize,String PluginName) throws Exception{
-		loginpageta.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
-		Reporter.log("User log in Successfully", true);
-		JavascriptExecutor js_tenant = (JavascriptExecutor) driver;
-		js_tenant.executeScript("arguments[0].click();", pluginsTab);
-		Thread.sleep(2000);
-		wb.changePageSize(PageSize);
-		Thread.sleep(2000);
-		searchField.sendKeys(PluginName);
-		List<WebElement>op=driver.findElements(By.xpath("//div[@class='workflow-list-container table-responsive']/table/tbody/tr/td[1]"));
-		for(int i=0;i<op.size();i++) {
-			System.out.println("Total Plugin record present in table are :"+op.size());
-			Thread.sleep(5000);
-			String actual_PluginName=op.get(i).getText();
-			System.out.println("actual_Plugin Name present in table are: "+actual_PluginName);
-			Assert.assertTrue(actual_PluginName.equalsIgnoreCase(PluginName));
-		}
-	}
-
 }

@@ -156,7 +156,7 @@ public class TestBase {
 		}
 			else if (browserName.contentEquals("Edge")) {
 				//System.setProperty("webdriver.ie.driver",prop.getProperty("IEDriverPath"));
-				System.out.println("Edge browser");
+				//System.out.println("Edge browser");
 				System.setProperty("webdriver.edge.driver","C:\\Users\\kalyani.gomkale\\Downloads\\edgedriver_win64\\msedgedriver.exe");
 				WebDriverManager.edgedriver().setup();
 				driver=new EdgeDriver();

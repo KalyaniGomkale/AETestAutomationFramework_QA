@@ -91,7 +91,7 @@ public class SystemUsersPageTest extends TestBase {
 		extentTest.log(extentTest.getStatus(), "System Users page loading validated successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("sheetname"), "Pass", method.getName());
 	}
-	@Test(priority=1018,alwaysRun=true)
+	@Test(priority=1018)
 	public void validateDeleteSystemAdminTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateDeleteSystemAdminTest", "TC_13:Verify Delete Sysadmin");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("sheetname"),method.getName());
@@ -103,7 +103,7 @@ public class SystemUsersPageTest extends TestBase {
 	}
 	
     //For Username
-/*	@Test(priority = 3016)
+	@Test(priority = 3016)
 	public void validateAdvSearchForUserNameEqualToSystemUserPageTest(Method method) throws Exception {
 		extentTest = extent.createTest("validateAdvSearchForUserNameEqualToSystemUserPageTest", "TC_009: To Verfiy Advance search for username with equals criteria");
 		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AdvancedSearchsheetname"),method.getName());
@@ -358,5 +358,5 @@ public class SystemUsersPageTest extends TestBase {
 				TestDataInMap.get("CreatedEndYear"),TestDataInMap.get("CreatedEndMonth"),TestDataInMap.get("CreatedEndDate"),TestDataInMap.get("PageSize"));
 		extentTest.log(extentTest.getStatus(), "Advance search for Tenant names is like and created in between criteria validated successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
-	}*/
+	}
 }

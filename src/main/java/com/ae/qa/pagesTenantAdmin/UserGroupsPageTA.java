@@ -485,15 +485,17 @@ public class UserGroupsPageTA extends TestBase {
 		js_tenant.executeScript("arguments[0].click();", userGroupsTab);
 		wb.validateClickOnAdvanceSearch();
 	}
-
+///////////////////////////////////For Group Name////////////////////////////////////////////////////////////////
 	public void validateAdvSearchForGroupNameEqualTo(String SearchColumn,String SearchCriteria,
 			String groupName,String PageSize)throws Exception {
 		validateAdvSearch();
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria, groupName);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table-responsive']/table/tr/td[1]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Group Name record present in table are :"+op.size());
@@ -506,11 +508,13 @@ public class UserGroupsPageTA extends TestBase {
 	public void validateAdvSearchForGroupNameNotEqualTo(String SearchColumn,String SearchCriteria,
 			String groupName,String PageSize)throws Exception {
 		validateAdvSearch();
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria, groupName);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table-responsive']/table/tr/td[1]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Group Name record present in table are :"+op.size());
@@ -523,11 +527,13 @@ public class UserGroupsPageTA extends TestBase {
 	public void validateAdvSearchForGroupNameIsLike(String SearchColumn,String SearchCriteria,
 			String advSearchFor,String PageSize)throws Exception {
 		validateAdvSearch();
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria,advSearchFor);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table-responsive']/table/tr/td[1]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Group Name record present in table are :"+op.size());
@@ -540,11 +546,13 @@ public class UserGroupsPageTA extends TestBase {
 	public void validateAdvSearchForGroupNameBeginsWith(String SearchColumn,String SearchCriteria,
 			String advSearchFor,String PageSize)throws Exception {
 		validateAdvSearch();
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria,advSearchFor);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table-responsive']/table/tr/td[1]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Group Name record present in table are :"+op.size());
@@ -559,11 +567,13 @@ public class UserGroupsPageTA extends TestBase {
 	public void validateAdvSearchForGroupNameEndsWith(String SearchColumn,String SearchCriteria,
 			String advSearchFor,String PageSize)throws Exception {
 		validateAdvSearch();
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria,advSearchFor);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement>op=driver.findElements(By.xpath("//div[@class='table-responsive']/table/tr/td[1]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Group Name present in table are :"+op.size());

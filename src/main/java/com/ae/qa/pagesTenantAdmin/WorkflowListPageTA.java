@@ -20,6 +20,8 @@ import org.testng.Reporter;
 
 import com.ae.qa.base.TestBase;
 import com.ae.qa.pages.LoginPage;
+import com.ae.qa.pages.TenantUsersPage;
+import com.ae.qa.pages.TenantsPage;
 import com.ae.qa.pages.WebElements;
 import com.ae.qa.util.CommonWebElements;
 import com.ae.qa.util.Messages;
@@ -193,6 +195,18 @@ public class WorkflowListPageTA extends TestBase {
 	WebElement selectAllCheckBox;
 	@FindBy(id="isSeqExec")
 	WebElement sequentialCheckbox;
+	@FindBy(xpath = "//button[@name='upload']")
+	WebElement uploadBtn;
+	@FindBy(xpath="//*[@id='uploadModal']/div/div/form/div[1]/fieldset/div/label/input")
+	WebElement chooseFileFromDesktop;
+	@FindBy(xpath="//div[@class='card-body']/h2")
+	WebElement uploadLicense;
+	@FindBy(xpath = "//div/p[@class='alert-message-text']")
+	WebElement successMsgBox;
+	@FindBy(id = "isVerified")
+	WebElement exportVerifiedCheckbox;
+	@FindBy(xpath="(//select[@id='pageSize2'])[1]")
+	WebElement pageSize;
 
 	public WorkflowListPageTA() {
 		PageFactory.initElements(driver, this);
@@ -1255,7 +1269,8 @@ public class WorkflowListPageTA extends TestBase {
 		JavascriptExecutor js= (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", workflowsTab);
 		Reporter.log("Workflows Tab is clicked",true);
-		wb.changePageSize(PageSize);
+		Select selectPageSize=new Select(pageSize);
+		selectPageSize.selectByVisibleText(PageSize);
 		Thread.sleep(2000);
 		WebElement editBtn= driver.findElement(By.xpath("//table/tr/td[@title='"+wfName+"']/../td[7]/span[@title='Edit Workflow']"));
 		editBtn.click();
@@ -1272,23 +1287,488 @@ public class WorkflowListPageTA extends TestBase {
 		informationpageta.validateSignOut();
 		cataloguepageta.validateSubmitRequest(wfName);
 	}
+	
+	public void ImportWorkflow(String UserName,String Password,String wfName, String wfdes, String category, String WFImportPath, String priority,
+			String expTime, String maxTime, String cleanUpHrs, String manExeTime, String tUnit) throws Exception{
+		loginpageta.login(UserName, Password);
+		Thread.sleep(5000);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].click();", workflowsTab);
+		Reporter.log("Workflows Tab is clicked",true);
+		Thread.sleep(2000);
+		importTab.click();
+		Reporter.log("Import button clicked",true);
+		workflowName.sendKeys(wfName);
+		Thread.sleep(3000);
+		wfDescription.sendKeys(wfdes);
+		Thread.sleep(3000);
+		Select wfCategory_drpdown = new Select(wfCategory);
+		wfCategory_drpdown.selectByVisibleText(category);
+		Thread.sleep(3000);
+		if (assistedCheckbox.isSelected()) {
+			Reporter.log("assisted Workflow is selected",true);
+			assistedCheckbox.click();
+			Reporter.log("assisted Workflow is unselected",true);
+		} else {
+			Reporter.log("Is Assisted Workflow checkbox is unselected");
+		}
+		Thread.sleep(3000);
+		if (enableRDPCheckbox.isSelected()) {
+			Reporter.log("Enable RDP checkbox is selected",true);
+			enableRDPCheckbox.click();
+			Reporter.log("Enable RDP checkbox is unselected",true);
+		} else {
+			System.out.println("Enable RDP checkbox is unselected");
+		}
+		Thread.sleep(3000);
+		//ChooseWFToImport.sendKeys(prop.getProperty("WFToImportPath"));
+		ChooseWFToImport.sendKeys(WFImportPath);
+		JavascriptExecutor js3 = (JavascriptExecutor) driver;
+		js3.executeScript("arguments[0].click();", createBtn);
+		Reporter.log("Create Button is clicked",true);
+		//Thread.sleep(3000);
+		wait.until(ExpectedConditions.visibilityOf(wfPriority));
+		Select wfPriority_drpdown = new Select(wfPriority);
+		wfPriority_drpdown.selectByVisibleText(priority);
+		Reporter.log("Priority is set",true);
+		Thread.sleep(2000);
+		expected_completionTime.clear();
+		expected_completionTime.sendKeys(expTime);
+		Reporter.log("Expected Completion Time in Seconds is set",true);
+		Thread.sleep(2000);
+		max_CompletionTime.clear();
+		max_CompletionTime.sendKeys(maxTime);
+		Reporter.log("Maximum Completion Time in Seconds is set",true);
+		Thread.sleep(2000);
+		cleanupOldReqHours.clear();
+		cleanupOldReqHours.sendKeys(cleanUpHrs);
+		Reporter.log("Cleanup Requests older than Hours fields is set",true);
+		Thread.sleep(2000);
+		manualExecutionTime.clear();
+		manualExecutionTime.sendKeys(manExeTime);
+		Reporter.log("Manual Execution Time is set",true);
+		wait.until(ExpectedConditions.visibilityOf(manualTimeUnit));
+		Select manualTimeUnit_drpdown = new Select(manualTimeUnit);
+		manualTimeUnit_drpdown.selectByVisibleText(tUnit);
+		Reporter.log("Manual Execution time unit is set",true);
+		Thread.sleep(3000);
+		saveBtn.click();
+		Reporter.log("Save button is clicked",true);
+		wait.until(ExpectedConditions.visibilityOf(success_msg));
+		String Actual_successMsg = success_msg.getText();
+		System.out.println("Actual Message : " + Actual_successMsg);
+		String Expected_successMsg = Messages.updateWorkflow;
+		System.out.println("Expected Message :"+Expected_successMsg);
+		Assert.assertEquals(Actual_successMsg, Expected_successMsg, "Workflow not updated");
+		Reporter.log("Workflow updated",true);
+		WebElement sliderToEnableWF=driver.findElement(By.xpath("//table/tr[2]/td[@title='"+wfName+"']/../td[6]/label/span"));
+		sliderToEnableWF.click();
+		Reporter.log("Workflow is enabled successfully",true);
+		informationpageta.validateSignOut();
+	}
+	/////////////Comman Method for import and export wf in UAT enterprise and subscription license of other customer///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	public void validateExportWFOtherCustomer(String tName, String tDescription, String orgCode,String FName, String LName, String UserMail, String UserName,
+			String Pswd, String ConfirmPswd, String RoleName,String Password,String licensePath,String wfName, String wfdes, String category, String WFImportPath, String priority,
+			String expTime, String maxTime, String cleanUpHrs, String manExeTime, String tUnit) throws Exception{
+		TenantsPage tenantpage = new TenantsPage();
+		tenantpage.addNewTenants(tName, tDescription, orgCode);
+		TenantUsersPage tenantuserpage = new TenantUsersPage();
+		tenantuserpage.creatingTenantUser(orgCode, FName, LName, UserMail, UserName, Pswd, ConfirmPswd, RoleName);
+		loginpageta.ValidateFirstTimeLogin(UserName, ConfirmPswd, Password);
+		loginpageta.login(UserName, Password);
+		Thread.sleep(5000);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].click();", uploadLicense);
+		Thread.sleep(2000);
+		//give lic file 
+		chooseFileFromDesktop.sendKeys(licensePath);
+		driver.manage().timeouts().implicitlyWait(5000, TimeUnit.MILLISECONDS);
+		JavascriptExecutor js2 = (JavascriptExecutor) driver;
+		js2.executeScript("arguments[0].click();", uploadBtn);
+		//wait till success message comes
+		wait.until(ExpectedConditions.visibilityOf(successMsgBox));
+		String Actual_LicenseUploadMsg = successMsgBox.getText();
+		String Expected_LicenseUploadMsg = Messages.licenseUpload;
+		System.out.println("Actual Success Message:"+Actual_LicenseUploadMsg);
+		System.out.println("Expected Success Message:"+Expected_LicenseUploadMsg);
+		Assert.assertEquals(Actual_LicenseUploadMsg, Expected_LicenseUploadMsg, "License upload Failed");
+		Reporter.log("License Uploaded successfully", true);
+		Thread.sleep(5000);
+		informationpageta.validateSignOut();
+		ImportWorkflow(UserName,Password,wfName, wfdes, category, WFImportPath, priority,expTime, maxTime, cleanUpHrs, manExeTime, tUnit);
+		loginpageta.login(UserName, Password);
+		Thread.sleep(2000);
+		js.executeScript("arguments[0].click();", workflowsTab);
+		Reporter.log("Workflows Tab is clicked",true);
+		Thread.sleep(3000);
+		importDrpDwn.click();
+		Thread.sleep(2000);
+		Reporter.log("Clicked the Dropdown button", true);
+		exportBtn.click();
+		Thread.sleep(2000);
+		Reporter.log("Clicked the Export option from dropdown", true);
+		WfsList.click();
+		Thread.sleep(2000);
+		Reporter.log("Clicked the Workflows dropdown ", true);
+		searchBar.click();
+		Thread.sleep(2000);
+		Reporter.log("Clicked on search bar");
+		searchBar.sendKeys(wfName);
+		Wfselect.click();
+		Reporter.log("Checked the Workflow name ", true);
+		WfsList.click();
+		Thread.sleep(2000);
+		ExportBtn.click();
+		Thread.sleep(2000);
+		Reporter.log("Clicked on export bottun", true);
+		wait.until(ExpectedConditions.visibilityOf(success_msg));
+		String actual_successMsg = success_msg.getText();
+		System.out.println("Actual success msg: " + actual_successMsg);
+		String expected_successMsg = Messages.exportWorkflow;
+		System.out.println("Expected success msg: " + expected_successMsg);
+		Assert.assertEquals(actual_successMsg, expected_successMsg, "export does not started.");
+		informationpageta.validateSignOut();
+	}
+
+	public void validateImportExportedWFOtherCustomer(String orgCode,String FName, String LName, String UserMail, String UserName,
+			String Pswd, String ConfirmPswd, String RoleName,String Password,String wfName, String wfdes, String category, String WFImportPath, String priority,
+			String expTime, String maxTime, String cleanUpHrs, String manExeTime, String tUnit) throws Exception{
+		TenantUsersPage tenantuserpage = new TenantUsersPage();
+		tenantuserpage.creatingTenantUser(orgCode, FName, LName, UserMail, UserName, Pswd, ConfirmPswd, RoleName);
+		loginpageta.ValidateFirstTimeLogin(UserName, ConfirmPswd, Password);
+		ImportWorkflow(UserName,Password,wfName, wfdes, category, WFImportPath, priority,expTime, maxTime, cleanUpHrs, manExeTime, tUnit);
+	}
+	//////////////////////////Export as verified WF/////////////////////////////////////////////////////////////////////////////////////
+	public void validateExportVerifiedWFUAT(String UserName, String Password,String wfName) throws Exception {
+		loginpageta.login(UserName, Password);
+		Thread.sleep(5000);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].click();", workflowsTab);
+		Reporter.log("Workflows Tab is clicked",true);
+		Thread.sleep(2000);
+		importDrpDwn.click();
+		Thread.sleep(2000);
+		Reporter.log("Clicked the Dropdown button", true);
+		exportBtn.click();
+		Thread.sleep(2000);
+		Reporter.log("Clicked the Export option from dropdown", true);
+		WfsList.click();
+		Thread.sleep(2000);
+		Reporter.log("Clicked the Workflows dropdown ", true);
+		searchBar.click();
+		Thread.sleep(2000);
+		Reporter.log("Clicked on search bar");
+		searchBar.sendKeys(wfName);
+		Wfselect.click();
+		Reporter.log("Checked the Workflow name ", true);
+		WfsList.click();
+		if(!exportVerifiedCheckbox.isSelected()){
+			exportVerifiedCheckbox.click();
+			Reporter.log("Export as verified checkbox is selected successfully", true);
+		}else {
+			Reporter.log("Export as verified checkbox is already selected successfully", true);
+		}
+		Thread.sleep(2000);
+		ExportBtn.click();
+		Reporter.log("Clicked on export bottun", true);
+		wait.until(ExpectedConditions.visibilityOf(success_msg));
+		String actual_successMsg = success_msg.getText();
+		System.out.println("Actual success msg: " + actual_successMsg);
+		String expected_successMsg = Messages.exportWorkflow;
+		System.out.println("Expected success msg: " + expected_successMsg);
+		Assert.assertEquals(actual_successMsg, expected_successMsg, "export does not started.");
+		informationpageta.validateSignOut();
+	}
+    /////////////////Need to update the script into same customer now it is for other customer///////////////////////////////////////////////////s
+		public void validateExportAsVerifiedUATWFAndImportInEnterprise(String UserName, String Password,String wfName,String wfdes, String category, String WFImportPath, String priority,
+			String expTime, String maxTime, String cleanUpHrs, String manExeTime, String tUnit) throws Exception {
+		ImportWorkflow(UserName,Password,wfName, wfdes, category, WFImportPath, priority,expTime, maxTime, cleanUpHrs, manExeTime, tUnit);
+
+	}
+	/////////////////////////////////////WF import export for same customer[License ID should be same]///////////////////////////////////////////////////
+	public void validateCreateTenantAdminWithUploadLicense(String tName, String tDescription, String orgCode,String FName, String LName, String UserMail, String UserName,
+			String Pswd, String ConfirmPswd, String RoleName,String Password,String licensePath) throws Exception{
+		TenantsPage tenantpage = new TenantsPage();
+		tenantpage.addNewTenants(tName, tDescription, orgCode);
+		TenantUsersPage tenantuserpage = new TenantUsersPage();
+		tenantuserpage.creatingTenantUser(orgCode, FName, LName, UserMail, UserName, Pswd, ConfirmPswd, RoleName);
+		loginpageta.ValidateFirstTimeLogin(UserName, ConfirmPswd, Password);
+		loginpageta.login(UserName, Password);
+		Thread.sleep(2000);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].click();", uploadLicense);
+		Thread.sleep(2000);
+		//give lic file 
+		chooseFileFromDesktop.sendKeys(licensePath);
+		driver.manage().timeouts().implicitlyWait(5000, TimeUnit.MILLISECONDS);
+		JavascriptExecutor js2 = (JavascriptExecutor) driver;
+		js2.executeScript("arguments[0].click();", uploadBtn);
+		//wait till success message comes
+		//driver.manage().timeouts().implicitlyWait(180, TimeUnit.SECONDS);
+		wait.until(ExpectedConditions.visibilityOf(successMsgBox));
+		String Actual_LicenseUploadMsg = successMsgBox.getText();
+		String Expected_LicenseUploadMsg = Messages.licenseUpload;
+		System.out.println("Actual Success Message:"+Actual_LicenseUploadMsg);
+		System.out.println("Expected Success Message:"+Expected_LicenseUploadMsg);
+		Assert.assertEquals(Actual_LicenseUploadMsg, Expected_LicenseUploadMsg, "License upload Failed");
+		Reporter.log("License Uploaded successfully", true);
+		Thread.sleep(5000);
+		informationpageta.validateSignOut();
+	}
+	public void validateExportImportWFforSameCustomer(String UserName, String Password,String wfName,String wfdes, String category, String WFImportPath, String priority,
+			String expTime, String maxTime, String cleanUpHrs, String manExeTime, String tUnit,String UserName1,String wfName1,String WFImportPath1) throws Exception {
+		//Firstly login in Development user import the wf and then export it
+		ImportWorkflow(UserName,Password,wfName, wfdes, category, WFImportPath, priority,expTime, maxTime, cleanUpHrs, manExeTime, tUnit);
+		loginpageta.login(UserName, Password);
+		Thread.sleep(2000);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].click();", workflowsTab);
+		Reporter.log("Workflows Tab is clicked",true);
+		Thread.sleep(3000);
+		importDrpDwn.click();
+		Thread.sleep(2000);
+		Reporter.log("Clicked the Dropdown button", true);
+		exportBtn.click();
+		Thread.sleep(2000);
+		Reporter.log("Clicked the Export option from dropdown", true);
+		WfsList.click();
+		Thread.sleep(2000);
+		Reporter.log("Clicked the Workflows dropdown ", true);
+		searchBar.click();
+		Thread.sleep(2000);
+		Reporter.log("Clicked on search bar");
+		searchBar.sendKeys(wfName);
+		Wfselect.click();
+		Reporter.log("Checked the Workflow name ", true);
+		WfsList.click();
+		Thread.sleep(2000);
+		ExportBtn.click();
+		Thread.sleep(2000);
+		Reporter.log("Clicked on export bottun", true);
+		wait.until(ExpectedConditions.visibilityOf(success_msg));
+		String actual_successMsg = success_msg.getText();
+		System.out.println("Actual success msg: " + actual_successMsg);
+		String expected_successMsg = Messages.exportWorkflow;
+		System.out.println("Expected success msg: " + expected_successMsg);
+		Assert.assertEquals(actual_successMsg, expected_successMsg, "export does not started.");
+		informationpageta.validateSignOut();
+		ImportWorkflow(UserName1,Password,wfName1, wfdes, category, WFImportPath1, priority,expTime, maxTime, cleanUpHrs, manExeTime, tUnit);
+	}
+	public void validateVerfiedStatusWFAfterUpdateVerifiedWF(String UserName, String Password,String UserName1, String Password1,String wfName,String wfName1,String updatedWFPath,String wfType) throws Exception {
+		//validateExportVerifiedWFUAT(UserName, Password, wfName);
+		loginpageta.login(UserName1, Password1);
+		Thread.sleep(2000);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].click();", workflowsTab);
+		Reporter.log("Workflows Tab is clicked",true);
+		Thread.sleep(2000);
+		Reporter.log("workflowList  tab clicked",true);
+		importDrpDwn.click();
+		Thread.sleep(2000);
+		Reporter.log("Clicked the Dropdown button", true);
+		updateOption.click();
+		Thread.sleep(2000);
+		Reporter.log("Clicked the Update option from dropdown", true);
+		wf_dropdown.click();
+		Thread.sleep(2000);
+		Reporter.log("Clicked the Workflows dropdown ", true);
+		search.click();
+		Thread.sleep(2000);
+		Reporter.log("Clicked on search bar");
+		WebElement SelectionWF = driver.findElement(By.xpath("//*[@id='options-list']/li/label/span[text()='"+wfName1+"']/../input/../span[2]"));
+		SelectionWF.click();
+		Reporter.log("Checked the Workflow name which needs to be updated", true);
+		updateWFBox.sendKeys(updatedWFPath);
+		Thread.sleep(2000);
+		updateBtn.click();
+		Thread.sleep(2000);
+		Reporter.log("Clicked on Update bottun", true);
+		Thread.sleep(3000);
+		saveBtn.click();
+		wait.until(ExpectedConditions.visibilityOf(success_msg));
+		String Actual_successMsg = success_msg.getText();
+		System.out.println("Actual Message : " + Actual_successMsg);
+		String Expected_successMsg = Messages.updateWorkflow;
+		System.out.println("Expected Message :"+Expected_successMsg);
+		Assert.assertEquals(Actual_successMsg, Expected_successMsg, "Workflow not updated");
+		Reporter.log("Workflow updated",true);
+		Thread.sleep(2000);
+		js.executeScript("arguments[0].click();", workflowsTab);
+		String actual_WFType = driver.findElement(By.xpath("//table/tr/td[@title='"+wfName1+"']/label")).getText();
+		Reporter.log("Actual Workflow Type:- "+actual_WFType,true);
+		String expected_WFType = wfType;
+		Reporter.log("Expected Workflow Type:- "+expected_WFType,true);
+		Reporter.log("Verified status after Update of Verified workflow with verified workflow is verfied successfully",true);
+		informationpageta.validateSignOut();
+	}
+	public void validateVerfiedStatusWFAfterUpdateNonVerifiedWF(String UserName, String Password,String wfName,String wfName1,String wfType,String updatedWFPath) throws Exception {
+		//Firstly verify WF is of type verified 
+		loginpageta.login(UserName, Password);
+		Thread.sleep(2000);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].click();", workflowsTab);
+		Reporter.log("Workflows Tab is clicked",true);
+		Thread.sleep(2000);
+		String actual_WFType = driver.findElement(By.xpath("//table/tr/td[@title='"+wfName+"']/label")).getText();
+		Reporter.log("Actual Workflow Type:- "+actual_WFType,true);
+		String expected_WFType = wfType;
+		Reporter.log("Expected Workflow Type:- "+expected_WFType,true);
+		Reporter.log("Workflow is of type verified",true);
+		Thread.sleep(2000);
+		importDrpDwn.click();
+		Thread.sleep(2000);
+		Reporter.log("Clicked the Dropdown button", true);
+		updateOption.click();
+		Thread.sleep(2000);
+		Reporter.log("Clicked the Update option from dropdown", true);
+		wf_dropdown.click();
+		Thread.sleep(2000);
+		Reporter.log("Clicked the Workflows dropdown ", true);
+		search.click();
+		Thread.sleep(2000);
+		Reporter.log("Clicked on search bar");
+		WebElement SelectionWF = driver.findElement(By.xpath("//*[@id='options-list']/li/label/span[text()='"+wfName+"']/../input/../span[2]"));
+		SelectionWF.click();
+		Reporter.log("Checked the Workflow name which needs to be updated", true);
+		updateWFBox.sendKeys(updatedWFPath);
+		Thread.sleep(2000);
+		updateBtn.click();
+		Thread.sleep(2000);
+		Reporter.log("Clicked on Update bottun", true);
+		Thread.sleep(3000);
+		saveBtn.click();
+		wait.until(ExpectedConditions.visibilityOf(success_msg));
+		String Actual_successMsg = success_msg.getText();
+		System.out.println("Actual Message : " + Actual_successMsg);
+		String Expected_successMsg = Messages.updateWorkflow;
+		System.out.println("Expected Message :"+Expected_successMsg);
+		Assert.assertEquals(Actual_successMsg, Expected_successMsg, "Workflow not updated");
+		Reporter.log("Workflow updated",true);
+		Thread.sleep(2000);
+		String actual_WFName = driver.findElement(By.xpath("//table/tr/td[contains(normalize-space(),'"+wfName+"')]")).getText();
+		String expected_WFName = wfName1;
+		Reporter.log("Actual Workflow name:- "+actual_WFName+ "Expected Workflow name:- "+expected_WFName,true);
+		Assert.assertEquals(actual_WFName, expected_WFName, "Workflow is not of type non verified");
+		Reporter.log("Verified status after Update of Verified workflow with Non verified workflow is verfied successfully",true);
+		informationpageta.validateSignOut();
+	}
+	////////////////////////////////////Export Multiple Workflow as Verified//////////////////////////////////////////
+	public void validateExportMultipleAsVerified(String UserName,String Password) throws Exception {
+		loginpageta.login(UserName, Password);
+		Thread.sleep(2000);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].click();", workflowsTab);
+		Reporter.log("Workflows Tab is clicked",true);
+		Thread.sleep(2000);
+		importDrpDwn.click();
+		Thread.sleep(2000);
+		Reporter.log("Clicked the Dropdown button", true);
+		exportBtn.click();
+		Thread.sleep(2000);
+		Reporter.log("Clicked the Export option from dropdown", true);
+		WfsList.click();
+		Thread.sleep(2000);
+		Reporter.log("Clicked the Workflows dropdown ", true);
+		searchBar.click();
+		Thread.sleep(2000);
+		Reporter.log("Clicked on search bar");
+		//Selecting all the Workflows present in the dropdown list
+		List<WebElement> workflow_List =  WfsList1;
+		int workflows_size = workflow_List.size();
+		System.out.println("Number of Workflows:- "+workflows_size);
+		for(int i = 0; i<workflows_size; i++) {
+			workflow_List.get(i).click();
+		}
+		Thread.sleep(5000);
+		//searchBar.sendKeys(wfName);
+		//Wfselect.click();
+		//Reporter.log("Checked the Workflow name ", true);
+		WfsList.click();
+		Thread.sleep(2000);
+		if(!exportVerifiedCheckbox.isSelected()){
+			exportVerifiedCheckbox.click();
+			Reporter.log("Export as verified checkbox is selected successfully", true);
+		}else {
+			Reporter.log("Export as verified checkbox is already selected successfully", true);
+		}
+		Thread.sleep(2000);
+		ExportBtn.click();
+		wait.until(ExpectedConditions.visibilityOf(success_msg));
+		String actual_successMsg = success_msg.getText();
+		System.out.println("Actual success msg: " + actual_successMsg);
+		String expected_successMsg = Messages.exportWorkflow;
+		System.out.println("Expected success msg: " + expected_successMsg);
+		Assert.assertEquals(actual_successMsg, expected_successMsg, "export does not started.");
+		Reporter.log("Multiple Workflow are exported successfully", true);
+		informationpageta.validateSignOut();
+	}
+	////////////////////////////For importing multiple exported workflow file///////////////////////////////////
+	public void validateExportMultipleAsNonVerified(String UserName,String Password) throws Exception {
+		loginpageta.login(UserName, Password);
+		Thread.sleep(2000);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].click();", workflowsTab);
+		Reporter.log("Workflows Tab is clicked",true);
+		Thread.sleep(2000);
+		importDrpDwn.click();
+		Thread.sleep(2000);
+		Reporter.log("Clicked the Dropdown button", true);
+		exportBtn.click();
+		Thread.sleep(2000);
+		Reporter.log("Clicked the Export option from dropdown", true);
+		WfsList.click();
+		Thread.sleep(2000);
+		Reporter.log("Clicked the Workflows dropdown ", true);
+		searchBar.click();
+		Thread.sleep(2000);
+		Reporter.log("Clicked on search bar");
+		//Selecting all the Workflows present in the dropdown list
+		List<WebElement> workflow_List =  WfsList1;
+		int workflows_size = workflow_List.size();
+		System.out.println("Number of Workflows:- "+workflows_size);
+		for(int i = 0; i<workflows_size; i++) {
+			workflow_List.get(i).click();
+		}
+		Thread.sleep(5000);
+		//searchBar.sendKeys(wfName);
+		//Wfselect.click();
+		//Reporter.log("Checked the Workflow name ", true);
+		WfsList.click();
+		Thread.sleep(2000);
+		ExportBtn.click();
+		wait.until(ExpectedConditions.visibilityOf(success_msg));
+		String actual_successMsg = success_msg.getText();
+		System.out.println("Actual success msg: " + actual_successMsg);
+		String expected_successMsg = Messages.exportWorkflow;
+		System.out.println("Expected success msg: " + expected_successMsg);
+		Assert.assertEquals(actual_successMsg, expected_successMsg, "export does not started.");
+		Reporter.log("Multiple Workflow are exported successfully", true);
+		informationpageta.validateSignOut();
+	}
+
+	
+	
+	
+	
 	public void validateAdvSearch() throws Exception {
 		loginpageta.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
 		Reporter.log("User log in Successfully", true);
 		JavascriptExecutor js_tenant = (JavascriptExecutor) driver;
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		js_tenant.executeScript("arguments[0].click();", workflowsTab);
 		wb.validateClickOnAdvanceSearch();
 	}
-
+////////////////////////////For Workflow Name///////////////////////////////////////////////////////////////
 	public void validateAdvSearchForWFNameEqualTo(String SearchColumn,String SearchCriteria,
 			String wfName,String PageSize)throws Exception {
 		validateAdvSearch();
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria,wfName);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement>op=driver.findElements(By.xpath("//div[@class='workflow-list-container table-responsive']/table/tr/td[1]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Workflow record present in table are :"+op.size());
@@ -1302,11 +1782,13 @@ public class WorkflowListPageTA extends TestBase {
 	public void validateAdvSearchForWFNameNotEqualTo(String SearchColumn,String SearchCriteria,
 			String wfName,String PageSize)throws Exception {
 		validateAdvSearch();
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria, wfName);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement>op=driver.findElements(By.xpath("//div[@class='workflow-list-container table-responsive']/table/tr/td[1]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Workflow record present in table are :"+op.size());
@@ -1319,11 +1801,13 @@ public class WorkflowListPageTA extends TestBase {
 	public void validateAdvSearchForWFNameIsLike(String SearchColumn,String SearchCriteria,
 			String advSearchFor,String PageSize)throws Exception {
 		validateAdvSearch();
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria,advSearchFor);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement>op=driver.findElements(By.xpath("//div[@class='workflow-list-container table-responsive']/table/tr/td[1]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Workflow record present in table are :"+op.size());
@@ -1336,11 +1820,13 @@ public class WorkflowListPageTA extends TestBase {
 	public void validateAdvSearchForWFNameBeginsWith(String SearchColumn,String SearchCriteria,
 			String advSearchFor,String PageSize)throws Exception {
 		validateAdvSearch();
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria,advSearchFor);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement>op=driver.findElements(By.xpath("//div[@class='workflow-list-container table-responsive']/table/tr/td[1]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Workflow record present in table are :"+op.size());
@@ -1355,11 +1841,13 @@ public class WorkflowListPageTA extends TestBase {
 	public void validateAdvSearchForWFNameEndsWith(String SearchColumn,String SearchCriteria,
 			String advSearchFor,String PageSize)throws Exception {
 		validateAdvSearch();
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria,advSearchFor);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement>op=driver.findElements(By.xpath("//div[@class='workflow-list-container table-responsive']/table/tr/td[1]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Workflow record present in table are :"+op.size());
@@ -1369,14 +1857,17 @@ public class WorkflowListPageTA extends TestBase {
 			Assert.assertTrue(actual_WFName.contains(advSearchFor));
 		}
 	}
+	//////////////////////////////////For Category///////////////////////////////////////////////////////////////////////
 	public void validateAdvSearchForWFCategoryEqualTo(String SearchColumn,String SearchCriteria,
 			String wfCategory,String PageSize)throws Exception {
 		validateAdvSearch();
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria,wfCategory);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement>op=driver.findElements(By.xpath("//div[@class='workflow-list-container table-responsive']/table/tr/td[2]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Workflow record present in table are :"+op.size());
@@ -1390,11 +1881,13 @@ public class WorkflowListPageTA extends TestBase {
 	public void validateAdvSearchForWFCategoryNotEqualTo(String SearchColumn,String SearchCriteria,
 			String wfCategory,String PageSize)throws Exception {
 		validateAdvSearch();
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria, wfCategory);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement>op=driver.findElements(By.xpath("//div[@class='workflow-list-container table-responsive']/table/tr/td[2]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Workflow record present in table are :"+op.size());
@@ -1407,11 +1900,13 @@ public class WorkflowListPageTA extends TestBase {
 	public void validateAdvSearchForWFCategoryIsLike(String SearchColumn,String SearchCriteria,
 			String advSearchFor,String PageSize)throws Exception {
 		validateAdvSearch();
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria,advSearchFor);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement>op=driver.findElements(By.xpath("//div[@class='workflow-list-container table-responsive']/table/tr/td[2]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Workflow record present in table are :"+op.size());
@@ -1424,11 +1919,13 @@ public class WorkflowListPageTA extends TestBase {
 	public void validateAdvSearchForWFCategoryBeginsWith(String SearchColumn,String SearchCriteria,
 			String advSearchFor,String PageSize)throws Exception {
 		validateAdvSearch();
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria,advSearchFor);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement>op=driver.findElements(By.xpath("//div[@class='workflow-list-container table-responsive']/table/tr/td[2]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Workflow record present in table are :"+op.size());
@@ -1443,11 +1940,13 @@ public class WorkflowListPageTA extends TestBase {
 	public void validateAdvSearchForWFCategoryEndsWith(String SearchColumn,String SearchCriteria,
 			String advSearchFor,String PageSize)throws Exception {
 		validateAdvSearch();
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria,advSearchFor);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement>op=driver.findElements(By.xpath("//div[@class='workflow-list-container table-responsive']/table/tr/td[2]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Workflow record present in table are :"+op.size());
@@ -1457,10 +1956,11 @@ public class WorkflowListPageTA extends TestBase {
 			Assert.assertTrue(actual_WFCategory.contains(advSearchFor));
 		}
 	}
+	////////////////////////////////For Calender//////////////////////////////////////////////////////////////////////////
 	public void validateHandleCalender(String CreatedCriteria,String startYear,String startMonth,String startDate) throws Exception {
 		loginpageta.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", workflowsTab);
 		wb.validateClickOnAdvanceSearch();
 		Thread.sleep(2000);
@@ -1470,6 +1970,7 @@ public class WorkflowListPageTA extends TestBase {
 
 	public void validateCreatedEqualTo(String CreatedCriteria,String startYear,String startMonth,String startDate,String PageSize) throws Exception {
 		validateHandleCalender(CreatedCriteria,startYear,startMonth,startDate);
+		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		Thread.sleep(2000);
 		List<WebElement>op=driver.findElements(By.xpath("//div[@class='workflow-list-container table-responsive']/table/tr/td[4]"));
@@ -1491,6 +1992,7 @@ public class WorkflowListPageTA extends TestBase {
 
 	public void validateCreatedBefore(String CreatedCriteria,String startYear,String startMonth,String startDate,String PageSize) throws Exception {
 		validateHandleCalender(CreatedCriteria,startYear,startMonth,startDate);
+		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		Thread.sleep(2000);
 		List<WebElement>op=driver.findElements(By.xpath("//div[@class='workflow-list-container table-responsive']/table/tr/td[4]"));
@@ -1513,6 +2015,7 @@ public class WorkflowListPageTA extends TestBase {
 	}
 	public void validateCreatedAfter(String CreatedCriteria,String startYear,String startMonth,String startDate,String PageSize) throws Exception {
 		validateHandleCalender(CreatedCriteria,startYear,startMonth,startDate);
+		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		Thread.sleep(2000);
 		List<WebElement>op=driver.findElements(By.xpath("//div[@class='workflow-list-container table-responsive']/table/tr/td[4]"));
@@ -1538,6 +2041,7 @@ public class WorkflowListPageTA extends TestBase {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", workflowsTab);
+		Thread.sleep(2000);
 		wb.validateClickOnAdvanceSearch();
 		Thread.sleep(2000);
 		wb.validateExtraAdvanceSearchForCalender("Created",CreatedCriteria,startYear,startMonth,startDate,endYear,endMonth,endDate);
@@ -1571,6 +2075,7 @@ public class WorkflowListPageTA extends TestBase {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", workflowsTab);
+		Thread.sleep(2000);
 		wb.validateClickOnAdvanceSearch();
 		Thread.sleep(2000);
 		wb.validateExtraAdvanceSearchForCalender("Created",CreatedCriteria,startYear,startMonth,startDate,endYear,endMonth,endDate);
@@ -1600,11 +2105,13 @@ public class WorkflowListPageTA extends TestBase {
 	}
 	public void validateStatusDropdownEqualTo(String colunmValue,String comparatorType,String searchValue,String PageSize) throws Exception {
 		validateAdvSearch();
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchDropDown(colunmValue,comparatorType,searchValue);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement>op=driver.findElements(By.xpath("//div[@class='workflow-list-container table-responsive']/table/tr/td[6]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Workflow record present in table are :"+op.size());
@@ -1617,11 +2124,13 @@ public class WorkflowListPageTA extends TestBase {
 	}
 	public void validateStatusDropdownNotEqualTo(String colunmValue,String comparatorType,String searchValue,String PageSize)throws Exception {
 		validateAdvSearch();
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchDropDown(colunmValue,comparatorType,searchValue);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement>op=driver.findElements(By.xpath("//div[@class='workflow-list-container table-responsive']/table/tr/td[6]"));
 		for(int i=0;i<op.size();i++) {
 			System.out.println("Total Workflow record present in table are :"+op.size());

@@ -108,7 +108,7 @@ public class CredentialsPageWA extends TestBase{
 		createBtn.click();
 		Reporter.log("Create button is clicked",true);
 		driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
-		String record_verify=driver.findElement(By.xpath("//a[@class='text-truncate']/span[@title='"+CredName+"']")).getText();
+		String record_verify=driver.findElement(By.xpath("//div[@id='cred-container']/div/a/input/../label[@title='"+CredName+", Native']")).getText();
 		String expected_cred=CredName+" (Native)";
 		Assert.assertEquals(record_verify, expected_cred,"credentials record not found in table.");
 		Reporter.log("Record for "+CredName+" credential found in table",true);
@@ -131,7 +131,7 @@ public class CredentialsPageWA extends TestBase{
 		js.executeScript("arguments[0].click();", credentialsTab);
 		Reporter.log("Credentials tab clicked",true);
 		Thread.sleep(4000);
-		WebElement edit_Cred=driver.findElement(By.xpath("//span[@title='"+CredName+"']/../../div/span[@title='Edit Credential']"));
+		WebElement edit_Cred=driver.findElement(By.xpath("//label[@title='"+CredName+", Native']/../../div/span[@title='Edit Credential']"));
 		edit_Cred.click();
 		Reporter.log("Edit button corresponding to credentials clicked",true);
 		Thread.sleep(3000);
@@ -215,7 +215,7 @@ public class CredentialsPageWA extends TestBase{
 		js.executeScript("arguments[0].click();", credentialsTab);
 		Reporter.log("Credentials tab clicked",true);
 		Thread.sleep(4000);
-		WebElement cred_Name=driver.findElement(By.xpath("//a/span[@title='"+CredName+"']/../input"));
+		WebElement cred_Name=driver.findElement(By.xpath("//div/a/input[@id='cred-1']"));
 		cred_Name.click();
 		Reporter.log("Credential which needs to add in crenetial pool is selcted",true);
 		Select CredPool_drpdown = new Select(credPool_drpdown);
@@ -224,7 +224,7 @@ public class CredentialsPageWA extends TestBase{
 		Thread.sleep(2000);
 		moveBtn.click();
 		Reporter.log("Move Button is clicked",true);
-		driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
+		wait.until(ExpectedConditions.visibilityOf(successMsgBox));
 		String Actual_testMsg=successMsgBox.getText();
 		String Expected_testMsg=Messages.MoveCredToPool;
 		Reporter.log("Actual message is :"+Actual_testMsg,true);
@@ -253,7 +253,7 @@ public class CredentialsPageWA extends TestBase{
 		Thread.sleep(3000);
 		delete_popup.click();
 		Reporter.log("Delete button on popup is confirmed",true);
-		driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
+		wait.until(ExpectedConditions.visibilityOf(successMsgBox));
 		String Actual_testMsg=successMsgBox.getText();
 		String Expected_testMsg= "Credential pool ["+CredPoolName+"] deleted successfully";
 		Reporter.log("Actual message is :"+Actual_testMsg,true);
@@ -281,7 +281,7 @@ public class CredentialsPageWA extends TestBase{
 		Thread.sleep(3000);
 		delete_popup.click();
 		Reporter.log("Delete button on popup is confirmed",true);
-		driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
+		wait.until(ExpectedConditions.visibilityOf(successMsgBox));
 		String Actual_testMsg=successMsgBox.getText();
 		String Expected_testMsg= "Credential ["+CredName+"] deleted successfully";
 		Reporter.log("Actual message is :"+Actual_testMsg,true);

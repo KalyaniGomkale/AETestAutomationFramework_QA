@@ -308,6 +308,7 @@ public class TenantPolicyPageTA extends TestBase{
 				Thread.sleep(1000);
 				changeBtn.click();
 				Thread.sleep(10000);
+				wait.until(ExpectedConditions.visibilityOf(PopUpMsg));
 				String Actual_successMsg1 = PopUpMsg.getText();
 				System.out.println("Success Message after changing password in " + i + "time: " + Actual_successMsg1);
 				String Expected_successMsg1 = "Your new password must be different from your previous [" + i
@@ -365,6 +366,7 @@ public class TenantPolicyPageTA extends TestBase{
 		for (int i = 1; i <= NoOfAttempt; i++) {
 			if (i < NoOfAttempt) {
 				loginpageta.login(Username,invalidPwd);
+				wait.until(ExpectedConditions.visibilityOf(PopUpMsg));
 				String Actual_Msg = PopUpMsg.getText();
 				System.out.println("Actual_msg:" + Actual_Msg);
 				if (Actual_Msg.contentEquals("You have made [" + i
@@ -381,6 +383,7 @@ public class TenantPolicyPageTA extends TestBase{
 			} else if (i == NoOfAttempt) {
 				System.out.println(i + "th Unsuccessful attempt");
 				loginpageta.login(Username,invalidPwd);
+				wait.until(ExpectedConditions.visibilityOf(PopUpMsg));
 				String Actual_Fail = PopUpMsg.getText();
 				Reporter.log("Actual_msg:" + Actual_Fail,true);
 				String Expected_Fail = Messages.failPasswordPolicy;
@@ -512,6 +515,7 @@ public class TenantPolicyPageTA extends TestBase{
 		for (int i = 1; i <= NoOfAttempt; i++) {
 			if (i < NoOfAttempt) {
 				loginpageta.login(UserToUnlock,invalidPswd);
+				wait.until(ExpectedConditions.visibilityOf(PopUpMsg));
 				String Actual_Msg = PopUpMsg.getText();
 				System.out.println("Actual_msg:" + Actual_Msg);
 				if (Actual_Msg.contentEquals("You have made [" + i
@@ -528,6 +532,7 @@ public class TenantPolicyPageTA extends TestBase{
 			} else if (i == NoOfAttempt) {
 				System.out.println(i + "th Unsuccessful attempt");
 				loginpageta.login(UserToUnlock,invalidPswd);
+				wait.until(ExpectedConditions.visibilityOf(PopUpMsg));
 				String Actual_Fail = PopUpMsg.getText();
 				Reporter.log("Actual_msg:" + Actual_Fail,true);
 				String Expected_Fail = Messages.failPasswordPolicy;

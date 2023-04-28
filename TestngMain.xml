@@ -5,10 +5,10 @@
 
 
 		<classes>
-			<class name="com.ae.qa.testcases.LoginPageTest"> <methods> 
+			<!--<class name="com.ae.qa.testcases.LoginPageTest"> <methods> 
 				<include name="ValidateFirstTimeLoginTest" />
 				 </methods>
-			 </class> 
+			 </class> -->
 			<class name="com.ae.qa.testcases.TenantsPageTest">
 				<methods>
 					<include name="validateAddNewTenant" />
@@ -187,6 +187,23 @@
 				<!--<include name="ValidateExportMultipleWorkflowTest" />-->
 				    <include name="validateImportWFAssistedAgent" />
 				    <include name="validateEditWFtoSequentialTest" />
+				    <include name="validateExportWFUATTest" />
+				    <include name="validateImportExportedWFUATTest" />
+				    <include name="validateExportWFSubscriptionTest" />
+				    <include name="validateImportExportedWFSubscriptionTest" />
+				    <include name="validateExportWFEnterpriseTest" />
+				    <include name="validateImportExportedWFEnterpriseTest" />
+				    <include name="validateExportVerifiedWFUATTest" />
+				    <include name="validateExportUATWFAndImportInDevelopmentTest" />
+				    <include name="validateExportUATWFAndImportInSubscriptionTestTest" />
+				    <include name="validateExportSubscriptionWFAndImportInDevelopmentTest" />
+				    <include name="validateExportUATWFAndImportInEnterpriseTest" />
+				    <include name="validateCreateDevelopmentSameCustomerTest" /> 
+				    <include name="validateCreateEnterpriseSameCustomerTest" /> 
+				    <include name="validateCreateUATSameCustomerTest" />
+				    <include name="validateExportWFDevelopmentAndImportInUATSATest" />
+				    <include name="validateExportWFDevelopmentAndImportInEnterpriseSATest" />
+				    <include name="validateExportWFUATAndImportInEnterpriseSATest" />
 				</methods>
 			</class>
 			<class

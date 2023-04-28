@@ -330,20 +330,22 @@ public class SystemUsersPage extends TestBase {
 		loginpage.login(prop.getProperty("username"), prop.getProperty("password"));
 		Reporter.log("User log in Successfully", true);
 		JavascriptExecutor js_tenant = (JavascriptExecutor) driver;
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		js_tenant.executeScript("arguments[0].click();", usersTab);
 		js_tenant.executeScript("arguments[0].click();", systemUsersTab);
 		wb.validateClickOnAdvanceSearch();
 	}
-
+///////////////////////////////////////For Username///////////////////////////////////////////////
 	public void validateAdvSearchForUserNameEqualTo(String SearchColumn, String SearchCriteria, String userName,
 			String PageSize) throws Exception {
 		validateAdvSearch();
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn, SearchCriteria, userName);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement> op = driver.findElements(By.xpath("//div[@class='table-responsive']/table/tr/td[1]"));
 		for (int i = 0; i < op.size(); i++) {
 			System.out.println("Total Tenant record present in table are :" + op.size());
@@ -357,11 +359,13 @@ public class SystemUsersPage extends TestBase {
 	public void validateAdvSearchForUserNameNotEqualTo(String SearchColumn, String SearchCriteria, String userName,
 			String PageSize) throws Exception {
 		validateAdvSearch();
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn, SearchCriteria, userName);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement> op = driver.findElements(By.xpath("//div[@class='table-responsive']/table/tr/td[1]"));
 		for (int i = 0; i < op.size(); i++) {
 			System.out.println("Total Tenant record present in table are :" + op.size());
@@ -375,12 +379,13 @@ public class SystemUsersPage extends TestBase {
 	public void validateAdvSearchForUserNameIsLike(String SearchColumn, String SearchCriteria, String advSearchFor,
 			String PageSize) throws Exception {
 		validateAdvSearch();
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn, SearchCriteria, advSearchFor);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement> op = driver.findElements(By.xpath("//div[@class='table-responsive']/table/tr/td[1]"));
 		for (int i = 0; i < op.size(); i++) {
 			System.out.println("Total Tenant record present in table are :" + op.size());
@@ -394,12 +399,13 @@ public class SystemUsersPage extends TestBase {
 	public void validateAdvSearchForUserNameBeginsWith(String SearchColumn, String SearchCriteria, String advSearchFor,
 			String PageSize) throws Exception {
 		validateAdvSearch();
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn, SearchCriteria, advSearchFor);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement> op = driver.findElements(By.xpath("//div[@class='table-responsive']/table/tr/td[1]"));
 		for (int i = 0; i < op.size(); i++) {
 			System.out.println("Total Tenant record present in table are :" + op.size());
@@ -409,16 +415,16 @@ public class SystemUsersPage extends TestBase {
 			Assert.assertTrue(actual_UserName.contains(advSearchFor));
 		}
 	}
-
 	public void validateAdvSearchForUserNameEndsWith(String SearchColumn, String SearchCriteria, String advSearchFor,
 			String PageSize) throws Exception {
 		validateAdvSearch();
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn, SearchCriteria, advSearchFor);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement> op = driver.findElements(By.xpath("//div[@class='table-responsive']/table/tr/td[1]"));
 		for (int i = 0; i < op.size(); i++) {
 			System.out.println("Total Tenant record present in table are :" + op.size());
@@ -428,15 +434,17 @@ public class SystemUsersPage extends TestBase {
 			Assert.assertTrue(actual_UserName.contains(advSearchFor));
 		}
 	}
-
+////////////////////////////////For First Name///////////////////////////////////////////////////////////////////////
 	public void validateAdvSearchForFirstNameEqualTo(String SearchColumn, String SearchCriteria, String firstName,
 			String PageSize) throws Exception {
 		validateAdvSearch();
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn, SearchCriteria, firstName);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement> op = driver.findElements(By.xpath("//div[@class='table-responsive']/table/tr/td[2]"));
 		for (int i = 0; i < op.size(); i++) {
 			System.out.println("Total Tenant record present in table are :" + op.size());
@@ -450,14 +458,14 @@ public class SystemUsersPage extends TestBase {
 
 	public void validateAdvSearchForFirstNameNotEqualTo(String SearchColumn, String SearchCriteria, String firstName,
 			String PageSize) throws Exception {
-		// creatingSystemAdmin(tenantOrgCode, FName, LName, UserMail, UserName,
-		// Pswd,ConfirmPswd,RoleName);
 		validateAdvSearch();
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn, SearchCriteria, firstName);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement> op = driver.findElements(By.xpath("//div[@class='table-responsive']/table/tr/td[2]"));
 		for (int i = 0; i < op.size(); i++) {
 			System.out.println("Total Tenant record present in table are :" + op.size());
@@ -472,12 +480,13 @@ public class SystemUsersPage extends TestBase {
 	public void validateAdvSearchForFirstNameIsLike(String SearchColumn, String SearchCriteria, String advSearchFor,
 			String PageSize) throws Exception {
 		validateAdvSearch();
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn, SearchCriteria, advSearchFor);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement> op = driver.findElements(By.xpath("//div[@class='table-responsive']/table/tr/td[2]"));
 		for (int i = 0; i < op.size(); i++) {
 			System.out.println("Total Tenant record present in table are :" + op.size());
@@ -488,40 +497,38 @@ public class SystemUsersPage extends TestBase {
 			Assert.assertTrue(str_FirstName.contains(advSearchFor));
 		}
 	}
-
 	public void validateAdvSearchForFirstNameBeginsWith(String SearchColumn, String SearchCriteria, String advSearchFor,
 			String PageSize) throws Exception {
-		// creatingSystemAdmin(tenantOrgCode, FName, LName, UserMail, UserName,
-		// Pswd,ConfirmPswd,RoleName);
 		validateAdvSearch();
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn, SearchCriteria, advSearchFor);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement> op = driver.findElements(By.xpath("//div[@class='table-responsive']/table/tr/td[2]"));
 		for (int i = 0; i < op.size(); i++) {
 			System.out.println("Total Tenant record present in table are :" + op.size());
 			Thread.sleep(3000);
 			String actual_FirstName = op.get(i).getText();
 			String str_FirstName = actual_FirstName.split(" ")[0];
-			String lowercase_FirstName = str_FirstName.toLowerCase();
+			//String lowercase_FirstName = str_FirstName.toLowerCase();
 			System.out.println("actual_System User FirstName present in table are: " + str_FirstName);
-			Assert.assertTrue(lowercase_FirstName.contains(advSearchFor));
+			Assert.assertTrue(str_FirstName.contains(advSearchFor));
 
 		}
 	}
-
 	public void validateAdvSearchForFirstNameEndsWith(String SearchColumn, String SearchCriteria, String advSearchFor,
 			String PageSize) throws Exception {
 		validateAdvSearch();
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn, SearchCriteria, advSearchFor);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement> op = driver.findElements(By.xpath("//div[@class='table-responsive']/table/tr/td[2]"));
 		for (int i = 0; i < op.size(); i++) {
 			System.out.println("Total Tenant record present in table are :" + op.size());
@@ -532,14 +539,16 @@ public class SystemUsersPage extends TestBase {
 			Assert.assertTrue(str_FirstName.contains(advSearchFor));
 		}
 	}
-
+////////////////////////////////////////For Last Name/////////////////////////////////////////////////////
 	public void validateAdvSearchForLastNameEqualTo(String SearchColumn,String SearchCriteria, String advSearchFor,String PageSize) throws Exception {
 		validateAdvSearch();
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn, SearchCriteria, advSearchFor);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement> op = driver.findElements(By.xpath("//div[@class='table-responsive']/table/tr/td[2]"));
 		for (int i = 0; i < op.size(); i++) {
 			System.out.println("Total Tenant record present in table are :" + op.size());
@@ -554,11 +563,13 @@ public class SystemUsersPage extends TestBase {
 	public void validateAdvSearchForLastNameNotEqualTo(String SearchColumn, String SearchCriteria, String lastName,
 			String PageSize) throws Exception {
 		validateAdvSearch();
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn, SearchCriteria, lastName);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement> op = driver.findElements(By.xpath("//div[@class='table-responsive']/table/tr/td[2]"));
 		for (int i = 0; i < op.size(); i++) {
 			System.out.println("Total Tenant record present in table are :" + op.size());
@@ -573,12 +584,13 @@ public class SystemUsersPage extends TestBase {
 	public void validateAdvSearchForLastNameIsLike(String SearchColumn, String SearchCriteria, String advSearchFor,
 			String PageSize) throws Exception {
 		validateAdvSearch();
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn, SearchCriteria, advSearchFor);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement> op = driver.findElements(By.xpath("//div[@class='table-responsive']/table/tr/td[2]"));
 		for (int i = 0; i < op.size(); i++) {
 			System.out.println("Total Tenant record present in table are :" + op.size());
@@ -592,15 +604,14 @@ public class SystemUsersPage extends TestBase {
 
 	public void validateAdvSearchForLastNameBeginsWith(String SearchColumn, String SearchCriteria, String advSearchFor,
 			String PageSize) throws Exception {
-		// creatingSystemAdmin(tenantOrgCode, FName, LName, UserMail, UserName,
-		// Pswd,ConfirmPswd,RoleName);
 		validateAdvSearch();
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn, SearchCriteria, advSearchFor);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement> op = driver.findElements(By.xpath("//div[@class='table-responsive']/table/tr/td[2]"));
 		for (int i = 0; i < op.size(); i++) {
 			System.out.println("Total Tenant record present in table are :" + op.size());
@@ -613,16 +624,16 @@ public class SystemUsersPage extends TestBase {
 
 		}
 	}
-
 	public void validateAdvSearchForLastNameEndsWith(String SearchColumn, String SearchCriteria, String advSearchFor,
 			String PageSize) throws Exception {
 		validateAdvSearch();
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		wb.validateAdvanceSearchField(SearchColumn, SearchCriteria, advSearchFor);
 		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		// Verify data in table now
 		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
+		Thread.sleep(2000);
 		List<WebElement> op = driver.findElements(By.xpath("//div[@class='table-responsive']/table/tr/td[2]"));
 		for (int i = 0; i < op.size(); i++) {
 			System.out.println("Total Tenant record present in table are :" + op.size());
@@ -634,12 +645,12 @@ public class SystemUsersPage extends TestBase {
 			Assert.assertTrue(lowercase_LastName.contains(advSearchFor));
 		}
 	}
-
+////////////////////////////////////////////For Calender/////////////////////////////////////////////////////////////
 	public void validateHandleCalender(String CreatedCriteria, String startYear, String startMonth, String startDate)
 			throws Exception {
 		loginpage.login(prop.getProperty("username"), prop.getProperty("password"));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", usersTab);
 		js.executeScript("arguments[0].click();", systemUsersTab);
 		wb.validateClickOnAdvanceSearch();
@@ -652,7 +663,7 @@ public class SystemUsersPage extends TestBase {
 			String startDate) throws Exception {
 		loginpage.login(prop.getProperty("username"), prop.getProperty("password"));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", usersTab);
 		js.executeScript("arguments[0].click();", systemUsersTab);
 		wb.validateClickOnAdvanceSearch();
@@ -664,6 +675,7 @@ public class SystemUsersPage extends TestBase {
 	public void validateCreatedEqualTo(String CreatedCriteria, String startYear, String startMonth, String startDate,
 			String PageSize) throws Exception {
 		validateHandleCalender(CreatedCriteria, startYear, startMonth, startDate);
+		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		Thread.sleep(2000);
 		List<WebElement> op = driver.findElements(By.xpath("//div[@class='table-responsive']/table/tr/td[4]"));
@@ -682,10 +694,10 @@ public class SystemUsersPage extends TestBase {
 			Reporter.log("User is getting correct records for created on date with equal to criteria", true);
 		}
 	}
-
 	public void validateCreatedBefore(String CreatedCriteria, String startYear, String startMonth, String startDate,
 			String PageSize) throws Exception {
 		validateHandleCalender(CreatedCriteria, startYear, startMonth, startDate);
+		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		Thread.sleep(2000);
 		List<WebElement> op = driver.findElements(By.xpath("//div[@class='table-responsive']/table/tr/td[4]"));
@@ -706,10 +718,10 @@ public class SystemUsersPage extends TestBase {
 			Reporter.log("User is getting correct records for created on date with before criteria", true);
 		}
 	}
-
 	public void validateCreatedAfter(String CreatedCriteria, String startYear, String startMonth, String startDate,
 			String PageSize) throws Exception {
 		validateHandleCalender(CreatedCriteria, startYear, startMonth, startDate);
+		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		Thread.sleep(2000);
 		List<WebElement> op = driver.findElements(By.xpath("//div[@class='table-responsive']/table/tr/td[4]"));
@@ -729,7 +741,6 @@ public class SystemUsersPage extends TestBase {
 			Reporter.log("User is getting correct records for created on date with after criteria", true);
 		}
 	}
-
 	public void validateCreatedInBetween(String CreatedCriteria, String startYear, String startMonth, String startDate,
 			String endYear, String endMonth, String endDate, String PageSize) throws Exception {
 		loginpage.login(prop.getProperty("username"), prop.getProperty("password"));
@@ -737,6 +748,7 @@ public class SystemUsersPage extends TestBase {
 		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", usersTab);
 		js.executeScript("arguments[0].click();", systemUsersTab);
+		Thread.sleep(2000);
 		wb.validateClickOnAdvanceSearch();
 		Thread.sleep(2000);
 		wb.validateExtraAdvanceSearchForCalender("Created", CreatedCriteria, startYear, startMonth, startDate, endYear,
@@ -765,7 +777,6 @@ public class SystemUsersPage extends TestBase {
 			Reporter.log("User is getting correct records for created on date with after criteria", true);
 		}
 	}
-
 	public void validateCreatedNotInBetween(String CreatedCriteria, String startYear, String startMonth,
 			String startDate, String endYear, String endMonth, String endDate, String PageSize) throws Exception {
 		loginpage.login(prop.getProperty("username"), prop.getProperty("password"));
@@ -773,6 +784,7 @@ public class SystemUsersPage extends TestBase {
 		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", usersTab);
 		js.executeScript("arguments[0].click();", systemUsersTab);
+		Thread.sleep(2000);
 		wb.validateClickOnAdvanceSearch();
 		Thread.sleep(2000);
 		wb.validateExtraAdvanceSearchForCalender("Created", CreatedCriteria, startYear, startMonth, startDate, endYear,
@@ -802,10 +814,11 @@ public class SystemUsersPage extends TestBase {
 			Reporter.log("User is getting correct records for created on date with after criteria", true);
 		}
 	}
-
+////////////////////////////////For Last Updated////////////////////////////////////////////////////////////////
 	public void validateLastUpdatedCreatedEqualTo(String CreatedCriteria, String startYear, String startMonth,
 			String startDate, String PageSize) throws Exception {
 		validateHandleCalenderForLastUpdated(CreatedCriteria, startYear, startMonth, startDate);
+		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		Thread.sleep(2000);
 		List<WebElement> op = driver.findElements(By.xpath("//div[@class='table-responsive']/table/tr/td[5]"));
@@ -826,10 +839,10 @@ public class SystemUsersPage extends TestBase {
 			Reporter.log("User is getting correct records for created on date with equal to criteria", true);
 		}
 	}
-
 	public void validateLastUpdatedCreatedBefore(String CreatedCriteria, String startYear, String startMonth,
 			String startDate, String PageSize) throws Exception {
 		validateHandleCalenderForLastUpdated(CreatedCriteria, startYear, startMonth, startDate);
+		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		Thread.sleep(2000);
 		List<WebElement> op = driver.findElements(By.xpath("//div[@class='table-responsive']/table/tr/td[5]"));
@@ -850,10 +863,10 @@ public class SystemUsersPage extends TestBase {
 			Reporter.log("User is getting correct records for created on date with before criteria", true);
 		}
 	}
-
 	public void validateLastUpdatedCreatedAfter(String CreatedCriteria, String startYear, String startMonth,
 			String startDate, String PageSize) throws Exception {
 		validateHandleCalenderForLastUpdated(CreatedCriteria, startYear, startMonth, startDate);
+		Thread.sleep(2000);
 		wb.changePageSize(PageSize);
 		Thread.sleep(2000);
 		List<WebElement> op = driver.findElements(By.xpath("//div[@class='table-responsive']/table/tr/td[5]"));
@@ -873,7 +886,6 @@ public class SystemUsersPage extends TestBase {
 			Reporter.log("User is getting correct records for created on date with after criteria", true);
 		}
 	}
-
 	public void validateLastUpdatedCreatedInBetween(String CreatedCriteria, String startYear, String startMonth,
 			String startDate, String endYear, String endMonth, String endDate, String PageSize) throws Exception {
 		loginpage.login(prop.getProperty("username"), prop.getProperty("password"));
@@ -881,6 +893,7 @@ public class SystemUsersPage extends TestBase {
 		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", usersTab);
 		js.executeScript("arguments[0].click();", systemUsersTab);
+		Thread.sleep(2000);
 		wb.validateClickOnAdvanceSearch();
 		Thread.sleep(2000);
 		wb.validateExtraAdvanceSearchForCalender("Last Updated", CreatedCriteria, startYear, startMonth, startDate,
@@ -909,7 +922,6 @@ public class SystemUsersPage extends TestBase {
 			Reporter.log("User is getting correct records for created on date with after criteria", true);
 		}
 	}
-
 	public void validateLastUpdatedCreatedNotInBetween(String CreatedCriteria, String startYear, String startMonth,
 			String startDate, String endYear, String endMonth, String endDate, String PageSize) throws Exception {
 		loginpage.login(prop.getProperty("username"), prop.getProperty("password"));
@@ -917,6 +929,7 @@ public class SystemUsersPage extends TestBase {
 		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", usersTab);
 		js.executeScript("arguments[0].click();", systemUsersTab);
+		Thread.sleep(2000);
 		wb.validateClickOnAdvanceSearch();
 		Thread.sleep(2000);
 		wb.validateExtraAdvanceSearchForCalender("Last Updated", CreatedCriteria, startYear, startMonth, startDate,
