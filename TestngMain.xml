@@ -5,10 +5,10 @@
 
 
 		<classes>
-			<!--<class name="com.ae.qa.testcases.LoginPageTest"> <methods> 
+			<class name="com.ae.qa.testcases.LoginPageTest"> <methods> 
 				<include name="ValidateFirstTimeLoginTest" />
 				 </methods>
-			 </class> -->
+			 </class>
 			<class name="com.ae.qa.testcases.TenantsPageTest">
 				<methods>
 					<include name="validateAddNewTenant" />

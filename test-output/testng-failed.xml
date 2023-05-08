@@ -3,17 +3,15 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.ae.qa.testcases.WorkflowsPageTest">
+      <class name="com.ae.qa.testcases.PluginsPageTest">
         <methods>
-          <include name="validateWorkflowsPageTest"/>
           <include name="setExtent"/>
+          <include name="validateMutipleAdvSearchForReleaseVersionAndPluginNamePluginPageTest" invocation-numbers="0"/>
           <include name="initialization"/>
-          <include name="validateEnableWorkflowsTest" invocation-numbers="0"/>
-          <include name="validateDisableWorkflowsTest" invocation-numbers="0"/>
           <include name="endReport"/>
           <include name="getResult"/>
         </methods>
-      </class> <!-- com.ae.qa.testcases.WorkflowsPageTest -->
+      </class> <!-- com.ae.qa.testcases.PluginsPageTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

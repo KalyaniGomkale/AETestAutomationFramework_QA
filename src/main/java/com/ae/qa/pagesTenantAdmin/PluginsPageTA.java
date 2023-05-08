@@ -454,4 +454,101 @@ public class PluginsPageTA extends TestBase{
 			Reporter.log("User is getting correct records for created on date with after criteria",true);
 		}
 	}
+	////////////////////For Release Version//////////////////////////////////////////////////////////////////////////////////////
+	public void validateAdvSearchForReleaseVersionEqualTo(String SearchColumn,String SearchCriteria,
+			String releaseVersion,String PageSize)throws Exception {
+		validateAdvSearch();
+		Thread.sleep(2000);
+		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria, releaseVersion);
+		Thread.sleep(2000);
+		wb.changePageSize(PageSize);
+		// Verify data in table now
+		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
+		Thread.sleep(2000);
+		List<WebElement>op=driver.findElements(By.xpath("//div[@class='workflow-list-container table-responsive']/table/tbody/tr/td[2]"));
+		for(int i=0;i<op.size();i++) {
+			System.out.println("Total Plugin record present in table are :"+op.size());
+			Thread.sleep(5000);
+			String actual_Releaseversion=op.get(i).getText();
+			System.out.println("actual_Release version present in table are: "+actual_Releaseversion);
+			Assert.assertTrue(actual_Releaseversion.equals(releaseVersion));
+		}
+	}
+	public void validateAdvSearchForReleaseVersionNotEqualTo(String SearchColumn,String SearchCriteria,
+			String releaseVersion,String PageSize)throws Exception {
+		validateAdvSearch();
+		Thread.sleep(2000);
+		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria, releaseVersion);
+		Thread.sleep(2000);
+		wb.changePageSize(PageSize);
+		// Verify data in table now
+		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
+		Thread.sleep(2000);
+		List<WebElement>op=driver.findElements(By.xpath("//div[@class='workflow-list-container table-responsive']/table/tbody/tr/td[2]"));
+		for(int i=0;i<op.size();i++) {
+			System.out.println("Total Plugin record present in table are :"+op.size());
+			Thread.sleep(5000);
+			String actual_Releaseversion=op.get(i).getText();
+			System.out.println("actual_Plugin Name present in table are: "+actual_Releaseversion);
+			Assert.assertFalse(actual_Releaseversion.equals(releaseVersion));
+		}
+	}
+	public void validateAdvSearchForReleaseVersionIsLike(String SearchColumn,String SearchCriteria,
+			String advSearchFor,String PageSize)throws Exception {
+		validateAdvSearch();
+		Thread.sleep(2000);
+		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria,advSearchFor);
+		Thread.sleep(2000);
+		wb.changePageSize(PageSize);
+		// Verify data in table now
+		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
+		Thread.sleep(2000);
+		List<WebElement>op=driver.findElements(By.xpath("//div[@class='workflow-list-container table-responsive']/table/tbody/tr/td[2]"));
+		for(int i=0;i<op.size();i++) {
+			System.out.println("Total Plugin record present in table are :"+op.size());
+			Thread.sleep(5000);
+			String actual_Releaseversion=op.get(i).getText();
+			System.out.println("actual_Plugin Name present in table are: "+actual_Releaseversion);
+			Assert.assertTrue(actual_Releaseversion.contains(advSearchFor));
+		}
+	}
+	public void validateAdvSearchForReleaseVersionBeginsWith(String SearchColumn,String SearchCriteria,
+			String advSearchFor,String PageSize)throws Exception {
+		validateAdvSearch();
+		Thread.sleep(2000);
+		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria,advSearchFor);
+		Thread.sleep(2000);
+		wb.changePageSize(PageSize);
+		// Verify data in table now
+		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
+		Thread.sleep(2000);
+		List<WebElement>op=driver.findElements(By.xpath("//div[@class='workflow-list-container table-responsive']/table/tbody/tr/td[2]"));
+		for(int i=0;i<op.size();i++) {
+			System.out.println("Total Plugin record present in table are :"+op.size());
+			Thread.sleep(5000);
+			String actual_Releaseversion=op.get(i).getText();
+			//String lowercase_PluginName = actual_PluginName.toLowerCase();
+			System.out.println("actual_Plugin Name present in table are: "+actual_Releaseversion);
+			Assert.assertTrue(actual_Releaseversion.contains(advSearchFor));
+		}
+	}
+	public void validateAdvSearchForReleaseVersionEndsWith(String SearchColumn,String SearchCriteria,
+			String advSearchFor,String PageSize)throws Exception {
+		validateAdvSearch();
+		Thread.sleep(2000);
+		wb.validateAdvanceSearchField(SearchColumn,SearchCriteria,advSearchFor);
+		Thread.sleep(2000);
+		wb.changePageSize(PageSize);
+		// Verify data in table now
+		Reporter.log("Below validation is to validate new tenant record is visible in webtable", true);
+		Thread.sleep(2000);
+		List<WebElement>op=driver.findElements(By.xpath("//div[@class='workflow-list-container table-responsive']/table/tbody/tr/td[2]"));
+		for(int i=0;i<op.size();i++) {
+			System.out.println("Total Plugin record present in table are :"+op.size());
+			Thread.sleep(5000);
+			String actual_Releaseversion=op.get(i).getText();
+			System.out.println("actual_Plugin Name present in table are: "+actual_Releaseversion);
+			Assert.assertTrue(actual_Releaseversion.contains(advSearchFor));
+		}
+	}
 }

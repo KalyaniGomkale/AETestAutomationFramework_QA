@@ -43,6 +43,15 @@ public class ExternalAppsTestTA extends TestBase {
 		extentTest.log(extentTest.getStatus(), "External Apps is opened successfully in new tab");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
 	}
+	@Test(priority=903,alwaysRun=true)
+	public void validateUnRegisterExternalAppTATest(Method method) throws Exception {
+		extentTest = extent.createTest("validateDeRegisterExternalAppTATest", "TC_666:Verify Unregister External App");
+		//Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("TAsheetname"),method.getName());
+		externalappspageta = new ExternalAppsPageTA();
+		externalappspageta.validateUnRegisterExternalApp("Google Chart");
+		extentTest.log(extentTest.getStatus(), "External Apps is deregister successfully");
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("TAsheetname"), "Pass", method.getName());
+	}
 	@Test(priority=182,alwaysRun=true)
 	public void validateExternalAppsPageTATest(Method method) throws Exception {
 		extentTest = extent.createTest("validateExternalAppsPageTATest", "TC_Additional:Verify Clicking External Apps tab and checking that appropiate page is loaded");

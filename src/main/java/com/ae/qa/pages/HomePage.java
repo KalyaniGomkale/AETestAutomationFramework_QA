@@ -1,5 +1,8 @@
 package com.ae.qa.pages;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.util.Properties;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -43,6 +46,8 @@ public class HomePage extends TestBase {
 	@FindBy(xpath = "//span[(text()='Settings')]")
 	WebElement settingsTab;
 
+	public Properties prop;
+
 	public HomePage() {
 		PageFactory.initElements(driver, this);
 	}
@@ -60,6 +65,30 @@ public class HomePage extends TestBase {
 		Assert.assertEquals(actual_tabname, expected_tabname,"Search functionality did'nt work properly");
 		Reporter.log("Search Functionality working properly",true);
 		informationpage.validateSignOut();
+	}
+	public class UpdateAEUIPropFile {
+	    public Properties prop;
+		
+ public void UpdateDBNameInPropertiesFile() throws Exception {
+	 prop = new Properties();
+	 FileInputStream ip = new FileInputStream("C:\\tools\\apache-tomcat-9.0.40-windows-x64\\apache-tomcat-9.0.40\\webapps\\aeui\\aeui-config.properties");
+     prop.load(ip);
+     String abc=prop.getProperty("enableSecurityVault");
+	 System.out.println("enableSecurityVault:"+abc);
+     // update properties
+    prop.setProperty("enableConsumptionBasedMode","true");
+	System.out.println("Updated : " + prop.getProperty("enableConsumptionBasedMode"));
+	// Instantiating the FileInputStream for output file
+	String path = "C:\\tools\\apache-tomcat-9.0.40-windows-x64\\apache-tomcat-9.0.40\\webapps\\aeui\\aeui-config.properties";
+	FileOutputStream outputStrem = new FileOutputStream(path);
+	// Storing the properties file
+    prop.store(outputStrem, "This is a aeui-config properties file");
+	System.out.println("Properties file updated with consumption tab enable successfully");
+}
+      /*public static void main(String args[]) throws Exception {
+			UpdateAEUIPropFile u= new UpdateAEUIPropFile();
+			u.UpdateDBNameInPropertiesFile();
+			  }*/
 	}
 	public void validateHomePageForConsumptionTab() throws Exception{
 		loginpage.login(prop.getProperty("username"), prop.getProperty("password"));
@@ -118,7 +147,7 @@ public class HomePage extends TestBase {
 		Expected_content.add("10000");
 		Expected_content.add("100");
 		Reporter.log("Expected license details :"+Expected_content);
-		
+
 		if(actual_content.equals(Expected_content)) {
 			Assert.assertTrue(true);
 			Reporter.log("License consumption details are validated successfully",true);

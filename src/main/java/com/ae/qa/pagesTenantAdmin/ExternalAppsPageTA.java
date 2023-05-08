@@ -38,8 +38,11 @@ public class ExternalAppsPageTA extends TestBase{
 	WebElement appOpenTitle;
 	@FindBy(id="newTab")
 	WebElement newTab;
+	@FindBy(xpath="//button[text()='Unregister']")
+	WebElement UnregisterBtn;
 	@FindBy(xpath="//div[@class='title-div']/h2")
 	WebElement pageTitle;
+	
 
 	public ExternalAppsPageTA()
 	{
@@ -64,6 +67,7 @@ public class ExternalAppsPageTA extends TestBase{
 		Thread.sleep(2000);
 		submitBtn.click();
 		Reporter.log("Submit button is clicked successfully",true);
+		wait.until(ExpectedConditions.visibilityOf(alert_Message));
 		String actual_Message = alert_Message.getText();
 		Reporter.log("Actual Success Message:-"+actual_Message);
 		String expected_Message = Messages.externalAppsSuccessMsg;
@@ -111,6 +115,7 @@ public class ExternalAppsPageTA extends TestBase{
 				Reporter.log("Open is New Tab checkbox is already selected",true);
 			}
 		submitBtn.click();
+		wait.until(ExpectedConditions.visibilityOf(alert_Message));
 		String actual_Message = alert_Message.getText();
 		Reporter.log("Actual Success Message:-"+actual_Message);
 		String expected_Message = Messages.externalAppsSuccessMsg;
@@ -135,10 +140,35 @@ public class ExternalAppsPageTA extends TestBase{
 		Assert.assertEquals(actual_externalAppLink, expected_externalAppLink,"External apps is not registered successfully");
 		Reporter.log("External apps is opened successfully in new tab",true);
 		//Thread.sleep(2000);
+		//while(I1.hasNext()) {
 		//String parent_window = I1.next();
 		//driver.switchTo().window(parent_window);
+		//}
 		//informationpageta.validateSignOut();
 	}
+	public void validateUnRegisterExternalApp(String AppName) throws Exception {
+		loginpage.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
+		Reporter.log("User log in Successfully",true);
+		//First search for tab and click on it
+		//wait.until(ExpectedConditions.visibilityOf(externalAppsTab));
+		Thread.sleep(3000);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].click();", externalAppsTab);
+		Thread.sleep(2000);
+		WebElement unRegisterBtn = driver.findElement(By.xpath("//table/tr/td/label[contains(text(),'"+AppName+"')]/../../td/span[@title='Unregister']"));
+		unRegisterBtn.click();
+		Thread.sleep(1000);
+		UnregisterBtn.click();
+		wait.until(ExpectedConditions.visibilityOf(alert_Message));
+		String actual_Message = alert_Message.getText();
+		Reporter.log("Actual Success Message:-"+actual_Message);
+		String expected_Message = Messages.externalAppDeRegisterMsg;
+		Reporter.log("Expected Success Message:-"+expected_Message);
+		Assert.assertEquals(actual_Message, expected_Message,"External apps is not deregistered successfully");
+		Reporter.log("External apps is deregistered successfully",true);
+		informationpageta.validateSignOut();
+	}
+	
 	public void validateExternalAppsPageTA(String PageTitle) throws Exception {
 		loginpage.login(prop.getProperty("username_TA1"), prop.getProperty("password_TA1"));
 		Reporter.log("User log in Successfully",true);

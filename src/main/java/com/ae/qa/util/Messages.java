@@ -36,6 +36,8 @@ public class Messages extends TestBase {
 	public static String singlePluginDelete="Plugin(s) deleted successfully";
 	public static String recordFoundMessage="No record(s) found!";
 	public static String licenseConsumptionMessage="License allocation successful";
+	public static String downloadServerLogsSuccessMsg="Logs downloaded successfully.";
+	public static String dateRangeFailureMsg="Date Range is mandatory";
 	// Tenant Admin specific messages
 	public static String createUser = "User created successfully";
 	public static String licenseUpload="License uploaded successfully";
@@ -108,4 +110,6 @@ public class Messages extends TestBase {
 	public static String holidayCalenderCloneMsg="Calendar copied successfully";
 	public static String holidayCalenderRenewMsg="Calendar renewed successfully";
 	public static String externalAppsSuccessMsg="Operation completed successfully";
+	public static String externalAppDeRegisterMsg="App unregistered";
+	
 }

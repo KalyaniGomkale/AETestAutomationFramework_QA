@@ -104,6 +104,11 @@
 					<include name="validateLastModifiedCreatedAfterPluginPageTest" />
 					<include name="validateLastModifiedCreatedInBetweenPluginPageTest" />
 					<include name="validateLastUpdatedModifiedNotInBetweenPluginPageTest" />
+					<include name="validateAdvSearchForReleaseVersionEqualToPluginPageTest" />
+					<include name="validateAdvSearchForReleaseVersionNotEqualToPluginPageTest" />
+					<include name="validateAdvSearchForReleaseVersionIsLikePluginPageTest" />
+					<include name="validateAdvSearchForReleaseVersionBeginsWithPluginPageTest" />
+					<include name="validateAdvSearchForReleaseVersionEndsWithPluginPageTest" />
 				</methods>
 			</class>
 			<class name="com.ae.qa.testcases.FileManagementPageTest">
@@ -255,6 +260,11 @@
 					<include name="validateLastModifiedCreatedAfterPluginsPageTATest" />
 					<include name="validateLastModifiedCreatedInBetweenPluginsPageTATest" />
 					<include name="validateLastUpdatedModifiedNotInBetweenPluginsPageTATest" />
+					<include name="validateAdvSearchForReleaseVersionEqualToPluginsPageTATest" />
+					<include name="validateAdvSearchForReleaseVersionNotEqualToPluginsPageTATest" />
+					<include name="validateAdvSearchForReleaseVersionIsLikePluginsPageTATest" />
+					<include name="validateAdvSearchForReleaseVersionBeginsWithPluginsPageTATest" />
+					<include name="validateAdvSearchForReleaseVersionEndsWithPluginsPageTATest" />
 				</methods>
 			</class>
 			<class name="com.ae.qa.testcasesTenantAdmin.AuditLogsPageTestTA">

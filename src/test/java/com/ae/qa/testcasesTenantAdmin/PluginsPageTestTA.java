@@ -34,7 +34,7 @@ public class PluginsPageTestTA extends TestBase {
 		pluginspageta = new PluginsPageTA();
 		pluginspageta.validateAdvSearchForPluginNameEqualTo(TestDataInMap.get("ColumnName"),TestDataInMap.get("Criterion"),TestDataInMap.get("SearchData"),
 				TestDataInMap.get("PageSize"));
-		extentTest.log(extentTest.getStatus(), "Advance search for User Name is validated successfully");
+		extentTest.log(extentTest.getStatus(), "Advance search for Plugin Name is validated successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
 	}
 	@Test(priority = 3193)
@@ -44,7 +44,7 @@ public class PluginsPageTestTA extends TestBase {
 		pluginspageta = new PluginsPageTA();
 		pluginspageta.validateAdvSearchForPluginNameNotEqualTo(TestDataInMap.get("ColumnName"),TestDataInMap.get("Criterion"),TestDataInMap.get("SearchData"),
 				TestDataInMap.get("PageSize"));
-		extentTest.log(extentTest.getStatus(), "Advance search for User Name is validated successfully");
+		extentTest.log(extentTest.getStatus(), "Advance search for Plugin Name is validated successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
 	}
 	@Test(priority = 3194)
@@ -54,7 +54,7 @@ public class PluginsPageTestTA extends TestBase {
 		pluginspageta = new PluginsPageTA();
 		pluginspageta.validateAdvSearchForPluginNameIsLike(TestDataInMap.get("ColumnName"),TestDataInMap.get("Criterion"),TestDataInMap.get("SearchData"),
 				TestDataInMap.get("PageSize"));
-		extentTest.log(extentTest.getStatus(), "Advance search for User Name is validated successfully");
+		extentTest.log(extentTest.getStatus(), "Advance search for Plugin Name is validated successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
 	}
 	@Test(priority = 3195)
@@ -64,7 +64,7 @@ public class PluginsPageTestTA extends TestBase {
 		pluginspageta = new PluginsPageTA();
 		pluginspageta.validateAdvSearchForPluginNameBeginsWith(TestDataInMap.get("ColumnName"),TestDataInMap.get("Criterion"),TestDataInMap.get("SearchData"),
 				TestDataInMap.get("PageSize"));
-		extentTest.log(extentTest.getStatus(), "Advance search for User Name is validated successfully");
+		extentTest.log(extentTest.getStatus(), "Advance search for Plugin Name is validated successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
 	}
 	@Test(priority = 3196)
@@ -74,7 +74,7 @@ public class PluginsPageTestTA extends TestBase {
 		pluginspageta = new PluginsPageTA();
 		pluginspageta.validateAdvSearchForPluginNameEndsWith(TestDataInMap.get("ColumnName"),TestDataInMap.get("Criterion"),TestDataInMap.get("SearchData"),
 				TestDataInMap.get("PageSize"));
-		extentTest.log(extentTest.getStatus(), "Advance search for User Name is validated successfully");
+		extentTest.log(extentTest.getStatus(), "Advance search for Plugin Name is validated successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
 	}
 	//For Created [Calender]
@@ -85,7 +85,7 @@ public class PluginsPageTestTA extends TestBase {
 		pluginspageta = new PluginsPageTA();
 		pluginspageta.validateCreatedEqualTo(TestDataInMap.get("Criterion"),TestDataInMap.get("CreatedYear"),TestDataInMap.get("CreatedMonth"),TestDataInMap.get("CreatedDate"),
 				TestDataInMap.get("PageSize"));
-		extentTest.log(extentTest.getStatus(), "Advance search for Tenant names is like and created in between criteria validated successfully");
+		extentTest.log(extentTest.getStatus(), "Advance search for Plugin Name is like and created in between criteria validated successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
 	}
 	@Test(priority = 3198)
@@ -95,7 +95,7 @@ public class PluginsPageTestTA extends TestBase {
 		pluginspageta = new PluginsPageTA();
 		pluginspageta.validateCreatedBefore(TestDataInMap.get("Criterion"),TestDataInMap.get("CreatedYear"),TestDataInMap.get("CreatedMonth"),TestDataInMap.get("CreatedDate"),
 				TestDataInMap.get("PageSize"));
-		extentTest.log(extentTest.getStatus(), "Advance search for Tenant names is like and created in between criteria validated successfully");
+		extentTest.log(extentTest.getStatus(), "Advance search for Plugin Name is like and created in between criteria validated successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
 	}
 	@Test(priority = 3199)
@@ -105,7 +105,7 @@ public class PluginsPageTestTA extends TestBase {
 		pluginspageta = new PluginsPageTA();
 		pluginspageta.validateCreatedAfter(TestDataInMap.get("Criterion"),TestDataInMap.get("CreatedYear"),TestDataInMap.get("CreatedMonth"),TestDataInMap.get("CreatedDate"),
 				TestDataInMap.get("PageSize"));
-		extentTest.log(extentTest.getStatus(), "Advance search for Tenant names is like and created in between criteria validated successfully");
+		extentTest.log(extentTest.getStatus(), "Advance search for Plugin Name is like and created in between criteria validated successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
 	}
 	@Test(priority = 3200)
@@ -115,7 +115,7 @@ public class PluginsPageTestTA extends TestBase {
 		pluginspageta = new PluginsPageTA();
 		pluginspageta.validateCreatedInBetween(TestDataInMap.get("Criterion"),TestDataInMap.get("CreatedYear"),TestDataInMap.get("CreatedMonth"),TestDataInMap.get("CreatedDate"),
 				TestDataInMap.get("CreatedEndYear"),TestDataInMap.get("CreatedEndMonth"),TestDataInMap.get("CreatedEndDate"),TestDataInMap.get("PageSize"));
-		extentTest.log(extentTest.getStatus(), "Advance search for Tenant names is like and created in between criteria validated successfully");
+		extentTest.log(extentTest.getStatus(), "Advance search for Plugin Name is like and created in between criteria validated successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
 	}
 	@Test(priority = 3201)
@@ -125,7 +125,7 @@ public class PluginsPageTestTA extends TestBase {
 		pluginspageta = new PluginsPageTA();
 		pluginspageta.validateCreatedNotInBetween(TestDataInMap.get("Criterion"),TestDataInMap.get("CreatedYear"),TestDataInMap.get("CreatedMonth"),TestDataInMap.get("CreatedDate"),
 				TestDataInMap.get("CreatedEndYear"),TestDataInMap.get("CreatedEndMonth"),TestDataInMap.get("CreatedEndDate"),TestDataInMap.get("PageSize"));
-		extentTest.log(extentTest.getStatus(), "Advance search for Tenant names is like and created in between criteria validated successfully");
+		extentTest.log(extentTest.getStatus(), "Advance search for Plugin Name is like and created in between criteria validated successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
 	}
     //For Last Modified
@@ -136,7 +136,7 @@ public class PluginsPageTestTA extends TestBase {
 		pluginspageta = new PluginsPageTA();
 		pluginspageta.validateLastModifiedCreatedEqualTo(TestDataInMap.get("Criterion"),TestDataInMap.get("CreatedYear"),TestDataInMap.get("CreatedMonth"),TestDataInMap.get("CreatedDate"),
 				TestDataInMap.get("PageSize"));
-		extentTest.log(extentTest.getStatus(), "Advance search for Tenant names is like and created in between criteria validated successfully");
+		extentTest.log(extentTest.getStatus(), "Advance search for Plugin Name is like and created in between criteria validated successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
 	}
 	@Test(priority = 3203)
@@ -146,7 +146,7 @@ public class PluginsPageTestTA extends TestBase {
 		pluginspageta = new PluginsPageTA();
 		pluginspageta.validateLastModifiedCreatedBefore(TestDataInMap.get("Criterion"),TestDataInMap.get("CreatedYear"),TestDataInMap.get("CreatedMonth"),TestDataInMap.get("CreatedDate"),
 				TestDataInMap.get("PageSize"));
-		extentTest.log(extentTest.getStatus(), "Advance search for Tenant names is like and created in between criteria validated successfully");
+		extentTest.log(extentTest.getStatus(), "Advance search for Plugin Name is like and created in between criteria validated successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
 	}
 	@Test(priority = 3204)
@@ -156,7 +156,7 @@ public class PluginsPageTestTA extends TestBase {
 		pluginspageta = new PluginsPageTA();
 		pluginspageta.validateLastModifiedCreatedAfter(TestDataInMap.get("Criterion"),TestDataInMap.get("CreatedYear"),TestDataInMap.get("CreatedMonth"),TestDataInMap.get("CreatedDate"),
 				TestDataInMap.get("PageSize"));
-		extentTest.log(extentTest.getStatus(), "Advance search for Tenant names is like and created in between criteria validated successfully");
+		extentTest.log(extentTest.getStatus(), "Advance search for Plugin Name is like and created in between criteria validated successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
 	}
 	@Test(priority = 3205)
@@ -176,8 +176,58 @@ public class PluginsPageTestTA extends TestBase {
 		pluginspageta = new PluginsPageTA();
 		pluginspageta.validateLastModifiedCreatedNotInBetween(TestDataInMap.get("Criterion"),TestDataInMap.get("CreatedYear"),TestDataInMap.get("CreatedMonth"),TestDataInMap.get("CreatedDate"),
 				TestDataInMap.get("CreatedEndYear"),TestDataInMap.get("CreatedEndMonth"),TestDataInMap.get("CreatedEndDate"),TestDataInMap.get("PageSize"));
-		extentTest.log(extentTest.getStatus(), "Advance search for Tenant names is like and created in between criteria validated successfully");
+		extentTest.log(extentTest.getStatus(), "Advance search for Plugin Name is like and created in between criteria validated successfully");
 		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
 	}
-
+//////////////////////////////////////////For Release Version//////////////////////////////////////////////////////////////////////////////
+	@Test(priority = 3290)
+	public void validateAdvSearchForReleaseVersionEqualToPluginsPageTATest(Method method) throws Exception {
+		extentTest = extent.createTest("validateAdvSearchForReleaseVersionEqualToPluginsPageTATest", "TC_009: To Verfiy Advance search for Plugin name with equals criteria");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AdvancedSearchsheetname"),method.getName());
+		pluginspageta = new PluginsPageTA();
+		pluginspageta.validateAdvSearchForReleaseVersionEqualTo(TestDataInMap.get("ColumnName"),TestDataInMap.get("Criterion"),TestDataInMap.get("SearchData"),
+				TestDataInMap.get("PageSize"));
+		extentTest.log(extentTest.getStatus(), "Advance search for Release Version is validated successfully");
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
+	}
+	@Test(priority = 3291)
+	public void validateAdvSearchForReleaseVersionNotEqualToPluginsPageTATest(Method method) throws Exception {
+		extentTest = extent.createTest("validateAdvSearchForReleaseVersionNotEqualToPluginsPageTATest", "TC_009: To Verfiy Advance search for Plugin name with not equals criteria");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AdvancedSearchsheetname"),method.getName());
+		pluginspageta = new PluginsPageTA();
+		pluginspageta.validateAdvSearchForReleaseVersionNotEqualTo(TestDataInMap.get("ColumnName"),TestDataInMap.get("Criterion"),TestDataInMap.get("SearchData"),
+				TestDataInMap.get("PageSize"));
+		extentTest.log(extentTest.getStatus(), "Advance search for Release Version is validated successfully");
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
+	}
+	@Test(priority = 3292)
+	public void validateAdvSearchForReleaseVersionIsLikePluginsPageTATest(Method method) throws Exception {
+		extentTest = extent.createTest("validateAdvSearchForReleaseVersionIsLikePluginsPageTATest", "TC_009: To Verfiy Advance search for Plugin name with Is like criteria");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AdvancedSearchsheetname"),method.getName());
+		pluginspageta = new PluginsPageTA();
+		pluginspageta.validateAdvSearchForReleaseVersionIsLike(TestDataInMap.get("ColumnName"),TestDataInMap.get("Criterion"),TestDataInMap.get("SearchData"),
+				TestDataInMap.get("PageSize"));
+		extentTest.log(extentTest.getStatus(), "Advance search for Release Version is validated successfully");
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
+	}
+	@Test(priority = 3293)
+	public void validateAdvSearchForReleaseVersionBeginsWithPluginsPageTATest(Method method) throws Exception {
+		extentTest = extent.createTest("validateAdvSearchForReleaseVersionBeginsWithPluginsPageTATest", "TC_009: To Verfiy Advance search for Plugin name with begins with criteria");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AdvancedSearchsheetname"),method.getName());
+		pluginspageta = new PluginsPageTA();
+		pluginspageta.validateAdvSearchForReleaseVersionBeginsWith(TestDataInMap.get("ColumnName"),TestDataInMap.get("Criterion"),TestDataInMap.get("SearchData"),
+				TestDataInMap.get("PageSize"));
+		extentTest.log(extentTest.getStatus(), "Advance search for Release Version is validated successfully");
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
+	}
+	@Test(priority = 3294)
+	public void validateAdvSearchForReleaseVersionEndsWithPluginsPageTATest(Method method) throws Exception {
+		extentTest = extent.createTest("validateAdvSearchForReleaseVersionEndsWithPluginsPageTATest", "TC_009: To Verfiy Advance search for Plugin name with ends with criteria");
+		Map<String,String> TestDataInMap=ExcelHandler.getTestDataInMap(prop.getProperty("AdvancedSearchsheetname"),method.getName());
+		pluginspageta = new PluginsPageTA();
+		pluginspageta.validateAdvSearchForReleaseVersionEndsWith(TestDataInMap.get("ColumnName"),TestDataInMap.get("Criterion"),TestDataInMap.get("SearchData"),
+				TestDataInMap.get("PageSize"));
+		extentTest.log(extentTest.getStatus(), "Advance search for Release Version is validated successfully");
+		ExcelHandler.UpdateTestResultsToExcel(prop.getProperty("AdvancedSearchsheetname"), "Pass", method.getName());
+	}
 }

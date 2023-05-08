@@ -6,313 +6,36 @@
   </listeners>
   <test thread-count="1" parallel="methods" name="AESanity(failed)" verbose="0">
     <classes>
-      <class name="com.ae.qa.testcasesTenantAdmin.AgentLogsPageTestTA">
+      <class name="com.ae.qa.testcases.PurgeSchedulePageTest">
         <methods>
           <include name="setExtent"/>
           <include name="initialization"/>
-          <include name="validateWorkflowLogsTest" invocation-numbers="0"/>
+          <include name="validatePurgingScheduleWeekendTest" invocation-numbers="0"/>
           <include name="endReport"/>
           <include name="getResult"/>
         </methods>
-      </class> <!-- com.ae.qa.testcasesTenantAdmin.AgentLogsPageTestTA -->
+      </class> <!-- com.ae.qa.testcases.PurgeSchedulePageTest -->
       <class name="com.ae.qa.testcases.HomePageTest">
         <methods>
           <include name="setExtent"/>
           <include name="validateUploadLicenseTest" invocation-numbers="0"/>
           <include name="initialization"/>
           <include name="endReport"/>
-          <include name="validateHomePageForConsumptionTabTest" invocation-numbers="0"/>
           <include name="getResult"/>
+          <include name="validateHomePageForConsumptionTabTest" invocation-numbers="0"/>
         </methods>
       </class> <!-- com.ae.qa.testcases.HomePageTest -->
-      <class name="com.ae.qa.testcasesTenantAdmin.IntegrationTypeConfigPageTestTA">
-        <methods>
-          <include name="setExtent"/>
-          <include name="validateTypeConfBothTATest" invocation-numbers="0"/>
-          <include name="initialization"/>
-          <include name="endReport"/>
-          <include name="getResult"/>
-        </methods>
-      </class> <!-- com.ae.qa.testcasesTenantAdmin.IntegrationTypeConfigPageTestTA -->
-      <class name="com.ae.qa.testcases.IntegrationTypesPageTest">
+      <class name="com.ae.qa.testcasesTenantAdmin.HolidayCalenderPageTestTA">
         <methods>
           <include name="setExtent"/>
           <include name="initialization"/>
-          <include name="validateDeleteIntegrationTypeTest" invocation-numbers="0"/>
-          <include name="validateAddIntegrationTypesTest" invocation-numbers="0"/>
-          <include name="endReport"/>
-          <include name="getResult"/>
-          <include name="validateEditIntegrationTypesTest" invocation-numbers="0"/>
-        </methods>
-      </class> <!-- com.ae.qa.testcases.IntegrationTypesPageTest -->
-      <class name="com.ae.qa.testcasesTenantAdmin.CategoriesPageTestTA">
-        <methods>
-          <include name="setExtent"/>
-          <include name="initialization"/>
-          <include name="ValidateAssignWFToCategoryTest" invocation-numbers="0"/>
-          <include name="ValidateRemoveWFFromCategoryTest" invocation-numbers="0"/>
+          <include name="validateCreateHolidayCalenderUpcomingYearTest" invocation-numbers="0"/>
+          <include name="validateRemoveHolidayListDatesTest" invocation-numbers="0"/>
+          <include name="validateEditHolidayCalenderTest" invocation-numbers="0"/>
           <include name="endReport"/>
           <include name="getResult"/>
         </methods>
-      </class> <!-- com.ae.qa.testcasesTenantAdmin.CategoriesPageTestTA -->
-      <class name="com.ae.qa.testcases.PluginsPageTest">
-        <methods>
-          <include name="validateUploadSinglePluginSameVersionTest"/>
-          <include name="setExtent"/>
-          <include name="initialization"/>
-          <include name="validateUploadSameSinglePluginTest"/>
-          <include name="validateUploadSinglePluginsTest" invocation-numbers="0"/>
-          <include name="validatePluginsPageTest"/>
-          <include name="validateSinglePluginUploadLowerVersionTest"/>
-          <include name="endReport"/>
-          <include name="validateUploadPluginsTest" invocation-numbers="0"/>
-          <include name="getResult"/>
-        </methods>
-      </class> <!-- com.ae.qa.testcases.PluginsPageTest -->
-      <class name="com.ae.qa.testcasesTenantAdmin.SchedulerPageTestTA">
-        <methods>
-          <include name="validateTransferScheduleTest" invocation-numbers="0"/>
-          <include name="validateMonthlyScheduleTest" invocation-numbers="0"/>
-          <include name="validateEditDailyScheduleTest" invocation-numbers="0"/>
-          <include name="validateDailyScheduleTest" invocation-numbers="0"/>
-          <include name="validateEditInfineScheduleTest" invocation-numbers="0"/>
-          <include name="validateInfineScheduleTest" invocation-numbers="0"/>
-          <include name="validateEditWeeklyScheduleTest" invocation-numbers="0"/>
-          <include name="setExtent"/>
-          <include name="initialization"/>
-          <include name="validateWeeklyScheduleTest" invocation-numbers="0"/>
-          <include name="validateDeleteScheduleTest" invocation-numbers="0"/>
-          <include name="endReport"/>
-          <include name="getResult"/>
-          <include name="validateEditMonthlyScheduleTest" invocation-numbers="0"/>
-        </methods>
-      </class> <!-- com.ae.qa.testcasesTenantAdmin.SchedulerPageTestTA -->
-      <class name="com.ae.qa.testcasesTenantAdmin.TenantUsersPageTestTA">
-        <methods>
-          <include name="setExtent"/>
-          <include name="initialization"/>
-          <include name="endReport"/>
-          <include name="getResult"/>
-          <include name="validateDisabledDeleteTuserTest" invocation-numbers="0"/>
-        </methods>
-      </class> <!-- com.ae.qa.testcasesTenantAdmin.TenantUsersPageTestTA -->
-      <class name="com.ae.qa.testcasesTenantAdmin.HomePageTestTA">
-        <methods>
-          <include name="setExtent"/>
-          <include name="initialization"/>
-          <include name="validateUploadLicenseTest" invocation-numbers="0"/>
-          <include name="endReport"/>
-          <include name="getResult"/>
-        </methods>
-      </class> <!-- com.ae.qa.testcasesTenantAdmin.HomePageTestTA -->
-      <class name="com.ae.qa.testcasesTenantAdmin.ProcessStudioPageTestTA">
-        <methods>
-          <include name="setExtent"/>
-          <include name="validateDownloadandAssignPSTest" invocation-numbers="0"/>
-          <include name="initialization"/>
-          <include name="endReport"/>
-          <include name="getResult"/>
-          <include name="validateProcessStudioDownloadLinuxTest" invocation-numbers="0"/>
-        </methods>
-      </class> <!-- com.ae.qa.testcasesTenantAdmin.ProcessStudioPageTestTA -->
-      <class name="com.ae.qa.testcasesTenantAdmin.FileManagementPageTestTA">
-        <methods>
-          <include name="validateEditWFFileManagementTest" invocation-numbers="0"/>
-          <include name="setExtent"/>
-          <include name="initialization"/>
-          <include name="validateDeleteUploadWFFileManagementTest" invocation-numbers="0"/>
-          <include name="endReport"/>
-          <include name="getResult"/>
-          <include name="validateUploadWFFileManagementTest" invocation-numbers="0"/>
-        </methods>
-      </class> <!-- com.ae.qa.testcasesTenantAdmin.FileManagementPageTestTA -->
-      <class name="com.ae.qa.testcasesTenantAdmin.WorkflowListPageTestTA">
-        <methods>
-          <include name="validateExportWFSubscriptionTest"/>
-          <include name="validateExportWFEnterpriseTest"/>
-          <include name="ValidateUploadIconTest" invocation-numbers="0"/>
-          <include name="ValidateEditManualExecutionTest" invocation-numbers="0"/>
-          <include name="validateImportWorkflowTest" invocation-numbers="0"/>
-          <include name="validateImportExportedWFEnterpriseTest"/>
-          <include name="validateImportExportedWFUATTest"/>
-          <include name="validateExportUATWFAndImportInDevelopmentTest"/>
-          <include name="validateExportUATWFAndImportInEnterpriseTest"/>
-          <include name="validateCreateUATSameCustomerTest"/>
-          <include name="validateEditWFtoSequentialTest"/>
-          <include name="validateCreateDevelopmentSameCustomerTest"/>
-          <include name="ValidateExportWorkflowTest" invocation-numbers="0"/>
-          <include name="ValidateShowFileStructureTest"/>
-          <include name="validateExportVerifiedWFUATTest"/>
-          <include name="validateImportWorkflowWithCredConfigParamTest"/>
-          <include name="getResult"/>
-          <include name="validateExportWFUATTest"/>
-          <include name="validateExportWFDevelopmentAndImportInEnterpriseSATest"/>
-          <include name="validateCreateEnterpriseSameCustomerTest"/>
-          <include name="validateExportWFDevelopmentAndImportInUATSATest"/>
-          <include name="validateExportSubscriptionWFAndImportInDevelopmentTest"/>
-          <include name="validateImportWorkflowWithConfigRuntimeParamTest"/>
-          <include name="ValidateUploadInvalidIconTest" invocation-numbers="0"/>
-          <include name="validateImportExportedWFSubscriptionTest"/>
-          <include name="validateImportWorkflowWithRuntimeParamTest" invocation-numbers="0"/>
-          <include name="validateImportWorkflowWithConfigParamTest" invocation-numbers="0"/>
-          <include name="setExtent"/>
-          <include name="validateImportWorkflowWithConfigParamCredAndCredpoolTATest"/>
-          <include name="initialization"/>
-          <include name="validateExportUATWFAndImportInSubscriptionTestTest"/>
-          <include name="ValidateUpdateWFWithConfigWFTest"/>
-          <include name="endReport"/>
-          <include name="validateExportWFUATAndImportInEnterpriseSATest"/>
-          <include name="validateImportWFAssistedAgent"/>
-        </methods>
-      </class> <!-- com.ae.qa.testcasesTenantAdmin.WorkflowListPageTestTA -->
-      <class name="com.ae.qa.testcasesTenantAdmin.CataloguePageTestTA">
-        <methods>
-          <include name="setExtent"/>
-          <include name="validateSubmitRequestCustomCategoryTest" invocation-numbers="0"/>
-          <include name="initialization"/>
-          <include name="validateSubmitRequestDefaultCategoryTest" invocation-numbers="0"/>
-          <include name="validateSubmitRequestTest" invocation-numbers="0"/>
-          <include name="endReport"/>
-          <include name="getResult"/>
-        </methods>
-      </class> <!-- com.ae.qa.testcasesTenantAdmin.CataloguePageTestTA -->
-      <class name="com.ae.qa.testcasesTenantAdmin.IntegrationTypesPageTestTA">
-        <methods>
-          <include name="setExtent"/>
-          <include name="validateDeleteIntegrationTypeTATest" invocation-numbers="0"/>
-          <include name="initialization"/>
-          <include name="endReport"/>
-          <include name="getResult"/>
-          <include name="validateEditIntegrationTypesTATest" invocation-numbers="0"/>
-          <include name="validateAddIntegrationTypesTATest" invocation-numbers="0"/>
-        </methods>
-      </class> <!-- com.ae.qa.testcasesTenantAdmin.IntegrationTypesPageTestTA -->
-      <class name="com.ae.qa.testcases.TenantsPageTest">
-        <methods>
-          <include name="validateAllocateConsumptionBasedTest" invocation-numbers="0"/>
-          <include name="validateSubmitRequestEnableTenantTest" invocation-numbers="0"/>
-          <include name="setExtent"/>
-          <include name="initialization"/>
-          <include name="validateCreateAllotmentBasedTenantTest" invocation-numbers="0"/>
-          <include name="validateAmendLicenseTest" invocation-numbers="0"/>
-          <include name="validateSubmitRequestDisabledTenantTest" invocation-numbers="0"/>
-          <include name="endReport"/>
-          <include name="getResult"/>
-          <include name="validateEnableAllomentBasedTenantTest" invocation-numbers="0"/>
-          <include name="validateDisableAllomentBasedTenantTest" invocation-numbers="0"/>
-        </methods>
-      </class> <!-- com.ae.qa.testcases.TenantsPageTest -->
-      <class name="com.ae.qa.testcasesTenantAdmin.AgentListPageTestTA">
-        <methods>
-          <include name="setExtent"/>
-          <include name="initialization"/>
-          <include name="validateAgentRestartTest" invocation-numbers="0"/>
-          <include name="validatecheckStatusOfAssistedAgent" invocation-numbers="0"/>
-          <include name="endReport"/>
-          <include name="getResult"/>
-        </methods>
-      </class> <!-- com.ae.qa.testcasesTenantAdmin.AgentListPageTestTA -->
-      <class name="com.ae.qa.testcases.FileManagementPageTest">
-        <methods>
-          <include name="setExtent"/>
-          <include name="initialization"/>
-          <include name="validateUploadDriverTest" invocation-numbers="0"/>
-          <include name="validateDeleteUploadDriverTest" invocation-numbers="0"/>
-          <include name="validateEditUploadDriverTest" invocation-numbers="0"/>
-          <include name="endReport"/>
-          <include name="getResult"/>
-        </methods>
-      </class> <!-- com.ae.qa.testcases.FileManagementPageTest -->
-      <class name="com.ae.qa.testcases.PluginAssignmentsPageTest">
-        <methods>
-          <include name="validateAssignPluginAllTenantTest" invocation-numbers="0"/>
-          <include name="setExtent"/>
-          <include name="validateWFInActiveAfterSysadminRemovesPluginPermissionTest" invocation-numbers="0"/>
-          <include name="initialization"/>
-          <include name="validateWFFailureAfterSysadminRemovesPluginPermissionTest" invocation-numbers="0"/>
-          <include name="validatePluginAssignmentsPageTest" invocation-numbers="0"/>
-          <include name="endReport"/>
-          <include name="validateAssignPluginSingleTenantTest" invocation-numbers="0"/>
-          <include name="getResult"/>
-          <include name="validateWFActiveSuccessAfterSysadminAssignPluginPermissionTest" invocation-numbers="0"/>
-          <include name="validateAssignTenantSinglePluginTest" invocation-numbers="0"/>
-        </methods>
-      </class> <!-- com.ae.qa.testcases.PluginAssignmentsPageTest -->
-      <class name="com.ae.qa.testcases.SystemSettingsPageTest">
-        <methods>
-          <include name="setExtent"/>
-          <include name="initialization"/>
-          <include name="validateServerUrlTest" invocation-numbers="0"/>
-          <include name="validateEditCleanUpRequest" invocation-numbers="0"/>
-          <include name="endReport"/>
-          <include name="getResult"/>
-        </methods>
-      </class> <!-- com.ae.qa.testcases.SystemSettingsPageTest -->
-      <class name="com.ae.qa.testcases.SystemUsersPageTest">
-        <methods>
-          <include name="setExtent"/>
-          <include name="validateCreatingTenantLicenseAdminTest" invocation-numbers="0"/>
-          <include name="initialization"/>
-          <include name="validateEditTenantLicenseAdminTest" invocation-numbers="0"/>
-          <include name="endReport"/>
-          <include name="getResult"/>
-          <include name="validateDeleteSystemAdminTest" invocation-numbers="0"/>
-        </methods>
-      </class> <!-- com.ae.qa.testcases.SystemUsersPageTest -->
-      <class name="com.ae.qa.testcases.WorkflowsPageTest">
-        <methods>
-          <include name="setExtent"/>
-          <include name="initialization"/>
-          <include name="validateDisableWorkflowsTest" invocation-numbers="0"/>
-          <include name="validateEnableWorkflowsTest" invocation-numbers="0"/>
-          <include name="endReport"/>
-          <include name="getResult"/>
-        </methods>
-      </class> <!-- com.ae.qa.testcases.WorkflowsPageTest -->
-      <class name="com.ae.qa.testcasesTenantAdmin.RequestsPageTestTA">
-        <methods>
-          <include name="setExtent"/>
-          <include name="initialization"/>
-          <include name="validateSpecificColumnInRequests" invocation-numbers="0"/>
-          <include name="validateRestartRequestTest" invocation-numbers="0"/>
-          <include name="validatecheckColumnsInRequests" invocation-numbers="0"/>
-          <include name="validateRequestStatusTest" invocation-numbers="0"/>
-          <include name="validateTerminateRequestTest" invocation-numbers="0"/>
-          <include name="endReport"/>
-          <include name="getResult"/>
-          <include name="validatedeselectAllInRequests" invocation-numbers="0"/>
-          <include name="validateRequestFailureReasonTest" invocation-numbers="0"/>
-        </methods>
-      </class> <!-- com.ae.qa.testcasesTenantAdmin.RequestsPageTestTA -->
-      <class name="com.ae.qa.testcases.AuditLogsPageTest">
-        <methods>
-          <include name="setExtent"/>
-          <include name="initialization"/>
-          <include name="endReport"/>
-          <include name="getResult"/>
-          <include name="verifycheckLogsTest" invocation-numbers="0"/>
-        </methods>
-      </class> <!-- com.ae.qa.testcases.AuditLogsPageTest -->
-      <class name="com.ae.qa.testcasesTenantAdmin.DataSourcesPageTestTA">
-        <methods>
-          <include name="validateCreateDataSourcePostgresTest" invocation-numbers="0"/>
-          <include name="setExtent"/>
-          <include name="initialization"/>
-          <include name="endReport"/>
-          <include name="getResult"/>
-        </methods>
-      </class> <!-- com.ae.qa.testcasesTenantAdmin.DataSourcesPageTestTA -->
-      <class name="com.ae.qa.testcases.ArtifactsPageTest">
-        <methods>
-          <include name="setExtent"/>
-          <include name="ValidateUpdatePSTest" invocation-numbers="0"/>
-          <include name="validateUploadPSTest" invocation-numbers="0"/>
-          <include name="initialization"/>
-          <include name="endReport"/>
-          <include name="getResult"/>
-          <include name="ValidateDeletePSTest" invocation-numbers="0"/>
-        </methods>
-      </class> <!-- com.ae.qa.testcases.ArtifactsPageTest -->
+      </class> <!-- com.ae.qa.testcasesTenantAdmin.HolidayCalenderPageTestTA -->
       <class name="com.ae.qa.testcasesTenantAdmin.TenantUserSSOPageTestTA">
         <methods>
           <include name="setExtent"/>
@@ -322,25 +45,131 @@
           <include name="ValidateConfigureOKTAwidOpenIDTest" invocation-numbers="0"/>
         </methods>
       </class> <!-- com.ae.qa.testcasesTenantAdmin.TenantUserSSOPageTestTA -->
-      <class name="com.ae.qa.testcasesTenantAdmin.WorkflowAssignmentPageTestTA">
+      <class name="com.ae.qa.testcasesTenantAdmin.AgentListPageTestTA">
         <methods>
           <include name="setExtent"/>
-          <include name="validateSingleWorkflowAssignmentTest" invocation-numbers="0"/>
           <include name="initialization"/>
-          <include name="validateMultipleWorkflowAssignmentTest" invocation-numbers="0"/>
+          <include name="validateAgentRestartTest" invocation-numbers="0"/>
+          <include name="endReport"/>
+          <include name="getResult"/>
+          <include name="validateCheckStatusOfAgent" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- com.ae.qa.testcasesTenantAdmin.AgentListPageTestTA -->
+      <class name="com.ae.qa.testcasesTenantAdmin.WorkflowListPageTestTA">
+        <methods>
+          <include name="setExtent"/>
+          <include name="initialization"/>
+          <include name="validateExportWFDevelopmentAndImportInEnterpriseSATest" invocation-numbers="0"/>
+          <include name="validateEditWFtoSequentialTest" invocation-numbers="0"/>
+          <include name="validateCreateDevelopmentSameCustomerTest" invocation-numbers="0"/>
+          <include name="validateExportWFDevelopmentAndImportInUATSATest" invocation-numbers="0"/>
+          <include name="validateCreateEnterpriseSameCustomerTest" invocation-numbers="0"/>
+          <include name="endReport"/>
+          <include name="getResult"/>
+          <include name="validateExportWFUATAndImportInEnterpriseSATest" invocation-numbers="0"/>
+          <include name="validateImportWFAssistedAgent"/>
+          <include name="validateImportWorkflowWithRuntimeParamTest" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- com.ae.qa.testcasesTenantAdmin.WorkflowListPageTestTA -->
+      <class name="com.ae.qa.testcases.SystemUsersPageTest">
+        <methods>
+          <include name="setExtent"/>
+          <include name="validateCreatingTenantLicenseAdminTest" invocation-numbers="0"/>
+          <include name="initialization"/>
+          <include name="validateEditTenantLicenseAdminTest" invocation-numbers="0"/>
+          <include name="endReport"/>
+          <include name="validateDeleteSystemAdminTest"/>
+          <include name="getResult"/>
+        </methods>
+      </class> <!-- com.ae.qa.testcases.SystemUsersPageTest -->
+      <class name="com.ae.qa.testcasesTenantAdmin.ProcessStudioPageTestTA">
+        <methods>
+          <include name="setExtent"/>
+          <include name="initialization"/>
+          <include name="validateDownloadandAssignPSTest" invocation-numbers="0"/>
           <include name="endReport"/>
           <include name="getResult"/>
         </methods>
-      </class> <!-- com.ae.qa.testcasesTenantAdmin.WorkflowAssignmentPageTestTA -->
+      </class> <!-- com.ae.qa.testcasesTenantAdmin.ProcessStudioPageTestTA -->
+      <class name="com.ae.qa.testcases.PluginAssignmentsPageTest">
+        <methods>
+          <include name="setExtent"/>
+          <include name="initialization"/>
+          <include name="validatePluginAssignmentsPageTest" invocation-numbers="0"/>
+          <include name="endReport"/>
+          <include name="getResult"/>
+        </methods>
+      </class> <!-- com.ae.qa.testcases.PluginAssignmentsPageTest -->
+      <class name="com.ae.qa.testcases.TenantsPageTest">
+        <methods>
+          <include name="validateAllocateConsumptionBasedTest" invocation-numbers="0"/>
+          <include name="validateSubmitRequestEnableTenantTest"/>
+          <include name="setExtent"/>
+          <include name="initialization"/>
+          <include name="validateCreateAllotmentBasedTenantTest" invocation-numbers="0"/>
+          <include name="validateAmendLicenseTest"/>
+          <include name="validateSubmitRequestDisabledTenantTest"/>
+          <include name="endReport"/>
+          <include name="validateDisableTenantTest"/>
+          <include name="getResult"/>
+          <include name="validateEnableAllomentBasedTenantTest"/>
+          <include name="validateDisableAllomentBasedTenantTest"/>
+        </methods>
+      </class> <!-- com.ae.qa.testcases.TenantsPageTest -->
+      <class name="com.ae.qa.testcasesTenantAdmin.HomePageTestTA">
+        <methods>
+          <include name="setExtent"/>
+          <include name="initialization"/>
+          <include name="endReport"/>
+          <include name="getResult"/>
+          <include name="validateLicenseDetailTabTest" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- com.ae.qa.testcasesTenantAdmin.HomePageTestTA -->
+      <class name="com.ae.qa.testcasesTenantAdmin.IntegrationTypeConfigPageTestTA">
+        <methods>
+          <include name="setExtent"/>
+          <include name="validateTypeConfBothTATest" invocation-numbers="0"/>
+          <include name="initialization"/>
+          <include name="endReport"/>
+          <include name="getResult"/>
+        </methods>
+      </class> <!-- com.ae.qa.testcasesTenantAdmin.IntegrationTypeConfigPageTestTA -->
+      <class name="com.ae.qa.testcases.IntegrationServicePageTest">
+        <methods>
+          <include name="setExtent"/>
+          <include name="initialization"/>
+          <include name="validateEnableIntForMultipleTATest" invocation-numbers="0"/>
+          <include name="endReport"/>
+          <include name="getResult"/>
+        </methods>
+      </class> <!-- com.ae.qa.testcases.IntegrationServicePageTest -->
+      <class name="com.ae.qa.testcasesTenantAdmin.DataSourcesPageTestTA">
+        <methods>
+          <include name="setExtent"/>
+          <include name="validateCreateDataSourcePostgresTest" invocation-numbers="0"/>
+          <include name="initialization"/>
+          <include name="endReport"/>
+          <include name="getResult"/>
+        </methods>
+      </class> <!-- com.ae.qa.testcasesTenantAdmin.DataSourcesPageTestTA -->
+      <class name="com.ae.qa.testcasesTenantAdmin.RequestsPageTestTA">
+        <methods>
+          <include name="setExtent"/>
+          <include name="initialization"/>
+          <include name="validateRestartRequestTest" invocation-numbers="0"/>
+          <include name="validateTerminateRequestTest" invocation-numbers="0"/>
+          <include name="endReport"/>
+          <include name="getResult"/>
+        </methods>
+      </class> <!-- com.ae.qa.testcasesTenantAdmin.RequestsPageTestTA -->
       <class name="com.ae.qa.testcasesTenantAdmin.DashboardsPageTestTA">
         <methods>
           <include name="validateReportNoneSingleWFTest" invocation-numbers="0"/>
-          <include name="validateColumnHideTest" invocation-numbers="0"/>
           <include name="validateReportTodayTest" invocation-numbers="0"/>
           <include name="validateDashboardNoneTest"/>
           <include name="validateReportNoneMultipleWFTest" invocation-numbers="0"/>
-          <include name="validateRelativeReportDurationHourTest" invocation-numbers="0"/>
           <include name="validateDashboarRelativeTest"/>
+          <include name="validateRelativeReportDurationHourTest" invocation-numbers="0"/>
           <include name="validateReportRelativeTest" invocation-numbers="0"/>
           <include name="validateRelativeReportDurationDayTest" invocation-numbers="0"/>
           <include name="validateReportCustomTest" invocation-numbers="0"/>
@@ -348,11 +177,11 @@
           <include name="validateRelativeReportDurationMonthTest" invocation-numbers="0"/>
           <include name="validateReportNoneMultipleCategoryTest" invocation-numbers="0"/>
           <include name="initialization"/>
-          <include name="ValidateDownloadReportPdfTest" invocation-numbers="0"/>
           <include name="validateEditDashboardRelativeDurationHourTest" invocation-numbers="0"/>
+          <include name="ValidateDownloadReportPdfTest" invocation-numbers="0"/>
           <include name="ValidateLabelChangeInReportTest" invocation-numbers="0"/>
           <include name="validateReportNoneSingleCategoryTest" invocation-numbers="0"/>
-          <include name="validateDashboardTodayTest"/>
+          <include name="validateDashboardTodayTest" invocation-numbers="0"/>
           <include name="endReport"/>
           <include name="getResult"/>
           <include name="validateDeleteDashboardWithoutReportTest" invocation-numbers="0"/>
